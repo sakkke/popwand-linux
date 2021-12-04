@@ -18,6 +18,8 @@ Section "InputClass"
 EndSection
 /cat
 
+# root:toor
+# user:p@ssw0rd
 cat > airootfs/etc/group << /cat
 root:x:0:root
 wheel:x:10:user
