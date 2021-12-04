@@ -43,4 +43,4 @@ cat > airootfs/etc/sudoers.d/wheel << /cat
 %wheel ALL=(ALL) ALL
 /cat
 
-ln -sfv /usr/lib/systemd/system/sddm.service airootfs/etc/systemd/system/multi-user.target.wants/
+ln -sv /usr/lib/systemd/system/sddm.service airootfs/etc/systemd/system/multi-user.target.wants/
