@@ -4,6 +4,7 @@ parted /dev/sda << /parted
 mklabel gpt
 mkpart ESP fat32 1MiB 551MiB
 set 1 esp on
+mkpart primary ext4 551MiB 100%
 /parted
 
 mkfs.fat -F32 /dev/sda1
