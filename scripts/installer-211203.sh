@@ -18,7 +18,7 @@ pacstrap /mnt base dhcpcd efibootmgr grub linux linux-firmware
 
 genfstab -U /mnt >> /mnt/etc/fstab
 
-arch-chroot /mnt << /arch-chroot
+arch-chroot /mnt bash << /arch-chroot
 ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
 hwclock --systohc
 
