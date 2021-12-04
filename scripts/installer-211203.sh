@@ -22,8 +22,11 @@ arch-chroot /mnt bash << /arch-chroot
 ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
 hwclock --systohc
 
-sed -Ei 's/^#(ja_JP.UTF-8 UTF-8)/\1/' /etc/locale.gen
+sed -Ei 's/^#(en_US.UTF-8 UTF-8|ja_JP.UTF-8 UTF-8)/\1/' /etc/locale.gen
 locale-gen
+cat >> /etc/locale.conf << /cat
+LANG=en_US.UTF-8
+/cat
 cat >> /etc/vconsole.conf << /cat
 KEYMAP=jp106
 /cat
