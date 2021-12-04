@@ -38,7 +38,7 @@ root:$6$HP5hXSnjUt1vVlOc$ZqDnjAHYfXCzOenfv/U2TEJc5vIFoKl4yvuSHmAXbl.hSC3mEWHwQK0
 user:$6$VBv.I1CUXU.k2TEF$Ca89ThDMF5j7QHldbh7qPdNntnOw1O2qP1ELCvuoEUUR.XNMv1ARVLva7OQTE.cMAYByyDKNJKEdJ69Wzeo4i.:14871::::::
 /cat
 
-mkdir -p airootfs/sudoers.d
+mkdir -p airootfs/etc/sudoers.d
 cat > airootfs/etc/sudoers.d/wheel << /cat
 %wheel ALL=(ALL) ALL
 /cat
