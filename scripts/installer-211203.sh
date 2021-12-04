@@ -8,7 +8,7 @@ mkpart primary ext4 551MiB 100%
 /parted
 
 mkfs.fat -F32 /dev/sda1
-mkfs.ext4 /dev/sda1mkfs
+mkfs.ext4 /dev/sda2
 
 mount /dev/sda2 /mnt
 mkdir /mnt/boot
