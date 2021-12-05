@@ -7,9 +7,9 @@ pacman --noconfirm -S \
   firefox-i18n-ja \
   gimp \
   git \
-  krita \
   inkscape \
   kitty \
+  krita \
   ttf-fira-code \
   vim
 
