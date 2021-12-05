@@ -33,7 +33,7 @@ cat > airootfs/etc/passwd << /cat
 root:x:0:0:root:/root:/bin/bash
 user:x:1000:1000::/home/user:/bin/bash
 /cat
-cat > airootfs/etc/shadow << /cat
+cat > airootfs/etc/shadow << '/cat'
 root:$6$HP5hXSnjUt1vVlOc$ZqDnjAHYfXCzOenfv/U2TEJc5vIFoKl4yvuSHmAXbl.hSC3mEWHwQK0aS9RYT282AdIejYd1blNbu0Kqh1kdX.:14871::::::
 user:$6$VBv.I1CUXU.k2TEF$Ca89ThDMF5j7QHldbh7qPdNntnOw1O2qP1ELCvuoEUUR.XNMv1ARVLva7OQTE.cMAYByyDKNJKEdJ69Wzeo4i.:14871::::::
 /cat
