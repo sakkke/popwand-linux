@@ -14,7 +14,9 @@ mount /dev/sda2 /mnt
 mkdir /mnt/boot
 mount /dev/sda1 /mnt/boot
 
+reflector --save /etc/pacman.d/mirrorlist --sort rate -ckr,jp -phttps
 pacstrap /mnt base dhcpcd efibootmgr grub linux linux-firmware
+cat /etc/pacman.d/mirrorlist > /mnt/etc/pacman.d/mirrorlist
 
 genfstab -U /mnt >> /mnt/etc/fstab
 
