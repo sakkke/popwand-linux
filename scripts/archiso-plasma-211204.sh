@@ -37,6 +37,7 @@ cat > airootfs/etc/shadow << '/cat'
 root:$6$HP5hXSnjUt1vVlOc$ZqDnjAHYfXCzOenfv/U2TEJc5vIFoKl4yvuSHmAXbl.hSC3mEWHwQK0aS9RYT282AdIejYd1blNbu0Kqh1kdX.:14871::::::
 user:$6$VBv.I1CUXU.k2TEF$Ca89ThDMF5j7QHldbh7qPdNntnOw1O2qP1ELCvuoEUUR.XNMv1ARVLva7OQTE.cMAYByyDKNJKEdJ69Wzeo4i.:14871::::::
 /cat
+sed -Ei 's,(\["/etc/shadow"\]="0:0:400"),["/etc/gshadow"]="0:0:400"''\'$'\n''  \1,' profiledef.sh
 
 mkdir -p airootfs/etc/sudoers.d
 cat > airootfs/etc/sudoers.d/wheel << /cat
