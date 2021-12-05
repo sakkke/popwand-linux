@@ -10,6 +10,8 @@ pacman --noconfirm -S \
   inkscape \
   kitty \
   krita \
+  libreoffice-fresh \
+  libreoffice-fresh-ja \
   ttf-fira-code \
   vim
 
