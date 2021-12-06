@@ -7,7 +7,7 @@ noto-fonts-extra
 plasma-meta
 sudo
 /cat
-sort -o packages.x86_64 packages.x86_64
+sort -uo packages.x86_64 packages.x86_64
 
 mkdir -p airootfs/etc/X11/xorg.conf.d
 cat > airootfs/etc/X11/xorg.conf.d/00-keyboard.conf << /cat

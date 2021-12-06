@@ -13,7 +13,7 @@ kitty
 ttf-fira-code
 vim
 /cat
-sort -o packages.x86_64 packages.x86_64
+sort -uo packages.x86_64 packages.x86_64
 
 mkdir -p airootfs/etc/skel/.config/kitty
 cat > airootfs/etc/skel/.config/kitty/kitty.conf << /cat
