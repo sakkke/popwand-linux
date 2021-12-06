@@ -15,7 +15,7 @@ cat > airootfs/etc/hostname << /cat
 earth
 /cat
 
-ln -sv /usr/lib/systemd/system/dhcpcd.service /etc/systemd/system/multi-user.target.wants/
+ln -sv /usr/lib/systemd/system/dhcpcd.service airootfs/etc/systemd/system/multi-user.target.wants/
 
 mkdir airootfs/etc/sddm.conf.d
 cat > airootfs/etc/sddm.conf.d/autologin.conf << /cat
