@@ -14,13 +14,3 @@ earth
 /cat
 
 ln -sv /usr/lib/systemd/system/dhcpcd.service airootfs/etc/systemd/system/multi-user.target.wants/
-
-mkdir airootfs/etc/sddm.conf.d
-cat > airootfs/etc/sddm.conf.d/autologin.conf << /cat
-[Autologin]
-User=user
-Session=plasma.desktop
-/cat
-
-ln -sv /usr/lib/systemd/system/graphical.target airootfs/etc/systemd/system/default.target
-ln -sv /usr/lib/systemd/system/sddm.service airootfs/etc/systemd/system/display-manager.service

@@ -44,4 +44,13 @@ cat > airootfs/etc/sudoers.d/wheel << /cat
 %wheel ALL=(ALL) ALL
 /cat
 
+mkdir airootfs/etc/sddm.conf.d
+cat > airootfs/etc/sddm.conf.d/autologin.conf << /cat
+[Autologin]
+User=user
+Session=plasma.desktop
+/cat
+
+ln -sv /usr/lib/systemd/system/graphical.target airootfs/etc/systemd/system/default.target
 ln -sv /usr/lib/systemd/system/sddm.service airootfs/etc/systemd/system/multi-user.target.wants/
+ln -sv /usr/lib/systemd/system/sddm.service airootfs/etc/systemd/system/display-manager.service
