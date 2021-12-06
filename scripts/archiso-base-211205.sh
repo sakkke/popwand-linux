@@ -21,3 +21,5 @@ cat > airootfs/etc/sddm.conf.d/autologin.conf << /cat
 User=user
 Session=plasma.desktop
 /cat
+
+ln -sv /usr/lib/systemd/system/graphical.target airootfs/etc/systemd/system/default.target
