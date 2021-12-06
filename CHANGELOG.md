@@ -1,6 +1,9 @@
 # Changelog
 
 ## 2021-12-06
+## Added
+- archiso base script
+
 ## Changed
 - update `plasma-211204.sh`
 - update `arch-plasma-211204.sh`
