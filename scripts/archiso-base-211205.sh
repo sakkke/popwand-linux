@@ -5,8 +5,6 @@ grub
 /cat
 sort -uo packages.x86_64 packages.x86_64
 
-ln -sv /usr/share/zoneinfo/Asia/Tokyo airootfs/etc/localtime
-
 cat > airootfs/etc/vconsole.conf << /cat
 KEYMAP=jp106
 /cat
