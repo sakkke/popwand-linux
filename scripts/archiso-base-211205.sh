@@ -23,3 +23,4 @@ Session=plasma.desktop
 /cat
 
 ln -sv /usr/lib/systemd/system/graphical.target airootfs/etc/systemd/system/default.target
+ln -sv /usr/lib/systemd/system/sddm.service airootfs/etc/systemd/system/display-manager.service
