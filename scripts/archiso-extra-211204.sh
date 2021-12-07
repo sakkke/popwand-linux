@@ -10,6 +10,8 @@ git
 krita
 inkscape
 kitty
+libreoffice-fresh
+libreoffice-fresh-ja
 ttf-fira-code
 vim
 /cat
