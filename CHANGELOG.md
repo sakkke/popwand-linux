@@ -5,6 +5,7 @@
 - add locale config
 - add vivaldi
 - add fixes script
+- add script for vmware
 
 ## 2021-12-07
 ### Changed
