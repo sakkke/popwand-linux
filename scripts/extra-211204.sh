@@ -13,7 +13,8 @@ pacman --noconfirm -S \
   libreoffice-fresh \
   libreoffice-fresh-ja \
   ttf-fira-code \
-  vim
+  vim \
+  vivaldi
 
 mkdir -p /etc/skel/.config/kitty
 cat > /etc/skel/.config/kitty/kitty.conf << /cat

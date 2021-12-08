@@ -14,6 +14,7 @@ libreoffice-fresh
 libreoffice-fresh-ja
 ttf-fira-code
 vim
+vivaldi
 /cat
 sort -uo packages.x86_64 packages.x86_64
 

@@ -3,6 +3,7 @@
 ## 2021-12-08
 ### Added
 - add locale config
+- add vivaldi
 
 ## 2021-12-07
 ### Changed
