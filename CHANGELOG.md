@@ -1,5 +1,9 @@
 # Changelog
 
+## 2021-12-08
+### Added
+- add locale config
+
 ## 2021-12-07
 ### Changed
 - update `arch-extra-211204.sh`

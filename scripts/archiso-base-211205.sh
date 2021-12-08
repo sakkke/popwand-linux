@@ -5,6 +5,25 @@ grub
 /cat
 sort -uo packages.x86_64 packages.x86_64
 
+cat > airootfs/etc/locale.conf << /cat
+LANG=ja_JP.UTF-8
+/cat
+mkdir -p airootfs/etc/pacman.d/hooks
+cat > airootfs/etc/pacman.d/hooks/40-locale-gen.hook << /cat
+[Trigger]
+Operation = Install
+Type = Package
+Target = glibc
+
+[Action]
+Description = Uncommenting ja_JP.UTF-8 locale and running locale-gen...
+When = PostTransaction
+Depends = glibc
+Depends = sed
+Depends = sh
+Exec = /bin/sh -c "sed -i 's/#\(ja_JP\.UTF-8\)/\1/' /etc/locale.gen && locale-gen"
+/cat
+
 cat > airootfs/etc/vconsole.conf << /cat
 KEYMAP=jp106
 /cat
