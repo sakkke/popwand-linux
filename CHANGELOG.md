@@ -4,6 +4,7 @@
 ### Added
 - add locale config
 - add vivaldi
+- add fixes script
 
 ## 2021-12-07
 ### Changed
