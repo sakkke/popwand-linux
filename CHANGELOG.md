@@ -7,6 +7,9 @@
 - add fixes script
 - add script for vmware
 
+### Changed
+- change timezone
+
 ## 2021-12-07
 ### Changed
 - update `arch-extra-211204.sh`

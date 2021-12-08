@@ -5,6 +5,8 @@ grub
 /cat
 sort -uo packages.x86_64 packages.x86_64
 
+ln -sv /usr/share/zoneinfo/Asia/Tokyo airootfs/etc/localtime
+
 cat > airootfs/etc/locale.conf << /cat
 LANG=ja_JP.UTF-8
 /cat
