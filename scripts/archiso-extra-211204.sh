@@ -12,6 +12,7 @@ inkscape
 kitty
 libreoffice-fresh
 libreoffice-fresh-ja
+tmux
 ttf-fira-code
 vim
 vivaldi

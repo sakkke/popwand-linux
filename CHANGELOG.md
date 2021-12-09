@@ -1,5 +1,9 @@
 # Changelog
 
+## 2021-12-09
+### Added
+- add tmux
+
 ## 2021-12-08
 ### Added
 - add locale config
