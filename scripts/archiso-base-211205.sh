@@ -1,3 +1,24 @@
+cat > airootfs/etc/pacman.d/hooks/zzzz99-remove-custom-hooks-from-airootfs.hook << /cat
+# remove from airootfs!
+# As a workaround for https://bugs.archlinux.org/task/49347 , remove pacman hooks specific to the ISO build process.
+# If not, they would be used when pacstrap is run in the live environment.
+
+[Trigger]
+Operation = Install
+Operation = Upgrade
+Operation = Remove
+Type = Package
+Target = *
+
+[Action]
+Description = Work around FS#49347 by removing custom pacman hooks that are only required during ISO build...
+When = PostTransaction
+Depends = sh
+Depends = coreutils
+Depends = grep
+Exec = /bin/sh -c "rm -- $(grep -Frl 'remove from airootfs' /etc/pacman.d/hooks/)"
+/cat
+
 cat >> packages.x86_64 << /cat
 dhcpcd
 efibootmgr
@@ -15,6 +36,7 @@ LANG=ja_JP.UTF-8
 /cat
 mkdir -p airootfs/etc/pacman.d/hooks
 cat > airootfs/etc/pacman.d/hooks/40-locale-gen.hook << /cat
+# remove from airootfs!
 [Trigger]
 Operation = Install
 Type = Package

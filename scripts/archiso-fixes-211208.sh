@@ -1,5 +1,6 @@
 mkdir -p airootfs/etc/pacman.d/hooks
 cat > airootfs/etc/pacman.d/hooks/sddm-changes.hook << /cat
+# remove from airootfs!
 [Trigger]
 Operation = Install
 Type = Package

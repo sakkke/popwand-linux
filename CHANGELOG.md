@@ -3,6 +3,7 @@
 ## 2021-12-10
 ### Added
 - add driver
+- add script to remove custom hooks
 
 ### Changed
 - update `archiso-base-211205.sh`
