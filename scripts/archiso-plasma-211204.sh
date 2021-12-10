@@ -6,6 +6,7 @@ noto-fonts-emoji
 noto-fonts-extra
 plasma-meta
 sudo
+xf86-video-fbdev
 /cat
 sort -uo packages.x86_64 packages.x86_64
 

@@ -1,6 +1,9 @@
 # Changelog
 
 ## 2021-12-10
+### Added
+- add driver
+
 ### Changed
 - update `archiso-base-211205.sh`
 
