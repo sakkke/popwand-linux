@@ -8,6 +8,7 @@
 
 ### Changed
 - update `archiso-base-211205.sh`
+- update `archiso-fixes-211208.sh`
 
 ### Fixed
 - fix hook in archiso fixes script

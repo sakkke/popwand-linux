@@ -7,7 +7,7 @@ Type = Package
 Target = sddm
 
 [Action]
-Description = Add changes to /usr/lib/systemd/system/sddm.conf ...
+Description = Add changes to /usr/lib/systemd/system/sddm.conf...
 When = PostTransaction
 Depends = sddm
 Depends = sed
