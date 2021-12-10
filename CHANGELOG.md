@@ -4,6 +4,7 @@
 ### Added
 - add driver
 - add script to remove custom hooks
+- add gparted
 
 ### Changed
 - update `archiso-base-211205.sh`

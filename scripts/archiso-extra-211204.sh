@@ -7,6 +7,7 @@ firefox-developer-edition-i18n-ja
 firefox-i18n-ja
 gimp
 git
+gparted
 krita
 inkscape
 kitty

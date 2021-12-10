@@ -7,6 +7,7 @@ pacman --noconfirm -S \
   firefox-i18n-ja \
   gimp \
   git \
+  gparted \
   inkscape \
   kitty \
   krita \
