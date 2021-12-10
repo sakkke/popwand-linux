@@ -4,6 +4,9 @@
 ### Changed
 - update `archiso-base-211205.sh`
 
+### Fixed
+- fix hook in archiso fixes script
+
 ## 2021-12-09
 ### Added
 - add tmux

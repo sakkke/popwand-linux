@@ -1,5 +1,5 @@
 mkdir -p airootfs/etc/pacman.d/hooks
-cat > airootfs/etc/pacman.d/hooks/sddm-changes.conf << /cat
+cat > airootfs/etc/pacman.d/hooks/sddm-changes.hook << /cat
 [Trigger]
 Operation = Install
 Type = Package
