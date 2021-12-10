@@ -5,6 +5,7 @@
 - add driver
 - add script to remove custom hooks
 - add gparted
+- add fcitx5
 
 ### Changed
 - update `archiso-base-211205.sh`

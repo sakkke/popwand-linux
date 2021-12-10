@@ -1,6 +1,8 @@
 cat >> packages.x86_64 << /cat
 base-devel
 code
+fcitx5-mozc
+fcitx5-im
 firefox
 firefox-developer-edition
 firefox-developer-edition-i18n-ja
@@ -23,4 +25,14 @@ sort -uo packages.x86_64 packages.x86_64
 mkdir -p airootfs/etc/skel/.config/kitty
 cat > airootfs/etc/skel/.config/kitty/kitty.conf << /cat
 font_family Fira Code
+/cat
+
+cat > airootfs/etc/skel/.pam_environment << /cat
+# for kitty
+GLFW_IM_MODULE DEFAULT=ibus
+
+GTK_IM_MODULE DEFAULT=fcitx
+QT_IM_MODULE DEFAULT=fcitx
+SDL_IM_MODULE DEFAULT=fcitx
+XMODIFIERS DEFAULT=\@im=fcitx
 /cat
