@@ -1,5 +1,5 @@
 mkdir -p airootfs/etc/pacman.d/hooks
-cat > airootfs/etc/pacman.d/hooks/zzzz99-remove-custom-hooks-from-airootfs.hook << /cat
+cat > airootfs/etc/pacman.d/hooks/zzzz99-remove-custom-hooks-from-airootfs.hook << '/cat'
 # remove from airootfs!
 # As a workaround for https://bugs.archlinux.org/task/49347 , remove pacman hooks specific to the ISO build process.
 # If not, they would be used when pacstrap is run in the live environment.
