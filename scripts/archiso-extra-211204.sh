@@ -36,6 +36,10 @@ vivaldi
 /cat
 sort -uo packages.x86_64 packages.x86_64
 
+cat > airootfs/etc/environment << /cat
+EDITOR=/usr/bin/vim
+/cat
+
 mkdir -p airootfs/etc/skel/.config/kitty
 cat > airootfs/etc/skel/.config/kitty/kitty.conf << /cat
 font_family Fira Code

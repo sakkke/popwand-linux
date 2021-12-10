@@ -11,6 +11,7 @@
 - update `archiso-base-211205.sh`
 - update `archiso-fixes-211208.sh`
 - set default web browser to Vivaldi
+- set default editor to Vim
 
 ### Fixed
 - fix hook in archiso fixes script
