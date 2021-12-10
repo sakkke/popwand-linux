@@ -1,5 +1,9 @@
 # Changelog
 
+## 2021-12-10
+### Changed
+- update `archiso-base-211205.sh`
+
 ## 2021-12-09
 ### Added
 - add tmux

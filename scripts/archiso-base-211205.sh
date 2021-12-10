@@ -5,6 +5,9 @@ grub
 /cat
 sort -uo packages.x86_64 packages.x86_64
 
+mkdir -p airootfs/etc/pacman.d
+cat /etc/pacman.d/mirrorlist > airootfs/etc/pacman.d/mirrorlist
+
 ln -sv /usr/share/zoneinfo/Asia/Tokyo airootfs/etc/localtime
 
 cat > airootfs/etc/locale.conf << /cat
