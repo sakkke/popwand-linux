@@ -4,7 +4,7 @@ cat > airootfs/etc/pacman.d/hooks/sddm-changes.hook << /cat
 [Trigger]
 Operation = Install
 Type = Package
-Target = sddm
+Target = usr/lib/systemd/system/sddm.conf
 
 [Action]
 Description = Add changes to /usr/lib/systemd/system/sddm.conf...
