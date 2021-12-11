@@ -8,6 +8,9 @@
 - add local repository
 - add xf86-video-vmware
 
+### Changed
+- update `archiso-fixes-211208.sh`
+
 ## 2021-12-10
 ### Added
 - add driver

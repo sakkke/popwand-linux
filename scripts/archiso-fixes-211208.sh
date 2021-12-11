@@ -9,8 +9,8 @@ Target = usr/lib/systemd/system/sddm.conf
 [Action]
 Description = Add changes to /usr/lib/systemd/system/sddm.conf...
 When = PostTransaction
+Depends = bash
 Depends = sddm
 Depends = sed
-Depends = sh
-Exec = /bin/sh -c "sed -i 's,\(ExecStart=/usr/bin/sddm\),\1''\'$'\n''ExecStartPre=/usr/bin/sleep 5,' /usr/lib/systemd/system/sddm.conf"
+Exec = /bin/bash -c "sed -i 's,\(ExecStart=/usr/bin/sddm\),\1''\'$'\n''ExecStartPre=/usr/bin/sleep 5,' /usr/lib/systemd/system/sddm.conf"
 /cat
