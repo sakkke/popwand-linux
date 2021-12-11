@@ -7,7 +7,7 @@ repo-add live.db.tar.gz *.pkg.tar.zst
 cd ..
 mv live airootfs/
 
-ln -sf "$PWD/airootfs/packages" /tmp/popwand-linux--live
+ln -sf "$PWD/airootfs/live" /tmp/popwand-linux--live
 
 cat > airootfs/etc/pacman.conf << /cat
 [options]
