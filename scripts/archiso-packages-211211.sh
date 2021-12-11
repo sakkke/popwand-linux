@@ -4,6 +4,7 @@ grep '^file://' packages.list | sed 's,^file://,,' | xargs -I{} cp -v {} package
 wget -P packages -i <(grep '^https://' packages.list)
 cd packages
 repo-add packages.db.tar.gz *.pkg.tar.zst
+cd ..
 mv packages airootfs/
 
 ln -sf "$PWD/airootfs/packages" /tmp/popwand-linux--packages
