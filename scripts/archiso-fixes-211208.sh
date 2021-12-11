@@ -7,9 +7,9 @@ Type = Package
 Target = sddm
 
 [Action]
-Description = Add changes to /usr/lib/systemd/system/sddm.conf...
+Description = Add changes to /usr/lib/systemd/system/sddm.service...
 When = PostTransaction
 Depends = bash
 Depends = sed
-Exec = /bin/bash -c "sed -i 's,\(ExecStart=/usr/bin/sddm\),\1''\'$'\n''ExecStartPre=/usr/bin/sleep 5,' /usr/lib/systemd/system/sddm.conf"
+Exec = /bin/bash -c "sed -i 's,\(ExecStart=/usr/bin/sddm\),\1''\'$'\n''ExecStartPre=/usr/bin/sleep 5,' /usr/lib/systemd/system/sddm.service"
 /cat
