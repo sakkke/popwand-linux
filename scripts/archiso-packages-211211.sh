@@ -1,6 +1,7 @@
 pacman -Sp - > packages.list < packages.x86_64
 mkdir packages
-wget -P packages -i packages.list
+xargs -I{} cp -v {} packages/ <(grep '^file://' packages.list | sed 's,^file://,,')
+wget -P packages -i <(grep '^https://' packages.list)
 cd packages
 repo-add packages.db.tar.gz *.pkg.tar.zst
 mv packages airootfs/
