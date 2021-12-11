@@ -19,7 +19,8 @@ pacman --noconfirm -S \
   tmux \
   ttf-fira-code \
   vim \
-  vivaldi
+  vivaldi \
+  wget
 
 mkdir -p /etc/skel/.config/kitty
 cat > /etc/skel/.config/kitty/kitty.conf << /cat

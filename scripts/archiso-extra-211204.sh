@@ -34,6 +34,7 @@ tmux
 ttf-fira-code
 vim
 vivaldi
+wget
 /cat
 sort -uo packages.x86_64 packages.x86_64
 
