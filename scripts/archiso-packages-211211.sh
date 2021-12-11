@@ -3,7 +3,7 @@ mkdir live
 grep '^file://' packages.list | sed 's,^file://,,' | xargs -I{} cp -v {} live/
 wget -P live -i <(grep '^https://' packages.list)
 cd live
-repo-add packages.db.tar.gz *.pkg.tar.zst
+repo-add live.db.tar.gz *.pkg.tar.zst
 cd ..
 mv live airootfs/
 
