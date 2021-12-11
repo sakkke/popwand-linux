@@ -50,13 +50,4 @@ ILoveCandy
 [local]
 Server = file:///tmp/popwand-linux--packages
 SigLevel = Never
-
-[core]
-Include = /etc/pacman.d/mirrorlist
-
-[extra]
-Include = /etc/pacman.d/mirrorlist
-
-[community]
-Include = /etc/pacman.d/mirrorlist
 /cat
