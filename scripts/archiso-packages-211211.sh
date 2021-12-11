@@ -14,7 +14,7 @@ cat > airootfs/etc/pacman.conf << /cat
 HoldPkg = pacman glibc
 Architecture = auto
 CheckSpace
-SigLevel = Required DarabaseOptional
+SigLevel = Required DatabaseOptional
 LocalFileSigLevel = Optional
 
 # Additional misc options
@@ -40,7 +40,7 @@ cat > pacman.conf << /cat
 HoldPkg = pacman glibc
 Architecture = auto
 ParallelDownloads = 5
-SigLevel = Required DarabaseOptional
+SigLevel = Required DatabaseOptional
 LocalFileSigLevel = Optional
 
 # Additional misc options
