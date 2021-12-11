@@ -32,6 +32,7 @@ inkscape
 kitty
 libreoffice-fresh
 libreoffice-fresh-ja
+man
 simplescreenrecorder
 tmux
 ttf-fira-code

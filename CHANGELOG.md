@@ -7,6 +7,7 @@
 - add docker
 - add local repository
 - add xf86-video-vmware
+- add man
 
 ### Changed
 - update `archiso-fixes-211208.sh`
