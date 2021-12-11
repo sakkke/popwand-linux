@@ -15,6 +15,10 @@ CheckSpace
 SigLevel = Required DarabaseOptional
 LocalFileSigLevel = Optional
 
+# Additional misc options
+Color
+ILoveCandy
+
 [local]
 Server = file:///packages
 SigLevel = Never
@@ -36,6 +40,10 @@ Architecture = auto
 ParallelDownloads = 5
 SigLevel = Required DarabaseOptional
 LocalFileSigLevel = Optional
+
+# Additional misc options
+Color
+ILoveCandy
 
 [local]
 Server = file:///tmp/popwand-linux--packages
