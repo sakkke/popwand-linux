@@ -1,5 +1,6 @@
 cat >> packages.x86_64 << /cat
 open-vm-tools
+xf86-video-vmware
 /cat
 sort -uo packages.x86_64 packages.x86_64
 

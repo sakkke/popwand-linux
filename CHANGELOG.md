@@ -6,6 +6,7 @@
 - add wget
 - add docker
 - add local repository
+- add xf86-video-vmware
 
 ## 2021-12-10
 ### Added
