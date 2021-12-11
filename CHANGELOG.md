@@ -1,5 +1,9 @@
 # Changelog
 
+## 2021-12-11
+### Added
+- add simplescreenrecorder
+
 ## 2021-12-10
 ### Added
 - add driver

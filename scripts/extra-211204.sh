@@ -15,6 +15,7 @@ pacman --noconfirm -S \
   krita \
   libreoffice-fresh \
   libreoffice-fresh-ja \
+  simplescreenrecorder \
   tmux \
   ttf-fira-code \
   vim \
