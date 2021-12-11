@@ -1,13 +1,13 @@
 pacman -Sp - > packages.list < packages.x86_64
-mkdir packages
-grep '^file://' packages.list | sed 's,^file://,,' | xargs -I{} cp -v {} packages/
-wget -P packages -i <(grep '^https://' packages.list)
-cd packages
+mkdir live
+grep '^file://' packages.list | sed 's,^file://,,' | xargs -I{} cp -v {} live/
+wget -P live -i <(grep '^https://' packages.list)
+cd live
 repo-add packages.db.tar.gz *.pkg.tar.zst
 cd ..
-mv packages airootfs/
+mv live airootfs/
 
-ln -sf "$PWD/airootfs/packages" /tmp/popwand-linux--packages
+ln -sf "$PWD/airootfs/packages" /tmp/popwand-linux--live
 
 cat > airootfs/etc/pacman.conf << /cat
 [options]
@@ -21,8 +21,8 @@ LocalFileSigLevel = Optional
 Color
 ILoveCandy
 
-[local]
-Server = file:///packages
+[live]
+Server = file:///live
 SigLevel = Never
 
 [core]
@@ -47,7 +47,7 @@ LocalFileSigLevel = Optional
 Color
 ILoveCandy
 
-[local]
-Server = file:///tmp/popwand-linux--packages
+[live]
+Server = file:///tmp/popwand-linux--live
 SigLevel = Never
 /cat
