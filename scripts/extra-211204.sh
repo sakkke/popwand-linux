@@ -1,6 +1,8 @@
 pacman --needed -S base-devel
 pacman --noconfirm -S \
   code \
+  docker \
+  docker-compose \
   fcitx5-mozc \
   fcitx5-im \
   firefox \

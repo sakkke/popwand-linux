@@ -4,6 +4,7 @@
 ### Added
 - add simplescreenrecorder
 - add wget
+- add docker
 
 ## 2021-12-10
 ### Added

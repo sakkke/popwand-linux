@@ -15,6 +15,8 @@ Exec = xdg-settings set default-web-browser vivaldi-stable.desktop
 cat >> packages.x86_64 << /cat
 base-devel
 code
+docker
+docker-compose
 fcitx5-mozc
 fcitx5-im
 firefox
@@ -56,3 +58,9 @@ QT_IM_MODULE DEFAULT=fcitx
 SDL_IM_MODULE DEFAULT=fcitx
 XMODIFIERS DEFAULT=\@im=fcitx
 /cat
+
+cat >> airootfs/etc/group << /cat
+docker:x:970:user
+/cat
+
+ln -sv /usr/lib/systemd/system/docker.service airootfs/etc/systemd/system/multi-user.target.wants/
