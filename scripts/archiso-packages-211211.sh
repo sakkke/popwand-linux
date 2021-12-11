@@ -1,6 +1,6 @@
 pacman -Sp - > packages.list < packages.x86_64
 mkdir packages
-xargs -I{} cp -v {} packages/ <(grep '^file://' packages.list | sed 's,^file://,,')
+grep '^file://' packages.list | sed 's,^file://,,' | xargs -I{} cp -v {} packages/
 wget -P packages -i <(grep '^https://' packages.list)
 cd packages
 repo-add packages.db.tar.gz *.pkg.tar.zst
