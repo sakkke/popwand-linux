@@ -9,7 +9,8 @@ Target = vivaldi
 [Action]
 Description = Set default web browser to Vivaldi...
 When = PostTransaction
-Exec = xdg-settings set default-web-browser vivaldi-stable.desktop
+Depends = bash
+Exec = /bin/bash -c "ls -1 /home | grep -v root | xargs -I{} sudo -u {} xdg-settings set default-web-browser vivaldi-stable.desktop"
 /cat
 
 cat >> packages.x86_64 << /cat
