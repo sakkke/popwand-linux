@@ -42,10 +42,6 @@ ParallelDownloads = 5
 SigLevel = Required DarabaseOptional
 LocalFileSigLevel = Optional
 
-# Additional misc options
-Color
-ILoveCandy
-
 [local]
 Server = file:///tmp/popwand-linux--packages
 SigLevel = Never
