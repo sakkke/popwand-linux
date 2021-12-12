@@ -4,6 +4,9 @@
 ### Added
 - add xf86-video-vesa
 
+### Removed
+- remove hook that sets default browser
+
 ## 2021-12-11
 ### Added
 - add simplescreenrecorder

@@ -1,18 +1,3 @@
-mkdir -p airootfs/etc/pacman.d/hooks
-cat > airootfs/etc/pacman.d/hooks/vivaldi-install.hook << /cat
-# remove from airootfs!
-[Trigger]
-Operation = Install
-Type = Package
-Target = vivaldi
-
-[Action]
-Description = Set default web browser to Vivaldi...
-When = PostTransaction
-Depends = bash
-Exec = /bin/bash -c "ls -1 /home | grep -v '^root$' | xargs -I{} sudo -u {} xdg-settings set default-web-browser vivaldi-stable.desktop"
-/cat
-
 cat >> packages.x86_64 << /cat
 base-devel
 code
