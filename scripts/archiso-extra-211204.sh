@@ -1,4 +1,5 @@
 cat >> packages.x86_64 << /cat
+arch-install-scripts
 base-devel
 code
 docker
@@ -18,6 +19,7 @@ kitty
 libreoffice-fresh
 libreoffice-fresh-ja
 man
+reflector
 simplescreenrecorder
 tmux
 ttf-fira-code

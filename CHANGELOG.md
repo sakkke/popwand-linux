@@ -4,6 +4,9 @@
 ### Added
 - add xf86-video-vesa
 
+### Changed
+- update packages
+
 ### Removed
 - remove hook that sets default browser
 

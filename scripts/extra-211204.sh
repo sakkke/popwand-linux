@@ -1,5 +1,6 @@
 pacman --needed -S base-devel
 pacman --noconfirm -S \
+  arch-install-scripts \
   code \
   docker \
   docker-compose \
@@ -18,6 +19,7 @@ pacman --noconfirm -S \
   libreoffice-fresh \
   libreoffice-fresh-ja \
   man \
+  reflector \
   simplescreenrecorder \
   tmux \
   ttf-fira-code \
