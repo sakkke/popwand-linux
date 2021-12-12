@@ -13,8 +13,8 @@ firefox-i18n-ja
 gimp
 git
 gparted
-krita
 inkscape
+krita
 kitty
 libreoffice-fresh
 libreoffice-fresh-ja

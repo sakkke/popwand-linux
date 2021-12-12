@@ -1,6 +1,7 @@
 pacman --needed -S base-devel
 pacman --noconfirm -S \
   arch-install-scripts \
+  base-devel \
   code \
   docker \
   docker-compose \
