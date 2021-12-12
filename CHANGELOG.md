@@ -3,6 +3,7 @@
 ## 2021-12-12
 ### Added
 - add xf86-video-vesa
+- add package to include in live repo
 
 ### Changed
 - update packages
