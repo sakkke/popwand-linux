@@ -1,5 +1,9 @@
 # Changelog
 
+## 2021-12-12
+### Added
+- add xf86-video-vesa
+
 ## 2021-12-11
 ### Added
 - add simplescreenrecorder

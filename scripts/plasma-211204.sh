@@ -6,7 +6,8 @@ pacman --noconfirm -S \
   noto-fonts-extra \
   plasma-meta \
   sudo \
-  xf86-video-fbdev
+  xf86-video-fbdev \
+  xf86-video-vesa
 
 localectl set-x11-keymap jp
 

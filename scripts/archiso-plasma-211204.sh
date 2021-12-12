@@ -7,6 +7,7 @@ noto-fonts-extra
 plasma-meta
 sudo
 xf86-video-fbdev
+xf86-video-vesa
 /cat
 sort -uo packages.x86_64 packages.x86_64
 
