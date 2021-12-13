@@ -27,11 +27,11 @@ function list_devices {
 }
 
 function select_prompt {
-  local kind=$1
+  local preexec=$1
   shift
   local items=($@)
   while :; do
-    list_$kind ${items[@]}
+    $preexec ${items[@]}
     input_prompt Select a device number to install
     if is_number "$p" && [ -v "items[$p]" ]; then
       echo ${items[p]}
@@ -48,7 +48,7 @@ devices=($(ls /tmp/dev \
   | xargs))
 
 echo Hint: press C-c to cancel the installation process
-select_prompt devices ${devices[@]}
+select_prompt list_devices ${devices[@]}
 device=${devices[p]}
 echo
 while :; do
