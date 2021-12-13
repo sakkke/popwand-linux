@@ -1,4 +1,4 @@
-pacman --needed -S base-devel
+pacman --needed --noconfirm -S base-devel
 pacman --noconfirm -S \
   arch-install-scripts \
   base-devel \
