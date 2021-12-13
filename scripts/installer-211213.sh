@@ -31,10 +31,10 @@ function select_prompt {
   shift
   local items=($@)
   while :; do
-    list_$kind $@
+    list_$kind ${items[@]}
     input_prompt Select a device number to install
     if is_number "$p" && [ -v "items[$p]" ]; then
-      echo ${items[$p]}
+      echo ${items[p]}
       break
     else
       error_message Invalid value
