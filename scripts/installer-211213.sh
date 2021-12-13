@@ -14,7 +14,7 @@ function is_number {
   grep '^[0-9]\+$' <<< "$number" > /dev/null
 }
 
-function list_items {
+function list_devices {
   local items=($@)
   echo ${items[@]} \
     | xargs -n1 \
@@ -27,9 +27,11 @@ function list_items {
 }
 
 function select_prompt {
+  local kind=$1
+  shift
   local items=($@)
   while :; do
-    list_items $@
+    list_$kind $@
     input_prompt Select a device number to install
     if is_number "$p" && [ -v "items[$p]" ]; then
       echo ${items[$p]}
@@ -46,7 +48,7 @@ devices=($(ls /tmp/dev \
   | xargs))
 
 echo Hint: press C-c to cancel the installation process
-select_prompt ${devices[@]}
+select_prompt devices ${devices[@]}
 device=${devices[p]}
 echo
 while :; do
