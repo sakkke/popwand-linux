@@ -30,7 +30,7 @@ function select_prompt {
   local items=($@)
   while :; do
     list_items $@
-    input_prompt Select a number
+    input_prompt Select a device number to install
     if is_number "$p" && [ -v "items[$p]" ]; then
       echo ${items[$p]}
       break
