@@ -1,5 +1,9 @@
 # Changelog
 
+## 2021-12-13
+### Added
+- add new installer
+
 ## 2021-12-12
 ### Added
 - add xf86-video-vesa
