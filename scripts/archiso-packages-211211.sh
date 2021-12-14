@@ -23,8 +23,6 @@ pacman -Sp - > packages.list < <(cat <(echo \
     | xargs -n1) \
       packages.x86_64 \
         | sort -u)
-pacman --config pacman.conf -Q 2> /dev/null \
-  | while read pkgname _; do echo $pkgname; done > packages.x86_64
 
 mkdir live
 grep '^file://' packages.list | sed 's,^file://,,' | xargs -I{} cp -v {} live/
@@ -35,6 +33,9 @@ cd ..
 mv live airootfs/
 
 ln -sf "$PWD/airootfs/live" /tmp/popwand-linux--live
+
+pacman --config pacman.conf -Q 2> /dev/null \
+  | while read pkgname _; do echo $pkgname; done > packages.x86_64
 
 cat > airootfs/etc/pacman.conf << /cat
 [options]
