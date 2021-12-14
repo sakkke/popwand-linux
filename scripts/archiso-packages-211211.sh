@@ -32,7 +32,7 @@ cd live
 repo-add live.db.tar.gz *.pkg.tar.*
 : > packages.x86_64
 ls *.pkg.tar.* \
-  | xargs -I{} -P0 -n1 bash -c 'tar -Oxf "{}" .PKGINFO | grep "^pkgname = " | while read _ _ pkgname; do tee ../packages.x86_64 <<< $pkgname; done'
+  | xargs -I{} -P0 -n1 bash -c 'tar -Oxf ./{} .PKGINFO | grep "^pkgname = " | while read _ _ pkgname; do tee ../packages.x86_64 <<< $pkgname; done'
 sort -o ../packages.x86_64 ../packages.x86_64
 cd ..
 mv live airootfs/
