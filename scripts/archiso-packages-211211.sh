@@ -1,5 +1,8 @@
 pacman -Sp - > packages.tmp < <(cat <(echo \
+  edk2-shell \
   linux-firmware \
+  memtest86+ \
+  syslinux \
     | xargs -n1) \
       packages.x86_64 \
         | sort -u)
