@@ -43,7 +43,7 @@ function select_prompt {
 }
 
 devices=($(ls /tmp/dev \
-  | grep '^\(mmcblk[0-9]\+\|nvme[0-9]\+n[0-9]\+\|sd[a-z]\+\|sr[0-9]\+\)$' \
+  | grep '^\(mmcblk[0-9]\+\|nvme[0-9]\+n[0-9]\+\|sd[a-z]\+\)$' \
   | xargs))
 
 echo Hint: press C-c to cancel the installation process
