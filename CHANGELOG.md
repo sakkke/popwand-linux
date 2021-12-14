@@ -4,6 +4,7 @@
 ### Added
 - add confirmation prompt to installer
 - add install process to installer
+- add script for live environment
 
 ## 2021-12-13
 ### Added
