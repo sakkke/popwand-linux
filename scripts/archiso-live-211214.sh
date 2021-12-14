@@ -1,3 +1,11 @@
+cat >> packages.x86_64 << /cat
+edk2-shell
+linux-firmware
+memtest86+
+syslinux
+/cat
+sort -uo packages.x86_64 packages.x86_64
+
 mkdir -p airootfs/etc/skel/デスクトップ
 install \
   -g 1000 \
