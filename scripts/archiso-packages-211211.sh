@@ -24,7 +24,7 @@ pacman -Sp - > packages.list < <(cat <(echo \
       packages.x86_64 \
         | sort -u)
 pacman --config pacman.conf -Q 2> /dev/null \
-  | while read pkgname _; then echo $pkgname; done > packages.x86_64
+  | while read pkgname _; do echo $pkgname; done > packages.x86_64
 
 mkdir live
 grep '^file://' packages.list | sed 's,^file://,,' | xargs -I{} cp -v {} live/
