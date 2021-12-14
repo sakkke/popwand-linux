@@ -30,13 +30,13 @@ grep '^file://' packages.list | sed 's,^file://,,' | xargs -I{} cp -v {} live/
 wget -P live -i <(grep '^https://' packages.list)
 cd live
 repo-add live.db.tar.gz *.pkg.tar.*
+: > packages.x86_64
+ls *.pkg.tar.* \
+  | xargs -I{} bash -c 'tar -Oxf {} .PKGINFO | grep "^pkgname = " | while read _ _ pkgname; do echo $pkgname >> ../packages.x86_64; done'
 cd ..
 mv live airootfs/
 
 ln -sf "$PWD/airootfs/live" /tmp/popwand-linux--live
-
-pacman --config pacman.conf -Q 2> /dev/null \
-  | while read pkgname _; do echo $pkgname; done > packages.x86_64
 
 cat > airootfs/etc/pacman.conf << /cat
 [options]
