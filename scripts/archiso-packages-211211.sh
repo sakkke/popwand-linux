@@ -1,4 +1,21 @@
-pacman -Sp - > packages.tmp < <(cat <(echo \
+cat > pacman.conf << /cat
+[options]
+HoldPkg = pacman glibc
+Architecture = auto
+ParallelDownloads = 5
+SigLevel = Required DatabaseOptional
+LocalFileSigLevel = Optional
+
+# Additional misc options
+Color
+ILoveCandy
+
+[live]
+Server = file:///tmp/popwand-linux--live
+SigLevel = Never
+/cat
+
+pacman -Sp - > packages.list < <(cat <(echo \
   edk2-shell \
   linux-firmware \
   memtest86+ \
@@ -6,10 +23,11 @@ pacman -Sp - > packages.tmp < <(cat <(echo \
     | xargs -n1) \
       packages.x86_64 \
         | sort -u)
-mv -fv packages.{tmp,x86_64}
+pacman --config pacman.conf -Q 2> /dev/null \
+  | while read pkgname _; then echo $pkgname; done > packages.x86_64
 
 mkdir live
-grep '^file://' packages.x86_64 | sed 's,^file://,,' | xargs -I{} cp -v {} live/
+grep '^file://' packages.list | sed 's,^file://,,' | xargs -I{} cp -v {} live/
 wget -P live -i <(grep '^https://' packages.x86_64)
 cd live
 repo-add live.db.tar.gz *.pkg.tar.*
@@ -42,21 +60,4 @@ Include = /etc/pacman.d/mirrorlist
 
 [community]
 Include = /etc/pacman.d/mirrorlist
-/cat
-
-cat > pacman.conf << /cat
-[options]
-HoldPkg = pacman glibc
-Architecture = auto
-ParallelDownloads = 5
-SigLevel = Required DatabaseOptional
-LocalFileSigLevel = Optional
-
-# Additional misc options
-Color
-ILoveCandy
-
-[live]
-Server = file:///tmp/popwand-linux--live
-SigLevel = Never
 /cat
