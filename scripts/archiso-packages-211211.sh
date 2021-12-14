@@ -26,7 +26,7 @@ SigLevel = Never
 pacman -Sp - > packages.list < packages.x86_64
 
 mkdir live
-grep '^file://' packages.list | sed 's,^file://,,' | xargs -I{} cp -v {} live/
+grep '^file://' packages.list | sed 's,^file://,,' | xargs -I{} -P0 -n10 cp -v {} live/
 wget -P live -i <(grep '^https://' packages.list)
 cd live
 repo-add live.db.tar.gz *.pkg.tar.*
