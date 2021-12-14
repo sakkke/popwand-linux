@@ -1,5 +1,9 @@
 # Changelog
 
+## 2021-12-15
+### Changed
+- update `archiso-packages-211211.sh`
+
 ## 2021-12-14
 ### Added
 - add confirmation prompt to installer
