@@ -1,7 +1,8 @@
 pacman -Sp - > packages.x86_64 < <(cat <(echo \
   linux-firmware \
-    | xargs -n1) packages.x86_64 \
-    | sort -u)
+    | xargs -n1) \
+      packages.x86_64 \
+        | sort -u)
 
 mkdir live
 grep '^file://' packages.x86_64 | sed 's,^file://,,' | xargs -I{} cp -v {} live/
