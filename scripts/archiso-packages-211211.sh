@@ -27,7 +27,7 @@ pacman -Sp - > packages.list < packages.x86_64
 
 mkdir live
 grep '^file://' packages.list | sed 's,^file://,,' | xargs -I{} -P0 -n10 cp -v {} live/
-wget -P live -i <(grep '^https://' packages.list)
+grep '^https://' packages.list | xargs -P0 -n1 wget -q
 cd live
 repo-add live.db.tar.gz *.pkg.tar.*
 : > packages.x86_64
