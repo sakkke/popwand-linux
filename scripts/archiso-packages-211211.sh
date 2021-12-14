@@ -1,3 +1,11 @@
+cat >> packages.x86_64 << /cat
+edk2-shell
+linux-firmware
+memtest86+
+syslinux
+/cat
+sort -uo packages.x86_64 packages.x86_64
+
 cat > pacman.conf << /cat
 [options]
 HoldPkg = pacman glibc
@@ -15,14 +23,7 @@ Server = file:///tmp/popwand-linux--live
 SigLevel = Never
 /cat
 
-pacman -Sp - > packages.list < <(cat <(echo \
-  edk2-shell \
-  linux-firmware \
-  memtest86+ \
-  syslinux \
-    | xargs -n1) \
-      packages.x86_64 \
-        | sort -u)
+pacman -Sp - > packages.list < packages.x86_64
 
 mkdir live
 grep '^file://' packages.list | sed 's,^file://,,' | xargs -I{} cp -v {} live/
