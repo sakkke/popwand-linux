@@ -63,4 +63,13 @@ done
 echo
 echo Default password: p@ssw0rd
 echo
+while :; do
+  input_prompt Continue installation? [y/N]
+  if grep '^[Yy]$' <<< "$p" > /dev/null; then
+    break
+  else
+    error_message Installation canceled
+    exit 1
+  fi
+done
 echo Installation is complete!

@@ -1,5 +1,9 @@
 # Changelog
 
+## 2021-12-14
+### Added
+- add confirmation prompt to installer
+
 ## 2021-12-13
 ### Added
 - add new installer
