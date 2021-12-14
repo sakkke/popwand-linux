@@ -9,6 +9,54 @@ function input_prompt {
   read -p"$(echo -en '\e[33m->\e[m ')" p
 }
 
+function install_process {
+  timedatectl set-ntp true
+
+  parted $device << /parted
+mklabel gpt
+mkpart ESP fat32 1MiB 551MiB
+set 1 esp on
+mkpart primary ext4 551MiB 100%
+/parted
+
+  mkfs.fat -F32 ${device}1
+  mkfs.ext4 ${device}2
+
+  mount ${device}2 /mnt
+  mkdir /mnt/boot
+  mount ${device}1 /mnt/boot
+
+  reflector --save /etc/pacman.d/mirrorlist --sort rate -ckr,jp -phttps
+  pacstrap /mnt base dhcpcd efibootmgr grub linux linux-firmware
+  cat /etc/pacman.d/mirrorlist > /mnt/etc/pacman.d/mirrorlist
+
+  genfstab -U /mnt >> /mnt/etc/fstab
+
+  arch-chroot /mnt bash << /arch-chroot
+ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
+hwclock --systohc
+
+sed -Ei 's/^#(en_US.UTF-8 UTF-8|ja_JP.UTF-8 UTF-8)/\1/' /etc/locale.gen
+locale-gen
+cat >> /etc/locale.conf << /cat
+LANG=en_US.UTF-8
+/cat
+cat >> /etc/vconsole.conf << /cat
+KEYMAP=jp106
+/cat
+
+echo earth > /etc/hostname
+ln -s /usr/lib/systemd/system/dhcpcd.service /etc/systemd/system/multi-user.target.wants/
+
+echo root:toor | chpasswd
+
+grub-install --efi-directory=/boot
+grub-mkconfig -o /boot/grub/grub.cfg
+/arch-chroot
+
+  umount -R /mnt
+}
+
 function is_number {
   local number="$1"
   grep '^[0-9]\+$' <<< "$number" > /dev/null
@@ -48,7 +96,7 @@ devices=($(ls /tmp/dev \
 
 echo Hint: press C-c to cancel the installation process
 select_prompt list_devices ${devices[@]}
-device=${devices[p]}
+device=${devices[p]}$(grep '^[mn]' <<< ${devices[p]} > /dev/null && echo -n p)
 echo
 while :; do
   input_prompt Enter name of the new user
@@ -72,4 +120,5 @@ while :; do
     exit 1
   fi
 done
+install_process
 echo Installation is complete!
