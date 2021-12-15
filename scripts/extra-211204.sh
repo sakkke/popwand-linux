@@ -2,7 +2,6 @@ pacman --needed --noconfirm -S base-devel
 pacman --noconfirm -S \
   arch-install-scripts \
   aria2 \
-  base-devel \
   code \
   docker \
   docker-compose \
