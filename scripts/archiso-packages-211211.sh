@@ -15,7 +15,7 @@ Server = file:///tmp/popwand-linux--live
 SigLevel = Never
 /cat
 
-pacman -Sp - > packages.list < packages.x86_64
+pacman -Spy - > packages.list < packages.x86_64
 
 mkdir live
 grep '^file://' packages.list | sed 's,^file://,,' | xargs -I{} -P0 -n1 cp -v {} live/
