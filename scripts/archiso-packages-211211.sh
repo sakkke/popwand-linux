@@ -1,29 +1,3 @@
-cat > pacman.conf << /cat
-[options]
-HoldPkg = pacman glibc
-Architecture = auto
-ParallelDownloads = 5
-SigLevel = Required DatabaseOptional
-LocalFileSigLevel = Optional
-
-# Additional misc options
-Color
-ILoveCandy
-
-[live]
-Server = file:///tmp/popwand-linux--live
-SigLevel = Never
-
-[core]
-Include = /etc/pacman.d/mirrorlist
-
-[extra]
-Include = /etc/pacman.d/mirrorlist
-
-[community]
-Include = /etc/pacman.d/mirrorlist
-/cat
-
 pacman -Spy - > packages.list < packages.x86_64
 
 mkdir live
@@ -40,14 +14,10 @@ else
 fi
 cd live
 repo-add live.db.tar.gz *.pkg.tar.*
-: > packages.x86_64
 ls *.pkg.tar.* \
-  | xargs -I{} -P0 -n1 bash -c 'tar -Oxf ./{} .PKGINFO | grep "^pkgname = " | while read _ _ pkgname; do tee -a '"$OLDPWD"'/packages.x86_64 <<< $pkgname; done'
-sort -uo "$OLDPWD/packages.x86_64" "$OLDPWD/packages.x86_64"
+  | xargs -I{} -P0 -n1 cp -fv {} /var/cache/pacman/pkg/{}
 cd -
 mv live airootfs/
-
-ln -sf "$PWD/airootfs/live" /tmp/popwand-linux--live
 
 cat > airootfs/etc/pacman.conf << /cat
 [options]
