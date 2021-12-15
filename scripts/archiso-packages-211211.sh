@@ -33,9 +33,9 @@ cd live
 repo-add live.db.tar.gz *.pkg.tar.*
 : > packages.x86_64
 ls *.pkg.tar.* \
-  | xargs -I{} -P0 -n1 bash -c 'tar -Oxf ./{} .PKGINFO | grep "^pkgname = " | while read _ _ pkgname; do tee -a ../packages.x86_64 <<< $pkgname; done'
-sort -o ../packages.x86_64 ../packages.x86_64
-cd ..
+  | xargs -I{} -P0 -n1 bash -c 'tar -Oxf ./{} .PKGINFO | grep "^pkgname = " | while read _ _ pkgname; do tee -a '"$OLDPWD"'/packages.x86_64 <<< $pkgname; done'
+sort -o "$OLDPWD/packages.x86_64" "$OLDPWD/packages.x86_64"
+cd -
 mv live airootfs/
 
 ln -sf "$PWD/airootfs/live" /tmp/popwand-linux--live
