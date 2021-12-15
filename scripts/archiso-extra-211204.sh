@@ -1,5 +1,6 @@
 cat >> packages.x86_64 << /cat
 arch-install-scripts
+aria2
 base-devel
 code
 docker

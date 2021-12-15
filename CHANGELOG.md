@@ -1,6 +1,9 @@
 # Changelog
 
 ## 2021-12-15
+### Added
+- add aria2
+
 ### Changed
 - update `archiso-packages-211211.sh`
 
