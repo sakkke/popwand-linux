@@ -13,6 +13,15 @@ ILoveCandy
 [live]
 Server = file:///tmp/popwand-linux--live
 SigLevel = Never
+
+[core]
+Include = /etc/pacman.d/mirrorlist
+
+[extra]
+Include = /etc/pacman.d/mirrorlist
+
+[community]
+Include = /etc/pacman.d/mirrorlist
 /cat
 
 pacman -Spy - > packages.list < packages.x86_64
