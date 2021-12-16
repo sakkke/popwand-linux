@@ -1,5 +1,9 @@
 # Changelog
 
+## 2021-12-16
+### Added
+- add new base
+
 ## 2021-12-15
 ### Added
 - add aria2
