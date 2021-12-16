@@ -76,12 +76,13 @@ root::14871::::::
 user:$6$Ckm3hL1yVkpajjT4$SLAN7xN8R/7A9FaB6JColbio0snA0t/GHKSwUZ0YukuOBdFdPl/nYh3qAcLZsJA7Vc28gIJ2Z7wM/lFgKpXVW.:14871::::::
 /cat
 
+mkdir airootfs/etc/skel
 cat > airootfs/etc/skel/.bashrc << '/cat'
 if [ -z "$DISPLAY" ] && [ "$XDG_VTNR" = 1 ]; then
   exec weston
 fi
 /cat
-mkdir -p airootfs/etc/skel/.config
+mkdir airootfs/etc/skel/.config
 cat > airootfs/etc/skel/.config/weston.ini << '/cat'
 [keyboard]
 keymap_layout=jp
