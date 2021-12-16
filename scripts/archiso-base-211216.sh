@@ -151,6 +151,7 @@ noto-fonts-cjk
 noto-fonts-emoji
 noto-fonts-extra
 sudo
+vivaldi
 weston
 xorg-xwayland
 /cat
