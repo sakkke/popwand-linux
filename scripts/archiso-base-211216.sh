@@ -120,6 +120,9 @@ path=/usr/bin/weston-terminal
 [launcher]
 icon=/usr/share/icons/hicolor/24x24/apps/vivaldi.png
 path=/usr/bin/vivaldi-stable
+
+[output]
+#scale=2
 /cat
 mkdir -p airootfs/etc/sudoers.d
 cat > airootfs/etc/sudoers.d/wheel << '/cat'
