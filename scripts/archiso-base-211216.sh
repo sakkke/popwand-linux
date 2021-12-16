@@ -114,9 +114,11 @@ xwayland=true
 keymap_layout=jp
 
 [launcher]
+icon=/usr/share/icons/gnome/24x24/apps/utilities-terminal.png
 path=/usr/bin/weston-terminal
 
 [launcher]
+icon=/usr/share/icons/hicolor/24x24/apps/vivaldi.png
 path=/usr/bin/vivaldi-stable
 /cat
 mkdir -p airootfs/etc/sudoers.d
@@ -135,6 +137,7 @@ ExecStart=-/sbin/agetty --autologin user --noclear %I 38400 linux
 
 ln -s /usr/lib/systemd/system/NetworkManager.service airootfs/etc/systemd/system/multi-user.target.wants/
 cat >> packages.x86_64 << '/cat'
+gnome-icon-theme
 neovim
 networkmanager
 noto-fonts
