@@ -138,3 +138,5 @@ file_permissions=(
   ["/etc/gshadow"]="0:0:0400"
 )
 /cat
+
+mkarchiso -v .
