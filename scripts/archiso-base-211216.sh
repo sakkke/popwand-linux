@@ -121,6 +121,10 @@ path=/usr/bin/weston-terminal
 icon=/usr/share/icons/hicolor/24x24/apps/vivaldi.png
 path=/usr/bin/vivaldi-stable
 
+[launcher]
+icon=/usr/share/icons/hicolor/24x24/apps/org.inkscape.Inkscape.png
+path=/usr/bin/inkscape
+
 [output]
 #scale=2
 /cat
@@ -144,6 +148,7 @@ KEYMAP=jp106
 ln -s /usr/lib/systemd/system/NetworkManager.service airootfs/etc/systemd/system/multi-user.target.wants/
 cat >> packages.x86_64 << '/cat'
 gnome-icon-theme
+inkscape
 neovim
 networkmanager
 noto-fonts
