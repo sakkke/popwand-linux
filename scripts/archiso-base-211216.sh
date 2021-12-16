@@ -3,6 +3,9 @@ set -eu
 rm -fr archlive
 cp -r /usr/share/archiso/configs/baseline archlive
 cd archlive
+cat > airootfs/etc/environment << /cat
+EDITOR=/usr/bin/nvim
+/cat
 
 # ref: https://wiki.archlinux.org/title/archiso#:~:text=5).%20For%20example%3A-,archlive/airootfs/etc/group,-root%3Ax%3A0%3Aroot
 cat > airootfs/etc/group << '/cat'
@@ -109,6 +112,7 @@ ExecStart=-/sbin/agetty --autologin user --noclear %I 38400 linux
 
 ln -s /usr/lib/systemd/system/NetworkManager.service airootfs/etc/systemd/system/multi-user.target.wants/
 cat >> packages.x86_64 << '/cat'
+neovim
 networkmanager
 noto-fonts
 noto-fonts-cjk
