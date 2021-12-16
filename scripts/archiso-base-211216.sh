@@ -20,6 +20,9 @@ root:!*::root
 user:!*::
 /cat
 
+cat > airootfs/etc/hostname << /cat
+earth
+/cat
 cat > airootfs/etc/locale.conf << '/cat'
 LANG=ja_JP.UTF-8
 /cat
