@@ -107,6 +107,9 @@ fi
 /cat
 mkdir airootfs/etc/skel/.config
 cat > airootfs/etc/skel/.config/weston.ini << '/cat'
+[core]
+xwayland=true
+
 [keyboard]
 keymap_layout=jp
 
@@ -140,6 +143,7 @@ noto-fonts-emoji
 noto-fonts-extra
 sudo
 weston
+xorg-xwayland
 /cat
 
 # ref: https://gitlab.archlinux.org/archlinux/archiso/-/blob/754caf0ca21476d52d8557058f665b9078982877/configs/baseline/profiledef.sh
