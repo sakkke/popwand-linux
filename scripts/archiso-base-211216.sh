@@ -127,6 +127,10 @@ path=/usr/bin/inkscape
 
 [output]
 #scale=2
+
+[shell]
+background-image=/usr/share/backgrounds/archlinux/awesome.png
+background-type=scale-crop
 /cat
 mkdir -p airootfs/etc/sudoers.d
 cat > airootfs/etc/sudoers.d/wheel << '/cat'
@@ -147,6 +151,7 @@ KEYMAP=jp106
 /cat
 ln -s /usr/lib/systemd/system/NetworkManager.service airootfs/etc/systemd/system/multi-user.target.wants/
 cat >> packages.x86_64 << '/cat'
+archlinux-wallpaper
 gnome-icon-theme
 inkscape
 neovim
