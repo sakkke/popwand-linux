@@ -47,6 +47,23 @@ Depends = sh
 Exec = /bin/sh -c "sed -i 's/#\(ja_JP\.UTF-8\)/\1/' /etc/locale.gen && locale-gen"
 /cat
 
+# ref: https://gitlab.archlinux.org/archlinux/archiso/-/blob/754caf0ca21476d52d8557058f665b9078982877/configs/releng/airootfs/etc/pacman.d/hooks/uncomment-mirrors.hook
+cat > airootfs/etc/pacman.d/hooks/uncomment-mirrors.hook << '/cat'
+# remove from airootfs!
+[Trigger]
+Operation = Install
+Operation = Upgrade
+Type = Package
+Target = pacman-mirrorlist
+
+[Action]
+Description = Uncommenting all mirrors in /etc/pacman.d/mirrorlist...
+When = PostTransaction
+Depends = pacman-mirrorlist
+Depends = sed
+Exec = /usr/bin/sed -i "s/#Server/Server/g" /etc/pacman.d/mirrorlist
+/cat
+
 # ref: https://gitlab.archlinux.org/archlinux/archiso/-/blob/754caf0ca21476d52d8557058f665b9078982877/configs/releng/airootfs/etc/pacman.d/hooks/zzzz99-remove-custom-hooks-from-airootfs.hook
 cat > airootfs/etc/pacman.d/hooks/zzzz99-remove-custom-hooks-from-airootfs.hook << '/cat'
 # remove from airootfs!
