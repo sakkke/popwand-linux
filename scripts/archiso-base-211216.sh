@@ -1,4 +1,5 @@
 #!/bin/bash
+rm -fr archlive
 cp -r /usr/share/archiso/configs/baseline archlive
 cd archlive
 
