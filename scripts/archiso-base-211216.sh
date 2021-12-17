@@ -131,6 +131,8 @@ path=/usr/bin/inkscape
 [shell]
 background-image=/usr/share/backgrounds/archlinux/awesome.png
 background-type=scale-crop
+clock-format=none
+panel-position=left
 /cat
 mkdir -p airootfs/etc/sudoers.d
 cat > airootfs/etc/sudoers.d/wheel << '/cat'

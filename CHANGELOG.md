@@ -1,5 +1,9 @@
 # Changelog
 
+## 2021-12-17
+### Added
+- set panel position to left
+
 ## 2021-12-16
 ### Added
 - add new base
