@@ -236,11 +236,11 @@ xorg-xwayland
 (
   cd $(mktemp -d)
   git clone https://github.com/vinceliuice/Tela-circle-icon-theme.git .
-  mkdir -p airootfs/usr/local/share/icons/Tela-circle/24x24/apps
+  mkdir -p "$OLDPWD/airootfs/usr/local/share/icons/Tela-circle/24x24/apps"
   cat << /cat | xargs -I{} -P0 -n1 ffmpeg \
     -width 24 \
     -i src/scalable/apps/{}.svg \
-    airootfs/usr/local/share/icons/Tela-circle/24x24/apps/{}.png
+    "$OLDPWD/airootfs/usr/local/share/icons/Tela-circle/24x24/apps/{}.png"
 gimp
 inkscape
 kitty
