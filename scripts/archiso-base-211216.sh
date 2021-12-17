@@ -26,7 +26,6 @@ earth
 cat > airootfs/etc/locale.conf << '/cat'
 LANG=ja_JP.UTF-8
 /cat
-mkdir -p airootfs/etc/pacman.d/hooks
 ln -s /usr/share/zoneinfo/Asia/Tokyo airootfs/etc/localtime
 mkdir -p airootfs/etc/pacman.d/hooks
 
@@ -183,10 +182,6 @@ path=/usr/bin/libreoffice
 #icon=/usr/share/icons/hicolor/24x24/apps/vivaldi.png
 icon=/usr/share/icons/Tela-circle/24x24/apps/vivaldi.png
 path=/usr/bin/vivaldi-stable
-
-[launcher]
-icon=/usr/share/icons/hicolor/24x24/apps/org.inkscape.Inkscape.png
-path=/usr/bin/inkscape
 
 [output]
 #scale=2
