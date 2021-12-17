@@ -118,6 +118,10 @@ xwayland=true
 keymap_layout=jp
 
 [launcher]
+icon=/usr/share/icons/hicolor/24x24/apps/org.inkscape.Inkscape.png
+path=/usr/bin/inkscape
+
+[launcher]
 icon=/usr/share/icons/gnome/24x24/apps/utilities-terminal.png
 path=/usr/bin/kitty
 

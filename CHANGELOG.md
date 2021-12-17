@@ -4,6 +4,7 @@
 ### Added
 - set panel position to left
 - set kitty instead of weston-terminal
+- add Inkscape to launcher
 
 ## 2021-12-16
 ### Added
