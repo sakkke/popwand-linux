@@ -105,7 +105,11 @@ if [ -z "$DISPLAY" ] && [ "$(tty)" = /dev/tty1 ]; then
   exec weston
 fi
 /cat
-mkdir airootfs/etc/skel/.config
+mkdir -p airootfs/etc/skel/.config/kitty
+cat > airootfs/etc/skel/.config/kitty/kitty.conf << '/cat'
+font_family Fira Code
+linux_display_server x11
+/cat
 cat > airootfs/etc/skel/.config/weston.ini << '/cat'
 [core]
 xwayland=true
@@ -115,7 +119,7 @@ keymap_layout=jp
 
 [launcher]
 icon=/usr/share/icons/gnome/24x24/apps/utilities-terminal.png
-path=/usr/bin/weston-terminal
+path=/usr/bin/kitty
 
 [launcher]
 icon=/usr/share/icons/hicolor/24x24/apps/vivaldi.png
@@ -156,6 +160,7 @@ cat >> packages.x86_64 << '/cat'
 archlinux-wallpaper
 gnome-icon-theme
 inkscape
+kitty
 neovim
 networkmanager
 noto-fonts
@@ -163,6 +168,7 @@ noto-fonts-cjk
 noto-fonts-emoji
 noto-fonts-extra
 sudo
+ttf-fira-code
 vivaldi
 weston
 xorg-xwayland

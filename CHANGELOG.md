@@ -3,6 +3,7 @@
 ## 2021-12-17
 ### Added
 - set panel position to left
+- set kitty instead of weston-terminal
 
 ## 2021-12-16
 ### Added
