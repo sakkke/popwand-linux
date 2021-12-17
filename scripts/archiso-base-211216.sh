@@ -156,12 +156,12 @@ keymap_layout=jp
 
 [launcher]
 #icon=/usr/share/icons/hicolor/24x24/apps/gimp.png
-icon=/usr/share/icons/Tela-circle/24x24/apps/gimp.png
+icon=/usr/local/share/icons/Tela-circle/24x24/apps/gimp.png
 path=/usr/bin/gimp
 
 [launcher]
 #icon=/usr/share/icons/hicolor/24x24/apps/org.inkscape.Inkscape.png
-icon=/usr/share/icons/Tela-circle/24x24/apps/inkscape.png
+icon=/usr/local/share/icons/Tela-circle/24x24/apps/inkscape.png
 path=/usr/bin/inkscape
 
 [launcher]
@@ -170,17 +170,17 @@ path=/usr/bin/shotcut
 
 [launcher]
 #icon=/usr/share/icons/gnome/24x24/apps/utilities-terminal.png
-icon=/usr/share/icons/Tela-circle/24x24/apps/kitty.png
+icon=/usr/local/share/icons/Tela-circle/24x24/apps/kitty.png
 path=/usr/bin/kitty
 
 [launcher]
 #icon=/usr/share/icons/hicolor/24x24/apps/libreoffice-startcenter.png
-icon=/usr/share/icons/Tela-circle/24x24/apps/libreoffice.png
+icon=/usr/local/share/icons/Tela-circle/24x24/apps/libreoffice.png
 path=/usr/bin/libreoffice
 
 [launcher]
 #icon=/usr/share/icons/hicolor/24x24/apps/vivaldi.png
-icon=/usr/share/icons/Tela-circle/24x24/apps/vivaldi.png
+icon=/usr/local/share/icons/Tela-circle/24x24/apps/vivaldi.png
 path=/usr/bin/vivaldi-stable
 
 [output]
@@ -236,11 +236,11 @@ xorg-xwayland
 (
   cd $(mktemp -d)
   git clone https://github.com/vinceliuice/Tela-circle-icon-theme.git .
-  mkdir -p airootfs/usr/local/icons/Tela-circle/24x24/apps
+  mkdir -p airootfs/usr/local/share/icons/Tela-circle/24x24/apps
   cat << /cat | xargs -I{} -P0 -n1 ffmpeg \
     -width 24 \
     -i src/scalable/apps/{}.svg \
-    airootfs/usr/local/icons/Tela-circle/24x24/apps/{}.png
+    airootfs/usr/local/share/icons/Tela-circle/24x24/apps/{}.png
 gimp
 inkscape
 kitty
