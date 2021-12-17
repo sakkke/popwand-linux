@@ -6,6 +6,7 @@
 - set kitty instead of weston-terminal
 - add Inkscape to launcher
 - add GIMP
+- add LibreOffice Fresh
 
 ## 2021-12-16
 ### Added

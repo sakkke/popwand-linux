@@ -130,6 +130,10 @@ icon=/usr/share/icons/gnome/24x24/apps/utilities-terminal.png
 path=/usr/bin/kitty
 
 [launcher]
+icon=/usr/share/icons/hicolor/24x24/apps/libreoffice-startcenter.png
+path=/usr/bin/libreoffice
+
+[launcher]
 icon=/usr/share/icons/hicolor/24x24/apps/vivaldi.png
 path=/usr/bin/vivaldi-stable
 
@@ -170,6 +174,8 @@ gimp
 gnome-icon-theme
 inkscape
 kitty
+libreoffice-fresh
+libreoffice-fresh-ja
 neovim
 networkmanager
 noto-fonts
