@@ -8,6 +8,7 @@
 - add GIMP
 - add LibreOffice Fresh
 - add Shotcut
+- apply Tela-circle-icon-theme to each icon in the launcher
 
 ## 2021-12-16
 ### Added

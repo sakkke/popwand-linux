@@ -158,11 +158,13 @@ xwayland=true
 keymap_layout=jp
 
 [launcher]
-icon=/usr/share/icons/hicolor/24x24/apps/gimp.png
+#icon=/usr/share/icons/hicolor/24x24/apps/gimp.png
+icon=/usr/share/icons/Tela-circle/24x24/apps/gimp.png
 path=/usr/bin/gimp
 
 [launcher]
-icon=/usr/share/icons/hicolor/24x24/apps/org.inkscape.Inkscape.png
+#icon=/usr/share/icons/hicolor/24x24/apps/org.inkscape.Inkscape.png
+icon=/usr/share/icons/Tela-circle/24x24/apps/inkscape.png
 path=/usr/bin/inkscape
 
 [launcher]
@@ -170,11 +172,18 @@ icon=/usr/share/icons/hicolor/24x24/apps/org.shotcut.Shotcut.png
 path=/usr/bin/shotcut
 
 [launcher]
-icon=/usr/share/icons/hicolor/24x24/apps/libreoffice-startcenter.png
+#icon=/usr/share/icons/gnome/24x24/apps/utilities-terminal.png
+icon=/usr/share/icons/Tela-circle/24x24/apps/kitty.png
+path=/usr/bin/kitty
+
+[launcher]
+#icon=/usr/share/icons/hicolor/24x24/apps/libreoffice-startcenter.png
+icon=/usr/share/icons/Tela-circle/24x24/apps/libreoffice.png
 path=/usr/bin/libreoffice
 
 [launcher]
-icon=/usr/share/icons/hicolor/24x24/apps/vivaldi.png
+#icon=/usr/share/icons/hicolor/24x24/apps/vivaldi.png
+icon=/usr/share/icons/Tela-circle/24x24/apps/vivaldi.png
 path=/usr/bin/vivaldi-stable
 
 [launcher]
@@ -230,6 +239,24 @@ vivaldi
 weston
 xorg-xwayland
 /cat
+
+(
+  cd $(mktemp -d)
+  git clone https://github.com/vinceliuice/Tela-circle-icon-theme.git .
+  mkdir -p airootfs/usr/local/icons/Tela-circle/24x24/apps
+  cat << /cat | xargs -I{} -P0 -n1 ffmpeg \
+    -width 24 \
+    -i src/scalable/apps/{}.svg \
+    airootfs/usr/local/icons/Tela-circle/24x24/apps/{}.png
+gimp
+inkscape
+kitty
+libreoffice
+vivaldi
+/cat
+  cd
+  rm -fr $OLDPWD
+)
 
 # ref: https://gitlab.archlinux.org/archlinux/archiso/-/blob/754caf0ca21476d52d8557058f665b9078982877/configs/baseline/profiledef.sh
 # ref: https://wiki.archlinux.org/title/archiso#:~:text=the%20correct%20permissions%3A-,archlive/profiledef.sh,-...%0Afile_permissions%3D(%0A%20%20...%0A%20%20%5B%22/etc/shadow
