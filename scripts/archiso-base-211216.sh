@@ -28,6 +28,7 @@ LANG=ja_JP.UTF-8
 /cat
 mkdir -p airootfs/etc/pacman.d/hooks
 ln -s /usr/share/zoneinfo/Asia/Tokyo airootfs/etc/localtime
+mkdir -p airootfs/etc/pacman.d/hooks
 
 # ref: https://gitlab.archlinux.org/archlinux/archiso/-/blob/754caf0ca21476d52d8557058f665b9078982877/configs/releng/airootfs/etc/pacman.d/hooks/40-locale-gen.hook
 cat > airootfs/etc/pacman.d/hooks/40-locale-gen.hook << '/cat'
