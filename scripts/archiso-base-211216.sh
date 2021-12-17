@@ -118,6 +118,10 @@ xwayland=true
 keymap_layout=jp
 
 [launcher]
+icon=/usr/share/icons/hicolor/24x24/apps/gimp.png
+path=/usr/bin/gimp
+
+[launcher]
 icon=/usr/share/icons/hicolor/24x24/apps/org.inkscape.Inkscape.png
 path=/usr/bin/inkscape
 
@@ -162,6 +166,7 @@ KEYMAP=jp106
 ln -s /usr/lib/systemd/system/NetworkManager.service airootfs/etc/systemd/system/multi-user.target.wants/
 cat >> packages.x86_64 << '/cat'
 archlinux-wallpaper
+gimp
 gnome-icon-theme
 inkscape
 kitty
