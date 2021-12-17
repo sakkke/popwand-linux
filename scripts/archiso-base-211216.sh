@@ -47,6 +47,30 @@ Depends = sh
 Exec = /bin/sh -c "sed -i 's/#\(en_US\.UTF-8\|ja_JP\.UTF-8\)/\1/' /etc/locale.gen && locale-gen"
 /cat
 
+cat > airootfs/etc/pacman.d/hooks/shotcut-install.hook << '/cat'
+[Trigger]
+Operation = Install
+Operation = Upgrade
+Type = Package
+Target = shotcut
+
+[Action]
+Description = Creating a Shotcut 24x24 icon...
+When = PostTransaction
+Exec = /etc/pacman.d/hooks.bin/shotcut-install
+/cat
+cat > airootfs/etc/pacman.d/hooks/shotcut-remove.hook << '/cat'
+[Trigger]
+Operation = Remove
+Type = Package
+Target = shotcut
+
+[Action]
+Description = Removing a Shotcut 24x24 icon...
+When = PreTransaction
+Exec = /etc/pacman.d/hooks.bin/shotcut-remove
+/cat
+
 # ref: https://gitlab.archlinux.org/archlinux/archiso/-/blob/754caf0ca21476d52d8557058f665b9078982877/configs/releng/airootfs/etc/pacman.d/hooks/uncomment-mirrors.hook
 cat > airootfs/etc/pacman.d/hooks/uncomment-mirrors.hook << '/cat'
 # remove from airootfs!
@@ -85,6 +109,21 @@ Depends = coreutils
 Depends = grep
 Exec = /bin/sh -c "rm -- $(grep -Frl 'remove from airootfs' /etc/pacman.d/hooks/)"
 /cat
+
+mkdir airootfs/etc/pacman.d/hooks.bin
+cat > airootfs/etc/pacman.d/hooks.bin/shotcut-install << '/cat'
+#!/bin/bash
+ffmpeg \
+  -i /usr/share/icons/hicolor/128x128/apps/org.shotcut.Shotcut.png \
+  -vf scale=24:-1 \
+  /usr/share/icons/hicolor/24x24/apps/org.shotcut.Shotcut.png
+/cat
+chmod +x airootfs/etc/pacman.d/hooks.bin/shotcut-install
+cat > airootfs/etc/pacman.d/hooks.bin/shotcut-remove << '/cat'
+#!/bin/bash
+rm /usr/share/icons/hicolor/24x24/apps/org.shotcut.Shotcut.png
+/cat
+chmod +x airootfs/etc/pacman.d/hooks.bin/shotcut-remove
 
 # ref: https://wiki.archlinux.org/title/archiso#:~:text=passwd(5)%20syntax%3A-,archlive/airootfs/etc/passwd,-root%3Ax%3A0%3A0
 cat > airootfs/etc/passwd << '/cat'
@@ -170,6 +209,7 @@ KEYMAP=jp106
 ln -s /usr/lib/systemd/system/NetworkManager.service airootfs/etc/systemd/system/multi-user.target.wants/
 cat >> packages.x86_64 << '/cat'
 archlinux-wallpaper
+ffmpeg
 gimp
 gnome-icon-theme
 inkscape
@@ -182,6 +222,7 @@ noto-fonts
 noto-fonts-cjk
 noto-fonts-emoji
 noto-fonts-extra
+shotcut
 sudo
 ttf-fira-code
 vivaldi

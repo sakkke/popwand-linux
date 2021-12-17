@@ -7,6 +7,7 @@
 - add Inkscape to launcher
 - add GIMP
 - add LibreOffice Fresh
+- add Shotcut
 
 ## 2021-12-16
 ### Added
