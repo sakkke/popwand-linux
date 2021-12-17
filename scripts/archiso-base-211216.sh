@@ -166,8 +166,8 @@ icon=/usr/share/icons/hicolor/24x24/apps/org.inkscape.Inkscape.png
 path=/usr/bin/inkscape
 
 [launcher]
-icon=/usr/share/icons/gnome/24x24/apps/utilities-terminal.png
-path=/usr/bin/kitty
+icon=/usr/share/icons/hicolor/24x24/apps/org.shotcut.Shotcut.png
+path=/usr/bin/shotcut
 
 [launcher]
 icon=/usr/share/icons/hicolor/24x24/apps/libreoffice-startcenter.png
