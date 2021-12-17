@@ -119,12 +119,10 @@ ffmpeg \
   -vf scale=24:-1 \
   /usr/share/icons/hicolor/24x24/apps/org.shotcut.Shotcut.png
 /cat
-chmod +x airootfs/etc/pacman.d/hooks.bin/shotcut-install
 cat > airootfs/etc/pacman.d/hooks.bin/shotcut-remove << '/cat'
 #!/bin/bash
 rm /usr/share/icons/hicolor/24x24/apps/org.shotcut.Shotcut.png
 /cat
-chmod +x airootfs/etc/pacman.d/hooks.bin/shotcut-remove
 
 # ref: https://wiki.archlinux.org/title/archiso#:~:text=passwd(5)%20syntax%3A-,archlive/airootfs/etc/passwd,-root%3Ax%3A0%3A0
 cat > airootfs/etc/passwd << '/cat'
@@ -279,6 +277,8 @@ airootfs_image_tool_options=('-zlz4hc,12')
 file_permissions=(
   ["/etc/shadow"]="0:0:400"
   ["/etc/gshadow"]="0:0:0400"
+  ["/etc/pacman.d/hooks.bin/shotcut-install"]="0:0:755"
+  ["/etc/pacman.d/hooks.bin/shotcut-remove"]="0:0:755"
 )
 /cat
 
