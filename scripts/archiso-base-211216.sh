@@ -144,6 +144,7 @@ fi
 /cat
 mkdir -p airootfs/etc/skel/.config/kitty
 cat > airootfs/etc/skel/.config/kitty/kitty.conf << '/cat'
+background_opacity 0.7
 font_family Fira Code
 linux_display_server x11
 /cat

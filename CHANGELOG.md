@@ -1,5 +1,9 @@
 # Changelog
 
+## 2021-12-18
+### Added
+- set background opacity for kitty
+
 ## 2021-12-17
 ### Added
 - set panel position to left
