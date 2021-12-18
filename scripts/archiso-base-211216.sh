@@ -171,6 +171,7 @@ cat > airootfs/etc/skel/.bashrc << '/cat'
 if [ -z "$DISPLAY" ] && [ "$(tty)" = /dev/tty1 ]; then
   exec weston
 fi
+export PS1='$(status=$?; [ $status -ne 0 ] && echo -n "=> \[\e[1;31m\]$status\[\e[m\] | ")\[\e[1;34m\]\w\[\e[m\] \[\e[1m\]->\[\e[m\] '
 /cat
 mkdir -p airootfs/etc/skel/.config/kitty
 cat > airootfs/etc/skel/.config/kitty/kitty.conf << '/cat'

@@ -5,6 +5,7 @@
 - set background opacity for kitty
 - add fcitx5
 - set theme for kitty
+- update bash prompt
 
 ## 2021-12-17
 ### Added
