@@ -6,6 +6,7 @@
 - add fcitx5
 - set theme for kitty
 - update bash prompt
+- add aliases to .bashrc
 
 ## 2021-12-17
 ### Added
