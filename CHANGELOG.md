@@ -7,6 +7,7 @@
 - set theme for kitty
 - update bash prompt
 - add aliases to .bashrc
+- add vivaldi-ffmpeg-codecs
 
 ## 2021-12-17
 ### Added

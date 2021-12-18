@@ -278,6 +278,7 @@ shotcut
 sudo
 ttf-fira-code
 vivaldi
+vivaldi-ffmpeg-codecs
 weston
 xorg-xwayland
 /cat
