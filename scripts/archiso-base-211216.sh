@@ -277,6 +277,7 @@ noto-fonts-extra
 shotcut
 sudo
 ttf-fira-code
+ttf-ibm-plex
 vivaldi
 vivaldi-ffmpeg-codecs
 weston
