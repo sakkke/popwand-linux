@@ -47,6 +47,28 @@ Depends = sh
 Exec = /bin/sh -c "sed -i 's/#\(en_US\.UTF-8\|ja_JP\.UTF-8\)/\1/' /etc/locale.gen && locale-gen"
 /cat
 
+cat > airootfs/etc/pacman.d/hooks/kitty-install.hook << '/cat'
+Operation = Install
+Operation = Upgrade
+Type = Package
+Target = kitty
+
+[Action]
+Description = Setting a theme for kitty...
+When = PostTransaction
+Exec = /etc/pacman.d/hooks.bin/kitty-install
+/cat
+cat > airootfs/etc/pacman.d/hooks/kitty-remove.hook << '/cat'
+[Trigger]
+Operation = Remove
+Type = Package
+Target = kitty
+
+[Action]
+Description = Removing a theme for kitty...
+When = PreTransaction
+Exec = /etc/pacman.d/hooks.bin/kitty-remove
+/cat
 cat > airootfs/etc/pacman.d/hooks/shotcut-install.hook << '/cat'
 [Trigger]
 Operation = Install
@@ -111,6 +133,14 @@ Exec = /bin/sh -c "rm -- $(grep -Frl 'remove from airootfs' /etc/pacman.d/hooks/
 /cat
 
 mkdir airootfs/etc/pacman.d/hooks.bin
+cat > airootfs/etc/pacman.d/hooks.bin/kitty-install << '/cat'
+#!/bin/bash
+kitty +kitten themes --dump-theme Campbell > /etc/skel/.config/kitty/current-theme.conf
+/cat
+cat > airootfs/etc/pacman.d/hooks.bin/kitty-remove << '/cat'
+#!/bin/bash
+rm /etc/skel/.config/kitty/current-theme.conf
+/cat
 cat > airootfs/etc/pacman.d/hooks.bin/shotcut-install << '/cat'
 #!/bin/bash
 ffmpeg \
@@ -146,6 +176,7 @@ mkdir -p airootfs/etc/skel/.config/kitty
 cat > airootfs/etc/skel/.config/kitty/kitty.conf << '/cat'
 background_opacity 0.7
 font_family Fira Code
+include current-theme.conf
 linux_display_server x11
 /cat
 cat > airootfs/etc/skel/.config/weston.ini << '/cat'
@@ -287,6 +318,8 @@ airootfs_image_tool_options=('-zlz4hc,12')
 file_permissions=(
   ["/etc/shadow"]="0:0:400"
   ["/etc/gshadow"]="0:0:0400"
+  ["/etc/pacman.d/hooks.bin/kitty-install"]="0:0:755"
+  ["/etc/pacman.d/hooks.bin/kitty-remove"]="0:0:755"
   ["/etc/pacman.d/hooks.bin/shotcut-install"]="0:0:755"
   ["/etc/pacman.d/hooks.bin/shotcut-remove"]="0:0:755"
 )
