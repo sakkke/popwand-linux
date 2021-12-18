@@ -152,6 +152,9 @@ cat > airootfs/etc/skel/.config/weston.ini << '/cat'
 [core]
 xwayland=true
 
+[input-method]
+path=/usr/bin/fcitx5
+
 [keyboard]
 keymap_layout=jp
 
@@ -193,6 +196,15 @@ background-type=scale-crop
 clock-format=none
 panel-position=left
 /cat
+cat > airootfs/etc/skel/.pam_environment << '/cat'
+# for kitty
+GLFW_IM_MODULE=ibus
+
+GTK_IM_MODULE=fcitx
+QT_IM_MODULE=fcitx
+SDL_IM_MODULE=fcitx
+XMODIFIERS=@im=fcitx
+/cat
 mkdir -p airootfs/etc/sudoers.d
 cat > airootfs/etc/sudoers.d/wheel << '/cat'
 %wheel ALL=(ALL) ALL
@@ -213,6 +225,8 @@ KEYMAP=jp106
 ln -s /usr/lib/systemd/system/NetworkManager.service airootfs/etc/systemd/system/multi-user.target.wants/
 cat >> packages.x86_64 << '/cat'
 archlinux-wallpaper
+fcitx5-im
+fcitx5-mozc
 ffmpeg
 gimp
 gnome-icon-theme

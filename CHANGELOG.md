@@ -3,6 +3,7 @@
 ## 2021-12-18
 ### Added
 - set background opacity for kitty
+- add fcitx5
 
 ## 2021-12-17
 ### Added
