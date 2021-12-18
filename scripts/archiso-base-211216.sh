@@ -219,7 +219,7 @@ ExecStart=
 ExecStart=-/sbin/agetty --autologin user --noclear %I 38400 linux
 /cat
 
-cat > airootfs/etc/vconsole.conf << /cat
+cat > airootfs/etc/vconsole.conf << '/cat'
 KEYMAP=jp106
 /cat
 ln -s /usr/lib/systemd/system/NetworkManager.service airootfs/etc/systemd/system/multi-user.target.wants/
