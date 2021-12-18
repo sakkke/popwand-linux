@@ -8,6 +8,7 @@
 - update bash prompt
 - add aliases to .bashrc
 - add vivaldi-ffmpeg-codecs
+- add xorg-drivers
 
 ## 2021-12-17
 ### Added

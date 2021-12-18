@@ -280,6 +280,7 @@ ttf-fira-code
 vivaldi
 vivaldi-ffmpeg-codecs
 weston
+xorg-drivers
 xorg-xwayland
 /cat
 
