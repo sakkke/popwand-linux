@@ -1,5 +1,9 @@
 # Changelog
 
+## 2021-12-19
+### Fixed
+- fix `archiso-base-211216.sh`
+
 ## 2021-12-18
 ### Added
 - set background opacity for kitty

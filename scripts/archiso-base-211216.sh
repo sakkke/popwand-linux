@@ -48,6 +48,7 @@ Exec = /bin/sh -c "sed -i 's/#\(en_US\.UTF-8\|ja_JP\.UTF-8\)/\1/' /etc/locale.ge
 /cat
 
 cat > airootfs/etc/pacman.d/hooks/kitty-install.hook << '/cat'
+[Trigger]
 Operation = Install
 Operation = Upgrade
 Type = Package
