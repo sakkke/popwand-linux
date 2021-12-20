@@ -1,5 +1,12 @@
 #!/bin/bash
 set -eu
+
+# ref: https://askubuntu.com/a/15856
+if ((EUID)); then
+  echo 'This script must be run as root'
+  exit 1
+fi
+
 pacman --needed --noconfirm -Sy \
   archiso \
   ffmpeg \
