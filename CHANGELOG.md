@@ -3,6 +3,7 @@
 ## 2021-12-20
 ### Added
 - add .gitpod.yml
+- add editor alias to .bashrc
 
 ### Changed
 - update prompts
