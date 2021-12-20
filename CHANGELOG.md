@@ -4,6 +4,9 @@
 ### Added
 - add .gitpod.yml
 
+### Changed
+- update prompts
+
 ## 2021-12-19
 ### Fixed
 - fix `archiso-base-211216.sh`

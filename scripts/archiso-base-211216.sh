@@ -173,6 +173,9 @@ if [ -z "$DISPLAY" ] && [ "$(tty)" = /dev/tty1 ]; then
   exec weston
 fi
 export PS1='$(status=$?; [ $status -ne 0 ] && echo -n "=> \[\e[1;31m\]$status\[\e[m\] | ")\[\e[1;34m\]\w\[\e[m\] \[\e[1m\]->\[\e[m\] '
+export PS2='->> '
+export PS3='=> '
+export PS4='=>> \[\e[1;32m\]$0\[\e[m\]:\[\e[1;34m\]$LINENO\[\e[m\] -> '
 alias grep='grep --color'
 alias ls='ls --color'
 /cat
