@@ -1,5 +1,9 @@
 # Changelog
 
+## 2021-12-20
+### Added
+- add .gitpod.yml
+
 ## 2021-12-19
 ### Fixed
 - fix `archiso-base-211216.sh`
