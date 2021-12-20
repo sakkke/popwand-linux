@@ -1,5 +1,5 @@
 FROM archlinux/archlinux
-RUN pacman --noconfirm -S \
+RUN pacman --noconfirm -Sy \
     git \
     sudo \
   && echo 'gitpod ALL=NOPASSWD: ALL' \
