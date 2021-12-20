@@ -4,6 +4,7 @@
 ### Added
 - add .gitpod.yml
 - add editor alias to .bashrc
+- add lines to install dependencies
 
 ### Changed
 - update prompts

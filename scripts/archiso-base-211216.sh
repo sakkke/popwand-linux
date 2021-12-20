@@ -1,5 +1,9 @@
 #!/bin/bash
 set -eu
+pacman --needed --noconfirm -Sy \
+  archiso \
+  ffmpeg \
+  git
 rm -fr archlive
 cp -r /usr/share/archiso/configs/baseline archlive
 cd archlive
