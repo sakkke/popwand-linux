@@ -10,7 +10,8 @@ fi
 pacman --needed --noconfirm -Sy \
   archiso \
   ffmpeg \
-  git
+  git \
+  make
 rm -fr archlive
 cp -r /usr/share/archiso/configs/baseline archlive
 cd archlive
@@ -152,13 +153,44 @@ cat > airootfs/etc/skel/.bashrc << '/cat'
 if [ -z "$DISPLAY" ] && [ "$(tty)" = /dev/tty1 ]; then
   exec weston
 fi
+
+if [ ! -d ~/.local/share/blesh ]; then
+  ! type \
+    git \
+    make \
+    &> /dev/null \
+      && break
+  echo 'Installing ble.sh...'
+  (
+    cd $(mktemp -d)
+    git clone \
+      --depth=1 \
+      --recursive \
+      --shallow-submodules \
+      https://github.com/akinomyoga/ble.sh.git \
+      .
+    make install PREFIX=~/.local
+    cd
+    rm -fr $OLDPWD
+  )
+fi
+
+# ref: https://github.com/akinomyoga/ble.sh#:~:text=top%20of%20.bashrc%3A-,%5B%5B%20%24%2D%20%3D%3D%20*i*%20%5D%5D%20%26%26%20source%20/path/to/blesh/ble.sh%20%2D%2Dnoattach,-%23%20your%20bashrc%20settings
+[[ $- == *i* ]] && source ~/.local/share/blesh/ble.sh --noattach
+
+set -o vi
 export PS1='$(status=$?; [ $status -ne 0 ] && echo -n "=> \[\e[1;31m\]$status\[\e[m\] | ")\[\e[1;34m\]\w\[\e[m\] \[\e[1m\]->\[\e[m\] '
 export PS2='->> '
 export PS3='=> '
 export PS4='=>> \[\e[1;32m\]$0\[\e[m\]:\[\e[1;34m\]$LINENO\[\e[m\] -> '
+ble-import vim-airline
+bleopt exec_errexit_mark=
 alias editor="$EDITOR"
 alias grep='grep --color'
 alias ls='ls --color'
+
+# ref: https://github.com/akinomyoga/ble.sh#:~:text=%5B%5B%20%24%7BBLE_VERSION%2D%7D%20%5D%5D%20%26%26%20ble%2Dattach
+[[ ${BLE_VERSION-} ]] && ble-attach
 /cat
 mkdir -p airootfs/etc/skel/.config/kitty
 curl \
@@ -219,6 +251,18 @@ background-type=scale-crop
 clock-format=none
 panel-position=left
 /cat
+(
+  cd $(mktemp -d)
+  git clone \
+    --depth=1 \
+    --recursive \
+    --shallow-submodules \
+    https://github.com/akinomyoga/ble.sh.git \
+    .
+  make install PREFIX="$OLDPWD/airootfs/etc/skel/.local"
+  cd
+  rm -fr $OLDPWD
+)
 cat > airootfs/etc/skel/.pam_environment << '/cat'
 # for kitty
 GLFW_IM_MODULE=ibus
