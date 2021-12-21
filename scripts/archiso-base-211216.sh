@@ -361,8 +361,6 @@ airootfs_image_tool_options=('-zlz4hc,12')
 file_permissions=(
   ["/etc/shadow"]="0:0:400"
   ["/etc/gshadow"]="0:0:0400"
-  ["/etc/pacman.d/hooks.bin/kitty-install"]="0:0:755"
-  ["/etc/pacman.d/hooks.bin/kitty-remove"]="0:0:755"
   ["/etc/pacman.d/hooks.bin/shotcut-install"]="0:0:755"
   ["/etc/pacman.d/hooks.bin/shotcut-remove"]="0:0:755"
 )
