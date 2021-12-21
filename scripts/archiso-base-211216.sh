@@ -24,6 +24,7 @@ cat > airootfs/etc/group << '/cat'
 root:x:0:root
 wheel:x:10:user
 user:x:1000:
+docker:x:999:user
 /cat
 
 # ref: https://wiki.archlinux.org/title/archiso#:~:text=to%20gshadow(5)%3A-,archlive/airootfs/etc/gshadow,-root%3A!*%3A%3Aroot%0Aarchie
@@ -290,8 +291,11 @@ cat > airootfs/etc/vconsole.conf << '/cat'
 KEYMAP=jp106
 /cat
 ln -s /usr/lib/systemd/system/NetworkManager.service airootfs/etc/systemd/system/multi-user.target.wants/
+ln -s /usr/lib/systemd/system/docker.service airootfs/etc/systemd/system/multi-user.target.wants/
 cat >> packages.x86_64 << '/cat'
 archlinux-wallpaper
+docker
+docker-compose
 fcitx5-im
 fcitx5-mozc
 ffmpeg
