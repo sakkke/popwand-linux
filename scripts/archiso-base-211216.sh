@@ -197,7 +197,7 @@ mkdir -p airootfs/etc/skel/.config/kitty
 curl \
   -o airootfs/etc/skel/.config/kitty/current-theme.conf \
   -s \
-  https://raw.githubusercontent.com/kovidgoyal/kitty-themes/master/themes/Campbell.conf
+  https://raw.githubusercontent.com/kovidgoyal/kitty-themes/master/themes/PaperColor_light.conf
 cat > airootfs/etc/skel/.config/kitty/kitty.conf << '/cat'
 background_opacity 0.7
 font_family Fira Code
