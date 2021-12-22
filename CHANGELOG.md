@@ -10,6 +10,7 @@
 - add `jj` bind to Bash
 - add `BLE_DISABLED` variable
 - add Fuchsia cursor theme
+- add `https://vscode.dev/` as app
 
 ### Changed
 - change installation path of Tera-circle-icon-theme from `/usr/local/share/icons` to `/usr/share/icons`

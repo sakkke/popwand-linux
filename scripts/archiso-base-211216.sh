@@ -264,6 +264,10 @@ icon=/usr/share/icons/Tela-circle/24x24/apps/vivaldi.png
 path=/usr/bin/vivaldi-stable
 
 [launcher]
+icon=/usr/share/icons/Tela-circle/24x24/apps/visualstudiocode.png
+path=/usr/bin/vivaldi-stable --app=https://vscode.dev/ --new-window
+
+[launcher]
 icon=/usr/share/icons/Tela-circle/24x24/apps/vlc.png
 path=/usr/bin/vlc
 
@@ -384,6 +388,7 @@ htop
 inkscape
 kitty
 libreoffice
+visualstudiocode
 vivaldi
 vlc
 /cat
