@@ -13,6 +13,7 @@
 - change default background image
 - change panel color
 - change default theme for kitty
+- set vim_airline_theme to light
 
 ## 2021-12-21
 ### Added

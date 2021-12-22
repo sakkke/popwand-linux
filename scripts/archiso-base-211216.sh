@@ -186,6 +186,7 @@ export PS3='=> '
 export PS4='=>> \[\e[1;32m\]$0\[\e[m\]:\[\e[1;34m\]$LINENO\[\e[m\] -> '
 ble-import vim-airline
 bleopt exec_errexit_mark=
+bleopt vim_airline_theme=light
 alias editor="$EDITOR"
 alias grep='grep --color'
 alias ls='ls --color'
