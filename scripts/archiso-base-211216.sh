@@ -229,10 +229,6 @@ icon=/usr/local/share/icons/Tela-circle/24x24/apps/inkscape.png
 path=/usr/bin/inkscape
 
 [launcher]
-icon=/usr/share/icons/hicolor/24x24/apps/org.shotcut.Shotcut.png
-path=/usr/bin/shotcut
-
-[launcher]
 #icon=/usr/share/icons/gnome/24x24/apps/utilities-terminal.png
 icon=/usr/local/share/icons/Tela-circle/24x24/apps/kitty.png
 path=/usr/bin/kitty
@@ -245,6 +241,10 @@ path=/usr/bin/libreoffice
 [launcher]
 icon=/usr/local/share/icons/Tela-circle/24x24/apps/file-manager.png
 path=/usr/bin/pcmanfm-qt
+
+[launcher]
+icon=/usr/share/icons/hicolor/24x24/apps/org.shotcut.Shotcut.png
+path=/usr/bin/shotcut
 
 [launcher]
 #icon=/usr/share/icons/hicolor/24x24/apps/vivaldi.png
