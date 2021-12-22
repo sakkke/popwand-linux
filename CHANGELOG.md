@@ -10,6 +10,7 @@
 
 ### Changed
 - change installation path of Tera-circle-icon-theme from `/usr/local/share/icons` to `/usr/share/icons`
+- change default background image
 
 ## 2021-12-21
 ### Added

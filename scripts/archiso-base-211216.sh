@@ -260,7 +260,7 @@ path=/usr/bin/vlc
 #scale=2
 
 [shell]
-background-image=/usr/share/backgrounds/archlinux/awesome.png
+background-image=/usr/share/backgrounds/default.jpg
 background-type=scale-crop
 clock-format=none
 panel-position=left
@@ -305,6 +305,11 @@ KEYMAP=jp106
 /cat
 ln -s /usr/lib/systemd/system/NetworkManager.service airootfs/etc/systemd/system/multi-user.target.wants/
 ln -s /usr/lib/systemd/system/docker.service airootfs/etc/systemd/system/multi-user.target.wants/
+mkdir -p airootfs/usr/share/backgrounds
+curl \
+  -o airootfs/usr/share/backgrounds/default.jpg \
+  -s \
+  'https://images.pexels.com/photos/2138922/pexels-photo-2138922.jpeg?crop=entropy&cs=srgb&dl=pexels-kyle-roxas-2138922.jpg&fit=crop&fm=jpg&h=2880&w=5120'
 cat >> packages.x86_64 << '/cat'
 archlinux-wallpaper
 docker
