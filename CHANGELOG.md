@@ -6,6 +6,7 @@
 - add htop
 - add vlc
 - add pcmanfm-qt
+- add line to fully install icon
 
 ### Changed
 - change installation path of Tera-circle-icon-theme from `/usr/local/share/icons` to `/usr/share/icons`

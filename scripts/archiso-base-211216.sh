@@ -356,6 +356,7 @@ libreoffice
 vivaldi
 vlc
 /cat
+  ./install.sh -d "$OLDPWD/airootfs/usr/share/icons"
   cd
   rm -fr $OLDPWD
 )
