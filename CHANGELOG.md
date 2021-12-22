@@ -16,6 +16,7 @@
 - change panel color
 - change default theme for kitty
 - set vim_airline_theme to light
+- change default background opacity for kitty
 
 ## 2021-12-21
 ### Added

@@ -206,7 +206,7 @@ curl \
   -s \
   https://raw.githubusercontent.com/kovidgoyal/kitty-themes/master/themes/PaperColor_light.conf
 cat > airootfs/etc/skel/.config/kitty/kitty.conf << '/cat'
-background_opacity 0.7
+background_opacity 0.8
 font_family Fira Code
 include current-theme.conf
 linux_display_server x11
