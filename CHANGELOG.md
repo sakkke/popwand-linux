@@ -7,6 +7,9 @@
 - add vlc
 - add pcmanfm-qt
 
+### Changed
+- change installation path of Tera-circle-icon-theme from `/usr/local/share/icons` to `/usr/share/icons`
+
 ## 2021-12-21
 ### Added
 - add [ble.sh](https://github.com/akinomyoga/ble.sh)
