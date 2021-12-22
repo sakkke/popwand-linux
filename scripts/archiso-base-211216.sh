@@ -247,6 +247,10 @@ path=/usr/bin/libreoffice
 icon=/usr/local/share/icons/Tela-circle/24x24/apps/vivaldi.png
 path=/usr/bin/vivaldi-stable
 
+[launcher]
+icon=/usr/local/share/icons/Tela-circle/24x24/apps/vlc.png
+path=/usr/bin/vlc
+
 [output]
 #scale=2
 
@@ -323,6 +327,7 @@ ttf-fira-code
 ttf-ibm-plex
 vivaldi
 vivaldi-ffmpeg-codecs
+vlc
 weston
 xorg-drivers
 xorg-xwayland
@@ -342,6 +347,7 @@ inkscape
 kitty
 libreoffice
 vivaldi
+vlc
 /cat
   cd
   rm -fr $OLDPWD

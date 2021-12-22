@@ -4,6 +4,7 @@
 ### Added
 - add tmux
 - add htop
+- add vlc
 
 ## 2021-12-21
 ### Added
