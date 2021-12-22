@@ -155,7 +155,10 @@ if [ -z "$DISPLAY" ] && [ "$(tty)" = /dev/tty1 ]; then
   exec weston
 fi
 
-if [ ! -d ~/.local/share/blesh ]; then
+# Disable ble.sh
+#BLE_DISABLED=1
+
+if ((! BLE_DISABLED)) && [ ! -d ~/.local/share/blesh ]; then
   ! type \
     git \
     make \
@@ -184,10 +187,12 @@ export PS1='$(status=$?; [ $status -ne 0 ] && echo -n "=> \[\e[1;31m\]$status\[\
 export PS2='->> '
 export PS3='=> '
 export PS4='=>> \[\e[1;32m\]$0\[\e[m\]:\[\e[1;34m\]$LINENO\[\e[m\] -> '
-ble-import vim-airline
-bleopt exec_errexit_mark=
-bleopt vim_airline_theme=light
-ble-bind -f 'j j' vi_imap/normal-mode
+if ((! BLE_DISABLED)); then
+  ble-import vim-airline
+  bleopt exec_errexit_mark=
+  bleopt vim_airline_theme=light
+  ble-bind -f 'j j' vi_imap/normal-mode
+fi
 alias editor="$EDITOR"
 alias grep='grep --color'
 alias ls='ls --color'

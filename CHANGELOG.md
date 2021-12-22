@@ -8,6 +8,7 @@
 - add pcmanfm-qt
 - add line to fully install icon
 - add `jj` bind to Bash
+- add `BLE_DISABLED` variable
 
 ### Changed
 - change installation path of Tera-circle-icon-theme from `/usr/local/share/icons` to `/usr/share/icons`
