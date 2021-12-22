@@ -1,5 +1,9 @@
 # Changelog
 
+## 2021-12-22
+### Added
+- add tmux
+
 ## 2021-12-21
 ### Added
 - add [ble.sh](https://github.com/akinomyoga/ble.sh)

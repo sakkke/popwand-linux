@@ -313,6 +313,7 @@ noto-fonts-emoji
 noto-fonts-extra
 shotcut
 sudo
+tmux
 ttf-fira-code
 ttf-ibm-plex
 vivaldi
