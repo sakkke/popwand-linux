@@ -263,6 +263,7 @@ path=/usr/bin/vlc
 background-image=/usr/share/backgrounds/default.jpg
 background-type=scale-crop
 clock-format=none
+panel-color=0xccffffff
 panel-position=left
 /cat
 (
