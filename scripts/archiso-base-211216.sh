@@ -243,6 +243,10 @@ icon=/usr/local/share/icons/Tela-circle/24x24/apps/libreoffice.png
 path=/usr/bin/libreoffice
 
 [launcher]
+icon=/usr/local/share/icons/Tela-circle/24x24/apps/file-manager.png
+path=/usr/bin/pcmanfm-qt
+
+[launcher]
 #icon=/usr/share/icons/hicolor/24x24/apps/vivaldi.png
 icon=/usr/local/share/icons/Tela-circle/24x24/apps/vivaldi.png
 path=/usr/bin/vivaldi-stable
@@ -320,6 +324,7 @@ noto-fonts
 noto-fonts-cjk
 noto-fonts-emoji
 noto-fonts-extra
+pcmanfm-qt
 shotcut
 sudo
 tmux
@@ -341,6 +346,7 @@ xorg-xwayland
     -width 24 \
     -i src/scalable/apps/{}.svg \
     "$OLDPWD/airootfs/usr/local/share/icons/Tela-circle/24x24/apps/{}.png"
+file-manager
 gimp
 htop
 inkscape

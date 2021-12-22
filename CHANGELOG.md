@@ -5,6 +5,7 @@
 - add tmux
 - add htop
 - add vlc
+- add pcmanfm-qt
 
 ## 2021-12-21
 ### Added
