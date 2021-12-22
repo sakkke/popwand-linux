@@ -220,6 +220,10 @@ icon=/usr/local/share/icons/Tela-circle/24x24/apps/gimp.png
 path=/usr/bin/gimp
 
 [launcher]
+icon=/usr/local/share/icons/Tela-circle/24x24/apps/htop.png
+path=/usr/bin/kitty htop
+
+[launcher]
 #icon=/usr/share/icons/hicolor/24x24/apps/org.inkscape.Inkscape.png
 icon=/usr/local/share/icons/Tela-circle/24x24/apps/inkscape.png
 path=/usr/bin/inkscape
@@ -301,6 +305,7 @@ fcitx5-mozc
 ffmpeg
 gimp
 gnome-icon-theme
+htop
 inkscape
 kitty
 libreoffice-fresh
@@ -332,6 +337,7 @@ xorg-xwayland
     -i src/scalable/apps/{}.svg \
     "$OLDPWD/airootfs/usr/local/share/icons/Tela-circle/24x24/apps/{}.png"
 gimp
+htop
 inkscape
 kitty
 libreoffice

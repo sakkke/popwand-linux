@@ -3,6 +3,7 @@
 ## 2021-12-22
 ### Added
 - add tmux
+- add htop
 
 ## 2021-12-21
 ### Added
