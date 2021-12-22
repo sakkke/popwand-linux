@@ -256,6 +256,7 @@ icon=/usr/local/share/icons/Tela-circle/24x24/apps/vlc.png
 path=/usr/bin/vlc
 
 [output]
+#name=HDMI-A-1
 #scale=2
 
 [shell]
