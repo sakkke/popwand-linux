@@ -200,6 +200,11 @@ alias ls='ls --color'
 # ref: https://github.com/akinomyoga/ble.sh#:~:text=%5B%5B%20%24%7BBLE_VERSION%2D%7D%20%5D%5D%20%26%26%20ble%2Dattach
 [[ ${BLE_VERSION-} ]] && ble-attach
 /cat
+mkdir -p airootfs/etc/skel/.config/gtk-3.0
+cat > airootfs/etc/skel/.config/gtk-3.0/settings.ini << '/cat'
+[Settings]
+gtk-cursor-theme-name=Fuchsia
+/cat
 mkdir -p airootfs/etc/skel/.config/kitty
 curl \
   -o airootfs/etc/skel/.config/kitty/current-theme.conf \
@@ -270,6 +275,8 @@ path=/usr/bin/vlc
 background-image=/usr/share/backgrounds/default.jpg
 background-type=scale-crop
 clock-format=none
+cursor-size=24
+cursor-theme=Fuchsia
 panel-color=0xccffffff
 panel-position=left
 /cat
@@ -285,6 +292,11 @@ panel-position=left
   cd
   rm -fr $OLDPWD
 )
+mkdir -p airootfs/etc/skel/.local/share/icons/default
+cat > airootfs/etc/skel/.local/share/icons/default/index.theme << '/cat'
+[Icon Theme]
+Inherits=Fuchsia
+/cat
 cat > airootfs/etc/skel/.pam_environment << '/cat'
 # for kitty
 GLFW_IM_MODULE=ibus
@@ -352,6 +364,12 @@ xorg-drivers
 xorg-xwayland
 /cat
 
+mkdir -p airootfs/usr/share/icons
+curl -Ls \
+  https://github.com/ful1e5/fuchsia-cursor/releases/download/v1.0.5/Fuchsia.tar.gz \
+  | tar \
+    -C airootfs/usr/share/icons \
+    -xzf -
 (
   cd $(mktemp -d)
   git clone https://github.com/vinceliuice/Tela-circle-icon-theme.git .
