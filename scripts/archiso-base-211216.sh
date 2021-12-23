@@ -307,6 +307,8 @@ icon=/usr/share/icons-24x24/vlc.png
 path=/usr/bin/vlc
 
 [output]
+
+## For HiDPI display users, set name and scale field
 #name=HDMI-A-1
 #scale=2
 
