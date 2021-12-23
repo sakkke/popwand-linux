@@ -4,6 +4,7 @@
 ### Added
 - add Wayland support for PCManFM-Qt
 - add gvfs
+- add apps
 
 ### Changed
 - change PCManFM-Qt default icon to Tela-circle

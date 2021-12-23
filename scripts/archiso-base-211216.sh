@@ -270,8 +270,29 @@ icon=/usr/share/icons-24x24/vivaldi.png
 path=/usr/bin/vivaldi-stable
 
 [launcher]
+icon=/usr/share/favicons-24x24/codepen.io.png
+path=/usr/bin/vivaldi-stable --app=https://codepen.io/ --new-window
+
+[launcher]
+icon=/usr/share/favicons-24x24/diep.io.png
+path=/usr/bin/vivaldi-stable --app=https://diep.io/ --new-window
+
+[launcher]
+icon=/usr/share/favicons-24x24/meet.google.com.png
+path=/usr/bin/vivaldi-stable --app=https://meet.google.com/ --new-window
+
+[launcher]
+icon=/usr/share/favicons-24x24/squoosh.app.png
+path=/usr/bin/vivaldi-stable --app=https://squoosh.app/ --new-window
+
+[launcher]
+#icon=/usr/share/favicons-24x24/vscode.dev.png
 icon=/usr/share/icons-24x24/visualstudiocode.png
 path=/usr/bin/vivaldi-stable --app=https://vscode.dev/ --new-window
+
+[launcher]
+icon=/usr/share/favicons-24x24/zenn.dev.png
+path=/usr/bin/vivaldi-stable --app=https://zenn.dev/ --new-window
 
 [launcher]
 icon=/usr/share/icons-24x24/vlc.png
@@ -376,7 +397,25 @@ xorg-drivers
 xorg-xwayland
 /cat
 
-mkdir -p airootfs/usr/share/icons
+mkdir -p airootfs/usr/share/favicons-24x24
+cat > airootfs/usr/share/favicons-24x24/list << '/cat'
+codepen.io https://codepen.io/
+diep.io https://diep.io/
+meet.google.com https://meet.google.com/
+squoosh.app https://squoosh.app/
+vscode.dev https://vscode.dev/
+zenn.dev https://zenn.dev/
+/cat
+cat > airootfs/usr/share/favicons-24x24/update.sh << '/cat'
+#!/bin/bash
+cwd="$(cd "$(dirname "$0")" && pwd)"
+ls "$cwd" | grep '.png$' | xargs rm
+cat "$cwd/list" | while read name domain_url; do
+  curl -so $name.png "https://www.google.com/s2/favicons?domain_url=$domain_url&sz=24"
+done
+/cat
+bash airootfs/usr/share/favicons-24x24/update.sh
+mkdir airootfs/usr/share/icons
 curl -Ls \
   https://github.com/ful1e5/fuchsia-cursor/releases/download/v1.0.5/Fuchsia.tar.gz \
   | tar \
@@ -435,6 +474,7 @@ file_permissions=(
   ["/etc/gshadow"]="0:0:0400"
   ["/etc/pacman.d/hooks.bin/shotcut-install"]="0:0:755"
   ["/etc/pacman.d/hooks.bin/shotcut-remove"]="0:0:755"
+  ["/usr/share/favicons-24x24/update.sh"]="0:0:755"
   ["/usr/share/icons-24x24/update.sh"]="0:0:755"
 )
 /cat
