@@ -234,30 +234,30 @@ keymap_layout=jp
 
 [launcher]
 #icon=/usr/share/icons/hicolor/24x24/apps/gimp.png
-icon=/usr/share/icons/Tela-circle/24x24/apps/gimp.png
+icon=/usr/share/icons-24x24/gimp.png
 path=/usr/bin/gimp
 
 [launcher]
-icon=/usr/share/icons/Tela-circle/24x24/apps/htop.png
+icon=/usr/share/icons-24x24/htop.png
 path=/usr/bin/kitty htop
 
 [launcher]
 #icon=/usr/share/icons/hicolor/24x24/apps/org.inkscape.Inkscape.png
-icon=/usr/share/icons/Tela-circle/24x24/apps/inkscape.png
+icon=/usr/share/icons-24x24/inkscape.png
 path=/usr/bin/inkscape
 
 [launcher]
 #icon=/usr/share/icons/gnome/24x24/apps/utilities-terminal.png
-icon=/usr/share/icons/Tela-circle/24x24/apps/kitty.png
+icon=/usr/share/icons-24x24/kitty.png
 path=/usr/bin/kitty
 
 [launcher]
 #icon=/usr/share/icons/hicolor/24x24/apps/libreoffice-startcenter.png
-icon=/usr/share/icons/Tela-circle/24x24/apps/libreoffice.png
+icon=/usr/share/icons-24x24/libreoffice.png
 path=/usr/bin/libreoffice
 
 [launcher]
-icon=/usr/share/icons/Tela-circle/24x24/apps/file-manager.png
+icon=/usr/share/icons-24x24/file-manager.png
 path=/usr/bin/pcmanfm-qt -platform wayland
 
 [launcher]
@@ -266,15 +266,15 @@ path=/usr/bin/shotcut
 
 [launcher]
 #icon=/usr/share/icons/hicolor/24x24/apps/vivaldi.png
-icon=/usr/share/icons/Tela-circle/24x24/apps/vivaldi.png
+icon=/usr/share/icons-24x24/vivaldi.png
 path=/usr/bin/vivaldi-stable
 
 [launcher]
-icon=/usr/share/icons/Tela-circle/24x24/apps/visualstudiocode.png
+icon=/usr/share/icons-24x24/visualstudiocode.png
 path=/usr/bin/vivaldi-stable --app=https://vscode.dev/ --new-window
 
 [launcher]
-icon=/usr/share/icons/Tela-circle/24x24/apps/vlc.png
+icon=/usr/share/icons-24x24/vlc.png
 path=/usr/bin/vlc
 
 [output]
@@ -385,11 +385,11 @@ curl -Ls \
 (
   cd $(mktemp -d)
   git clone https://github.com/vinceliuice/Tela-circle-icon-theme.git .
-  mkdir -p "$OLDPWD/airootfs/usr/share/icons/Tela-circle/24x24/apps"
+  mkdir "$OLDPWD/airootfs/usr/share/icons-24x24"
   cat << /cat | xargs -I{} -P0 -n1 ffmpeg \
     -width 24 \
     -i src/scalable/apps/{}.svg \
-    "$OLDPWD/airootfs/usr/share/icons/Tela-circle/24x24/apps/{}.png"
+    "$OLDPWD/airootfs/usr/share/icons-24x24/{}.png"
 file-manager
 gimp
 htop

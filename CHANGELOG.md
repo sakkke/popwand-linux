@@ -7,6 +7,7 @@
 
 ### Changed
 - change PCManFM-Qt default icon to Tela-circle
+- change installation path of icon
 
 ## 2021-12-22
 ### Added
