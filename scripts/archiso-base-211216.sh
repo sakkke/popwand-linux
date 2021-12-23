@@ -222,6 +222,10 @@ cat > airootfs/etc/skel/.config/pcmanfm-qt/default/settings.conf << '/cat'
 [System]
 FallbackIconThemeName=Tela-circle
 /cat
+mkdir -p airootfs/etc/skel/.config/systemd/user/default.target.wants
+ln -s /usr/lib/systemd/user/pipewire.service airootfs/etc/skel/.config/systemd/user/default.target.wants/
+mkdir airootfs/etc/skel/.config/systemd/user/sockets.target.wants
+ln -s /usr/lib/systemd/user/pipewire.socket airootfs/etc/skel/.config/systemd/user/sockets.target.wants/
 cat > airootfs/etc/skel/.config/weston.ini << '/cat'
 [core]
 xwayland=true
@@ -383,6 +387,7 @@ noto-fonts-cjk
 noto-fonts-emoji
 noto-fonts-extra
 pcmanfm-qt
+pipewire
 qt5-wayland
 shotcut
 sudo
