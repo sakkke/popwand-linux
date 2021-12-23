@@ -344,6 +344,7 @@ fcitx5-mozc
 ffmpeg
 gimp
 gnome-icon-theme
+gvfs
 htop
 inkscape
 kitty

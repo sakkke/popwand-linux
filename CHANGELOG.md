@@ -3,6 +3,7 @@
 ## 2021-12-23
 ### Added
 - add Wayland support for PCManFM-Qt
+- add gvfs
 
 ## 2021-12-22
 ### Added
