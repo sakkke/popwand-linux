@@ -1,5 +1,9 @@
 # Changelog
 
+## 2021-12-23
+### Added
+- add Wayland support for PCManFM-Qt
+
 ## 2021-12-22
 ### Added
 - add tmux

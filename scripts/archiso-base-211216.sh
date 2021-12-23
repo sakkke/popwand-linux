@@ -253,7 +253,7 @@ path=/usr/bin/libreoffice
 
 [launcher]
 icon=/usr/share/icons/Tela-circle/24x24/apps/file-manager.png
-path=/usr/bin/pcmanfm-qt
+path=/usr/bin/pcmanfm-qt -platform wayland
 
 [launcher]
 icon=/usr/share/icons/hicolor/24x24/apps/org.shotcut.Shotcut.png
@@ -356,6 +356,7 @@ noto-fonts-cjk
 noto-fonts-emoji
 noto-fonts-extra
 pcmanfm-qt
+qt5-wayland
 shotcut
 sudo
 tmux
