@@ -455,7 +455,7 @@ cat "$cwd/list" | xargs -I{} -P0 -n1 ffmpeg \
   -i src/scalable/apps/{}.svg \
   "$cwd/{}.png"
 sed -i 's/\(gtk-update-icon-cache\)/#\1/' install.sh
-[ ! -d "$install_dir/Tela-circle" ] && ./install.sh -d "$install_dir"
+./install.sh -d "$install_dir"
 cd
 rm -fr $OLDPWD
 /cat
