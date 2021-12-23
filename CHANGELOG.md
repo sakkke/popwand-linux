@@ -5,6 +5,9 @@
 - add Wayland support for PCManFM-Qt
 - add gvfs
 
+### Changed
+- change PCManFM-Qt default icon to Tela-circle
+
 ## 2021-12-22
 ### Added
 - add tmux

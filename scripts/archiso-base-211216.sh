@@ -217,6 +217,11 @@ font_family Fira Code
 include current-theme.conf
 linux_display_server x11
 /cat
+mkdir -p airootfs/etc/skel/.config/pcmanfm-qt/default
+cat > airootfs/etc/skel/.config/pcmanfm-qt/default/settings.conf << '/cat'
+[System]
+FallbackIconThemeName=Tela-circle
+/cat
 cat > airootfs/etc/skel/.config/weston.ini << '/cat'
 [core]
 xwayland=true
