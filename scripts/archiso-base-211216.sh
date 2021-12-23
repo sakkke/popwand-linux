@@ -382,14 +382,8 @@ curl -Ls \
   | tar \
     -C airootfs/usr/share/icons \
     -xzf -
-(
-  cd $(mktemp -d)
-  git clone https://github.com/vinceliuice/Tela-circle-icon-theme.git .
-  mkdir "$OLDPWD/airootfs/usr/share/icons-24x24"
-  cat << /cat | xargs -I{} -P0 -n1 ffmpeg \
-    -width 24 \
-    -i src/scalable/apps/{}.svg \
-    "$OLDPWD/airootfs/usr/share/icons-24x24/{}.png"
+mkdir airootfs/usr/share/icons-24x24
+cat > airootfs/usr/share/icons-24x24/list << '/cat'
 file-manager
 gimp
 htop
@@ -400,11 +394,23 @@ visualstudiocode
 vivaldi
 vlc
 /cat
-  sed -i 's/\(gtk-update-icon-cache\)/#\1/' install.sh
-  ./install.sh -d "$OLDPWD/airootfs/usr/share/icons"
-  cd
-  rm -fr $OLDPWD
-)
+cat > airootfs/usr/share/icons-24x24/update.sh << '/cat'
+#!/bin/bash
+cwd="$(cd "$(dirname "$0")" && pwd)"
+install_dir="$(cd "$cwd/../icons" && pwd)"
+cd $(mktemp -d)
+git clone https://github.com/vinceliuice/Tela-circle-icon-theme.git .
+ls "$cwd" | grep '.png$' | xargs rm
+cat "$cwd/list" | xargs -I{} -P0 -n1 ffmpeg \
+  -width 24 \
+  -i src/scalable/apps/{}.svg \
+  "$cwd/{}.png"
+sed -i 's/\(gtk-update-icon-cache\)/#\1/' install.sh
+[ ! -d "$install_dir/Tela-circle" ] && ./install.sh -d "$install_dir"
+cd
+rm -fr $OLDPWD
+/cat
+bash airootfs/usr/share/icons-24x24/update.sh
 
 # ref: https://gitlab.archlinux.org/archlinux/archiso/-/blob/754caf0ca21476d52d8557058f665b9078982877/configs/baseline/profiledef.sh
 # ref: https://wiki.archlinux.org/title/archiso#:~:text=the%20correct%20permissions%3A-,archlive/profiledef.sh,-...%0Afile_permissions%3D(%0A%20%20...%0A%20%20%5B%22/etc/shadow
@@ -429,6 +435,7 @@ file_permissions=(
   ["/etc/gshadow"]="0:0:0400"
   ["/etc/pacman.d/hooks.bin/shotcut-install"]="0:0:755"
   ["/etc/pacman.d/hooks.bin/shotcut-remove"]="0:0:755"
+  ["/usr/share/icons-24x24/update.sh"]="0:0:755"
 )
 /cat
 
