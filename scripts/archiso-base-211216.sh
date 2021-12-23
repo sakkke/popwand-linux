@@ -393,6 +393,7 @@ visualstudiocode
 vivaldi
 vlc
 /cat
+  sed -i 's/\(gtk-update-icon-cache\)/#\1/' install.sh
   ./install.sh -d "$OLDPWD/airootfs/usr/share/icons"
   cd
   rm -fr $OLDPWD
