@@ -299,6 +299,10 @@ icon=/usr/share/favicons-24x24/zenn.dev.png
 path=/usr/bin/vivaldi-stable --app=https://zenn.dev/ --new-window
 
 [launcher]
+icon=/usr/share/favicons-24x24/www.youtube.com.png
+path=/usr/bin/vivaldi-stable --app=https://www.youtube.com/ --new-window
+
+[launcher]
 icon=/usr/share/icons-24x24/vlc.png
 path=/usr/bin/vlc
 
@@ -409,6 +413,7 @@ diep.io https://diep.io/
 meet.google.com https://meet.google.com/
 squoosh.app https://squoosh.app/
 vscode.dev https://vscode.dev/
+www.youtube.com https://www.youtube.com/
 zenn.dev https://zenn.dev/
 /cat
 cat > airootfs/usr/share/favicons-24x24/update.sh << '/cat'

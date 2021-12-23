@@ -1,5 +1,9 @@
 # Changelog
 
+## 2021-12-24
+### Added
+- add `https://www.youtube.com/`
+
 ## 2021-12-23
 ### Added
 - add Wayland support for PCManFM-Qt
