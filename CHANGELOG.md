@@ -4,6 +4,9 @@
 ### Added
 - add `https://www.youtube.com/`
 
+### Fixed
+- fix `rm: missing operand`
+
 ## 2021-12-23
 ### Added
 - add Wayland support for PCManFM-Qt

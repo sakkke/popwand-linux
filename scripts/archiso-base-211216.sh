@@ -421,7 +421,7 @@ zenn.dev https://zenn.dev/
 cat > airootfs/usr/share/favicons-24x24/update.sh << '/cat'
 #!/bin/bash
 cwd="$(cd "$(dirname "$0")" && pwd)"
-ls "$cwd" | grep '.png$' | xargs rm
+ls "$cwd" | grep '.png$' | xargs -r rm
 cat "$cwd/list" | while read name domain_url; do
   curl -so $name.png "https://www.google.com/s2/favicons?domain_url=$domain_url&sz=24"
 done
@@ -451,7 +451,7 @@ cwd="$(cd "$(dirname "$0")" && pwd)"
 install_dir="$(cd "$cwd/../icons" && pwd)"
 cd $(mktemp -d)
 git clone https://github.com/vinceliuice/Tela-circle-icon-theme.git .
-ls "$cwd" | grep '.png$' | xargs rm
+ls "$cwd" | grep '.png$' | xargs -r rm
 cat "$cwd/list" | xargs -I{} -P0 -n1 ffmpeg \
   -width 24 \
   -i src/scalable/apps/{}.svg \
