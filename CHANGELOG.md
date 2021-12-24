@@ -6,6 +6,7 @@
 
 ### Fixed
 - fix `rm: missing operand`
+- fix issue where there was no sound after startup
 
 ## 2021-12-23
 ### Added
