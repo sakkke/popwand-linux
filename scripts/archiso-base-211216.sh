@@ -263,6 +263,36 @@ icon=/usr/share/icons-24x24/libreoffice.png
 path=/usr/bin/libreoffice
 
 [launcher]
+#icon=/usr/share/icons/hicolor/24x24/apps/libreoffice-base.png
+icon=/usr/share/icons-24x24/libreoffice-base.png
+path=/usr/bin/libreoffice --base
+
+[launcher]
+#icon=/usr/share/icons/hicolor/24x24/apps/libreoffice-calc.png
+icon=/usr/share/icons-24x24/libreoffice-calc.png
+path=/usr/bin/libreoffice --calc
+
+[launcher]
+#icon=/usr/share/icons/hicolor/24x24/apps/libreoffice-draw.png
+icon=/usr/share/icons-24x24/libreoffice-draw.png
+path=/usr/bin/libreoffice --draw
+
+[launcher]
+#icon=/usr/share/icons/hicolor/24x24/apps/libreoffice-impress.png
+icon=/usr/share/icons-24x24/libreoffice-impress.png
+path=/usr/bin/libreoffice --impress
+
+[launcher]
+#icon=/usr/share/icons/hicolor/24x24/apps/libreoffice-math.png
+icon=/usr/share/icons-24x24/libreoffice-math.png
+path=/usr/bin/libreoffice --math
+
+[launcher]
+#icon=/usr/share/icons/hicolor/24x24/apps/libreoffice-writer.png
+icon=/usr/share/icons-24x24/libreoffice-writer.png
+path=/usr/bin/libreoffice --writer
+
+[launcher]
 icon=/usr/share/icons-24x24/file-manager.png
 path=/usr/bin/pcmanfm-qt -platform wayland
 
@@ -443,6 +473,12 @@ htop
 inkscape
 kitty
 libreoffice
+libreoffice-base
+libreoffice-calc
+libreoffice-draw
+libreoffice-impress
+libreoffice-math
+libreoffice-writer
 visualstudiocode
 vivaldi
 vlc
