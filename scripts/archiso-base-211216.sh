@@ -423,7 +423,7 @@ cat > airootfs/usr/share/favicons-24x24/update.sh << '/cat'
 cwd="$(cd "$(dirname "$0")" && pwd)"
 ls "$cwd" | grep '.png$' | xargs -r rm
 cat "$cwd/list" | while read name domain_url; do
-  curl -so $name.png "https://www.google.com/s2/favicons?domain_url=$domain_url&sz=24"
+  curl -so "$cwd/$name.png" "https://www.google.com/s2/favicons?domain_url=$domain_url&sz=24"
 done
 /cat
 bash airootfs/usr/share/favicons-24x24/update.sh
