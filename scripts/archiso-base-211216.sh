@@ -293,6 +293,10 @@ icon=/usr/share/icons-24x24/libreoffice-writer.png
 path=/usr/bin/libreoffice --writer
 
 [launcher]
+icon=/usr/share/icons-24x24/neovim.png
+path=/usr/bin/kitty nvim
+
+[launcher]
 icon=/usr/share/icons-24x24/file-manager.png
 path=/usr/bin/pcmanfm-qt -platform wayland
 
@@ -479,6 +483,7 @@ libreoffice-draw
 libreoffice-impress
 libreoffice-math
 libreoffice-writer
+neovim
 visualstudiocode
 vivaldi
 vlc

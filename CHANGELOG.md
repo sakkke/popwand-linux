@@ -4,6 +4,7 @@
 ### Added
 - add `https://www.youtube.com/`
 - add items related to LibreOffice to the launcher
+- add Neovim to the launcher
 
 ### Fixed
 - fix `rm: missing operand`
