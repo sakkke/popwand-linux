@@ -1,6 +1,9 @@
 # Changelog
 
 ## 2021-12-25
+### Added
+- add `https://github.com/`
+
 ### Changed
 - update YouTube icon
 

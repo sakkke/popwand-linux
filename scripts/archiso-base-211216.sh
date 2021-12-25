@@ -318,6 +318,11 @@ icon=/usr/share/favicons-24x24/diep.io.png
 path=/usr/bin/vivaldi-stable --app=https://diep.io/ --new-window
 
 [launcher]
+#icon=/usr/share/favicons-24x24/github.com.png
+icon=/usr/share/icons-24x24/github.png
+path=/usr/bin/vivaldi-stable --app=https://github.com/ --new-window
+
+[launcher]
 icon=/usr/share/favicons-24x24/meet.google.com.png
 path=/usr/bin/vivaldi-stable --app=https://meet.google.com/ --new-window
 
@@ -449,6 +454,7 @@ mkdir -p airootfs/usr/share/favicons-24x24
 cat > airootfs/usr/share/favicons-24x24/list << '/cat'
 codepen.io https://codepen.io/
 diep.io https://diep.io/
+github.com https://github.com/
 meet.google.com https://meet.google.com/
 squoosh.app https://squoosh.app/
 vscode.dev https://vscode.dev/
@@ -474,6 +480,7 @@ mkdir airootfs/usr/share/icons-24x24
 cat > airootfs/usr/share/icons-24x24/list << '/cat'
 file-manager
 gimp
+github
 htop
 inkscape
 kitty
