@@ -1,5 +1,9 @@
 # Changelog
 
+## 2021-12-25
+### Changed
+- update YouTube icon
+
 ## 2021-12-24
 ### Added
 - add `https://www.youtube.com/`

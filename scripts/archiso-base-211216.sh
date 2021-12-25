@@ -335,7 +335,8 @@ icon=/usr/share/favicons-24x24/zenn.dev.png
 path=/usr/bin/vivaldi-stable --app=https://zenn.dev/ --new-window
 
 [launcher]
-icon=/usr/share/favicons-24x24/www.youtube.com.png
+#icon=/usr/share/favicons-24x24/www.youtube.com.png
+icon=/usr/share/icons-24x24/youtube.png
 path=/usr/bin/vivaldi-stable --app=https://www.youtube.com/ --new-window
 
 [launcher]
@@ -487,6 +488,7 @@ neovim
 visualstudiocode
 vivaldi
 vlc
+youtube
 /cat
 cat > airootfs/usr/share/icons-24x24/update.sh << '/cat'
 #!/bin/bash
