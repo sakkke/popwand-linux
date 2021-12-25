@@ -5,6 +5,7 @@
 - add `https://github.com/`
 - add nomacs
 - add Blender
+- add Signal Desktop
 
 ### Changed
 - update YouTube icon

@@ -313,6 +313,11 @@ icon=/usr/share/icons/hicolor/24x24/apps/org.shotcut.Shotcut.png
 path=/usr/bin/shotcut
 
 [launcher]
+#icon=/usr/share/icons/hicolor/24x24/apps/signal-desktop.png
+icon=/usr/share/icons-24x24/signal-desktop.png
+path=/usr/bin/signal-desktop
+
+[launcher]
 #icon=/usr/share/icons/hicolor/24x24/apps/vivaldi.png
 icon=/usr/share/icons-24x24/vivaldi.png
 path=/usr/bin/vivaldi-stable
@@ -449,6 +454,7 @@ pcmanfm-qt
 pipewire
 qt5-wayland
 shotcut
+signal-desktop
 sudo
 tmux
 ttf-fira-code
@@ -505,6 +511,7 @@ libreoffice-math
 libreoffice-writer
 neovim
 nomacs
+signal-desktop
 visualstudiocode
 vivaldi
 vlc
