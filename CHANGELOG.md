@@ -4,6 +4,7 @@
 ### Added
 - add `https://github.com/`
 - add nomacs
+- add Blender
 
 ### Changed
 - update YouTube icon
