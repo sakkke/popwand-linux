@@ -354,6 +354,10 @@ icon=/usr/share/icons-24x24/visualstudiocode.png
 path=/usr/bin/vivaldi-stable --app=https://vscode.dev/ --new-window
 
 [launcher]
+icon=/usr/share/favicons-24x24/www.wolframalpha.com.png
+path=/usr/bin/vivaldi-stable --app=https://www.wolframalpha.com/ --new-window
+
+[launcher]
 icon=/usr/share/favicons-24x24/zenn.dev.png
 path=/usr/bin/vivaldi-stable --app=https://zenn.dev/ --new-window
 
@@ -480,6 +484,7 @@ github.com https://github.com/
 meet.google.com https://meet.google.com/
 squoosh.app https://squoosh.app/
 vscode.dev https://vscode.dev/
+www.wolframalpha.com https://www.wolframalpha.com/
 www.youtube.com https://www.youtube.com/
 zenn.dev https://zenn.dev/
 /cat

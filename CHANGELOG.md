@@ -7,6 +7,7 @@
 - add Blender
 - add Signal Desktop
 - add `https://earth.google.com/web/`
+- add `https://www.wolframalpha.com/`
 
 ### Changed
 - update YouTube icon
