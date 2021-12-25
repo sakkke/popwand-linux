@@ -15,6 +15,9 @@
 - update YouTube icon
 - set `QT_QPA_PLATFORM` to `wayland`
 
+### Fixed
+- fix wrong path
+
 ### Removed
 - remove unused package
 
