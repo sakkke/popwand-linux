@@ -293,6 +293,10 @@ icon=/usr/share/icons-24x24/libreoffice-writer.png
 path=/usr/bin/libreoffice --writer
 
 [launcher]
+icon=/usr/share/icons-24x24/nomacs.png
+path=/usr/bin/nomacs
+
+[launcher]
 icon=/usr/share/icons-24x24/neovim.png
 path=/usr/bin/kitty nvim
 
@@ -431,6 +435,7 @@ libreoffice-fresh
 libreoffice-fresh-ja
 neovim
 networkmanager
+nomacs
 noto-fonts
 noto-fonts-cjk
 noto-fonts-emoji
@@ -493,6 +498,7 @@ libreoffice-impress
 libreoffice-math
 libreoffice-writer
 neovim
+nomacs
 visualstudiocode
 vivaldi
 vlc

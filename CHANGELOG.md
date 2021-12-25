@@ -3,6 +3,7 @@
 ## 2021-12-25
 ### Added
 - add `https://github.com/`
+- add nomacs
 
 ### Changed
 - update YouTube icon
