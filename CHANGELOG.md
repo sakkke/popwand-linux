@@ -8,6 +8,7 @@
 - add Signal Desktop
 - add `https://earth.google.com/web/`
 - add `https://www.wolframalpha.com/`
+- add `https://www.wikipedia.org/`
 
 ### Changed
 - update YouTube icon
