@@ -223,11 +223,13 @@ cat > airootfs/etc/skel/.config/pcmanfm-qt/default/settings.conf << '/cat'
 FallbackIconThemeName=Tela-circle
 /cat
 mkdir -p airootfs/etc/skel/.config/systemd/user/default.target.wants
+ln -s /usr/lib/systemd/user/pipewire-pulse.service airootfs/etc/skel/.config/systemd/user/default.target.wants/
 ln -s /usr/lib/systemd/user/pipewire.service airootfs/etc/skel/.config/systemd/user/default.target.wants/
 ln -s /usr/lib/systemd/user/pipewire-media-session.service airootfs/etc/skel/.config/systemd/user/pipewire-session-manager.service
 mkdir airootfs/etc/skel/.config/systemd/user/pipewire.service.wants
 ln -s /usr/lib/systemd/user/pipewire-media.session.service airootfs/etc/skel/.config/systemd/user/pipewire.service.wants/
 mkdir airootfs/etc/skel/.config/systemd/user/sockets.target.wants
+ln -s /usr/lib/systemd/user/pipewire-pulse.socket airootfs/etc/skel/.config/systemd/user/sockets.target.wants/
 ln -s /usr/lib/systemd/user/pipewire.socket airootfs/etc/skel/.config/systemd/user/sockets.target.wants/
 cat > airootfs/etc/skel/.config/weston.ini << '/cat'
 [core]
@@ -465,6 +467,7 @@ noto-fonts-emoji
 noto-fonts-extra
 pcmanfm-qt
 pipewire
+pipewire-pulse
 qt5-wayland
 shotcut
 signal-desktop
