@@ -12,6 +12,9 @@
 - update YouTube icon
 - set `QT_QPA_PLATFORM` to `wayland`
 
+### Removed
+- remove unused package
+
 ## 2021-12-24
 ### Added
 - add `https://www.youtube.com/`
