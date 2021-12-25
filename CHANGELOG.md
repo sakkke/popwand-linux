@@ -6,6 +6,7 @@
 - add nomacs
 - add Blender
 - add Signal Desktop
+- add `https://earth.google.com/web/`
 
 ### Changed
 - update YouTube icon

@@ -336,6 +336,11 @@ icon=/usr/share/icons-24x24/github.png
 path=/usr/bin/vivaldi-stable --app=https://github.com/ --new-window
 
 [launcher]
+#icon=/usr/share/favicons-24x24/earth.google.com.png
+icon=/usr/share/icons-24x24/google-earth.png
+path=/usr/bin/vivaldi-stable --app=https://earth.google.com/web/ --new-window
+
+[launcher]
 icon=/usr/share/favicons-24x24/meet.google.com.png
 path=/usr/bin/vivaldi-stable --app=https://meet.google.com/ --new-window
 
@@ -471,6 +476,7 @@ mkdir -p airootfs/usr/share/favicons-24x24
 cat > airootfs/usr/share/favicons-24x24/list << '/cat'
 codepen.io https://codepen.io/
 diep.io https://diep.io/
+earth.google.com https://earth.google.com/web/
 github.com https://github.com/
 meet.google.com https://meet.google.com/
 squoosh.app https://squoosh.app/
@@ -499,6 +505,7 @@ blender
 file-manager
 gimp
 github
+google-earth
 htop
 inkscape
 kitty
