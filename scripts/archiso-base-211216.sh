@@ -358,13 +358,13 @@ icon=/usr/share/favicons-24x24/www.wolframalpha.com.png
 path=/usr/bin/vivaldi-stable --app=https://www.wolframalpha.com/ --new-window
 
 [launcher]
-icon=/usr/share/favicons-24x24/zenn.dev.png
-path=/usr/bin/vivaldi-stable --app=https://zenn.dev/ --new-window
-
-[launcher]
 #icon=/usr/share/favicons-24x24/www.youtube.com.png
 icon=/usr/share/icons-24x24/youtube.png
 path=/usr/bin/vivaldi-stable --app=https://www.youtube.com/ --new-window
+
+[launcher]
+icon=/usr/share/favicons-24x24/zenn.dev.png
+path=/usr/bin/vivaldi-stable --app=https://zenn.dev/ --new-window
 
 [launcher]
 icon=/usr/share/icons-24x24/vlc.png
