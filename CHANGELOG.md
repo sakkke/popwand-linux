@@ -6,6 +6,7 @@
 
 ### Changed
 - update YouTube icon
+- set `QT_QPA_PLATFORM` to `wayland`
 
 ## 2021-12-24
 ### Added

@@ -298,7 +298,7 @@ path=/usr/bin/kitty nvim
 
 [launcher]
 icon=/usr/share/icons-24x24/file-manager.png
-path=/usr/bin/pcmanfm-qt -platform wayland
+path=/usr/bin/pcmanfm-qt
 
 [launcher]
 icon=/usr/share/icons/hicolor/24x24/apps/org.shotcut.Shotcut.png
@@ -386,6 +386,7 @@ GLFW_IM_MODULE=ibus
 
 GTK_IM_MODULE=fcitx
 QT_IM_MODULE=fcitx
+QT_QPA_PLATFORM=wayland
 SDL_IM_MODULE=fcitx
 XMODIFIERS=@im=fcitx
 /cat
