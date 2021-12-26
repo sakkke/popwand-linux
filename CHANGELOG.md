@@ -6,6 +6,7 @@
 - add `https://www.mathcha.io/editor`
 - add python
 - add FreeCAD
+- add MuseScore
 
 ### Changed
 - set micro to default editor

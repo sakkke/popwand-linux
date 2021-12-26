@@ -304,6 +304,11 @@ icon=/usr/share/icons-24x24/libreoffice-writer.png
 path=/usr/bin/libreoffice --writer
 
 [launcher]
+#icon=/usr/share/icons/hicolor/24x24/apps/mscore.png
+icon=/usr/share/icons-24x24/musescore.png
+path=/usr/bin/mscore
+
+[launcher]
 icon=/usr/share/icons-24x24/nomacs.png
 path=/usr/bin/nomacs
 
@@ -475,6 +480,7 @@ inkscape
 kitty
 libreoffice-fresh
 libreoffice-fresh-ja
+musescore
 neovim
 networkmanager
 nomacs
@@ -551,6 +557,7 @@ libreoffice-impress
 libreoffice-math
 libreoffice-writer
 micro
+musescore
 neovim
 nomacs
 python
