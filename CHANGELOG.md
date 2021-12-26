@@ -3,6 +3,7 @@
 ## 2021-12-26
 ### Added
 - add `https://app.diagrams.net/`
+- add `https://www.mathcha.io/editor`
 
 ## 2021-12-25
 ### Added

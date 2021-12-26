@@ -361,6 +361,10 @@ icon=/usr/share/icons-24x24/visualstudiocode.png
 path=/usr/bin/vivaldi-stable --app=https://vscode.dev/ --new-window
 
 [launcher]
+icon=/usr/share/favicons-24x24/www.mathcha.io.png
+path=/usr/bin/vivaldi-stable --app=https://www.mathcha.io/editor --new-window
+
+[launcher]
 icon=/usr/share/favicons-24x24/www.wikipedia.org.png
 path=/usr/bin/vivaldi-stable --app=https://www.wikipedia.org/ --new-window
 
@@ -497,6 +501,7 @@ github.com https://github.com/
 meet.google.com https://meet.google.com/
 squoosh.app https://squoosh.app/
 vscode.dev https://vscode.dev/
+www.mathcha.io https://www.mathcha.io/editor
 www.wikipedia.org https://www.wikipedia.org/
 www.wolframalpha.com https://www.wolframalpha.com/
 www.youtube.com https://www.youtube.com/
