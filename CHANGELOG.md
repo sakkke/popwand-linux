@@ -6,6 +6,9 @@
 - add `https://www.mathcha.io/editor`
 - add python
 
+### Changed
+- set micro to default editor
+
 ## 2021-12-25
 ### Added
 - add `https://github.com/`

@@ -16,7 +16,7 @@ rm -fr archlive
 cp -r /usr/share/archiso/configs/baseline archlive
 cd archlive
 cat > airootfs/etc/environment << /cat
-EDITOR=/usr/bin/nvim
+EDITOR=/usr/bin/micro
 /cat
 
 # ref: https://wiki.archlinux.org/title/archiso#:~:text=5).%20For%20example%3A-,archlive/airootfs/etc/group,-root%3Ax%3A0%3Aroot
@@ -544,6 +544,7 @@ libreoffice-draw
 libreoffice-impress
 libreoffice-math
 libreoffice-writer
+micro
 neovim
 nomacs
 python
