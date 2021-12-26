@@ -242,6 +242,10 @@ path=/usr/bin/fcitx5
 keymap_layout=jp
 
 [launcher]
+icon=/usr/share/icons-24x24/freecad.png
+path=/usr/bin/FreeCAD
+
+[launcher]
 icon=/usr/share/icons-24x24/blender.png
 path=/usr/bin/blender
 
@@ -462,6 +466,7 @@ docker-compose
 fcitx5-im
 fcitx5-mozc
 ffmpeg
+freecad
 gimp
 gnome-icon-theme
 gvfs
@@ -531,6 +536,7 @@ mkdir airootfs/usr/share/icons-24x24
 cat > airootfs/usr/share/icons-24x24/list << '/cat'
 blender
 file-manager
+freecad
 gimp
 github
 google-earth

@@ -5,6 +5,7 @@
 - add `https://app.diagrams.net/`
 - add `https://www.mathcha.io/editor`
 - add python
+- add FreeCAD
 
 ### Changed
 - set micro to default editor
