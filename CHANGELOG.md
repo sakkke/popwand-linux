@@ -4,6 +4,7 @@
 ### Added
 - add `https://app.diagrams.net/`
 - add `https://www.mathcha.io/editor`
+- add python
 
 ## 2021-12-25
 ### Added

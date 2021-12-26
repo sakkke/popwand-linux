@@ -312,6 +312,10 @@ icon=/usr/share/icons-24x24/file-manager.png
 path=/usr/bin/pcmanfm-qt
 
 [launcher]
+icon=/usr/share/icons-24x24/python.png
+path=/usr/bin/kitty python
+
+[launcher]
 icon=/usr/share/icons/hicolor/24x24/apps/org.shotcut.Shotcut.png
 path=/usr/bin/shotcut
 
@@ -476,6 +480,7 @@ noto-fonts-extra
 pcmanfm-qt
 pipewire
 pipewire-pulse
+python
 qt5-wayland
 shotcut
 signal-desktop
@@ -541,6 +546,7 @@ libreoffice-math
 libreoffice-writer
 neovim
 nomacs
+python
 signal-desktop
 visualstudiocode
 vivaldi
