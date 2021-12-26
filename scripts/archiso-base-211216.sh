@@ -347,7 +347,7 @@ icon=/usr/share/icons-24x24/github.png
 path=/usr/bin/vivaldi-stable --app=https://github.com/ --new-window
 
 [launcher]
-#icon=/usr/share/favicons-24x24/earth.google.com.png
+#icon=/usr/share/favicons-24x24/earth.google.com.web.png
 icon=/usr/share/icons-24x24/google-earth.png
 path=/usr/bin/vivaldi-stable --app=https://earth.google.com/web/ --new-window
 
@@ -365,7 +365,7 @@ icon=/usr/share/icons-24x24/visualstudiocode.png
 path=/usr/bin/vivaldi-stable --app=https://vscode.dev/ --new-window
 
 [launcher]
-icon=/usr/share/favicons-24x24/www.mathcha.io.png
+icon=/usr/share/favicons-24x24/www.mathcha.io.editor.png
 path=/usr/bin/vivaldi-stable --app=https://www.mathcha.io/editor --new-window
 
 [launcher]
@@ -501,12 +501,12 @@ cat > airootfs/usr/share/favicons-24x24/list << '/cat'
 app.diagrams.net https://app.diagrams.net/
 codepen.io https://codepen.io/
 diep.io https://diep.io/
-earth.google.com https://earth.google.com/web/
+earth.google.com.web https://earth.google.com/web/
 github.com https://github.com/
 meet.google.com https://meet.google.com/
 squoosh.app https://squoosh.app/
 vscode.dev https://vscode.dev/
-www.mathcha.io https://www.mathcha.io/editor
+www.mathcha.io.editor https://www.mathcha.io/editor
 www.wikipedia.org https://www.wikipedia.org/
 www.wolframalpha.com https://www.wolframalpha.com/
 www.youtube.com https://www.youtube.com/
