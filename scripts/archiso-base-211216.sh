@@ -326,6 +326,10 @@ icon=/usr/share/icons-24x24/vivaldi.png
 path=/usr/bin/vivaldi-stable
 
 [launcher]
+icon=/usr/share/favicons-24x24/app.diagrams.net.png
+path=/usr/bin/vivaldi-stable --app=https://app.diagrams.net/ --new-window
+
+[launcher]
 icon=/usr/share/favicons-24x24/codepen.io.png
 path=/usr/bin/vivaldi-stable --app=https://codepen.io/ --new-window
 
@@ -485,6 +489,7 @@ xorg-xwayland
 
 mkdir -p airootfs/usr/share/favicons-24x24
 cat > airootfs/usr/share/favicons-24x24/list << '/cat'
+app.diagrams.net https://app.diagrams.net/
 codepen.io https://codepen.io/
 diep.io https://diep.io/
 earth.google.com https://earth.google.com/web/
