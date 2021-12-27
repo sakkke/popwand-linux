@@ -16,7 +16,7 @@ make
 rm -fr archlive
 cp -r /usr/share/archiso/configs/baseline archlive
 cd archlive
-cat > airootfs/etc/environment << /cat
+cat > airootfs/etc/environment << '/cat'
 EDITOR=/usr/bin/micro
 /cat
 
@@ -34,7 +34,7 @@ root:!*::root
 user:!*::
 /cat
 
-cat > airootfs/etc/hostname << /cat
+cat > airootfs/etc/hostname << '/cat'
 earth
 /cat
 cat > airootfs/etc/locale.conf << '/cat'
