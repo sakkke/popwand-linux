@@ -7,11 +7,12 @@ if ((EUID)); then
   exit 1
 fi
 
-pacman --needed --noconfirm -Sy \
-  archiso \
-  ffmpeg \
-  git \
-  make
+pacman --needed --noconfirm -Sy - << '/pacman'
+archiso
+ffmpeg
+git
+make
+/pacman
 rm -fr archlive
 cp -r /usr/share/archiso/configs/baseline archlive
 cd archlive
