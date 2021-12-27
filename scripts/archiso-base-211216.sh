@@ -282,35 +282,35 @@ path=/usr/bin/kitty
 icon=/usr/share/icons-24x24/libreoffice.png
 path=/usr/bin/libreoffice
 
-[launcher]
-#icon=/usr/share/icons/hicolor/24x24/apps/libreoffice-base.png
-icon=/usr/share/icons-24x24/libreoffice-base.png
-path=/usr/bin/libreoffice --base
+#[launcher]
+##icon=/usr/share/icons/hicolor/24x24/apps/libreoffice-base.png
+#icon=/usr/share/icons-24x24/libreoffice-base.png
+#path=/usr/bin/libreoffice --base
 
-[launcher]
-#icon=/usr/share/icons/hicolor/24x24/apps/libreoffice-calc.png
-icon=/usr/share/icons-24x24/libreoffice-calc.png
-path=/usr/bin/libreoffice --calc
+#[launcher]
+##icon=/usr/share/icons/hicolor/24x24/apps/libreoffice-calc.png
+#icon=/usr/share/icons-24x24/libreoffice-calc.png
+#path=/usr/bin/libreoffice --calc
 
-[launcher]
-#icon=/usr/share/icons/hicolor/24x24/apps/libreoffice-draw.png
-icon=/usr/share/icons-24x24/libreoffice-draw.png
-path=/usr/bin/libreoffice --draw
+#[launcher]
+##icon=/usr/share/icons/hicolor/24x24/apps/libreoffice-draw.png
+#icon=/usr/share/icons-24x24/libreoffice-draw.png
+#path=/usr/bin/libreoffice --draw
 
-[launcher]
-#icon=/usr/share/icons/hicolor/24x24/apps/libreoffice-impress.png
-icon=/usr/share/icons-24x24/libreoffice-impress.png
-path=/usr/bin/libreoffice --impress
+#[launcher]
+##icon=/usr/share/icons/hicolor/24x24/apps/libreoffice-impress.png
+#icon=/usr/share/icons-24x24/libreoffice-impress.png
+#path=/usr/bin/libreoffice --impress
 
-[launcher]
-#icon=/usr/share/icons/hicolor/24x24/apps/libreoffice-math.png
-icon=/usr/share/icons-24x24/libreoffice-math.png
-path=/usr/bin/libreoffice --math
+#[launcher]
+##icon=/usr/share/icons/hicolor/24x24/apps/libreoffice-math.png
+#icon=/usr/share/icons-24x24/libreoffice-math.png
+#path=/usr/bin/libreoffice --math
 
-[launcher]
-#icon=/usr/share/icons/hicolor/24x24/apps/libreoffice-writer.png
-icon=/usr/share/icons-24x24/libreoffice-writer.png
-path=/usr/bin/libreoffice --writer
+#[launcher]
+##icon=/usr/share/icons/hicolor/24x24/apps/libreoffice-writer.png
+#icon=/usr/share/icons-24x24/libreoffice-writer.png
+#path=/usr/bin/libreoffice --writer
 
 [launcher]
 #icon=/usr/share/icons/hicolor/24x24/apps/mscore.png
@@ -321,17 +321,17 @@ path=/usr/bin/mscore
 icon=/usr/share/icons-24x24/nomacs.png
 path=/usr/bin/nomacs
 
-[launcher]
-icon=/usr/share/icons-24x24/neovim.png
-path=/usr/bin/kitty nvim
+#[launcher]
+#icon=/usr/share/icons-24x24/neovim.png
+#path=/usr/bin/kitty nvim
 
 [launcher]
 icon=/usr/share/icons-24x24/file-manager.png
 path=/usr/bin/pcmanfm-qt
 
-[launcher]
-icon=/usr/share/icons-24x24/python.png
-path=/usr/bin/kitty python
+#[launcher]
+#icon=/usr/share/icons-24x24/python.png
+#path=/usr/bin/kitty python
 
 [launcher]
 icon=/usr/share/icons/hicolor/24x24/apps/org.shotcut.Shotcut.png
@@ -347,44 +347,44 @@ path=/usr/bin/signal-desktop
 icon=/usr/share/icons-24x24/vivaldi.png
 path=/usr/bin/vivaldi-stable
 
-[launcher]
-icon=/usr/share/favicons-24x24/app.diagrams.net.png
-path=/usr/bin/vivaldi-stable --app=https://app.diagrams.net/ --new-window
+#[launcher]
+#icon=/usr/share/favicons-24x24/app.diagrams.net.png
+#path=/usr/bin/vivaldi-stable --app=https://app.diagrams.net/ --new-window
 
-[launcher]
-icon=/usr/share/favicons-24x24/codepen.io.png
-path=/usr/bin/vivaldi-stable --app=https://codepen.io/ --new-window
+#[launcher]
+#icon=/usr/share/favicons-24x24/codepen.io.png
+#path=/usr/bin/vivaldi-stable --app=https://codepen.io/ --new-window
 
-[launcher]
-icon=/usr/share/favicons-24x24/diep.io.png
-path=/usr/bin/vivaldi-stable --app=https://diep.io/ --new-window
+#[launcher]
+#icon=/usr/share/favicons-24x24/diep.io.png
+#path=/usr/bin/vivaldi-stable --app=https://diep.io/ --new-window
 
-[launcher]
-#icon=/usr/share/favicons-24x24/github.com.png
-icon=/usr/share/icons-24x24/github.png
-path=/usr/bin/vivaldi-stable --app=https://github.com/ --new-window
+#[launcher]
+##icon=/usr/share/favicons-24x24/github.com.png
+#icon=/usr/share/icons-24x24/github.png
+#path=/usr/bin/vivaldi-stable --app=https://github.com/ --new-window
 
-[launcher]
-#icon=/usr/share/favicons-24x24/earth.google.com.web.png
-icon=/usr/share/icons-24x24/google-earth.png
-path=/usr/bin/vivaldi-stable --app=https://earth.google.com/web/ --new-window
+#[launcher]
+##icon=/usr/share/favicons-24x24/earth.google.com.web.png
+#icon=/usr/share/icons-24x24/google-earth.png
+#path=/usr/bin/vivaldi-stable --app=https://earth.google.com/web/ --new-window
 
 [launcher]
 icon=/usr/share/favicons-24x24/meet.google.com.png
 path=/usr/bin/vivaldi-stable --app=https://meet.google.com/ --new-window
 
-[launcher]
-icon=/usr/share/favicons-24x24/squoosh.app.png
-path=/usr/bin/vivaldi-stable --app=https://squoosh.app/ --new-window
+#[launcher]
+#icon=/usr/share/favicons-24x24/squoosh.app.png
+#path=/usr/bin/vivaldi-stable --app=https://squoosh.app/ --new-window
 
-[launcher]
-#icon=/usr/share/favicons-24x24/vscode.dev.png
-icon=/usr/share/icons-24x24/visualstudiocode.png
-path=/usr/bin/vivaldi-stable --app=https://vscode.dev/ --new-window
+#[launcher]
+##icon=/usr/share/favicons-24x24/vscode.dev.png
+#icon=/usr/share/icons-24x24/visualstudiocode.png
+#path=/usr/bin/vivaldi-stable --app=https://vscode.dev/ --new-window
 
-[launcher]
-icon=/usr/share/favicons-24x24/www.mathcha.io.editor.png
-path=/usr/bin/vivaldi-stable --app=https://www.mathcha.io/editor --new-window
+#[launcher]
+#icon=/usr/share/favicons-24x24/www.mathcha.io.editor.png
+#path=/usr/bin/vivaldi-stable --app=https://www.mathcha.io/editor --new-window
 
 [launcher]
 icon=/usr/share/favicons-24x24/www.wikipedia.org.png
@@ -399,9 +399,9 @@ path=/usr/bin/vivaldi-stable --app=https://www.wolframalpha.com/ --new-window
 icon=/usr/share/icons-24x24/youtube.png
 path=/usr/bin/vivaldi-stable --app=https://www.youtube.com/ --new-window
 
-[launcher]
-icon=/usr/share/favicons-24x24/zenn.dev.png
-path=/usr/bin/vivaldi-stable --app=https://zenn.dev/ --new-window
+#[launcher]
+#icon=/usr/share/favicons-24x24/zenn.dev.png
+#path=/usr/bin/vivaldi-stable --app=https://zenn.dev/ --new-window
 
 [launcher]
 icon=/usr/share/icons-24x24/vlc.png
@@ -545,33 +545,33 @@ curl -Ls \
   | tar \
     -C airootfs/usr/share/icons \
     -xzf -
-teew usr/share/icons-24x24/list << '_'
+grep -v '^#' > usr/share/icons-24x24/list << '/grep'
 blender
 file-manager
 freecad
 gimp
-github
-google-earth
+#github
+#google-earth
 htop
 inkscape
 kitty
 libreoffice
-libreoffice-base
-libreoffice-calc
-libreoffice-draw
-libreoffice-impress
-libreoffice-math
-libreoffice-writer
+#libreoffice-base
+#libreoffice-calc
+#libreoffice-draw
+#libreoffice-impress
+#libreoffice-math
+#libreoffice-writer
 musescore
-neovim
+#neovim
 nomacs
-python
+#python
 signal-desktop
-visualstudiocode
+#visualstudiocode
 vivaldi
 vlc
 youtube
-_
+/grep
 teew usr/share/icons-24x24/update.sh << '_'
 #!/bin/bash
 cwd="$(cd "$(dirname "$0")" && pwd)"

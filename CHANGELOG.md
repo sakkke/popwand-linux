@@ -6,6 +6,7 @@
 
 ### Changed
 - update `sudoers.d`
+- update launcher items
 
 ## 2021-12-26
 ### Added
