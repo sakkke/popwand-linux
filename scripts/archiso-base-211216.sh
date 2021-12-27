@@ -16,35 +16,49 @@ make
 rm -fr archlive
 cp -r /usr/share/archiso/configs/baseline archlive
 cd archlive
-cat > airootfs/etc/environment << '/cat'
+
+# lnw - ln wrapper
+lnw() { to="$1"; from="$2"; shift; shift
+  dir=airootfs
+  mkdir -p "$(dirname "$dir/$from")"
+  ln "$@" -s "$to" "$dir/$from" && echo -e "${FUNCNAME[0]}: created "'\e[1;36msymlink\e[m'": '/$from' -> '$to'"
+}
+
+# teew - tee wrapper
+teew() { file="$1"; shift
+  dir=airootfs
+  mkdir -p "$(dirname "$dir/$file")"
+  tee "$@" "$dir/$file" > /dev/null && echo -e "${FUNCNAME[0]}: created "'\e[1mfile\e[m'": '/$file'"
+}
+
+teew etc/environment << '_'
 EDITOR=/usr/bin/micro
-/cat
+_
 
 # ref: https://wiki.archlinux.org/title/archiso#:~:text=5).%20For%20example%3A-,archlive/airootfs/etc/group,-root%3Ax%3A0%3Aroot
-cat > airootfs/etc/group << '/cat'
+teew etc/group << '_'
 root:x:0:root
 wheel:x:10:user
 user:x:1000:
 docker:x:999:user
-/cat
+_
 
 # ref: https://wiki.archlinux.org/title/archiso#:~:text=to%20gshadow(5)%3A-,archlive/airootfs/etc/gshadow,-root%3A!*%3A%3Aroot%0Aarchie
-cat > airootfs/etc/gshadow << '/cat'
+teew etc/gshadow << '_'
 root:!*::root
 user:!*::
-/cat
+_
 
-cat > airootfs/etc/hostname << '/cat'
+teew etc/hostname << '_'
 earth
-/cat
-cat > airootfs/etc/locale.conf << '/cat'
+_
+teew etc/locale.conf << '_'
 LANG=ja_JP.UTF-8
-/cat
-ln -s /usr/share/zoneinfo/Asia/Tokyo airootfs/etc/localtime
-mkdir -p airootfs/etc/pacman.d/hooks
+_
+lnw /usr/share/zoneinfo/Asia/Tokyo etc/localtime
 
 # ref: https://gitlab.archlinux.org/archlinux/archiso/-/blob/754caf0ca21476d52d8557058f665b9078982877/configs/releng/airootfs/etc/pacman.d/hooks/40-locale-gen.hook
-cat > airootfs/etc/pacman.d/hooks/40-locale-gen.hook << '/cat'
+teew etc/pacman.d/hooks/40-locale-gen.hook << '_'
 # remove from airootfs!
 [Trigger]
 Operation = Install
@@ -59,9 +73,9 @@ Depends = sed
 Depends = sh
 #Exec = /bin/sh -c "sed -i 's/#\(en_US\.UTF-8\)/\1/' /etc/locale.gen && locale-gen"
 Exec = /bin/sh -c "sed -i 's/#\(en_US\.UTF-8\|ja_JP\.UTF-8\)/\1/' /etc/locale.gen && locale-gen"
-/cat
+_
 
-cat > airootfs/etc/pacman.d/hooks/shotcut-install.hook << '/cat'
+teew etc/pacman.d/hooks/shotcut-install.hook << '_'
 [Trigger]
 Operation = Install
 Operation = Upgrade
@@ -72,8 +86,8 @@ Target = shotcut
 Description = Creating a Shotcut 24x24 icon...
 When = PostTransaction
 Exec = /etc/pacman.d/hooks.bin/shotcut-install
-/cat
-cat > airootfs/etc/pacman.d/hooks/shotcut-remove.hook << '/cat'
+_
+teew etc/pacman.d/hooks/shotcut-remove.hook << '_'
 [Trigger]
 Operation = Remove
 Type = Package
@@ -83,10 +97,10 @@ Target = shotcut
 Description = Removing a Shotcut 24x24 icon...
 When = PreTransaction
 Exec = /etc/pacman.d/hooks.bin/shotcut-remove
-/cat
+_
 
 # ref: https://gitlab.archlinux.org/archlinux/archiso/-/blob/754caf0ca21476d52d8557058f665b9078982877/configs/releng/airootfs/etc/pacman.d/hooks/uncomment-mirrors.hook
-cat > airootfs/etc/pacman.d/hooks/uncomment-mirrors.hook << '/cat'
+teew etc/pacman.d/hooks/uncomment-mirrors.hook << '_'
 # remove from airootfs!
 [Trigger]
 Operation = Install
@@ -100,10 +114,10 @@ When = PostTransaction
 Depends = pacman-mirrorlist
 Depends = sed
 Exec = /usr/bin/sed -i "s/#Server/Server/g" /etc/pacman.d/mirrorlist
-/cat
+_
 
 # ref: https://gitlab.archlinux.org/archlinux/archiso/-/blob/754caf0ca21476d52d8557058f665b9078982877/configs/releng/airootfs/etc/pacman.d/hooks/zzzz99-remove-custom-hooks-from-airootfs.hook
-cat > airootfs/etc/pacman.d/hooks/zzzz99-remove-custom-hooks-from-airootfs.hook << '/cat'
+teew etc/pacman.d/hooks/zzzz99-remove-custom-hooks-from-airootfs.hook << '_'
 # remove from airootfs!
 # As a workaround for https://bugs.archlinux.org/task/49347 , remove pacman hooks specific to the ISO build process.
 # If not, they would be used when pacstrap is run in the live environment.
@@ -122,36 +136,34 @@ Depends = sh
 Depends = coreutils
 Depends = grep
 Exec = /bin/sh -c "rm -- $(grep -Frl 'remove from airootfs' /etc/pacman.d/hooks/)"
-/cat
+_
 
-mkdir airootfs/etc/pacman.d/hooks.bin
-cat > airootfs/etc/pacman.d/hooks.bin/shotcut-install << '/cat'
+teew etc/pacman.d/hooks.bin/shotcut-install << '_'
 #!/bin/bash
 ffmpeg \
   -i /usr/share/icons/hicolor/128x128/apps/org.shotcut.Shotcut.png \
   -vf scale=24:-1 \
   /usr/share/icons/hicolor/24x24/apps/org.shotcut.Shotcut.png
-/cat
-cat > airootfs/etc/pacman.d/hooks.bin/shotcut-remove << '/cat'
+_
+teew etc/pacman.d/hooks.bin/shotcut-remove << '_'
 #!/bin/bash
 rm /usr/share/icons/hicolor/24x24/apps/org.shotcut.Shotcut.png
-/cat
+_
 
 # ref: https://wiki.archlinux.org/title/archiso#:~:text=passwd(5)%20syntax%3A-,archlive/airootfs/etc/passwd,-root%3Ax%3A0%3A0
-cat > airootfs/etc/passwd << '/cat'
+teew etc/passwd << '_'
 root:x:0:0:root:/root:/bin/bash
 user:x:1000:1000::/home/user:/bin/bash
-/cat
+_
 
 # ref: https://wiki.archlinux.org/title/archiso#:~:text=5).%20For%20example%3A-,archlive/airootfs/etc/shadow,-root%3A%3A14871%3A%3A%3A%3A%3A%3A%0Aarchie
 # user:p@ssw0rd
-cat > airootfs/etc/shadow << '/cat'
+teew etc/shadow << '_'
 root::14871::::::
 user:$6$Ckm3hL1yVkpajjT4$SLAN7xN8R/7A9FaB6JColbio0snA0t/GHKSwUZ0YukuOBdFdPl/nYh3qAcLZsJA7Vc28gIJ2Z7wM/lFgKpXVW.:14871::::::
-/cat
+_
 
-mkdir airootfs/etc/skel
-cat > airootfs/etc/skel/.bashrc << '/cat'
+teew etc/skel/.bashrc << '_'
 if [ -z "$DISPLAY" ] && [ "$(tty)" = /dev/tty1 ]; then
   [ ! -f ~/.config/user-dirs.dirs ] && xdg-user-dirs-update
   #weston 2>&1 | less
@@ -202,38 +214,33 @@ alias ls='ls --color'
 
 # ref: https://github.com/akinomyoga/ble.sh#:~:text=%5B%5B%20%24%7BBLE_VERSION%2D%7D%20%5D%5D%20%26%26%20ble%2Dattach
 [[ ${BLE_VERSION-} ]] && ble-attach
-/cat
-mkdir -p airootfs/etc/skel/.config/gtk-3.0
-cat > airootfs/etc/skel/.config/gtk-3.0/settings.ini << '/cat'
+_
+teew etc/skel/.config/gtk-3.0/settings.ini << '_'
 [Settings]
 gtk-cursor-theme-name=Fuchsia
-/cat
-mkdir -p airootfs/etc/skel/.config/kitty
+_
 curl \
+  --create-dirs \
   -o airootfs/etc/skel/.config/kitty/current-theme.conf \
   -s \
   https://raw.githubusercontent.com/kovidgoyal/kitty-themes/master/themes/PaperColor_light.conf
-cat > airootfs/etc/skel/.config/kitty/kitty.conf << '/cat'
+teew etc/skel/.config/kitty/kitty.conf << '_'
 background_opacity 0.8
 font_family Fira Code
 include current-theme.conf
 linux_display_server x11
-/cat
-mkdir -p airootfs/etc/skel/.config/pcmanfm-qt/default
-cat > airootfs/etc/skel/.config/pcmanfm-qt/default/settings.conf << '/cat'
+_
+teew etc/skel/.config/pcmanfm-qt/default/settings.conf << '_'
 [System]
 FallbackIconThemeName=Tela-circle
-/cat
-mkdir -p airootfs/etc/skel/.config/systemd/user/default.target.wants
-ln -s /usr/lib/systemd/user/pipewire-pulse.service airootfs/etc/skel/.config/systemd/user/default.target.wants/
-ln -s /usr/lib/systemd/user/pipewire.service airootfs/etc/skel/.config/systemd/user/default.target.wants/
-ln -s /usr/lib/systemd/user/pipewire-media-session.service airootfs/etc/skel/.config/systemd/user/pipewire-session-manager.service
-mkdir airootfs/etc/skel/.config/systemd/user/pipewire.service.wants
-ln -s /usr/lib/systemd/user/pipewire-media-session.service airootfs/etc/skel/.config/systemd/user/pipewire.service.wants/
-mkdir airootfs/etc/skel/.config/systemd/user/sockets.target.wants
-ln -s /usr/lib/systemd/user/pipewire-pulse.socket airootfs/etc/skel/.config/systemd/user/sockets.target.wants/
-ln -s /usr/lib/systemd/user/pipewire.socket airootfs/etc/skel/.config/systemd/user/sockets.target.wants/
-cat > airootfs/etc/skel/.config/weston.ini << '/cat'
+_
+lnw /usr/lib/systemd/user/pipewire-pulse.service etc/skel/.config/systemd/user/default.target.wants/pipewire-pulse.service
+lnw /usr/lib/systemd/user/pipewire.service etc/skel/.config/systemd/user/default.target.wants/pipewire.service
+lnw /usr/lib/systemd/user/pipewire-media-session.service etc/skel/.config/systemd/user/pipewire-session-manager.service
+lnw /usr/lib/systemd/user/pipewire-media-session.service etc/skel/.config/systemd/user/pipewire.service.wants/pipewire-media-session.service
+lnw /usr/lib/systemd/user/pipewire-pulse.socket etc/skel/.config/systemd/user/sockets.target.wants/pipewire-pulse.socket
+lnw /usr/lib/systemd/user/pipewire.socket etc/skel/.config/systemd/user/sockets.target.wants/pipewire.socket
+teew etc/skel/.config/weston.ini << '_'
 [core]
 xwayland=true
 
@@ -414,7 +421,7 @@ cursor-size=24
 cursor-theme=Fuchsia
 panel-color=0xccffffff
 panel-position=left
-/cat
+_
 (
   cd $(mktemp -d)
   git clone \
@@ -427,12 +434,11 @@ panel-position=left
   cd
   rm -fr $OLDPWD
 )
-mkdir -p airootfs/etc/skel/.local/share/icons/default
-cat > airootfs/etc/skel/.local/share/icons/default/index.theme << '/cat'
+teew etc/skel/.local/share/icons/default/index.theme << '_'
 [Icon Theme]
 Inherits=Fuchsia
-/cat
-cat > airootfs/etc/skel/.pam_environment << '/cat'
+_
+teew etc/skel/.pam_environment << '_'
 # for kitty
 GLFW_IM_MODULE=ibus
 
@@ -441,28 +447,26 @@ QT_IM_MODULE=fcitx
 QT_QPA_PLATFORM=wayland
 SDL_IM_MODULE=fcitx
 XMODIFIERS=@im=fcitx
-/cat
-mkdir -p airootfs/etc/sudoers.d
-cat > airootfs/etc/sudoers.d/wheel << '/cat'
+_
+teew etc/sudoers.d/wheel << '_'
 %wheel ALL=(ALL) ALL
-/cat
-mkdir airootfs/etc/systemd/system/getty@tty1.service.d
+_
 
 # ref: https://wiki.archlinux.org/title/archiso#:~:text=%5BService%5D%0AExecStart%3D%0AExecStart%3D%2D/sbin/agetty%20%2D%2Dautologin%20username%20%2D%2Dnoclear%20%25I%2038400%20linux
-cat > airootfs/etc/systemd/system/getty@tty1.service.d/autologin.conf << '/cat'
+teew etc/systemd/system/getty@tty1.service.d/autologin.conf << '_'
 [Service]
 ExecStart=
 #ExecStart=-/sbin/agetty --autologin username --noclear %I 38400 linux
 ExecStart=-/sbin/agetty --autologin user --noclear %I 38400 linux
-/cat
+_
 
-cat > airootfs/etc/vconsole.conf << '/cat'
+teew etc/vconsole.conf << '_'
 KEYMAP=jp106
-/cat
-ln -s /usr/lib/systemd/system/NetworkManager.service airootfs/etc/systemd/system/multi-user.target.wants/
-ln -s /usr/lib/systemd/system/docker.service airootfs/etc/systemd/system/multi-user.target.wants/
-mkdir -p airootfs/usr/share/backgrounds
+_
+lnw /usr/lib/systemd/system/NetworkManager.service etc/systemd/system/multi-user.target.wants/NetworkManager.service
+lnw /usr/lib/systemd/system/docker.service etc/systemd/system/multi-user.target.wants/docker.service
 curl \
+  --create-dirs \
   -o airootfs/usr/share/backgrounds/default.jpg \
   -s \
   'https://images.pexels.com/photos/2138922/pexels-photo-2138922.jpeg?crop=entropy&cs=srgb&dl=pexels-kyle-roxas-2138922.jpg&fit=crop&fm=jpg&h=2880&w=5120'
@@ -510,8 +514,7 @@ xorg-drivers
 xorg-xwayland
 /cat
 
-mkdir -p airootfs/usr/share/favicons-24x24
-cat > airootfs/usr/share/favicons-24x24/list << '/cat'
+teew usr/share/favicons-24x24/list << '_'
 app.diagrams.net https://app.diagrams.net/
 codepen.io https://codepen.io/
 diep.io https://diep.io/
@@ -525,15 +528,15 @@ www.wikipedia.org https://www.wikipedia.org/
 www.wolframalpha.com https://www.wolframalpha.com/
 www.youtube.com https://www.youtube.com/
 zenn.dev https://zenn.dev/
-/cat
-cat > airootfs/usr/share/favicons-24x24/update.sh << '/cat'
+_
+teew usr/share/favicons-24x24/update.sh << '_'
 #!/bin/bash
 cwd="$(cd "$(dirname "$0")" && pwd)"
 ls "$cwd" | grep '.png$' | xargs -r rm
 cat "$cwd/list" | while read name domain_url; do
   curl -so "$cwd/$name.png" "https://www.google.com/s2/favicons?domain_url=$domain_url&sz=24"
 done
-/cat
+_
 bash airootfs/usr/share/favicons-24x24/update.sh
 mkdir airootfs/usr/share/icons
 curl -Ls \
@@ -541,8 +544,7 @@ curl -Ls \
   | tar \
     -C airootfs/usr/share/icons \
     -xzf -
-mkdir airootfs/usr/share/icons-24x24
-cat > airootfs/usr/share/icons-24x24/list << '/cat'
+teew usr/share/icons-24x24/list << '_'
 blender
 file-manager
 freecad
@@ -569,8 +571,8 @@ visualstudiocode
 vivaldi
 vlc
 youtube
-/cat
-cat > airootfs/usr/share/icons-24x24/update.sh << '/cat'
+_
+teew usr/share/icons-24x24/update.sh << '_'
 #!/bin/bash
 cwd="$(cd "$(dirname "$0")" && pwd)"
 install_dir="$(cd "$cwd/../icons" && pwd)"
@@ -585,7 +587,7 @@ sed -i 's/\(gtk-update-icon-cache\)/#\1/' install.sh
 ./install.sh -d "$install_dir"
 cd
 rm -fr $OLDPWD
-/cat
+_
 bash airootfs/usr/share/icons-24x24/update.sh
 
 # ref: https://gitlab.archlinux.org/archlinux/archiso/-/blob/754caf0ca21476d52d8557058f665b9078982877/configs/baseline/profiledef.sh
