@@ -4,6 +4,9 @@
 ### Added
 - add xdg-user-dirs
 
+### Changed
+- update `sudoers.d`
+
 ## 2021-12-26
 ### Added
 - add `https://app.diagrams.net/`
