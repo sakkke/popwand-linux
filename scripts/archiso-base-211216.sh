@@ -486,6 +486,7 @@ inkscape
 kitty
 libreoffice-fresh
 libreoffice-fresh-ja
+micro
 musescore
 neovim
 networkmanager
@@ -561,7 +562,6 @@ libreoffice-draw
 libreoffice-impress
 libreoffice-math
 libreoffice-writer
-micro
 musescore
 neovim
 nomacs
