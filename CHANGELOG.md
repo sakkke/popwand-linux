@@ -1,5 +1,9 @@
 # Changelog
 
+## 2021-12-17
+### Added
+- add xdg-user-dirs
+
 ## 2021-12-26
 ### Added
 - add `https://app.diagrams.net/`

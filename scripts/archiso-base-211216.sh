@@ -153,6 +153,7 @@ user:$6$Ckm3hL1yVkpajjT4$SLAN7xN8R/7A9FaB6JColbio0snA0t/GHKSwUZ0YukuOBdFdPl/nYh3
 mkdir airootfs/etc/skel
 cat > airootfs/etc/skel/.bashrc << '/cat'
 if [ -z "$DISPLAY" ] && [ "$(tty)" = /dev/tty1 ]; then
+  [ ! -f ~/.config/user-dirs.dirs ] && xdg-user-dirs-update
   #weston 2>&1 | less
   exec weston
 fi
@@ -504,6 +505,7 @@ vivaldi
 vivaldi-ffmpeg-codecs
 vlc
 weston
+xdg-user-dirs
 xorg-drivers
 xorg-xwayland
 /cat
