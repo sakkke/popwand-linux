@@ -1,5 +1,9 @@
 # Changelog
 
+## 2021-12-28
+### Added
+- add local repository for Pacman
+
 ## 2021-12-17
 ### Added
 - add xdg-user-dirs
