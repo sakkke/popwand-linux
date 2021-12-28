@@ -4,7 +4,7 @@
 ### Added
 - add local repository for Pacman
 
-## 2021-12-17
+## 2021-12-27
 ### Added
 - add xdg-user-dirs
 
