@@ -597,6 +597,7 @@ linux-firmware
   repo-add live.db.tar.gz *.pkg.tar.{xz,zst}
 )
 cat >> packages.x86_64 << '/cat'
+arch-install-scripts
 blender
 docker
 docker-compose

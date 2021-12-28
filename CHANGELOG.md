@@ -3,6 +3,7 @@
 ## 2021-12-28
 ### Added
 - add local repository for Pacman
+- add arch-install-scripts
 
 ## 2021-12-27
 ### Added
