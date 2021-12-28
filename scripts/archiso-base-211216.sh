@@ -582,7 +582,7 @@ curl \
   cd airootfs/live
   temp=$(mktemp -d)
   trap "rm -fr $temp" EXIT
-  pacman --cachedir "$(pwd)" --dbpath $temp -Swy - << '/pacman'
+  pacman --cachedir "$(pwd)" --dbpath $temp --noconfirm -Swy - << '/pacman'
 base
 linux
 linux-firmware
