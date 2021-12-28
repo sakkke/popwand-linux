@@ -578,6 +578,7 @@ curl \
   -s \
   'https://images.pexels.com/photos/2138922/pexels-photo-2138922.jpeg?crop=entropy&cs=srgb&dl=pexels-kyle-roxas-2138922.jpg&fit=crop&fm=jpg&h=2880&w=5120'
 (
+  mkdir -p airootfs/live
   cd airootfs/live
   temp=$(mktemp -d)
   trap "rm -fr $temp" EXIT
