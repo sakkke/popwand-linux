@@ -634,7 +634,7 @@ xorg-drivers
 xorg-xwayland
 /cat
 
-grep -v '^#' > usr/share/favicons-24x24/list << '/grep'
+grep -v '^#' > airootfs/usr/share/favicons-24x24/list << '/grep'
 #app.diagrams.net https://app.diagrams.net/
 #codepen.io https://codepen.io/
 #diep.io https://diep.io/
