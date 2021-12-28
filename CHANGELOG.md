@@ -4,6 +4,7 @@
 ### Added
 - add local repository for Pacman
 - add arch-install-scripts
+- add freerdp
 
 ## 2021-12-27
 ### Added

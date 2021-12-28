@@ -280,6 +280,14 @@ _
 teew etc/skel/.bashrc << '_'
 if [ -z "$DISPLAY" ] && [ "$(tty)" = /dev/tty1 ]; then
   [ ! -f ~/.config/user-dirs.dirs ] && xdg-user-dirs-update
+
+  : 'For RDP session' || {
+    [ ! -f tls.key ] && openssl genrsa -out tls.key 2048
+    [ ! -f tls.csr ] && openssl req -new -key tls.key -out tls.csr
+    [ ! -f tls.crt ] && openssl x509 -req -days 365 -signkey tls.key -in tls.csr -out tls.crt
+    exec weston --backend=rdp-backend.so --rdp-tls-cert=tls.crt --rdp-tls-key=tls.key
+  }
+
   #weston 2>&1 | less
   exec weston
 fi
@@ -605,6 +613,7 @@ fcitx5-im
 fcitx5-mozc
 ffmpeg
 freecad
+freerdp
 gimp
 gnome-icon-theme
 gvfs
