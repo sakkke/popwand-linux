@@ -587,7 +587,7 @@ base
 linux
 linux-firmware
 /pacman
-  repo-add live.db.tar.gz *.pkg.tar.*
+  repo-add live.db.tar.gz *.pkg.tar.{xz,zst}
 )
 cat >> packages.x86_64 << '/cat'
 blender
