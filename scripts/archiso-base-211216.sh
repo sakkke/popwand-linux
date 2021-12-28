@@ -31,6 +31,13 @@ teew() { file="$1"; shift
   tee "$@" "$dir/$file" > /dev/null && echo -e "${FUNCNAME[0]}: created "'\e[1mfile\e[m'": '/$file'"
 }
 
+# teeww - teew wrapper
+teeww() { file="$1"; shift
+  dir=airootfs
+  mkdir -p "$(dirname "$dir/$file")"
+  grep -v '^#' | tee "$@" "$dir/$file" > /dev/null && echo -e "${FUNCNAME[0]}: created "'\e[1mfile\e[m'": '/$file'"
+}
+
 teew etc/environment << '_'
 EDITOR=/usr/bin/micro
 _
@@ -634,7 +641,7 @@ xorg-drivers
 xorg-xwayland
 /cat
 
-grep -v '^#' > airootfs/usr/share/favicons-24x24/list << '/grep'
+teeww usr/share/favicons-24x24/list << '_'
 #app.diagrams.net https://app.diagrams.net/
 #codepen.io https://codepen.io/
 #diep.io https://diep.io/
@@ -648,7 +655,7 @@ www.wikipedia.org https://www.wikipedia.org/
 www.wolframalpha.com https://www.wolframalpha.com/
 www.youtube.com https://www.youtube.com/
 #zenn.dev https://zenn.dev/
-/grep
+_
 teew usr/share/favicons-24x24/update.sh << '_'
 #!/bin/bash
 cwd="$(cd "$(dirname "$0")" && pwd)"
@@ -664,7 +671,7 @@ curl -Ls \
   | tar \
     -C airootfs/usr/share/icons \
     -xzf -
-grep -v '^#' > airootfs/usr/share/icons-24x24/list << '/grep'
+teeww usr/share/icons-24x24/list << '_'
 blender
 file-manager
 freecad
@@ -690,7 +697,7 @@ signal-desktop
 vivaldi
 vlc
 youtube
-/grep
+_
 teew usr/share/icons-24x24/update.sh << '_'
 #!/bin/bash
 cwd="$(cd "$(dirname "$0")" && pwd)"
