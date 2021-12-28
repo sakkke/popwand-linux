@@ -664,7 +664,7 @@ curl -Ls \
   | tar \
     -C airootfs/usr/share/icons \
     -xzf -
-grep -v '^#' > usr/share/icons-24x24/list << '/grep'
+grep -v '^#' > airootfs/usr/share/icons-24x24/list << '/grep'
 blender
 file-manager
 freecad
