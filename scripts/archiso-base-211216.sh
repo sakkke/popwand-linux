@@ -634,21 +634,21 @@ xorg-drivers
 xorg-xwayland
 /cat
 
-teew usr/share/favicons-24x24/list << '_'
-app.diagrams.net https://app.diagrams.net/
-codepen.io https://codepen.io/
-diep.io https://diep.io/
-earth.google.com.web https://earth.google.com/web/
-github.com https://github.com/
+grep -v '^#' > usr/share/favicons-24x24/list << '/grep'
+#app.diagrams.net https://app.diagrams.net/
+#codepen.io https://codepen.io/
+#diep.io https://diep.io/
+#earth.google.com.web https://earth.google.com/web/
+#github.com https://github.com/
 meet.google.com https://meet.google.com/
-squoosh.app https://squoosh.app/
-vscode.dev https://vscode.dev/
-www.mathcha.io.editor https://www.mathcha.io/editor
+#squoosh.app https://squoosh.app/
+#vscode.dev https://vscode.dev/
+#www.mathcha.io.editor https://www.mathcha.io/editor
 www.wikipedia.org https://www.wikipedia.org/
 www.wolframalpha.com https://www.wolframalpha.com/
 www.youtube.com https://www.youtube.com/
-zenn.dev https://zenn.dev/
-_
+#zenn.dev https://zenn.dev/
+/grep
 teew usr/share/favicons-24x24/update.sh << '_'
 #!/bin/bash
 cwd="$(cd "$(dirname "$0")" && pwd)"
