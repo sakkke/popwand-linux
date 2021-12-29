@@ -689,7 +689,7 @@ xorg-drivers
 xorg-xwayland
 /cat
 
-teeww usr/share/favicons-24x24/list << '_'
+teew usr/share/favicons-24x24/list << '_'
 #app.diagrams.net https://app.diagrams.net/
 #codepen.io https://codepen.io/
 #diep.io https://diep.io/
@@ -727,7 +727,7 @@ curl -Ls \
   | tar \
     -C airootfs/usr/share/icons \
     -xzf -
-teeww usr/share/icons-24x24/list << '_'
+teew usr/share/icons-24x24/list << '_'
 blender
 file-manager
 freecad
@@ -761,7 +761,7 @@ install_dir="$(cd "$cwd/../icons" && pwd)"
 cd $(mktemp -d)
 git clone https://github.com/vinceliuice/Tela-circle-icon-theme.git .
 ls "$cwd" | grep '.png$' | xargs -r rm
-cat "$cwd/list" | xargs -I{} -P0 -n1 ffmpeg \
+grep -v '^#' "$cwd/list" | xargs -I{} -P0 -n1 ffmpeg \
   -width 24 \
   -i src/scalable/apps/{}.svg \
   "$cwd/{}.png"
