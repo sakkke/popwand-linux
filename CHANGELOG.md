@@ -3,6 +3,7 @@
 ## 2021-12-29
 ### Added
 - add `etc/skel/tmux.conf`
+- add asdf
 
 ## 2021-12-28
 ### Added

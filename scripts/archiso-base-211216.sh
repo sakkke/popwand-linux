@@ -277,6 +277,9 @@ root::14871::::::
 user:$6$Ckm3hL1yVkpajjT4$SLAN7xN8R/7A9FaB6JColbio0snA0t/GHKSwUZ0YukuOBdFdPl/nYh3qAcLZsJA7Vc28gIJ2Z7wM/lFgKpXVW.:14871::::::
 _
 
+# ref: https://asdf-vm.com/guide/getting-started.html#_2-download-asdf
+git clone https://github.com/asdf-vm/asdf.git airootfs/etc/skel/.asdf --branch v0.8.1
+
 teew etc/skel/.bashrc << '_'
 if [ -z "$DISPLAY" ] && [ "$(tty)" = /dev/tty1 ]; then
   [ ! -f ~/.config/user-dirs.dirs ] && xdg-user-dirs-update
@@ -333,6 +336,10 @@ fi
 alias editor="$EDITOR"
 alias grep='grep --color'
 alias ls='ls --color'
+
+# ref: https://asdf-vm.com/guide/getting-started.html#_3-install-asdf
+. $HOME/.asdf/asdf.sh
+. $HOME/.asdf/completions/asdf.bash
 
 # ref: https://github.com/akinomyoga/ble.sh#:~:text=%5B%5B%20%24%7BBLE_VERSION%2D%7D%20%5D%5D%20%26%26%20ble%2Dattach
 [[ ${BLE_VERSION-} ]] && ble-attach
