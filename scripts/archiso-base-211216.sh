@@ -570,6 +570,25 @@ QT_QPA_PLATFORM=wayland
 SDL_IM_MODULE=fcitx
 XMODIFIERS=@im=fcitx
 _
+teew etc/skel/.tmux.conf << '_'
+# ref: https://github.com/tmux-plugins/tpm/issues/105#issue-204507647
+setenv -g TMUX_PLUGIN_MANAGER_PATH ~/.tmux/plugins
+
+# ref: https://github.com/tmux-plugins/tpm/blob/master/docs/automatic_tpm_installation.md#automatic-tpm-installation
+if "test ! -d ~/.tmux/plugins/tpm" \
+   "run 'git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm && ~/.tmux/plugins/tpm/bin/install_plugins'"
+
+# Settings
+set -g default-terminal tmux-256color
+
+# Plugins
+set -g @plugin wfxr/tmux-power
+
+# Plugin settings
+set -g @tmux_power_theme snow
+
+run ~/.tmux/plugins/tpm/tpm
+_
 teew etc/sudoers.d/user << '_'
 user ALL=NOPASSWD: ALL
 _

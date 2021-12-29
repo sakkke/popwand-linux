@@ -1,5 +1,9 @@
 # Changelog
 
+## 2021-12-29
+### Added
+- add `etc/skel/tmux.conf`
+
 ## 2021-12-28
 ### Added
 - add local repository for Pacman
