@@ -6,6 +6,7 @@
 - add asdf
 - add "自家製 Rounded M+"
 - add `/installer`
+- add unzip to dependencies
 
 ## 2021-12-28
 ### Added

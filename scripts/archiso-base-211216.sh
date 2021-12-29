@@ -12,6 +12,7 @@ archiso
 ffmpeg
 git
 make
+unzip
 /pacman
 rm -fr archlive
 cp -r /usr/share/archiso/configs/baseline archlive
