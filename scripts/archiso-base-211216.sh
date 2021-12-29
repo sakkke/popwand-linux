@@ -663,11 +663,11 @@ teew() { file="$1"; shift
 
 #parted /dev/sdX << '/parted'
 #mklabel gpt
-#mkpart esp fat32 0% 512Mib
+#mkpart popwesp fat32 0% 512Mib
 #set 1 esp on
-#mkpart boot fat32 512Mib 1536Mib
+#mkpart popwboot fat32 512Mib 1536Mib
 #set 2 bls_boot on
-#mkpart root ext4 1536Mib 100%
+#mkpart popwroot ext4 1536Mib 100%
 #/parted
 #mkfs.fat -F32 /dev/sdX1
 #mkfs.fat -F32 /dev/sdX2
@@ -677,31 +677,31 @@ teew() { file="$1"; shift
 #root=/dev/sdX3
 
 echo 'Select EFI system partition'
-select _esp in $(list_partitions); do
-  if ls /dev/$_esp; then
-    esp=/dev/$_esp
+select _popwesp in $(list_partitions); do
+  if ls /dev/$_popwesp; then
+    popwesp=/dev/$_popwesp
     break
   fi
 done
 echo 'Select boot partition'
-select _boot in $(list_partitions); do
-  if ls /dev/$_boot; then
-    boot=/dev/$_boot
+select _popwboot in $(list_partitions); do
+  if ls /dev/$_popwboot; then
+    popwboot=/dev/$_popwboot
     break
   fi
 done
 echo 'Select root partition'
-select _root in $(list_partitions); do
-  if ls /dev/$_root; then
-    root=/dev/$_root
+select _popwroot in $(list_partitions); do
+  if ls /dev/$_popwroot; then
+    popwroot=/dev/$_popwroot
     break
   fi
 done
 
-mount $root /mnt
+mount $popwroot /mnt
 mkdir /mnt/{boot,efi}
-mount $boot /mnt/boot
-mount $esp /mnt/efi
+mount $popwboot /mnt/boot
+mount $popwesp /mnt/efi
 
 pacstrap /mnt - < /live/packages
 
@@ -711,7 +711,7 @@ teew boot/loader/entries/popw.conf << '$'
 title Popwand Linux
 linux /vmlinuz-linux
 initrd /initramfs-linux.img
-options root=PARTLABEL=root rw
+options root=PARTLABEL=popwroot rw
 $
 _
 {

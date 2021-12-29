@@ -1,5 +1,9 @@
 # Changelog
 
+## 2021-12-30
+### Changed
+- add "popw" prefix to PARTLABEL
+
 ## 2021-12-29
 ### Added
 - add `etc/skel/tmux.conf`
