@@ -731,7 +731,7 @@ _
   echo
 } >> airootfs/installer
 cat >> airootfs/installer << '_'
-arch-chroot /mnt << /arch-chroot
+arch-chroot /mnt /bin/bash << /arch-chroot
 hwclock --systohc
 
 sed -i 's/#\(en_US\.UTF-8\|ja_JP\.UTF-8\)/\1/' /etc/locale.gen
