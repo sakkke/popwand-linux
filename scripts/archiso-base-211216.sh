@@ -688,7 +688,7 @@ mkdir /mnt/{boot,efi}
 mount $boot /mnt/boot
 mount $esp /mnt/efi
 
-pacstrap /mnt < /live/packages
+pacstrap /mnt - < /live/packages
 
 genfstab -U /mnt >> /mnt/etc/fstab
 _
