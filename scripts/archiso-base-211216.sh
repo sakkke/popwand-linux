@@ -344,6 +344,18 @@ alias ls='ls --color'
 # ref: https://github.com/akinomyoga/ble.sh#:~:text=%5B%5B%20%24%7BBLE_VERSION%2D%7D%20%5D%5D%20%26%26%20ble%2Dattach
 [[ ${BLE_VERSION-} ]] && ble-attach
 _
+teew etc/skel/.config/fontconfig/fonts.conf << '_'
+<?xml version="1.0"?>
+<!DOCTYPE fontconfig SYSTEM "fonts.dtd">
+<fontconfig>
+  <alias>
+    <family>sans-serif</family>
+    <prefer>
+      <family>Rounded M+ 1c</family>
+    </prefer>
+  </alias>
+</fontconfig>
+_
 teew etc/skel/.config/gtk-3.0/settings.ini << '_'
 [Settings]
 gtk-cursor-theme-name=Fuchsia
@@ -701,6 +713,14 @@ cat "$cwd/list" | while read name domain_url; do
 done
 _
 bash airootfs/usr/share/favicons-24x24/update.sh
+(
+  cd $(mktemp -d)
+  curl -LO https://osdn.jp/downloads/users/8/8574/rounded-mplus-20150529.zip
+  mkdir -p airootfs/usr/share/fonts/rounded-mplus
+  unzip -d airootfs/usr/share/fonts/rounded-mplus rounded-mplus-20150529.zip
+  cd
+  rm -fr $OLDPWD
+)
 mkdir airootfs/usr/share/icons
 curl -Ls \
   https://github.com/ful1e5/fuchsia-cursor/releases/download/v1.0.5/Fuchsia.tar.gz \
