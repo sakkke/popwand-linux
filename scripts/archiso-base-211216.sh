@@ -400,6 +400,10 @@ path=/usr/bin/fcitx5
 keymap_layout=jp
 
 [launcher]
+icon=/usr/share/icons-24x24/system-os-install.png
+path=/usr/bin/kitty sudo /installer
+
+[launcher]
 icon=/usr/share/icons-24x24/freecad.png
 path=/usr/bin/FreeCAD
 
@@ -865,6 +869,7 @@ musescore
 nomacs
 #python
 signal-desktop
+system-os-install
 #visualstudiocode
 vivaldi
 vlc

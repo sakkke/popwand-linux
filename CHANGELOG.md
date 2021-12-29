@@ -1,6 +1,9 @@
 # Changelog
 
 ## 2021-12-30
+### Added
+- add installer to launcher
+
 ### Changed
 - add "popw" prefix to PARTLABEL
 
