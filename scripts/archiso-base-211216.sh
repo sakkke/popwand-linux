@@ -691,6 +691,13 @@ mount $esp /mnt/efi
 pacstrap /mnt - < /live/packages
 
 genfstab -U /mnt >> /mnt/etc/fstab
+
+teew boot/loader/entries/popw.conf << '$'
+title Popwand Linux
+linux /vmlinuz-linux
+initrd /initramfs-linux.img
+options root=PARTLABEL=root rw
+$
 _
 {
   echo
