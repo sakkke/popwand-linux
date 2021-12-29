@@ -635,11 +635,12 @@ curl \
   cd airootfs/live
   temp=$(mktemp -d)
   trap "rm -fr $temp" EXIT
-  pacman --cachedir "$(pwd)" --dbpath $temp --noconfirm -Swy - << '/pacman'
+  cat > packages << '/cat'
 base
 linux
 linux-firmware
-/pacman
+/cat
+  pacman --cachedir "$(pwd)" --dbpath $temp --noconfirm -Swy - < packages
   repo-add live.db.tar.gz *.pkg.tar.{xz,zst}
 )
 cat >> packages.x86_64 << '/cat'
