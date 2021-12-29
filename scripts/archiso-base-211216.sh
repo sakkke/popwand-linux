@@ -655,7 +655,8 @@ teew() { file="$1"; shift
 #set 2 bls_boot on
 #mkpart root ext4 1536Mib 100%
 #/parted
-#mkfs.fat -F32 /dev/sdX{1,2}
+#mkfs.fat -F32 /dev/sdX1
+#mkfs.fat -F32 /dev/sdX2
 #mkfs.ext4 /dev/sdX3
 #esp=/dev/sdX1
 #boot=/dev/sdX2
