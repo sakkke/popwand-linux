@@ -911,7 +911,7 @@ file_permissions=(
   ["/etc/gshadow"]="0:0:0400"
   ["/etc/pacman.d/hooks.bin/shotcut-install"]="0:0:755"
   ["/etc/pacman.d/hooks.bin/shotcut-remove"]="0:0:755"
-  ["/installer"]="0:0:4755"
+  ["/installer"]="0:0:755"
   ["/usr/share/favicons-24x24/update.sh"]="0:0:755"
   ["/usr/share/icons-24x24/update.sh"]="0:0:755"
 )
