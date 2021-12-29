@@ -31,14 +31,7 @@ teew() { file="$1"; shift
   tee "$@" "$dir/$file" > /dev/null && echo -e "${FUNCNAME[0]}: created "'\e[1mfile\e[m'": '/$file'"
 }
 
-# teeww - teew wrapper
-teeww() { file="$1"; shift
-  dir=airootfs
-  mkdir -p "$(dirname "$dir/$file")"
-  grep -v '^#' | tee "$@" "$dir/$file" > /dev/null && echo -e "${FUNCNAME[0]}: created "'\e[1mfile\e[m'": '/$file'"
-}
-
-teew etc/environment << '_'
+teew etc/environment << '_' # use;
 EDITOR=/usr/bin/micro
 _
 
@@ -56,13 +49,13 @@ root:!*::root
 user:!*::
 _
 
-teew etc/hostname << '_'
+teew etc/hostname << '_' # use;
 earth
 _
-teew etc/locale.conf << '_'
+teew etc/locale.conf << '_' # use;
 LANG=ja_JP.UTF-8
 _
-lnw /usr/share/zoneinfo/Asia/Tokyo etc/localtime
+lnw /usr/share/zoneinfo/Asia/Tokyo etc/localtime -f # use;
 teew etc/pacman.conf << '_'
 #
 # /etc/pacman.conf
@@ -189,7 +182,7 @@ Depends = sh
 Exec = /bin/sh -c "sed -i 's/#\(en_US\.UTF-8\|ja_JP\.UTF-8\)/\1/' /etc/locale.gen && locale-gen"
 _
 
-teew etc/pacman.d/hooks/shotcut-install.hook << '_'
+teew etc/pacman.d/hooks/shotcut-install.hook << '_' # use;
 [Trigger]
 Operation = Install
 Operation = Upgrade
@@ -201,7 +194,7 @@ Description = Creating a Shotcut 24x24 icon...
 When = PostTransaction
 Exec = /etc/pacman.d/hooks.bin/shotcut-install
 _
-teew etc/pacman.d/hooks/shotcut-remove.hook << '_'
+teew etc/pacman.d/hooks/shotcut-remove.hook << '_' # use;
 [Trigger]
 Operation = Remove
 Type = Package
@@ -252,14 +245,14 @@ Depends = grep
 Exec = /bin/sh -c "rm -- $(grep -Frl 'remove from airootfs' /etc/pacman.d/hooks/)"
 _
 
-teew etc/pacman.d/hooks.bin/shotcut-install << '_'
+teew etc/pacman.d/hooks.bin/shotcut-install << '_' # use;
 #!/bin/bash
 ffmpeg \
   -i /usr/share/icons/hicolor/128x128/apps/org.shotcut.Shotcut.png \
   -vf scale=24:-1 \
   /usr/share/icons/hicolor/24x24/apps/org.shotcut.Shotcut.png
 _
-teew etc/pacman.d/hooks.bin/shotcut-remove << '_'
+teew etc/pacman.d/hooks.bin/shotcut-remove << '_' # use;
 #!/bin/bash
 rm /usr/share/icons/hicolor/24x24/apps/org.shotcut.Shotcut.png
 _
@@ -280,7 +273,7 @@ _
 # ref: https://asdf-vm.com/guide/getting-started.html#_2-download-asdf
 git clone https://github.com/asdf-vm/asdf.git airootfs/etc/skel/.asdf --branch v0.8.1
 
-teew etc/skel/.bashrc << '_'
+teew etc/skel/.bashrc << '_' # use;
 if [ -z "$DISPLAY" ] && [ "$(tty)" = /dev/tty1 ]; then
   [ ! -f ~/.config/user-dirs.dirs ] && xdg-user-dirs-update
 
@@ -344,7 +337,7 @@ alias ls='ls --color'
 # ref: https://github.com/akinomyoga/ble.sh#:~:text=%5B%5B%20%24%7BBLE_VERSION%2D%7D%20%5D%5D%20%26%26%20ble%2Dattach
 [[ ${BLE_VERSION-} ]] && ble-attach
 _
-teew etc/skel/.config/fontconfig/fonts.conf << '_'
+teew etc/skel/.config/fontconfig/fonts.conf << '_' # use;
 <?xml version="1.0"?>
 <!DOCTYPE fontconfig SYSTEM "fonts.dtd">
 <fontconfig>
@@ -356,7 +349,7 @@ teew etc/skel/.config/fontconfig/fonts.conf << '_'
   </alias>
 </fontconfig>
 _
-teew etc/skel/.config/gtk-3.0/settings.ini << '_'
+teew etc/skel/.config/gtk-3.0/settings.ini << '_' # use;
 [Settings]
 gtk-cursor-theme-name=Fuchsia
 _
@@ -365,23 +358,23 @@ curl \
   -o airootfs/etc/skel/.config/kitty/current-theme.conf \
   -s \
   https://raw.githubusercontent.com/kovidgoyal/kitty-themes/master/themes/PaperColor_light.conf
-teew etc/skel/.config/kitty/kitty.conf << '_'
+teew etc/skel/.config/kitty/kitty.conf << '_' # use;
 background_opacity 0.8
 font_family Fira Code
 include current-theme.conf
 linux_display_server x11
 _
-teew etc/skel/.config/pcmanfm-qt/default/settings.conf << '_'
+teew etc/skel/.config/pcmanfm-qt/default/settings.conf << '_' # use;
 [System]
 FallbackIconThemeName=Tela-circle
 _
-lnw /usr/lib/systemd/user/pipewire-pulse.service etc/skel/.config/systemd/user/default.target.wants/pipewire-pulse.service
-lnw /usr/lib/systemd/user/pipewire.service etc/skel/.config/systemd/user/default.target.wants/pipewire.service
-lnw /usr/lib/systemd/user/pipewire-media-session.service etc/skel/.config/systemd/user/pipewire-session-manager.service
-lnw /usr/lib/systemd/user/pipewire-media-session.service etc/skel/.config/systemd/user/pipewire.service.wants/pipewire-media-session.service
-lnw /usr/lib/systemd/user/pipewire-pulse.socket etc/skel/.config/systemd/user/sockets.target.wants/pipewire-pulse.socket
-lnw /usr/lib/systemd/user/pipewire.socket etc/skel/.config/systemd/user/sockets.target.wants/pipewire.socket
-teew etc/skel/.config/weston.ini << '_'
+lnw /usr/lib/systemd/user/pipewire-pulse.service etc/skel/.config/systemd/user/default.target.wants/pipewire-pulse.service # use;
+lnw /usr/lib/systemd/user/pipewire.service etc/skel/.config/systemd/user/default.target.wants/pipewire.service # use;
+lnw /usr/lib/systemd/user/pipewire-media-session.service etc/skel/.config/systemd/user/pipewire-session-manager.service # use;
+lnw /usr/lib/systemd/user/pipewire-media-session.service etc/skel/.config/systemd/user/pipewire.service.wants/pipewire-media-session.service # use;
+lnw /usr/lib/systemd/user/pipewire-pulse.socket etc/skel/.config/systemd/user/sockets.target.wants/pipewire-pulse.socket # use;
+lnw /usr/lib/systemd/user/pipewire.socket etc/skel/.config/systemd/user/sockets.target.wants/pipewire.socket # use;
+teew etc/skel/.config/weston.ini << '_' # use;
 [core]
 xwayland=true
 
@@ -575,11 +568,11 @@ _
   cd
   rm -fr $OLDPWD
 )
-teew etc/skel/.local/share/icons/default/index.theme << '_'
+teew etc/skel/.local/share/icons/default/index.theme << '_' # use;
 [Icon Theme]
 Inherits=Fuchsia
 _
-teew etc/skel/.pam_environment << '_'
+teew etc/skel/.pam_environment << '_' # use;
 # for kitty
 GLFW_IM_MODULE=ibus
 
@@ -589,7 +582,7 @@ QT_QPA_PLATFORM=wayland
 SDL_IM_MODULE=fcitx
 XMODIFIERS=@im=fcitx
 _
-teew etc/skel/.tmux.conf << '_'
+teew etc/skel/.tmux.conf << '_' # use;
 # ref: https://github.com/tmux-plugins/tpm/issues/105#issue-204507647
 setenv -g TMUX_PLUGIN_MANAGER_PATH ~/.tmux/plugins
 
@@ -620,7 +613,7 @@ ExecStart=
 ExecStart=-/sbin/agetty --autologin user --noclear %I 38400 linux
 _
 
-teew etc/vconsole.conf << '_'
+teew etc/vconsole.conf << '_' # use;
 KEYMAP=jp106
 _
 lnw /usr/lib/systemd/system/NetworkManager.service etc/systemd/system/multi-user.target.wants/NetworkManager.service
@@ -630,6 +623,105 @@ curl \
   -o airootfs/usr/share/backgrounds/default.jpg \
   -s \
   'https://images.pexels.com/photos/2138922/pexels-photo-2138922.jpeg?crop=entropy&cs=srgb&dl=pexels-kyle-roxas-2138922.jpg&fit=crop&fm=jpg&h=2880&w=5120'
+teew installer << '_'
+#!/bin/bash
+set -eu
+cd /
+list_partitions() {
+  ls /dev \
+    | grep '^\(mmcblk[0-9]\+p[0-9]\+\|nvme[0-9]\+n[0-9]\+p[0-9]\+\|sd[a-z]\+[0-9]\+\)$'
+}
+
+# lnw - ln wrapper
+lnw() { to="$1"; from="$2"; shift; shift
+  dir=.
+  mkdir -p "$(dirname "$dir/$from")"
+  ln "$@" -s "$to" "$dir/$from" && echo -e "${FUNCNAME[0]}: created "'\e[1;36msymlink\e[m'": '/$from' -> '$to'"
+}
+
+# teew - tee wrapper
+teew() { file="$1"; shift
+  dir=.
+  mkdir -p "$(dirname "$dir/$file")"
+  tee "$@" "$dir/$file" > /dev/null && echo -e "${FUNCNAME[0]}: created "'\e[1mfile\e[m'": '/$file'"
+}
+
+#parted /dev/sdX << '/parted'
+#mklabel gpt
+#mkpart esp fat32 0% 512Mib
+#set 1 esp on
+#mkpart boot fat32 512Mib 1536Mib
+#set 2 bls_boot on
+#mkpart root ext4 1536Mib 100%
+#/parted
+#mkfs.fat -F32 /dev/sdX{1,2}
+#mkfs.ext4 /dev/sdX3
+#esp=/dev/sdX1
+#boot=/dev/sdX2
+#root=/dev/sdX3
+
+echo 'Select EFI system partition'
+select _esp in $(list_partitions); do
+  if ls /dev/$_esp; then
+    esp=/dev/$_esp
+    break
+  fi
+done
+echo 'Select boot partition'
+select _boot in $(list_partitions); do
+  if ls /dev/$_boot; then
+    boot=/dev/$_boot
+    break
+  fi
+done
+echo 'Select root partition'
+select _root in $(list_partitions); do
+  if ls /dev/$_root; then
+    root=/dev/$_root
+    break
+  fi
+done
+
+mount $root /mnt
+mkdir /mnt/{boot,efi}
+mount $boot /mnt/boot
+mount $esp /mnt/efi
+
+pacstrap /mnt < /live/packages
+
+genfstab -U /mnt >> /mnt/etc/fstab
+_
+{
+  echo
+  file="$0"
+  cat -n "$file" | grep 'use;$' | while read n cmd _; do
+    i=$n
+    while :; do
+      if [ $cmd = lnw ] || [ "$(sed -n ${i}p "$file")" = _ ]; then
+        break
+      else
+        let i++
+      fi
+    done
+    sed -n $((n + 1)),$((i - 1))p "$file"
+  done
+  echo
+} >> airootfs/installer
+cat >> airootfs/installer << '_'
+arch-chroot /mnt << /arch-chroot
+hwclock --systohc
+
+sed -i 's/#\(en_US\.UTF-8\|ja_JP\.UTF-8\)/\1/' /etc/locale.gen
+locale-gen
+
+echo root:toor | chpasswd
+
+[ -f /efi/efi/boot/bootx64.efi ] && cp /efi/efi/boot/bootx64.efi bootx64.efi.$(date +%s).bak
+bootctl --boot-path=/boot --esp-path=/efi install
+/arch-chroot
+umount -R /mnt
+echo 'Installation is complete!'
+_
 (
   mkdir -p airootfs/live
   cd airootfs/live
@@ -690,7 +782,7 @@ xorg-drivers
 xorg-xwayland
 /cat
 
-teew usr/share/favicons-24x24/list << '_'
+teew usr/share/favicons-24x24/list << '_' # use;
 #app.diagrams.net https://app.diagrams.net/
 #codepen.io https://codepen.io/
 #diep.io https://diep.io/
@@ -705,11 +797,11 @@ www.wolframalpha.com https://www.wolframalpha.com/
 www.youtube.com https://www.youtube.com/
 #zenn.dev https://zenn.dev/
 _
-teew usr/share/favicons-24x24/update.sh << '_'
+teew usr/share/favicons-24x24/update.sh << '_' # use;
 #!/bin/bash
 cwd="$(cd "$(dirname "$0")" && pwd)"
 ls "$cwd" | grep '.png$' | xargs -r rm
-cat "$cwd/list" | while read name domain_url; do
+grep -v '^#' "$cwd/list" | while read name domain_url; do
   curl -so "$cwd/$name.png" "https://www.google.com/s2/favicons?domain_url=$domain_url&sz=24"
 done
 _
@@ -728,7 +820,7 @@ curl -Ls \
   | tar \
     -C airootfs/usr/share/icons \
     -xzf -
-teew usr/share/icons-24x24/list << '_'
+teew usr/share/icons-24x24/list << '_' # use;
 blender
 file-manager
 freecad
@@ -755,7 +847,7 @@ vivaldi
 vlc
 youtube
 _
-teew usr/share/icons-24x24/update.sh << '_'
+teew usr/share/icons-24x24/update.sh << '_' # use;
 #!/bin/bash
 cwd="$(cd "$(dirname "$0")" && pwd)"
 install_dir="$(cd "$cwd/../icons" && pwd)"
@@ -796,6 +888,7 @@ file_permissions=(
   ["/etc/gshadow"]="0:0:0400"
   ["/etc/pacman.d/hooks.bin/shotcut-install"]="0:0:755"
   ["/etc/pacman.d/hooks.bin/shotcut-remove"]="0:0:755"
+  ["/installer"]="0:0:4755"
   ["/usr/share/favicons-24x24/update.sh"]="0:0:755"
   ["/usr/share/icons-24x24/update.sh"]="0:0:755"
 )

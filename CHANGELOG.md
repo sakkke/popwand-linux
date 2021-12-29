@@ -5,6 +5,7 @@
 - add `etc/skel/tmux.conf`
 - add asdf
 - add "自家製 Rounded M+"
+- add `/installer`
 
 ## 2021-12-28
 ### Added
