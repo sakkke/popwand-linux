@@ -224,6 +224,20 @@ Depends = sed
 Exec = /usr/bin/sed -i "s/#Server/Server/g" /etc/pacman.d/mirrorlist
 _
 
+teew etc/pacman.d/hooks/update-keyring << '_'
+# remove from airootfs!
+[Trigger]
+Operation = Install
+Type = Package
+Target = pacman
+
+[Action]
+Description = Update keyring...
+When = PostTransaction
+Exec = pacman-key --init
+Exec = pacman-key --populate archlinux
+_
+
 # ref: https://gitlab.archlinux.org/archlinux/archiso/-/blob/754caf0ca21476d52d8557058f665b9078982877/configs/releng/airootfs/etc/pacman.d/hooks/zzzz99-remove-custom-hooks-from-airootfs.hook
 teew etc/pacman.d/hooks/zzzz99-remove-custom-hooks-from-airootfs.hook << '_'
 # remove from airootfs!

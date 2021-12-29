@@ -7,6 +7,7 @@
 - add "自家製 Rounded M+"
 - add `/installer`
 - add unzip to dependencies
+- add `/etc/pacman.d/hooks/update-keyring`
 
 ## 2021-12-28
 ### Added
