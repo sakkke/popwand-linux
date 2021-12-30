@@ -696,7 +696,7 @@ mkpart popwroot ext4 1536Mib 100%
 /parted
         mkfs.fat -F32 ${device}1
         mkfs.fat -F32 ${device}2
-        mkfs.ext4 ${device}3
+        mkfs.ext4 -F ${device}3
         popwesp=${device}1
         popwboot=${device}2
         popwroot=${device}3
