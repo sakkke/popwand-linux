@@ -851,6 +851,7 @@ inkscape
 kitty
 libreoffice-fresh
 libreoffice-fresh-ja
+man
 micro
 musescore
 neovim
