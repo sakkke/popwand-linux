@@ -3,5 +3,7 @@
 ## List of installers
 
 - [211203]
+- [archiso-base-211216]
 
 [211203]: docs/installer-211203.md
+[archiso-base-211216]: docs/archiso-base-211216.md
