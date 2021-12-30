@@ -686,7 +686,7 @@ case $installation_type in
     select _device in $(list_devices); do
       if file /dev/$_device; then
         device=/dev/$_device$(grep '^[mn]' <<< $_device > /dev/null && echo p; :)
-        parted $device << '/parted'
+        parted /dev/$_device << '/parted'
 mklabel gpt
 mkpart popwesp fat32 0% 512Mib
 set 1 esp on
