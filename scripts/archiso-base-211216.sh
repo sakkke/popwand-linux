@@ -676,21 +676,6 @@ teew() { file="$1"; shift
   tee "$@" "$dir/$file" > /dev/null && echo -e "${FUNCNAME[0]}: created "'\e[1mfile\e[m'": '/$file'"
 }
 
-#parted /dev/sdX << '/parted'
-#mklabel gpt
-#mkpart popwesp fat32 0% 512Mib
-#set 1 esp on
-#mkpart popwboot fat32 512Mib 1536Mib
-#set 2 bls_boot on
-#mkpart popwroot ext4 1536Mib 100%
-#/parted
-#mkfs.fat -F32 /dev/sdX1
-#mkfs.fat -F32 /dev/sdX2
-#mkfs.ext4 /dev/sdX3
-#popwesp=/dev/sdX1
-#popwboot=/dev/sdX2
-#popwroot=/dev/sdX3
-
 echo 'Select installation type'
 select installation_type in 'custom (recommended)' auto; do
   [ ! -z "$installation_type" ] && break
