@@ -653,6 +653,10 @@ if ((EUID)); then
 fi
 
 cd /
+list_devices() {
+  ls /dev \
+    | grep '^\(mmcblk[0-9]\+\|nvme[0-9]\+n[0-9]\+\|sd[a-z]\+\)$'
+}
 list_partitions() {
   ls /dev \
     | grep '^\(mmcblk[0-9]\+p[0-9]\+\|nvme[0-9]\+n[0-9]\+p[0-9]\+\|sd[a-z]\+[0-9]\+\)$'
@@ -687,26 +691,85 @@ teew() { file="$1"; shift
 #popwboot=/dev/sdX2
 #popwroot=/dev/sdX3
 
-echo 'Select EFI system partition'
-select _popwesp in $(list_partitions); do
-  if ls /dev/$_popwesp; then
-    popwesp=/dev/$_popwesp
-    break
-  fi
+echo 'Select installation type'
+select installation_type in 'custom (recommended)' auto; do
+  [ ! -z "$installation_type" ] && break
 done
-echo 'Select boot partition'
-select _popwboot in $(list_partitions); do
-  if ls /dev/$_popwboot; then
-    popwboot=/dev/$_popwboot
-    break
-  fi
-done
-echo 'Select root partition'
-select _popwroot in $(list_partitions); do
-  if ls /dev/$_popwroot; then
-    popwroot=/dev/$_popwroot
-    break
-  fi
+case $installation_type in
+  auto )
+    echo 'Select device'
+    select _device in $(list_devices); do
+      if ls /dev/$_device; then
+        device=/dev/$_device$(grep '^[mn]' <<< $_device > /dev/null && echo p)
+        parted $device << '/parted'
+mklabel gpt
+mkpart popwesp fat32 0% 512Mib
+set 1 esp on
+mkpart popwboot fat32 512Mib 1536Mib
+set 2 bls_boot on
+mkpart popwroot ext4 1536Mib 100%
+/parted
+        mkfs.fat -F32 ${device}1
+        mkfs.fat -F32 ${device}2
+        mkfs.ext4 ${device}3
+        popwesp=${device}1
+        popwboot=${device}2
+        popwroot=${device}3
+        break
+      fi
+    done
+    ;;
+
+  'custom (recommended)' )
+    echo 'Select EFI system partition'
+    select _popwesp in $(list_partitions); do
+      if ls /dev/$_popwesp; then
+        popwesp=/dev/$_popwesp
+        break
+      fi
+    done
+    echo 'Select boot partition'
+    select _popwboot in $(list_partitions); do
+      if ls /dev/$_popwboot; then
+        popwboot=/dev/$_popwboot
+        break
+      fi
+    done
+    echo 'Select root partition'
+    select _popwroot in $(list_partitions); do
+      if ls /dev/$_popwroot; then
+        popwroot=/dev/$_popwroot
+        break
+      fi
+    done
+    ;;
+esac
+echo -e '[\e[1mInstallation info\e[m]'
+echo ---
+{
+  echo -e "\\e[1;31mInstallation type\\e[m: $installation_type"
+  echo -e "\\e[1;33mDevice\\e[m: ${device:-\e[2mNONE, it is right\e[m}"
+  echo -e "\\e[1;32mEFI system partition\\e[m: ${popwesp:-\e[2m${device}1\e[m}"
+  echo -e "\\e[1;34mBoot partition\\e[m: ${popwboot:-\e[2m${device}2\e[m}"
+  echo -e "\\e[1;33mRoot partition\\e[m: ${popwroot:-\e[2m${device}3\e[m}"
+} | column -R1 -o: -s: -t
+echo ---
+while :; do
+  read -p'Continue? [y/N] ' yorn
+  case "$yorn" in
+    '' | [Nn] )
+      echo 'Installation canceled'
+      exit 1
+      ;;
+
+    [Yy] )
+      break
+      ;;
+
+    * )
+      echo 'Input is expected to be "y" or "n"'
+      ;;
+  esac
 done
 
 mount $popwroot /mnt
@@ -752,6 +815,22 @@ echo root:toor | chpasswd
 
 [ -f /efi/efi/boot/bootx64.efi ] && cp /efi/efi/boot/bootx64.efi bootx64.efi.$(date +%s).bak
 bootctl --boot-path=/boot --esp-path=/efi install
+
+while :; do
+  echo 'Enter a new user name'
+  read -p'Username: ' username
+  grep '^[_a-z][-0-9_a-z]\{0,16\}$' <<< "$username"
+  if ((! $?)); then
+    useradd -Gdocker,wheel -m $username
+    break
+  else
+    echo "Input is expected to be '^[_a-z][-0-9_a-z]\{0,16\}$'"
+  fi
+done
+while :; do
+  passwd $username
+  let "! $?" && break
+done
 /arch-chroot
 umount -R /mnt
 echo 'Installation is complete!'

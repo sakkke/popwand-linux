@@ -6,6 +6,7 @@
 
 ### Changed
 - add "popw" prefix to PARTLABEL
+- update installer
 
 ## 2021-12-29
 ### Added
