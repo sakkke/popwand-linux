@@ -10,6 +10,9 @@
 - add "popw" prefix to PARTLABEL
 - update installer
 
+### Fixed
+- fix hook description
+
 ## 2021-12-29
 ### Added
 - add `etc/skel/tmux.conf`

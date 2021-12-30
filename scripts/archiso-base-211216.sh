@@ -232,7 +232,7 @@ Type = Package
 Target = pacman
 
 [Action]
-Description = Update keyring...
+Description = Updating keyring...
 When = PostTransaction
 Exec = pacman-key --init
 Exec = pacman-key --populate archlinux
