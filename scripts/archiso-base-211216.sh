@@ -685,7 +685,7 @@ case $installation_type in
     echo 'Select device'
     select _device in $(list_devices); do
       if file /dev/$_device; then
-        device=/dev/$_device$(grep '^[mn]' <<< $_device > /dev/null && echo p)
+        device=/dev/$_device$(grep '^[mn]' <<< $_device > /dev/null && echo p; :)
         parted $device << '/parted'
 mklabel gpt
 mkpart popwesp fat32 0% 512Mib
