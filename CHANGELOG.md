@@ -4,6 +4,7 @@
 ### Added
 - add installer to launcher
 - add man
+- add texinfo
 
 ### Changed
 - add "popw" prefix to PARTLABEL

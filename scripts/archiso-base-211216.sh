@@ -869,6 +869,7 @@ qt5-wayland
 shotcut
 signal-desktop
 sudo
+texinfo
 tmux
 ttf-fira-code
 ttf-ibm-plex
