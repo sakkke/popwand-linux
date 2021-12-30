@@ -224,7 +224,7 @@ Depends = sed
 Exec = /usr/bin/sed -i "s/#Server/Server/g" /etc/pacman.d/mirrorlist
 _
 
-teew etc/pacman.d/hooks/update-keyring << '_'
+teew etc/pacman.d/hooks/update-keyring.hook << '_'
 # remove from airootfs!
 [Trigger]
 Operation = Install

@@ -12,6 +12,7 @@
 
 ### Fixed
 - fix hook description
+- fix issue where hook would not run
 
 ## 2021-12-29
 ### Added
