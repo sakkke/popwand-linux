@@ -9,6 +9,7 @@
 ### Changed
 - add "popw" prefix to PARTLABEL
 - update installer
+- update readme
 
 ### Fixed
 - fix hook description
