@@ -699,7 +699,7 @@ case $installation_type in
   auto )
     echo 'Select device'
     select _device in $(list_devices); do
-      if ls /dev/$_device; then
+      if file /dev/$_device; then
         device=/dev/$_device$(grep '^[mn]' <<< $_device > /dev/null && echo p)
         parted $device << '/parted'
 mklabel gpt
@@ -723,21 +723,21 @@ mkpart popwroot ext4 1536Mib 100%
   'custom (recommended)' )
     echo 'Select EFI system partition'
     select _popwesp in $(list_partitions); do
-      if ls /dev/$_popwesp; then
+      if file /dev/$_popwesp; then
         popwesp=/dev/$_popwesp
         break
       fi
     done
     echo 'Select boot partition'
     select _popwboot in $(list_partitions); do
-      if ls /dev/$_popwboot; then
+      if file /dev/$_popwboot; then
         popwboot=/dev/$_popwboot
         break
       fi
     done
     echo 'Select root partition'
     select _popwroot in $(list_partitions); do
-      if ls /dev/$_popwroot; then
+      if file /dev/$_popwroot; then
         popwroot=/dev/$_popwroot
         break
       fi
