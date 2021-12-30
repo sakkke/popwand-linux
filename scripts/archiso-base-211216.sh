@@ -676,9 +676,9 @@ teew() { file="$1"; shift
 #mkfs.fat -F32 /dev/sdX1
 #mkfs.fat -F32 /dev/sdX2
 #mkfs.ext4 /dev/sdX3
-#esp=/dev/sdX1
-#boot=/dev/sdX2
-#root=/dev/sdX3
+#popwesp=/dev/sdX1
+#popwboot=/dev/sdX2
+#popwroot=/dev/sdX3
 
 echo 'Select EFI system partition'
 select _popwesp in $(list_partitions); do
