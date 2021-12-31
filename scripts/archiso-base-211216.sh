@@ -803,7 +803,7 @@ bootctl --boot-path=/boot --esp-path=/efi install
 
 while :; do
   echo 'Enter a new user name'
-  read -p'Username: ' username
+  read -p'Username: ' username < /dev/tty
   grep '^[_a-z][-0-9_a-z]\{0,16\}$' <<< "$username"
   if ((! $?)); then
     useradd -Gdocker,wheel -m $username
@@ -813,7 +813,7 @@ while :; do
   fi
 done
 while :; do
-  passwd $username
+  passwd $username < /dev/tty
   let "! $?" && break
 done
 /arch-chroot

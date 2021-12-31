@@ -1,5 +1,9 @@
 # Changelog
 
+## 2021-12-31
+### Fixed
+- fix issue that characters would not read from `/dev/tty`
+
 ## 2021-12-30
 ### Added
 - add installer to launcher
