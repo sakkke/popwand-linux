@@ -791,7 +791,7 @@ _
         let i++
       fi
     done
-    sed -n $((n + 1)),$((i - 1))p "$file"
+    sed -n $n,${i}p "$file"
   done
   echo
 } >> airootfs/installer
