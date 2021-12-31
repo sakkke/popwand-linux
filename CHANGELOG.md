@@ -1,6 +1,9 @@
 # Changelog
 
 ## 2021-12-31
+### Changed
+- change error message color
+
 ### Fixed
 - fix issue that characters would not read from `/dev/tty`
 - fix issue where script would fail

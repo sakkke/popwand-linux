@@ -1,9 +1,12 @@
 #!/bin/bash
 set -eu
+error() {
+  echo -e "\\e[31m$*\\e[m"
+}
 
 # ref: https://askubuntu.com/a/15856
 if ((EUID)); then
-  echo 'This script must be run as root'
+  error 'This script must be run as root'
   exit 1
 fi
 
@@ -645,10 +648,13 @@ curl \
 teew installer << '_'
 #!/bin/bash
 set -eu
+error() {
+  echo -e "\\e[31m$*\\e[m"
+}
 
 # ref: https://askubuntu.com/a/15856
 if ((EUID)); then
-  echo 'This script must be run as root'
+  error 'This script must be run as root'
   exit 1
 fi
 
@@ -743,7 +749,7 @@ while :; do
   read -p'Continue? [y/N] ' yorn
   case "$yorn" in
     '' | [Nn] )
-      echo 'Installation canceled'
+      error 'Installation canceled'
       exit 1
       ;;
 
@@ -752,7 +758,7 @@ while :; do
       ;;
 
     * )
-      echo 'Input is expected to be "y" or "n"'
+      error 'Input is expected to be "y" or "n"'
       ;;
   esac
 done
@@ -808,7 +814,7 @@ while :; do
     useradd -Gdocker,wheel -m $username
     break
   else
-    echo "Input is expected to be '^[_a-z][-0-9_a-z]\\{0,16\\}$'"
+    error "Input is expected to be '^[_a-z][-0-9_a-z]\\{0,16\\}$'"
   fi
 done
 while :; do
