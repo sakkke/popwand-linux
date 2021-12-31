@@ -809,7 +809,7 @@ while :; do
     useradd -Gdocker,wheel -m $username
     break
   else
-    echo "Input is expected to be '^[_a-z][-0-9_a-z]\{0,16\}$'"
+    echo "Input is expected to be '^[_a-z][-0-9_a-z]\\{0,16\\}$'"
   fi
 done
 while :; do
