@@ -804,7 +804,7 @@ bootctl --boot-path=/boot --esp-path=/efi install
 while :; do
   echo 'Enter a new user name'
   read -p'Username: ' username < /dev/tty
-  grep '^[_a-z][-0-9_a-z]\{0,16\}$' <<< "$username"
+  grep '^[_a-z][-0-9_a-z]\{0,16\}$' <<< "$username" > /dev/null
   if ((! $?)); then
     useradd -Gdocker,wheel -m $username
     break
