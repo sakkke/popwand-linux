@@ -3,6 +3,7 @@
 ## 2021-12-31
 ### Fixed
 - fix issue that characters would not read from `/dev/tty`
+- fix issue where script would fail
 
 ## 2021-12-30
 ### Added
