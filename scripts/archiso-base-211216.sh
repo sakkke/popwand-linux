@@ -10,6 +10,7 @@ if ((EUID)); then
   exit 1
 fi
 
+self="$(realpath "$0")"
 pacman --needed --noconfirm -Sy - << '/pacman'
 archiso
 ffmpeg
@@ -781,7 +782,7 @@ $
 _
 {
   echo
-  file="$0"
+  file="$self"
   cat -n "$file" | grep 'use;$' | while read n cmd _; do
     i=$n
     while :; do
