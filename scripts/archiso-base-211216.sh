@@ -238,8 +238,8 @@ Target = pacman
 [Action]
 Description = Updating keyring...
 When = PostTransaction
-Exec = pacman-key --init
-Exec = pacman-key --populate archlinux
+Exec = /usr/bin/pacman-key --init
+Exec = /usr/bin/pacman-key --populate archlinux
 _
 
 # ref: https://gitlab.archlinux.org/archlinux/archiso/-/blob/754caf0ca21476d52d8557058f665b9078982877/configs/releng/airootfs/etc/pacman.d/hooks/zzzz99-remove-custom-hooks-from-airootfs.hook

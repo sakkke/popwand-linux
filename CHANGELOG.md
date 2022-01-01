@@ -1,5 +1,9 @@
 # Changelog
 
+## 2022-01-01
+### Fixed
+- fix `update-keyring.hook`
+
 ## 2021-12-31
 ### Changed
 - change error message color
