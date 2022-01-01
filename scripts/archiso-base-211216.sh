@@ -868,7 +868,8 @@ _
   cd airootfs/live
   temp=$(mktemp -d)
   trap "rm -fr $temp" EXIT
-  cat > packages << '/cat'
+  cp "$OLDPWD/packages.x86_64" packages
+  cat << '/cat' | xargs -I{} sed -i "$a{}" packages
 base
 linux
 linux-firmware

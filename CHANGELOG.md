@@ -9,6 +9,7 @@
 - change hostname
 - update `profiledef.sh`
 - use circle folder version Tela-circle-icon-theme
+- update packages to be installed on the new system
 
 ### Fixed
 - fix `update-keyring.hook`
