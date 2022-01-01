@@ -54,8 +54,8 @@ root:!*::root
 user:!*::
 _
 
-teew etc/hostname << '_' # use;
-earth
+teew etc/hostname << "_"
+popwlive-$(tr -dc '[:alnum:]' < /dev/urandom | fold -w8 | head -n1)
 _
 teew etc/locale.conf << '_' # use;
 LANG=ja_JP.UTF-8
@@ -782,6 +782,10 @@ title Popwand Linux
 linux /vmlinuz-linux
 initrd /initramfs-linux.img
 options root=PARTLABEL=popwroot rw
+$
+
+teew etc/hostname << "$"
+popw-$(tr -dc '[:alnum:]' < /dev/urandom | fold -w8 | head -n1)
 $
 _
 {

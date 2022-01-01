@@ -4,6 +4,9 @@
 ### Added
 - add aliases to `.bashrc` (`e[dnvx]`)
 
+### Changed
+- change hostname
+
 ### Fixed
 - fix `update-keyring.hook`
 
