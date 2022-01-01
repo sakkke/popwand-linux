@@ -876,7 +876,7 @@ sed -zi \
 	's:[launcher]\nicon=/usr/share/icons-24x24/system-os-install.png\npath=/usr/bin/kitty sudo /installer\n\n::' \
 	/mnt/etc/skel/.config/weston.ini
 
-arch-chroot /mnt /bin/bash << /arch-chroot
+arch-chroot /mnt /bin/bash << '/arch-chroot'
 hwclock --systohc
 
 sed -i 's/#\(en_US\.UTF-8\|ja_JP\.UTF-8\)/\1/' /etc/locale.gen
