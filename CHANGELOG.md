@@ -6,6 +6,7 @@
 - add files to include in installer (`{NetworkManager,docker}.service`)
 - add process to initialize keyring to installer
 - add GParted
+- add firewalld
 
 ### Changed
 - change hostname

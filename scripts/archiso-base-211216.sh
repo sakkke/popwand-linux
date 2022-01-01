@@ -44,6 +44,7 @@ docker-compose
 fcitx5-im
 fcitx5-mozc
 ffmpeg
+firewalld
 freecad
 freerdp
 gimp
@@ -458,6 +459,11 @@ icon=/usr/share/icons-24x24/blender.png
 path=/usr/bin/blender
 
 [launcher]
+#icon=/usr/share/icons/hicolor/24x24/apps/firewall-config.png
+icon=/usr/share/icons-24x24/gufw.png
+path=/usr/bin/firewall-config-wrapper
+
+[launcher]
 #icon=/usr/share/icons/hicolor/24x24/apps/gimp.png
 icon=/usr/share/icons-24x24/gimp.png
 path=/usr/bin/gimp
@@ -686,8 +692,10 @@ _
 teew etc/vconsole.conf << '_' # use;
 KEYMAP=jp106
 _
+lnw /usr/lib/systemd/system/firewalld.service etc/systemd/system/dbus-org.fedoraproject.FirewallD1.service # use;
 lnw /usr/lib/systemd/system/NetworkManager.service etc/systemd/system/multi-user.target.wants/NetworkManager.service # use;
 lnw /usr/lib/systemd/system/docker.service etc/systemd/system/multi-user.target.wants/docker.service # use;
+lnw /usr/lib/systemd/system/firewalld.service etc/systemd/system/multi-user.target.wants/firewalld.service # use;
 curl \
 	--create-dirs \
 	-o airootfs/usr/share/backgrounds/default.jpg \
@@ -938,6 +946,12 @@ _
 )
 cat packages.list >> packages.x86_64
 
+teew usr/bin/firewall-config-wrapper << '_' # use;
+#!/bin/bash
+xhost si:localuser:root
+trap 'xhost -si:localuser:root' EXIT
+kitty sudo firewall-config
+_
 teew usr/bin/gparted-wrapper << '_' # use;
 #!/bin/bash
 xhost si:localuser:root
@@ -990,6 +1004,7 @@ gimp
 #github
 #google-earth
 gparted
+gufw
 htop
 inkscape
 kitty
@@ -1053,6 +1068,7 @@ file_permissions=(
 	["/etc/pacman.d/hooks.bin/shotcut-install"]="0:0:755"
 	["/etc/pacman.d/hooks.bin/shotcut-remove"]="0:0:755"
 	["/installer"]="0:0:755"
+	["/usr/bin/firewall-config-wrapper"]="0:0:755"
 	["/usr/bin/gparted-wrapper"]="0:0:755"
 	["/usr/share/favicons-24x24/update.sh"]="0:0:755"
 	["/usr/share/icons-24x24/update.sh"]="0:0:755"
