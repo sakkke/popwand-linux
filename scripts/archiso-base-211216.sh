@@ -721,14 +721,14 @@ list_partitions() {
 
 # lnw - ln wrapper
 lnw() { to="$1"; from="$2"; shift; shift
-	dir=.
+	dir=mnt
 	mkdir -p "$(dirname "$dir/$from")"
 	ln "$@" -s "$to" "$dir/$from" && echo -e "${FUNCNAME[0]}: created "'\e[1;36msymlink\e[m'": '/$from' -> '$to'"
 }
 
 # teew - tee wrapper
 teew() { file="$1"; shift
-	dir=.
+	dir=mnt
 	mkdir -p "$(dirname "$dir/$file")"
 	tee "$@" "$dir/$file" > /dev/null && echo -e "${FUNCNAME[0]}: created "'\e[1mfile\e[m'": '/$file'"
 }
