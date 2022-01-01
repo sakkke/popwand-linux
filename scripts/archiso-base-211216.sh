@@ -975,7 +975,7 @@ grep -v '^#' "$cwd/list" | xargs -I{} -P0 -n1 ffmpeg \
   -i src/scalable/apps/{}.svg \
   "$cwd/{}.png"
 sed -i 's/\(gtk-update-icon-cache\)/#\1/' install.sh
-./install.sh -d "$install_dir"
+./install.sh -c -d "$install_dir"
 cd
 rm -fr $OLDPWD
 _

@@ -8,6 +8,7 @@
 ### Changed
 - change hostname
 - update `profiledef.sh`
+- use circle folder version Tela-circle-icon-theme
 
 ### Fixed
 - fix `update-keyring.hook`
