@@ -827,33 +827,6 @@ kill $pid
 pacstrap /mnt - < /live/packages
 
 genfstab -U /mnt >> /mnt/etc/fstab
-
-cpw {/,}etc/skel/.asdf -r
-cpw {/,}etc/skel/.config/kitty/current-theme.conf
-cpw {/,}etc/skel/.local/share/blesh -r
-cpw {/,}etc/skel/.local/share/doc/blesh -r
-cpw {/,}usr/share/backgrounds/default.jpg
-ls /usr/share/favicons-24x24/ \
-	| grep '.png$' \
-	| xargs -I{} bash -c 'cpw /usr/share/favicons-24x24/{} usr/share/favicons-24x24/{}'
-cpw {/,}usr/share/fonts/rounded-mplus -r
-cpw {/,}usr/share/icons/Fuchsia -r
-cpw {/,}usr/share/icons/Tela-circle -r
-cpw {/,}usr/share/icons/Tela-circle-dark -r
-ls /usr/share/icons-24x24/ \
-	| grep '.png$' \
-	| xargs -I{} bash -c 'cpw /usr/share/icons-24x24/{} usr/share/icons-24x24/{}'
-
-teew boot/loader/entries/popw.conf << '$'
-title Popwand Linux
-linux /vmlinuz-linux
-initrd /initramfs-linux.img
-options root=PARTLABEL=popwroot rw
-$
-
-teew etc/hostname << $
-popw-$(tr -dc '[:alnum:]' < /dev/urandom | fold -w8 | head -n1)
-$
 _
 {
 	echo
@@ -872,10 +845,6 @@ _
 	echo
 } >> airootfs/installer
 cat >> airootfs/installer << '_'
-sed -zi \
-	's:[launcher]\nicon=/usr/share/icons-24x24/system-os-install.png\npath=/usr/bin/kitty sudo /installer\n\n::' \
-	/mnt/etc/skel/.config/weston.ini
-
 arch-chroot /mnt /bin/bash << '/arch-chroot'
 error() {
 	echo -e "\\e[31m$*\\e[m"
@@ -909,6 +878,37 @@ while :; do
 	fi
 done
 /arch-chroot
+
+cpw {/,}etc/skel/.asdf -r
+cpw {/,}etc/skel/.config/kitty/current-theme.conf
+sed -zi \
+	's:[launcher]\nicon=/usr/share/icons-24x24/system-os-install.png\npath=/usr/bin/kitty sudo /installer\n\n::' \
+	/mnt/etc/skel/.config/weston.ini
+cpw {/,}etc/skel/.local/share/blesh -r
+cpw {/,}etc/skel/.local/share/doc/blesh -r
+cpw {/,}usr/share/backgrounds/default.jpg
+ls /usr/share/favicons-24x24/ \
+	| grep '.png$' \
+	| xargs -I{} bash -c 'cpw /usr/share/favicons-24x24/{} usr/share/favicons-24x24/{}'
+cpw {/,}usr/share/fonts/rounded-mplus -r
+cpw {/,}usr/share/icons/Fuchsia -r
+cpw {/,}usr/share/icons/Tela-circle -r
+cpw {/,}usr/share/icons/Tela-circle-dark -r
+ls /usr/share/icons-24x24/ \
+	| grep '.png$' \
+	| xargs -I{} bash -c 'cpw /usr/share/icons-24x24/{} usr/share/icons-24x24/{}'
+
+teew boot/loader/entries/popw.conf << '$'
+title Popwand Linux
+linux /vmlinuz-linux
+initrd /initramfs-linux.img
+options root=PARTLABEL=popwroot rw
+$
+
+teew etc/hostname << $
+popw-$(tr -dc '[:alnum:]' < /dev/urandom | fold -w8 | head -n1)
+$
+
 umount -R /mnt
 echo 'Installation is complete!'
 _
