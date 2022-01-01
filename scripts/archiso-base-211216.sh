@@ -36,6 +36,55 @@ teew() { file="$1"; shift
   tee "$@" "$dir/$file" > /dev/null && echo -e "${FUNCNAME[0]}: created "'\e[1mfile\e[m'": '/$file'"
 }
 
+cat > packages.list << '/cat'
+arch-install-scripts
+blender
+docker
+docker-compose
+fcitx5-im
+fcitx5-mozc
+ffmpeg
+freecad
+freerdp
+gimp
+gnome-icon-theme
+gvfs
+htop
+inkscape
+kitty
+libreoffice-fresh
+libreoffice-fresh-ja
+man
+micro
+musescore
+neovim
+networkmanager
+nomacs
+noto-fonts
+noto-fonts-cjk
+noto-fonts-emoji
+noto-fonts-extra
+pcmanfm-qt
+pipewire
+pipewire-pulse
+python
+qt5-wayland
+shotcut
+signal-desktop
+sudo
+texinfo
+tmux
+ttf-fira-code
+ttf-ibm-plex
+vivaldi
+vivaldi-ffmpeg-codecs
+vlc
+weston
+xdg-user-dirs
+xorg-drivers
+xorg-xwayland
+/cat
+
 teew etc/environment << '_' # use;
 EDITOR=/usr/bin/micro
 _
@@ -869,63 +918,19 @@ _
   cd airootfs/live
   temp=$(mktemp -d)
   trap "rm -fr $temp" EXIT
-  cp "$OLDPWD/packages.x86_64" packages
+  cp "$OLDPWD/packages.list" packages
   cat << '/cat' | xargs -I{} sed -i '$a{}' packages
 base
 linux
 linux-firmware
 /cat
+  cat << '/cat' | xargs -I{} sed -i '/^{}$/d' packages
+arch-install-scripts
+/cat
   pacman --cachedir "$(pwd)" --dbpath $temp --noconfirm -Swy - < packages
   repo-add live.db.tar.gz *.pkg.tar.{xz,zst}
 )
-cat >> packages.x86_64 << '/cat'
-arch-install-scripts
-blender
-docker
-docker-compose
-fcitx5-im
-fcitx5-mozc
-ffmpeg
-freecad
-freerdp
-gimp
-gnome-icon-theme
-gvfs
-htop
-inkscape
-kitty
-libreoffice-fresh
-libreoffice-fresh-ja
-man
-micro
-musescore
-neovim
-networkmanager
-nomacs
-noto-fonts
-noto-fonts-cjk
-noto-fonts-emoji
-noto-fonts-extra
-pcmanfm-qt
-pipewire
-pipewire-pulse
-python
-qt5-wayland
-shotcut
-signal-desktop
-sudo
-texinfo
-tmux
-ttf-fira-code
-ttf-ibm-plex
-vivaldi
-vivaldi-ffmpeg-codecs
-vlc
-weston
-xdg-user-dirs
-xorg-drivers
-xorg-xwayland
-/cat
+cat packages.list >> packages.x86_64
 
 teew usr/share/favicons-24x24/list << '_' # use;
 #app.diagrams.net https://app.diagrams.net/
