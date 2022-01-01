@@ -1,5 +1,6 @@
 #!/bin/bash
 set -eu
+trap 'read -p"Press any key to continue..."' EXIT
 error() {
   echo -e "\\e[31m$*\\e[m"
 }
