@@ -904,6 +904,8 @@ done
 while :; do
 	if passwd $username < /dev/tty; then
 		break
+	else
+		error "Could not set a password. Try again."
 	fi
 done
 /arch-chroot
