@@ -10,6 +10,7 @@
 - update `profiledef.sh`
 - use circle folder version Tela-circle-icon-theme
 - update packages to be installed on the new system
+- update misc options in `pacman.conf`
 
 ### Fixed
 - fix `update-keyring.hook`
