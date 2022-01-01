@@ -2,13 +2,13 @@
 set -eu
 trap 'read -p"Press any key to continue..."' EXIT
 error() {
-  echo -e "\\e[31m$*\\e[m"
+	echo -e "\\e[31m$*\\e[m"
 }
 
 # ref: https://askubuntu.com/a/15856
 if ((EUID)); then
-  error 'This script must be run as root'
-  exit 1
+	error 'This script must be run as root'
+	exit 1
 fi
 
 self="$(realpath "$0")"
@@ -25,16 +25,16 @@ cd archlive
 
 # lnw - ln wrapper
 lnw() { to="$1"; from="$2"; shift; shift
-  dir=airootfs
-  mkdir -p "$(dirname "$dir/$from")"
-  ln "$@" -s "$to" "$dir/$from" && echo -e "${FUNCNAME[0]}: created "'\e[1;36msymlink\e[m'": '/$from' -> '$to'"
+	dir=airootfs
+	mkdir -p "$(dirname "$dir/$from")"
+	ln "$@" -s "$to" "$dir/$from" && echo -e "${FUNCNAME[0]}: created "'\e[1;36msymlink\e[m'": '/$from' -> '$to'"
 }
 
 # teew - tee wrapper
 teew() { file="$1"; shift
-  dir=airootfs
-  mkdir -p "$(dirname "$dir/$file")"
-  tee "$@" "$dir/$file" > /dev/null && echo -e "${FUNCNAME[0]}: created "'\e[1mfile\e[m'": '/$file'"
+	dir=airootfs
+	mkdir -p "$(dirname "$dir/$file")"
+	tee "$@" "$dir/$file" > /dev/null && echo -e "${FUNCNAME[0]}: created "'\e[1mfile\e[m'": '/$file'"
 }
 
 cat > packages.list << '/cat'
@@ -304,9 +304,9 @@ _
 teew etc/pacman.d/hooks.bin/shotcut-install << '_' # use;
 #!/bin/bash
 ffmpeg \
-  -i /usr/share/icons/hicolor/128x128/apps/org.shotcut.Shotcut.png \
-  -vf scale=24:-1 \
-  /usr/share/icons/hicolor/24x24/apps/org.shotcut.Shotcut.png
+	-i /usr/share/icons/hicolor/128x128/apps/org.shotcut.Shotcut.png \
+	-vf scale=24:-1 \
+	/usr/share/icons/hicolor/24x24/apps/org.shotcut.Shotcut.png
 _
 teew etc/pacman.d/hooks.bin/shotcut-remove << '_' # use;
 #!/bin/bash
@@ -331,41 +331,41 @@ git clone https://github.com/asdf-vm/asdf.git airootfs/etc/skel/.asdf --branch v
 
 teew etc/skel/.bashrc << '_' # use;
 if [ -z "$DISPLAY" ] && [ "$(tty)" = /dev/tty1 ]; then
-  [ ! -f ~/.config/user-dirs.dirs ] && xdg-user-dirs-update
+	[ ! -f ~/.config/user-dirs.dirs ] && xdg-user-dirs-update
 
-  : 'For RDP session' || {
-    [ ! -f tls.key ] && openssl genrsa -out tls.key 2048
-    [ ! -f tls.csr ] && openssl req -new -key tls.key -out tls.csr
-    [ ! -f tls.crt ] && openssl x509 -req -days 365 -signkey tls.key -in tls.csr -out tls.crt
-    exec weston --backend=rdp-backend.so --rdp-tls-cert=tls.crt --rdp-tls-key=tls.key
-  }
+	: 'For RDP session' || {
+		[ ! -f tls.key ] && openssl genrsa -out tls.key 2048
+		[ ! -f tls.csr ] && openssl req -new -key tls.key -out tls.csr
+		[ ! -f tls.crt ] && openssl x509 -req -days 365 -signkey tls.key -in tls.csr -out tls.crt
+		exec weston --backend=rdp-backend.so --rdp-tls-cert=tls.crt --rdp-tls-key=tls.key
+	}
 
-  #weston 2>&1 | less
-  exec weston
+	#weston 2>&1 | less
+	exec weston
 fi
 
 # Disable ble.sh
 #BLE_DISABLED=1
 
 if ((! BLE_DISABLED)) && [ ! -d ~/.local/share/blesh ]; then
-  ! type \
-    git \
-    make \
-    &> /dev/null \
-      && break
-  echo 'Installing ble.sh...'
-  (
-    cd $(mktemp -d)
-    git clone \
-      --depth=1 \
-      --recursive \
-      --shallow-submodules \
-      https://github.com/akinomyoga/ble.sh.git \
-      .
-    make install PREFIX=~/.local
-    cd
-    rm -fr $OLDPWD
-  )
+	! type \
+		git \
+		make \
+		&> /dev/null \
+			&& break
+	echo 'Installing ble.sh...'
+	(
+		cd $(mktemp -d)
+		git clone \
+			--depth=1 \
+			--recursive \
+			--shallow-submodules \
+			https://github.com/akinomyoga/ble.sh.git \
+			.
+		make install PREFIX=~/.local
+		cd
+		rm -fr $OLDPWD
+	)
 fi
 
 # ref: https://github.com/akinomyoga/ble.sh#:~:text=top%20of%20.bashrc%3A-,%5B%5B%20%24%2D%20%3D%3D%20*i*%20%5D%5D%20%26%26%20source%20/path/to/blesh/ble.sh%20%2D%2Dnoattach,-%23%20your%20bashrc%20settings
@@ -377,10 +377,10 @@ export PS2='->> '
 export PS3='=> '
 export PS4='=>> \[\e[1;32m\]$0\[\e[m\]:\[\e[1;34m\]$LINENO\[\e[m\] -> '
 if ((! BLE_DISABLED)); then
-  ble-import vim-airline
-  bleopt exec_errexit_mark=
-  bleopt vim_airline_theme=light
-  ble-bind -f 'j j' vi_imap/normal-mode
+	ble-import vim-airline
+	bleopt exec_errexit_mark=
+	bleopt vim_airline_theme=light
+	ble-bind -f 'j j' vi_imap/normal-mode
 fi
 alias ed="$(echo -e 'ed -p"(ed) \e[1m->\e[m "')"
 alias en='nvim -c"se nu" -e' # ex powered nvim
@@ -401,12 +401,12 @@ teew etc/skel/.config/fontconfig/fonts.conf << '_' # use;
 <?xml version="1.0"?>
 <!DOCTYPE fontconfig SYSTEM "fonts.dtd">
 <fontconfig>
-  <alias>
-    <family>sans-serif</family>
-    <prefer>
-      <family>Rounded M+ 1c</family>
-    </prefer>
-  </alias>
+	<alias>
+		<family>sans-serif</family>
+		<prefer>
+			<family>Rounded M+ 1c</family>
+		</prefer>
+	</alias>
 </fontconfig>
 _
 teew etc/skel/.config/gtk-3.0/settings.ini << '_' # use;
@@ -414,10 +414,10 @@ teew etc/skel/.config/gtk-3.0/settings.ini << '_' # use;
 gtk-cursor-theme-name=Fuchsia
 _
 curl \
-  --create-dirs \
-  -o airootfs/etc/skel/.config/kitty/current-theme.conf \
-  -s \
-  https://raw.githubusercontent.com/kovidgoyal/kitty-themes/master/themes/PaperColor_light.conf
+	--create-dirs \
+	-o airootfs/etc/skel/.config/kitty/current-theme.conf \
+	-s \
+	https://raw.githubusercontent.com/kovidgoyal/kitty-themes/master/themes/PaperColor_light.conf
 teew etc/skel/.config/kitty/kitty.conf << '_' # use;
 background_opacity 0.8
 font_family Fira Code
@@ -621,16 +621,16 @@ panel-color=0xccffffff
 panel-position=left
 _
 (
-  cd $(mktemp -d)
-  git clone \
-    --depth=1 \
-    --recursive \
-    --shallow-submodules \
-    https://github.com/akinomyoga/ble.sh.git \
-    .
-  make install PREFIX="$OLDPWD/airootfs/etc/skel/.local"
-  cd
-  rm -fr $OLDPWD
+	cd $(mktemp -d)
+	git clone \
+		--depth=1 \
+		--recursive \
+		--shallow-submodules \
+		https://github.com/akinomyoga/ble.sh.git \
+		.
+	make install PREFIX="$OLDPWD/airootfs/etc/skel/.local"
+	cd
+	rm -fr $OLDPWD
 )
 teew etc/skel/.local/share/icons/default/index.theme << '_' # use;
 [Icon Theme]
@@ -652,7 +652,7 @@ setenv -g TMUX_PLUGIN_MANAGER_PATH ~/.tmux/plugins
 
 # ref: https://github.com/tmux-plugins/tpm/blob/master/docs/automatic_tpm_installation.md#automatic-tpm-installation
 if "test ! -d ~/.tmux/plugins/tpm" \
-   "run 'git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm && ~/.tmux/plugins/tpm/bin/install_plugins'"
+	 "run 'git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm && ~/.tmux/plugins/tpm/bin/install_plugins'"
 
 # Settings
 set -g default-terminal tmux-256color
@@ -683,66 +683,66 @@ _
 lnw /usr/lib/systemd/system/NetworkManager.service etc/systemd/system/multi-user.target.wants/NetworkManager.service # use;
 lnw /usr/lib/systemd/system/docker.service etc/systemd/system/multi-user.target.wants/docker.service # use;
 curl \
-  --create-dirs \
-  -o airootfs/usr/share/backgrounds/default.jpg \
-  -s \
-  'https://images.pexels.com/photos/2138922/pexels-photo-2138922.jpeg?crop=entropy&cs=srgb&dl=pexels-kyle-roxas-2138922.jpg&fit=crop&fm=jpg&h=2880&w=5120'
+	--create-dirs \
+	-o airootfs/usr/share/backgrounds/default.jpg \
+	-s \
+	'https://images.pexels.com/photos/2138922/pexels-photo-2138922.jpeg?crop=entropy&cs=srgb&dl=pexels-kyle-roxas-2138922.jpg&fit=crop&fm=jpg&h=2880&w=5120'
 teew installer << '_'
 #!/bin/bash
 set -eu
 error() {
-  echo -e "\\e[31m$*\\e[m"
+	echo -e "\\e[31m$*\\e[m"
 }
 
 # ref: https://askubuntu.com/a/15856
 if ((EUID)); then
-  error 'This script must be run as root'
-  exit 1
+	error 'This script must be run as root'
+	exit 1
 fi
 
 cd /
 
 # cpw - cp wrapper
 cpw() { from="$1"; to="$2"; shift; shift
-  dir=mnt
-  mkdir -p "$(dirname "$dir/$to")"
-  cp "$@" "$from" "$dir/$to" && echo -e "${FUNCNAME[0]}: created "'\e[1mfile\e[m'": '/$to'"
+	dir=mnt
+	mkdir -p "$(dirname "$dir/$to")"
+	cp "$@" "$from" "$dir/$to" && echo -e "${FUNCNAME[0]}: created "'\e[1mfile\e[m'": '/$to'"
 }
 
 list_devices() {
-  ls /dev \
-    | grep '^\(mmcblk[0-9]\+\|nvme[0-9]\+n[0-9]\+\|sd[a-z]\+\)$'
+	ls /dev \
+		| grep '^\(mmcblk[0-9]\+\|nvme[0-9]\+n[0-9]\+\|sd[a-z]\+\)$'
 }
 list_partitions() {
-  ls /dev \
-    | grep '^\(mmcblk[0-9]\+p[0-9]\+\|nvme[0-9]\+n[0-9]\+p[0-9]\+\|sd[a-z]\+[0-9]\+\)$'
+	ls /dev \
+		| grep '^\(mmcblk[0-9]\+p[0-9]\+\|nvme[0-9]\+n[0-9]\+p[0-9]\+\|sd[a-z]\+[0-9]\+\)$'
 }
 
 # lnw - ln wrapper
 lnw() { to="$1"; from="$2"; shift; shift
-  dir=.
-  mkdir -p "$(dirname "$dir/$from")"
-  ln "$@" -s "$to" "$dir/$from" && echo -e "${FUNCNAME[0]}: created "'\e[1;36msymlink\e[m'": '/$from' -> '$to'"
+	dir=.
+	mkdir -p "$(dirname "$dir/$from")"
+	ln "$@" -s "$to" "$dir/$from" && echo -e "${FUNCNAME[0]}: created "'\e[1;36msymlink\e[m'": '/$from' -> '$to'"
 }
 
 # teew - tee wrapper
 teew() { file="$1"; shift
-  dir=.
-  mkdir -p "$(dirname "$dir/$file")"
-  tee "$@" "$dir/$file" > /dev/null && echo -e "${FUNCNAME[0]}: created "'\e[1mfile\e[m'": '/$file'"
+	dir=.
+	mkdir -p "$(dirname "$dir/$file")"
+	tee "$@" "$dir/$file" > /dev/null && echo -e "${FUNCNAME[0]}: created "'\e[1mfile\e[m'": '/$file'"
 }
 
 echo 'Select installation type'
 select installation_type in 'custom (recommended)' auto; do
-  [ ! -z "$installation_type" ] && break
+	[ ! -z "$installation_type" ] && break
 done
 case $installation_type in
-  auto )
-    echo 'Select device'
-    select _device in $(list_devices); do
-      if file /dev/$_device; then
-        device=/dev/$_device$(grep '^[mn]' <<< $_device > /dev/null && echo p; :)
-        parted /dev/$_device << '/parted'
+	auto )
+		echo 'Select device'
+		select _device in $(list_devices); do
+			if file /dev/$_device; then
+				device=/dev/$_device$(grep '^[mn]' <<< $_device > /dev/null && echo p; :)
+				parted /dev/$_device << '/parted'
 mklabel gpt
 mkpart popwesp fat32 0% 512Mib
 set 1 esp on
@@ -750,67 +750,67 @@ mkpart popwboot fat32 512Mib 1536Mib
 set 2 bls_boot on
 mkpart popwroot ext4 1536Mib 100%
 /parted
-        mkfs.fat -F32 ${device}1
-        mkfs.fat -F32 ${device}2
-        mkfs.ext4 -F ${device}3
-        popwesp=${device}1
-        popwboot=${device}2
-        popwroot=${device}3
-        break
-      fi
-    done
-    ;;
+				mkfs.fat -F32 ${device}1
+				mkfs.fat -F32 ${device}2
+				mkfs.ext4 -F ${device}3
+				popwesp=${device}1
+				popwboot=${device}2
+				popwroot=${device}3
+				break
+			fi
+		done
+		;;
 
-  'custom (recommended)' )
-    echo 'Select EFI system partition'
-    select _popwesp in $(list_partitions); do
-      if file /dev/$_popwesp; then
-        popwesp=/dev/$_popwesp
-        break
-      fi
-    done
-    echo 'Select boot partition'
-    select _popwboot in $(list_partitions); do
-      if file /dev/$_popwboot; then
-        popwboot=/dev/$_popwboot
-        break
-      fi
-    done
-    echo 'Select root partition'
-    select _popwroot in $(list_partitions); do
-      if file /dev/$_popwroot; then
-        popwroot=/dev/$_popwroot
-        break
-      fi
-    done
-    ;;
+	'custom (recommended)' )
+		echo 'Select EFI system partition'
+		select _popwesp in $(list_partitions); do
+			if file /dev/$_popwesp; then
+				popwesp=/dev/$_popwesp
+				break
+			fi
+		done
+		echo 'Select boot partition'
+		select _popwboot in $(list_partitions); do
+			if file /dev/$_popwboot; then
+				popwboot=/dev/$_popwboot
+				break
+			fi
+		done
+		echo 'Select root partition'
+		select _popwroot in $(list_partitions); do
+			if file /dev/$_popwroot; then
+				popwroot=/dev/$_popwroot
+				break
+			fi
+		done
+		;;
 esac
 echo -e '[\e[1mInstallation info\e[m]'
 echo ---
 {
-  echo -e "\\e[1;31mInstallation type\\e[m: $installation_type"
-  echo -e "\\e[1;33mDevice\\e[m: ${device:-\e[2mNONE, it is right\e[m}"
-  echo -e "\\e[1;32mEFI system partition\\e[m: ${popwesp:-\e[2m${device}1\e[m}"
-  echo -e "\\e[1;34mBoot partition\\e[m: ${popwboot:-\e[2m${device}2\e[m}"
-  echo -e "\\e[1;33mRoot partition\\e[m: ${popwroot:-\e[2m${device}3\e[m}"
+	echo -e "\\e[1;31mInstallation type\\e[m: $installation_type"
+	echo -e "\\e[1;33mDevice\\e[m: ${device:-\e[2mNONE, it is right\e[m}"
+	echo -e "\\e[1;32mEFI system partition\\e[m: ${popwesp:-\e[2m${device}1\e[m}"
+	echo -e "\\e[1;34mBoot partition\\e[m: ${popwboot:-\e[2m${device}2\e[m}"
+	echo -e "\\e[1;33mRoot partition\\e[m: ${popwroot:-\e[2m${device}3\e[m}"
 } | column -R1 -o: -s: -t
 echo ---
 while :; do
-  read -p'Continue? [y/N] ' yorn
-  case "$yorn" in
-    '' | [Nn] )
-      error 'Installation canceled'
-      exit 1
-      ;;
+	read -p'Continue? [y/N] ' yorn
+	case "$yorn" in
+		'' | [Nn] )
+			error 'Installation canceled'
+			exit 1
+			;;
 
-    [Yy] )
-      break
-      ;;
+		[Yy] )
+			break
+			;;
 
-    * )
-      error 'Input is expected to be "y" or "n"'
-      ;;
-  esac
+		* )
+			error 'Input is expected to be "y" or "n"'
+			;;
+	esac
 done
 
 mount $popwroot /mnt
@@ -833,15 +833,15 @@ cpw {/,}etc/skel/.local/share/blesh -r
 cpw {/,}etc/skel/.local/share/doc/blesh -r
 cpw {/,}usr/share/backgrounds/default.jpg
 ls /usr/share/favicons-24x24/ \
-  | grep '.png$' \
-  | xargs -I{} cp {} /mnt/usr/share/favicons-24x24/
+	| grep '.png$' \
+	| xargs -I{} cp {} /mnt/usr/share/favicons-24x24/
 cpw {/,}usr/share/fonts/rounded-mplus -r
 cpw {/,}usr/share/icons/Fuchsia -r
 cpw {/,}usr/share/icons/Tela-circle -r
 cpw {/,}usr/share/icons/Tela-circle-dark -r
 ls /usr/share/icons-24x24/ \
-  | grep '.png$' \
-  | xargs -I{} cp {} /mnt/usr/share/icons-24x24/
+	| grep '.png$' \
+	| xargs -I{} cp {} /mnt/usr/share/icons-24x24/
 
 teew boot/loader/entries/popw.conf << '$'
 title Popwand Linux
@@ -855,25 +855,25 @@ popw-$(tr -dc '[:alnum:]' < /dev/urandom | fold -w8 | head -n1)
 $
 _
 {
-  echo
-  file="$self"
-  cat -n "$file" | grep 'use;$' | while read n cmd _; do
-    i=$n
-    while :; do
-      if [ $cmd = lnw ] || [ "$(sed -n ${i}p "$file")" = _ ]; then
-        break
-      else
-        let i++
-      fi
-    done
-    sed -n $n,${i}p "$file"
-  done
-  echo
+	echo
+	file="$self"
+	cat -n "$file" | grep 'use;$' | while read n cmd _; do
+		i=$n
+		while :; do
+			if [ $cmd = lnw ] || [ "$(sed -n ${i}p "$file")" = _ ]; then
+				break
+			else
+				let i++
+			fi
+		done
+		sed -n $n,${i}p "$file"
+	done
+	echo
 } >> airootfs/installer
 cat >> airootfs/installer << '_'
 sed -zi \
-  's:[launcher]\nicon=/usr/share/icons-24x24/system-os-install.png\npath=/usr/bin/kitty sudo /installer\n\n::' \
-  /mnt/etc/skel/.config/weston.ini
+	's:[launcher]\nicon=/usr/share/icons-24x24/system-os-install.png\npath=/usr/bin/kitty sudo /installer\n\n::' \
+	/mnt/etc/skel/.config/weston.ini
 
 arch-chroot /mnt /bin/bash << /arch-chroot
 hwclock --systohc
@@ -887,40 +887,40 @@ echo root:toor | chpasswd
 bootctl --boot-path=/boot --esp-path=/efi install
 
 while :; do
-  echo 'Enter a new user name'
-  read -p'Username: ' username < /dev/tty
-  if grep '^[_a-z][-0-9_a-z]\{0,16\}$' <<< "$username" > /dev/null; then
-    useradd -Gdocker,wheel -m $username
-    break
-  else
-    error "Input is expected to be '^[_a-z][-0-9_a-z]\\{0,16\\}$'"
-  fi
+	echo 'Enter a new user name'
+	read -p'Username: ' username < /dev/tty
+	if grep '^[_a-z][-0-9_a-z]\{0,16\}$' <<< "$username" > /dev/null; then
+		useradd -Gdocker,wheel -m $username
+		break
+	else
+		error "Input is expected to be '^[_a-z][-0-9_a-z]\\{0,16\\}$'"
+	fi
 done
 while :; do
-  if passwd $username < /dev/tty; then
-    break
-  fi
+	if passwd $username < /dev/tty; then
+		break
+	fi
 done
 /arch-chroot
 umount -R /mnt
 echo 'Installation is complete!'
 _
 (
-  mkdir -p airootfs/live
-  cd airootfs/live
-  temp=$(mktemp -d)
-  trap "rm -fr $temp" EXIT
-  cp "$OLDPWD/packages.list" packages
-  cat << '/cat' | xargs -I{} sed -i '$a{}' packages
+	mkdir -p airootfs/live
+	cd airootfs/live
+	temp=$(mktemp -d)
+	trap "rm -fr $temp" EXIT
+	cp "$OLDPWD/packages.list" packages
+	cat << '/cat' | xargs -I{} sed -i '$a{}' packages
 base
 linux
 linux-firmware
 /cat
-  cat << '/cat' | xargs -I{} sed -i '/^{}$/d' packages
+	cat << '/cat' | xargs -I{} sed -i '/^{}$/d' packages
 arch-install-scripts
 /cat
-  pacman --cachedir "$(pwd)" --dbpath $temp --noconfirm -Swy - < packages
-  repo-add live.db.tar.gz *.pkg.tar.{xz,zst}
+	pacman --cachedir "$(pwd)" --dbpath $temp --noconfirm -Swy - < packages
+	repo-add live.db.tar.gz *.pkg.tar.{xz,zst}
 )
 cat packages.list >> packages.x86_64
 
@@ -944,24 +944,24 @@ teew usr/share/favicons-24x24/update.sh << '_' # use;
 cwd="$(cd "$(dirname "$0")" && pwd)"
 ls "$cwd" | grep '.png$' | xargs -r rm
 grep -v '^#' "$cwd/list" | while read name domain_url; do
-  curl -so "$cwd/$name.png" "https://www.google.com/s2/favicons?domain_url=$domain_url&sz=24"
+	curl -so "$cwd/$name.png" "https://www.google.com/s2/favicons?domain_url=$domain_url&sz=24"
 done
 _
 bash airootfs/usr/share/favicons-24x24/update.sh
 (
-  cd $(mktemp -d)
-  curl -LOs https://osdn.jp/downloads/users/8/8574/rounded-mplus-20150529.zip
-  mkdir -p "$OLDPWD/airootfs/usr/share/fonts/rounded-mplus"
-  unzip -d "$OLDPWD/airootfs/usr/share/fonts/rounded-mplus" rounded-mplus-20150529.zip
-  cd
-  rm -fr $OLDPWD
+	cd $(mktemp -d)
+	curl -LOs https://osdn.jp/downloads/users/8/8574/rounded-mplus-20150529.zip
+	mkdir -p "$OLDPWD/airootfs/usr/share/fonts/rounded-mplus"
+	unzip -d "$OLDPWD/airootfs/usr/share/fonts/rounded-mplus" rounded-mplus-20150529.zip
+	cd
+	rm -fr $OLDPWD
 )
 mkdir -p airootfs/usr/share/icons
 curl -Ls \
-  https://github.com/ful1e5/fuchsia-cursor/releases/download/v1.0.5/Fuchsia.tar.gz \
-  | tar \
-    -C airootfs/usr/share/icons \
-    -xzf -
+	https://github.com/ful1e5/fuchsia-cursor/releases/download/v1.0.5/Fuchsia.tar.gz \
+	| tar \
+		-C airootfs/usr/share/icons \
+		-xzf -
 teew usr/share/icons-24x24/list << '_' # use;
 blender
 file-manager
@@ -998,9 +998,9 @@ cd $(mktemp -d)
 git clone https://github.com/vinceliuice/Tela-circle-icon-theme.git .
 ls "$cwd" | grep '.png$' | xargs -r rm
 grep -v '^#' "$cwd/list" | xargs -I{} -P0 -n1 ffmpeg \
-  -width 24 \
-  -i src/scalable/apps/{}.svg \
-  "$cwd/{}.png"
+	-width 24 \
+	-i src/scalable/apps/{}.svg \
+	"$cwd/{}.png"
 sed -i 's/\(gtk-update-icon-cache\)/#\1/' install.sh
 ./install.sh -c -d "$install_dir"
 cd
@@ -1027,13 +1027,13 @@ pacman_conf="pacman.conf"
 airootfs_image_type="erofs"
 airootfs_image_tool_options=('-zlz4hc,12')
 file_permissions=(
-  ["/etc/shadow"]="0:0:400"
-  ["/etc/gshadow"]="0:0:0400"
-  ["/etc/pacman.d/hooks.bin/shotcut-install"]="0:0:755"
-  ["/etc/pacman.d/hooks.bin/shotcut-remove"]="0:0:755"
-  ["/installer"]="0:0:755"
-  ["/usr/share/favicons-24x24/update.sh"]="0:0:755"
-  ["/usr/share/icons-24x24/update.sh"]="0:0:755"
+	["/etc/shadow"]="0:0:400"
+	["/etc/gshadow"]="0:0:0400"
+	["/etc/pacman.d/hooks.bin/shotcut-install"]="0:0:755"
+	["/etc/pacman.d/hooks.bin/shotcut-remove"]="0:0:755"
+	["/installer"]="0:0:755"
+	["/usr/share/favicons-24x24/update.sh"]="0:0:755"
+	["/usr/share/icons-24x24/update.sh"]="0:0:755"
 )
 /cat
 

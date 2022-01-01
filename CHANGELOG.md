@@ -12,6 +12,7 @@
 - use circle folder version Tela-circle-icon-theme
 - update packages to be installed on the new system
 - update misc options in `pacman.conf`
+- convert indentation to tabs in `archiso-base-211216.md`
 
 ### Fixed
 - fix `update-keyring.hook`
