@@ -12,6 +12,7 @@
 - add Deno
 - add [btop](https://github.com/aristocratos/btop)
 - add `https://www.deepl.com/translator`
+- add mouse support in tmux
 
 ### Changed
 - change hostname
