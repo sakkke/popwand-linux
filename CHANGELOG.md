@@ -6,6 +6,7 @@
 
 ### Changed
 - change hostname
+- update `profiledef.sh`
 
 ### Fixed
 - fix `update-keyring.hook`
