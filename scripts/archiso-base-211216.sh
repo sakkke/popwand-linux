@@ -953,7 +953,7 @@ _
 bash airootfs/usr/share/favicons-24x24/update.sh
 (
   cd $(mktemp -d)
-  curl -LO https://osdn.jp/downloads/users/8/8574/rounded-mplus-20150529.zip
+  curl -LOs https://osdn.jp/downloads/users/8/8574/rounded-mplus-20150529.zip
   mkdir -p "$OLDPWD/airootfs/usr/share/fonts/rounded-mplus"
   unzip -d "$OLDPWD/airootfs/usr/share/fonts/rounded-mplus" rounded-mplus-20150529.zip
   cd
