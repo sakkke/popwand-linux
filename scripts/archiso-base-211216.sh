@@ -911,14 +911,14 @@ _
 	temp=$(mktemp -d)
 	trap "rm -fr $temp" EXIT
 	cp "$OLDPWD/packages.list" packages
-	cat << '/cat' | xargs -I{} sed -i '$a{}' packages
-base
-linux
-linux-firmware
-/cat
-	cat << '/cat' | xargs -I{} sed -i '/^{}$/d' packages
-arch-install-scripts
-/cat
+	cat <<- '/cat' | xargs -I{} sed -i '$a{}' packages
+	base
+	linux
+	linux-firmware
+	/cat
+	cat <<- '/cat' | xargs -I{} sed -i '/^{}$/d' packages
+	arch-install-scripts
+	/cat
 	pacman --cachedir "$(pwd)" --dbpath $temp --noconfirm -Swy - < packages
 	repo-add live.db.tar.gz *.pkg.tar.{xz,zst}
 )
