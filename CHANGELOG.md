@@ -11,6 +11,7 @@
 - add OpenJDK
 - add Deno
 - add [btop](https://github.com/aristocratos/btop)
+- add `https://www.deepl.com/translator`
 
 ### Changed
 - change hostname
