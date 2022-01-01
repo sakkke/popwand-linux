@@ -5,6 +5,7 @@
 - add aliases to `.bashrc` (`e[dnvx]`)
 - add files to include in installer (`{NetworkManager,docker}.service`)
 - add process to initialize keyring to installer
+- add GParted
 
 ### Changed
 - change hostname
