@@ -818,7 +818,7 @@ mkdir /mnt/{boot,efi}
 mount $popwboot /mnt/boot
 mount $popwesp /mnt/efi
 
-gzip -1 /dev/urandom > /dev/null &
+cat /dev/urandom | gzip -1 > /dev/null &
 pid=$!
 pacman-key --init
 pacman-key --populate archlinux
