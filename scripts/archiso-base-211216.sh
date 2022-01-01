@@ -345,6 +345,10 @@ if ((! BLE_DISABLED)); then
   bleopt vim_airline_theme=light
   ble-bind -f 'j j' vi_imap/normal-mode
 fi
+alias ed="$(echo -e 'ed -p"(ed) \e[1m->\e[m "')"
+alias en='nvim -c"se nu" -e' # ex powered nvim
+alias ev='vim -c"se nu" -e' # ex powered vim
+alias ex='ex -c"se nu"'
 alias editor="$EDITOR"
 alias grep='grep --color'
 alias ls='ls --color'

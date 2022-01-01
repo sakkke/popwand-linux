@@ -1,6 +1,9 @@
 # Changelog
 
 ## 2022-01-01
+### Added
+- add aliases to `.bashrc` (`e[dnvx]`)
+
 ### Fixed
 - fix `update-keyring.hook`
 
