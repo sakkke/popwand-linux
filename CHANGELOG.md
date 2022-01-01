@@ -9,6 +9,7 @@
 - add firewalld
 - add VirtualBox
 - add OpenJDK
+- add Deno
 
 ### Changed
 - change hostname

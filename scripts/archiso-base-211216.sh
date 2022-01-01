@@ -39,6 +39,7 @@ teew() { file="$1"; shift
 cat > packages.list << '/cat'
 arch-install-scripts
 blender
+deno
 docker
 docker-compose
 ed
