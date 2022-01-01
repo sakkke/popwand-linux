@@ -708,6 +708,7 @@ cpw() { from="$1"; to="$2"; shift; shift
 	mkdir -p "$(dirname "$dir/$to")"
 	cp "$@" "$from" "$dir/$to" && echo -e "${FUNCNAME[0]}: created "'\e[1mfile\e[m'": '/$to'"
 }
+export -f cpw
 
 list_devices() {
 	ls /dev \
@@ -834,14 +835,14 @@ cpw {/,}etc/skel/.local/share/doc/blesh -r
 cpw {/,}usr/share/backgrounds/default.jpg
 ls /usr/share/favicons-24x24/ \
 	| grep '.png$' \
-	| xargs -I{} cp {} /mnt/usr/share/favicons-24x24/
+	| xargs -I{} bash -c 'cpw /usr/share/favicons-24x24/{} usr/share/favicons-24x24/{}'
 cpw {/,}usr/share/fonts/rounded-mplus -r
 cpw {/,}usr/share/icons/Fuchsia -r
 cpw {/,}usr/share/icons/Tela-circle -r
 cpw {/,}usr/share/icons/Tela-circle-dark -r
 ls /usr/share/icons-24x24/ \
 	| grep '.png$' \
-	| xargs -I{} cp {} /mnt/usr/share/icons-24x24/
+	| xargs -I{} bash -c 'cpw /usr/share/icons-24x24/{} usr/share/icons-24x24/{}'
 
 teew boot/loader/entries/popw.conf << '$'
 title Popwand Linux
