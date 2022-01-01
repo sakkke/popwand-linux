@@ -15,6 +15,9 @@
 ### Fixed
 - fix `update-keyring.hook`
 
+### Removed
+- remove `/pacman.d/hooks/update-keyring.hook`
+
 ## 2021-12-31
 ### Changed
 - change error message color
