@@ -8,6 +8,7 @@
 - add GParted
 - add firewalld
 - add VirtualBox
+- add OpenJDK
 
 ### Changed
 - change hostname

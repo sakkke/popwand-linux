@@ -54,6 +54,7 @@ gparted
 gvfs
 htop
 inkscape
+jdk-openjdk
 kitty
 libreoffice-fresh
 libreoffice-fresh-ja
