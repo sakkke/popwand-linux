@@ -3,6 +3,7 @@
 ## 2022-01-01
 ### Added
 - add aliases to `.bashrc` (`e[dnvx]`)
+- add files to include in installer (`{NetworkManager,docker}.service`)
 
 ### Changed
 - change hostname

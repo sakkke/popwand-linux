@@ -643,8 +643,8 @@ _
 teew etc/vconsole.conf << '_' # use;
 KEYMAP=jp106
 _
-lnw /usr/lib/systemd/system/NetworkManager.service etc/systemd/system/multi-user.target.wants/NetworkManager.service
-lnw /usr/lib/systemd/system/docker.service etc/systemd/system/multi-user.target.wants/docker.service
+lnw /usr/lib/systemd/system/NetworkManager.service etc/systemd/system/multi-user.target.wants/NetworkManager.service # use;
+lnw /usr/lib/systemd/system/docker.service etc/systemd/system/multi-user.target.wants/docker.service # use;
 curl \
   --create-dirs \
   -o airootfs/usr/share/backgrounds/default.jpg \
