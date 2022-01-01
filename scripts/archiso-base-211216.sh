@@ -78,6 +78,9 @@ texinfo
 tmux
 ttf-fira-code
 ttf-ibm-plex
+virtualbox
+virtualbox-guest-iso
+virtualbox-host-modules-arch
 vivaldi
 vivaldi-ffmpeg-codecs
 vlc
@@ -453,6 +456,10 @@ path=/usr/bin/kitty sudo /installer
 [launcher]
 icon=/usr/share/icons-24x24/freecad.png
 path=/usr/bin/FreeCAD
+
+[launcher]
+icon=/usr/share/icons-24x24/virtualbox.png
+path=/usr/bin/VirtualBox
 
 [launcher]
 icon=/usr/share/icons-24x24/blender.png
@@ -1021,6 +1028,7 @@ nomacs
 #python
 signal-desktop
 system-os-install
+virtualbox
 #visualstudiocode
 vivaldi
 vlc

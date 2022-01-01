@@ -7,6 +7,7 @@
 - add process to initialize keyring to installer
 - add GParted
 - add firewalld
+- add VirtualBox
 
 ### Changed
 - change hostname
