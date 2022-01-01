@@ -870,7 +870,7 @@ _
   temp=$(mktemp -d)
   trap "rm -fr $temp" EXIT
   cp "$OLDPWD/packages.x86_64" packages
-  cat << '/cat' | xargs -I{} sed -i "$a{}" packages
+  cat << '/cat' | xargs -I{} sed -i '$a{}' packages
 base
 linux
 linux-firmware
