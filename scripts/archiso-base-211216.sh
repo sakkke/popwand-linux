@@ -929,7 +929,7 @@ bash airootfs/usr/share/favicons-24x24/update.sh
   cd
   rm -fr $OLDPWD
 )
-mkdir airootfs/usr/share/icons
+mkdir -p airootfs/usr/share/icons
 curl -Ls \
   https://github.com/ful1e5/fuchsia-cursor/releases/download/v1.0.5/Fuchsia.tar.gz \
   | tar \
