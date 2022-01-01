@@ -41,6 +41,7 @@ arch-install-scripts
 blender
 docker
 docker-compose
+ed
 fcitx5-im
 fcitx5-mozc
 ffmpeg
