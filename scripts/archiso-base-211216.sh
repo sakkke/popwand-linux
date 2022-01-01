@@ -877,6 +877,10 @@ sed -zi \
 	/mnt/etc/skel/.config/weston.ini
 
 arch-chroot /mnt /bin/bash << '/arch-chroot'
+error() {
+	echo -e "\\e[31m$*\\e[m"
+}
+
 hwclock --systohc
 
 sed -i 's/#\(en_US\.UTF-8\|ja_JP\.UTF-8\)/\1/' /etc/locale.gen
