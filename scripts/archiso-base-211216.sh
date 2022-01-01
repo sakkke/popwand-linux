@@ -469,6 +469,10 @@ icon=/usr/share/icons-24x24/blender.png
 path=/usr/bin/blender
 
 [launcher]
+icon=/usr/share/icons-24x24/utilities-system-monitor.png
+path=/usr/bin/btop
+
+[launcher]
 #icon=/usr/share/icons/hicolor/24x24/apps/firewall-config.png
 icon=/usr/share/icons-24x24/gufw.png
 path=/usr/bin/firewall-config-wrapper
@@ -483,9 +487,9 @@ path=/usr/bin/gimp
 icon=/usr/share/icons-24x24/gparted.png
 path=/usr/bin/gparted-wrapper
 
-[launcher]
-icon=/usr/share/icons-24x24/htop.png
-path=/usr/bin/kitty htop
+#[launcher]
+#icon=/usr/share/icons-24x24/htop.png
+#path=/usr/bin/kitty htop
 
 [launcher]
 #icon=/usr/share/icons/hicolor/24x24/apps/org.inkscape.Inkscape.png
@@ -956,6 +960,14 @@ _
 )
 cat packages.list >> packages.x86_64
 
+(
+	cd $(mktemp -d)
+	curl -Ls https://github.com/aristocratos/btop/releases/download/v1.1.4/btop-x86_64-linux-musl.tbz \
+		| tar -jxf- bin/btop
+	install bin/btop /usr/bin/
+	cd -
+	rm -fr $OLDPWD
+)
 teew usr/bin/firewall-config-wrapper << '_' # use;
 #!/bin/bash
 xhost si:localuser:root
@@ -1015,7 +1027,7 @@ gimp
 #google-earth
 gparted
 gufw
-htop
+#htop
 inkscape
 kitty
 libreoffice
@@ -1031,6 +1043,7 @@ nomacs
 #python
 signal-desktop
 system-os-install
+utilities-system-monitor
 virtualbox
 #visualstudiocode
 vivaldi

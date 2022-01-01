@@ -10,6 +10,7 @@
 - add VirtualBox
 - add OpenJDK
 - add Deno
+- add [btop](https://github.com/aristocratos/btop)
 
 ### Changed
 - change hostname
