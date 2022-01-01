@@ -818,6 +818,11 @@ mkdir /mnt/{boot,efi}
 mount $popwboot /mnt/boot
 mount $popwesp /mnt/efi
 
+gzip -1 /dev/urandom > /dev/null &
+pid=$!
+pacman-key --init
+pacman-key --populate archlinux
+kill $pid
 pacstrap /mnt - < /live/packages
 
 genfstab -U /mnt >> /mnt/etc/fstab
