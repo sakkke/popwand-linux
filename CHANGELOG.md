@@ -6,6 +6,7 @@
 
 ### Changed
 - optimize downloads
+- change the backup directory of `bootx64.efi` to `/boot`
 
 ## 2022-01-01
 ### Added
