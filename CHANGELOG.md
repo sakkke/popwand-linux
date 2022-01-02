@@ -1,5 +1,9 @@
 # Changelog
 
+## 2022-01-03
+### Fixed
+- fix btop install path
+
 ## 2022-01-02
 ### Added
 - add darkhttpd to dependencies
