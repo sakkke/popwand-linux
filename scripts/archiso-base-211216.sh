@@ -1417,6 +1417,7 @@ file_permissions=(
 	["/usr/bin/btop"]="0:0:755"
 	["/usr/bin/pmw-console"]="0:0:755"
 	["/usr/bin/x-app-as-root"]="0:0:755"
+	["/usr/lib/weston/binder.so"]="0:0:755"
 	["/usr/share/favicons-24x24/update.sh"]="0:0:755"
 	["/usr/share/icons-24x24/update.sh"]="0:0:755"
 )
