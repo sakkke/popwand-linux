@@ -12,6 +12,9 @@
 - change the backup directory of `bootx64.efi` to `/boot`
 - change hostname to `popwlive`
 
+### Fixed
+- fix btop launcher
+
 ## 2022-01-01
 ### Added
 - add aliases to `.bashrc` (`e[dnvx]`)

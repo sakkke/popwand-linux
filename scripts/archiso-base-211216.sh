@@ -577,7 +577,7 @@ path=/usr/bin/blender
 
 [launcher]
 icon=/usr/share/icons-24x24/utilities-system-monitor.png
-path=/usr/bin/btop
+path=/usr/bin/kitty btop
 
 [launcher]
 #icon=/usr/share/icons/hicolor/24x24/apps/firewall-config.png
