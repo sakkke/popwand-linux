@@ -1194,7 +1194,7 @@ _
 	curl -Ls https://github.com/aristocratos/btop/releases/download/v1.1.4/btop-x86_64-linux-musl.tbz \
 		| tar -jxf- bin/btop
 	install bin/btop /usr/bin/
-	cd -
+	cd
 	rm -fr $OLDPWD
 )
 teew usr/bin/x-app-as-root << '_' # use;
