@@ -1121,7 +1121,7 @@ _
 	/cat
 	mirrorlist=$(mktemp)
 	cat > $mirrorlist <<- /cat
-	Server = http://localhost:8080
+	Server = http://localhost
 	/cat
 	ln -fs /var/lib/pacman/sync/community.db /var/cache/pacman/pkg/
 	ln -fs /var/lib/pacman/sync/core.db /var/cache/pacman/pkg/
