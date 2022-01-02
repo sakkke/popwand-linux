@@ -6,6 +6,9 @@
 - add `/efi/loader/loader.conf`
 - add base-devel
 - add [weston-binder](https://github.com/tarvi-verro/weston-binder) module
+- add brightnessctl
+- add pamixer
+- add basic keybinds
 
 ### Changed
 - optimize downloads

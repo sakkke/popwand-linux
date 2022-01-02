@@ -42,6 +42,7 @@ cat > packages.list << '/cat'
 arch-install-scripts
 base-devel
 blender
+brightnessctl
 deno
 docker
 docker-compose
@@ -72,6 +73,7 @@ noto-fonts
 noto-fonts-cjk
 noto-fonts-emoji
 noto-fonts-extra
+pamixer
 pcmanfm-qt
 pipewire
 pipewire-pulse
@@ -555,6 +557,42 @@ xwayland=true
 
 [input-method]
 path=/usr/bin/fcitx5
+
+[keybind]
+exec=brightnessctl set 5%-
+key=brightnessdown
+
+[keybind]
+exec=brightnessctl set +5%
+key=brightnessup
+
+[keybind]
+exec=pamixer -t
+key=mute
+
+[keybind]
+exec=pamixer -d 5
+key=volumedown
+
+[keybind]
+exec=pamixer -i 5
+key=volumeup
+
+[keybind]
+exec=vivaldi-stable
+key=super+1
+
+[keybind]
+exec=pcmanfm-qt
+key=super+e
+
+[keybind]
+exec=kitty
+key=super+enter
+
+[keybind]
+exec=kitty btop
+key=super+esc
 
 [keyboard]
 keymap_layout=jp
