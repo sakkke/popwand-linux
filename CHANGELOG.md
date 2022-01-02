@@ -7,6 +7,7 @@
 ### Changed
 - optimize downloads
 - change the backup directory of `bootx64.efi` to `/boot`
+- change hostname to `popwlive`
 
 ## 2022-01-01
 ### Added

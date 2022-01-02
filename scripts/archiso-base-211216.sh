@@ -218,8 +218,8 @@ root:!*::root
 user:!*::
 _
 
-teew etc/hostname << _
-popwlive-$(tr -dc '[:alnum:]' < /dev/urandom | fold -w8 | head -n1)
+teew etc/hostname << '_'
+popwlive
 _
 teew etc/locale.conf << '_' # use;
 LANG=ja_JP.UTF-8
