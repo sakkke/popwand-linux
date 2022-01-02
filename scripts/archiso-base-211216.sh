@@ -1045,6 +1045,11 @@ initrd /initramfs-linux.img
 options root=PARTLABEL=popwroot rw
 $
 
+teew efi/loader/loader.conf << '$'
+default popw.conf
+timeout 15
+$
+
 teew etc/hostname << $
 popw-$(tr -dc '[:alnum:]' < /dev/urandom | fold -w8 | head -n1)
 $

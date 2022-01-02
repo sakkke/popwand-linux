@@ -3,6 +3,7 @@
 ## 2022-01-02
 ### Added
 - add darkhttpd to dependencies
+- add `/efi/loader/loader.conf`
 
 ### Changed
 - optimize downloads
