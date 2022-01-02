@@ -201,7 +201,7 @@ Include = /etc/pacman.d/mirrorlist
 #SigLevel = Optional TrustAll
 #Server = file:///home/custompkgs
 /cat
-pacman --no-confirm -Swy - < packages.x86_64
+pacman --noconfirm -Swy - < packages.x86_64
 teew etc/environment << '_' # use;
 EDITOR=/usr/bin/micro
 _
