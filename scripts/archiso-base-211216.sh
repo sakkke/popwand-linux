@@ -13,10 +13,10 @@ fi
 self="$(realpath "$0")"
 pacman --needed --noconfirm -Sy - << '/pacman'
 archiso
+base-devel
 darkhttpd
 ffmpeg
 git
-make
 unzip
 /pacman
 rm -fr archlive
@@ -39,6 +39,7 @@ teew() { file="$1"; shift
 
 cat > packages.list << '/cat'
 arch-install-scripts
+base-devel
 blender
 deno
 docker
@@ -77,8 +78,6 @@ python
 qt5-wayland
 shotcut
 signal-desktop
-sudo
-texinfo
 tmux
 ttf-fira-code
 ttf-ibm-plex

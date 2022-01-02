@@ -4,6 +4,7 @@
 ### Added
 - add darkhttpd to dependencies
 - add `/efi/loader/loader.conf`
+- add base-devel
 
 ### Changed
 - optimize downloads
