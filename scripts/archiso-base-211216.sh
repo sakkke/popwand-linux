@@ -1245,8 +1245,7 @@ _
 	cd $(mktemp -d)
 	curl -Ls https://github.com/aristocratos/btop/releases/download/v1.1.4/btop-x86_64-linux-musl.tbz \
 		| tar -jxf- bin/btop
-	mkdir -p "$OLDPWD/airootfs/usr/bin"
-	install bin/btop "$OLDPWD/airootfs/usr/bin/"
+	teew usr/bin/btop <  bin/btop
 	cd
 	rm -fr $OLDPWD
 )
@@ -1415,6 +1414,7 @@ file_permissions=(
 	["/etc/pacman.d/hooks.bin/shotcut-install"]="0:0:755"
 	["/etc/pacman.d/hooks.bin/shotcut-remove"]="0:0:755"
 	["/installer"]="0:0:755"
+	["/usr/bin/btop"]="0:0:755"
 	["/usr/bin/pmw-console"]="0:0:755"
 	["/usr/bin/x-app-as-root"]="0:0:755"
 	["/usr/share/favicons-24x24/update.sh"]="0:0:755"
