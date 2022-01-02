@@ -9,6 +9,7 @@
 - add brightnessctl
 - add pamixer
 - add basic keybinds
+- add `/usr/bin/pmw-console`
 
 ### Changed
 - optimize downloads

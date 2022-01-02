@@ -598,6 +598,10 @@ key=super+esc
 keymap_layout=jp
 
 [launcher]
+icon=/usr/share/icons-24x24/system-log-out.png
+path=/usr/bin/kitty pmw-console
+
+[launcher]
 icon=/usr/share/icons-24x24/system-os-install.png
 path=/usr/bin/kitty sudo /installer
 
@@ -1242,6 +1246,42 @@ _
 	cd
 	rm -fr $OLDPWD
 )
+teew usr/bin/pmw-console << '_' # use;
+#!/bin/bash
+
+#: pmw-console - Power Management Wizard for console
+
+error() {
+	echo -e "\\e[31m$*\\e[m"
+}
+
+select action in cancel logout poweroff reboot; do
+	case "$action" in
+		'' )
+			error 'Input is expected to be "1", "2", "3" or "4"'
+			;;
+
+		cancel )
+			break
+			;;
+
+		logout )
+			kill -9 -1
+			exit $?
+			;;
+
+		poweroff )
+			poweroff
+			exit $?
+			;;
+
+		reboot )
+			reboot
+			exit $?
+			;;
+	esac
+done
+_
 teew usr/bin/x-app-as-root << '_' # use;
 #!/bin/bash
 xhost si:localuser:root
@@ -1320,6 +1360,7 @@ musescore
 nomacs
 #python
 signal-desktop
+system-log-out
 system-os-install
 utilities-system-monitor
 virtualbox
@@ -1370,6 +1411,7 @@ file_permissions=(
 	["/etc/pacman.d/hooks.bin/shotcut-install"]="0:0:755"
 	["/etc/pacman.d/hooks.bin/shotcut-remove"]="0:0:755"
 	["/installer"]="0:0:755"
+	["/usr/bin/pmw-console"]="0:0:755"
 	["/usr/bin/x-app-as-root"]="0:0:755"
 	["/usr/share/favicons-24x24/update.sh"]="0:0:755"
 	["/usr/share/icons-24x24/update.sh"]="0:0:755"
