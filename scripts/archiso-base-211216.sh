@@ -889,7 +889,7 @@ cd /
 cpw() { from="$1"; to="$2"; shift; shift
 	dir=mnt
 	mkdir -p "$(dirname "$dir/$to")"
-	cp "$@" "$from" "$dir/$to" && echo -e "${FUNCNAME[0]}: created "'\e[1mfile\e[m'": '/$to'"
+	cp "$@" "$from" "$dir/$to" && echo -e "${FUNCNAME[0]}: created: '/$to'"
 }
 export -f cpw
 
