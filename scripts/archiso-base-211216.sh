@@ -1162,7 +1162,7 @@ _
 	# Misc options
 	#UseSyslog
 	Color
-	#NoProgressBar
+	NoProgressBar
 	# We cannot check disk space from within a chroot environment
 	#CheckSpace
 	#VerbosePkgLists
