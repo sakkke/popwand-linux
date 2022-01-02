@@ -918,7 +918,7 @@ select installation_type in 'custom (recommended)' auto; do
 		break
 	fi
 done
-case $installation_type in
+case "$installation_type" in
 	auto )
 		echo 'Select device'
 		select _device in $(list_devices); do
