@@ -1121,12 +1121,12 @@ _
 	/cat
 	mirrorlist=$(mktemp)
 	cat > $mirrorlist <<- /cat
-	Server = http://localhost
+	Server = http://localhost:8888
 	/cat
 	ln -fs /var/lib/pacman/sync/community.db /var/cache/pacman/pkg/
 	ln -fs /var/lib/pacman/sync/core.db /var/cache/pacman/pkg/
 	ln -fs /var/lib/pacman/sync/extra.db /var/cache/pacman/pkg/
-	darkhttpd /var/cache/pacman/pkg &
+	darkhttpd /var/cache/pacman/pkg --port 8888 &
 	pid=$!
 	pacman --cachedir "$(pwd)" --config <(cat <<- /cat
 	#
