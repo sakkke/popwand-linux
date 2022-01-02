@@ -1,5 +1,12 @@
 # Changelog
 
+## 2022-01-02
+### Added
+- add darkhttpd to dependencies
+
+### Changed
+- optimize downloads
+
 ## 2022-01-01
 ### Added
 - add aliases to `.bashrc` (`e[dnvx]`)
