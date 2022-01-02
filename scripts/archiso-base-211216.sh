@@ -1236,7 +1236,7 @@ _
 	#SigLevel = Optional TrustAll
 	#Server = file:///home/custompkgs
 	/cat
-	) --noconfirm -Swy - < packages
+	) --dbpath $temp --noconfirm -Swy - < packages
 	kill $pid
 	rm $mirrorlist /var/cache/pacman/pkg/{community,core,extra}.db
 	repo-add live.db.tar.gz *.pkg.tar.{xz,zst}

@@ -7,6 +7,7 @@
 ### Fixed
 - fix btop install path
 - uncomment to add Deepl Translator to launcher
+- fix a line that `--dbpath` option is missing
 
 ## 2022-01-02
 ### Added
