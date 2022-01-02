@@ -914,7 +914,9 @@ teew() { file="$1"; shift
 
 echo 'Select installation type'
 select installation_type in 'custom (recommended)' auto; do
-	[ ! -z "$installation_type" ] && break
+	if [ ! -z "$installation_type" ]; then
+		break
+	fi
 done
 case $installation_type in
 	auto )
