@@ -934,14 +934,13 @@ case "$installation_type" in
 		select _device in $(list_devices); do
 			if file /dev/$_device; then
 				device=/dev/$_device$(grep '^[mn]' <<< $_device > /dev/null && echo p; :)
-				parted /dev/$_device <<- '/parted'
-				mklabel gpt
-				mkpart popwesp fat32 0% 512Mib
-				set 1 esp on
-				mkpart popwboot fat32 512Mib 1536Mib
-				set 2 bls_boot on
-				mkpart popwroot ext4 1536Mib 100%
-				/parted
+				parted -s /dev/$_device \
+					mklabel gpt \
+					mkpart popwesp fat32 0% 512Mib \
+					set 1 esp on \
+					mkpart popwboot fat32 512Mib 1536Mib \
+					set 2 bls_boot on \
+					mkpart popwroot ext4 1536Mib 100%
 				mkfs.fat -F32 ${device}1
 				mkfs.fat -F32 ${device}2
 				mkfs.ext4 -F ${device}3
