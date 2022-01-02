@@ -5,6 +5,7 @@
 - add darkhttpd to dependencies
 - add `/efi/loader/loader.conf`
 - add base-devel
+- add [weston-binder](https://github.com/tarvi-verro/weston-binder) module
 
 ### Changed
 - optimize downloads

@@ -18,6 +18,7 @@ darkhttpd
 ffmpeg
 git
 unzip
+weston
 /pacman
 rm -fr archlive
 cp -r /usr/share/archiso/configs/baseline archlive
@@ -549,6 +550,7 @@ lnw /usr/lib/systemd/user/pipewire-pulse.socket etc/skel/.config/systemd/user/so
 lnw /usr/lib/systemd/user/pipewire.socket etc/skel/.config/systemd/user/sockets.target.wants/pipewire.socket # use;
 teew etc/skel/.config/weston.ini << '_' # use;
 [core]
+modules=binder.so
 xwayland=true
 
 [input-method]
@@ -1025,6 +1027,7 @@ sed -zi \
 	/mnt/etc/skel/.config/weston.ini
 cpw {/,}etc/skel/.local/share/blesh -r
 cpw {/,}etc/skel/.local/share/doc/blesh -r
+cpw {/,}usr/lib/weston/binder.so
 cpw {/,}usr/share/backgrounds/default.jpg
 ls /usr/share/favicons-24x24/ \
 	| grep '.png$' \
@@ -1203,6 +1206,15 @@ xhost si:localuser:root
 trap 'xhost -si:localuser:root' EXIT
 kitty sudo "$@"
 _
+(
+	cd $(mktemp -d)
+	git clone https://github.com/tarvi-verro/weston-binder.git .
+	make
+	mkdir -p "$OLDPWD/airootfs/usr/lib/weston"
+	make install WESTON_MODPREFIX="$OLDPWD/airootfs/usr/lib/weston"
+	cd
+	rm -fr $OLDPWD
+)
 teew usr/share/favicons-24x24/list << '_' # use;
 #app.diagrams.net https://app.diagrams.net/
 #codepen.io https://codepen.io/
