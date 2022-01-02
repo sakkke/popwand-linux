@@ -581,7 +581,7 @@ path=/usr/bin/btop
 [launcher]
 #icon=/usr/share/icons/hicolor/24x24/apps/firewall-config.png
 icon=/usr/share/icons-24x24/gufw.png
-path=/usr/bin/firewall-config-wrapper
+path=/usr/bin/x-app-as-root firewall-config
 
 [launcher]
 #icon=/usr/share/icons/hicolor/24x24/apps/gimp.png
@@ -591,7 +591,7 @@ path=/usr/bin/gimp
 [launcher]
 #icon=/usr/share/icons/hicolor/24x24/apps/gparted.png
 icon=/usr/share/icons-24x24/gparted.png
-path=/usr/bin/gparted-wrapper
+path=/usr/bin/x-app-as-root gparted
 
 #[launcher]
 #icon=/usr/share/icons-24x24/htop.png
@@ -1193,17 +1193,11 @@ _
 	cd -
 	rm -fr $OLDPWD
 )
-teew usr/bin/firewall-config-wrapper << '_' # use;
+teew usr/bin/x-app-as-root << '_' # use;
 #!/bin/bash
 xhost si:localuser:root
 trap 'xhost -si:localuser:root' EXIT
-kitty sudo firewall-config
-_
-teew usr/bin/gparted-wrapper << '_' # use;
-#!/bin/bash
-xhost si:localuser:root
-trap 'xhost -si:localuser:root' EXIT
-kitty sudo gparted
+kitty sudo "$@"
 _
 teew usr/share/favicons-24x24/list << '_' # use;
 #app.diagrams.net https://app.diagrams.net/
@@ -1318,8 +1312,7 @@ file_permissions=(
 	["/etc/pacman.d/hooks.bin/shotcut-install"]="0:0:755"
 	["/etc/pacman.d/hooks.bin/shotcut-remove"]="0:0:755"
 	["/installer"]="0:0:755"
-	["/usr/bin/firewall-config-wrapper"]="0:0:755"
-	["/usr/bin/gparted-wrapper"]="0:0:755"
+	["/usr/bin/x-app-as-root"]="0:0:755"
 	["/usr/share/favicons-24x24/update.sh"]="0:0:755"
 	["/usr/share/icons-24x24/update.sh"]="0:0:755"
 )
