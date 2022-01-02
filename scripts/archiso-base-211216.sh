@@ -1290,7 +1290,7 @@ kitty sudo "$@"
 _
 (
 	cd $(mktemp -d)
-	git clone https://github.com/tarvi-verro/weston-binder.git .
+	git clone --depth=1 https://github.com/tarvi-verro/weston-binder.git .
 	make
 	mkdir -p "$OLDPWD/airootfs/usr/lib/weston"
 	make install WESTON_MODPREFIX="$OLDPWD/airootfs/usr/lib/weston"
@@ -1374,7 +1374,7 @@ teew usr/share/icons-24x24/update.sh << '_' # use;
 cwd="$(cd "$(dirname "$0")" && pwd)"
 install_dir="$(cd "$cwd/../icons" && pwd)"
 cd $(mktemp -d)
-git clone https://github.com/vinceliuice/Tela-circle-icon-theme.git .
+git clone --depth=1 https://github.com/vinceliuice/Tela-circle-icon-theme.git .
 ls "$cwd" | grep '.png$' | xargs -r rm
 grep -v '^#' "$cwd/list" | xargs -I{} -P0 -n1 ffmpeg \
 	-width 24 \
