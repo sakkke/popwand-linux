@@ -916,6 +916,8 @@ echo 'Select installation type'
 select installation_type in 'custom (recommended)' auto; do
 	if [ ! -z "$installation_type" ]; then
 		break
+	else
+		error 'Input is expected to be "1" or "2"'
 	fi
 done
 case "$installation_type" in
