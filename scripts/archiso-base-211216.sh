@@ -583,6 +583,10 @@ exec=vivaldi-stable
 key=super+1
 
 [keybind]
+exec=kitty pmw-console
+key=super+delete
+
+[keybind]
 exec=pcmanfm-qt
 key=super+e
 

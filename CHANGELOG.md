@@ -1,6 +1,9 @@
 # Changelog
 
 ## 2022-01-03
+### Added
+- add a keybind to open `pmw-console`
+
 ### Fixed
 - fix btop install path
 - uncomment to add Deepl Translator to launcher
