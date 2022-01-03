@@ -13,6 +13,7 @@
 - fix partitioning
 - fix issue that `useradd` command was being executed before adding files to `/etc/skel/`
 - fix issue that Shotcut icon is missing
+- fix regex when editing `weston.ini`
 
 ## 2022-01-02
 ### Added
