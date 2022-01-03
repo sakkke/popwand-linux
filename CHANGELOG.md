@@ -79,6 +79,7 @@
 - update installer
 - update readme
 - change `-p` option to be used as default argument in `cpw()`
+- change `/etc/sudoer.d/user` to `/etc/sudoer.d/wheel`
 
 ### Fixed
 - fix hook description

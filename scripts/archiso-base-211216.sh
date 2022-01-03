@@ -853,8 +853,8 @@ set -g @tmux_power_theme snow
 
 run ~/.tmux/plugins/tpm/tpm
 _
-teew etc/sudoers.d/user << '_'
-user ALL=NOPASSWD: ALL
+teew etc/sudoers.d/wheel << '_'
+%wheel ALL=NOPASSWD: ALL
 _
 
 # ref: https://wiki.archlinux.org/title/archiso#:~:text=%5BService%5D%0AExecStart%3D%0AExecStart%3D%2D/sbin/agetty%20%2D%2Dautologin%20username%20%2D%2Dnoclear%20%25I%2038400%20linux
