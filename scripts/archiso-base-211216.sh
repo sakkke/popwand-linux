@@ -1118,6 +1118,10 @@ teew etc/hostname << $
 popw-$(tr -dc '[:alnum:]' < /dev/urandom | fold -w8 | head -n1)
 $
 
+teew etc/sudoers.d/wheel << '$'
+%wheel ALL=(ALL) ALL
+$
+
 umount -R /mnt
 echo 'Installation is complete!'
 _

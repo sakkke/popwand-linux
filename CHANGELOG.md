@@ -4,6 +4,7 @@
 ### Added
 - add a keybind to open `pmw-console`
 - add a keybind to open `/installer`
+- add `/etc/sudoers.d/wheel` to the post-installation environment
 
 ### Fixed
 - fix btop install path
