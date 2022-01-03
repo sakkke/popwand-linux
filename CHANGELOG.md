@@ -11,6 +11,7 @@
 - fix a line that `--dbpath` option is missing
 - fix partitioning
 - fix issue that `useradd` command was being executed before adding files to `/etc/skel/`
+- fix issue that Shotcut icon is missing
 
 ## 2022-01-02
 ### Added
@@ -77,10 +78,12 @@
 - add "popw" prefix to PARTLABEL
 - update installer
 - update readme
+- change `-p` option to be used as default argument in `cpw()`
 
 ### Fixed
 - fix hook description
 - fix issue where hook would not run
+- fix permissions for multiple files
 
 ## 2021-12-29
 ### Added

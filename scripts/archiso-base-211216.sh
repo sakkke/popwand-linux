@@ -897,7 +897,7 @@ cd /
 cpw() { from="$1"; to="$2"; shift; shift
 	dir=mnt
 	mkdir -p "$(dirname "$dir/$to")"
-	cp "$@" "$from" "$dir/$to" && echo -e "${FUNCNAME[0]}: created: '/$to'"
+	cp "$@" -p "$from" "$dir/$to" && echo -e "${FUNCNAME[0]}: created: '/$to'"
 }
 export -f cpw
 
@@ -1039,6 +1039,8 @@ _
 	echo
 } >> airootfs/installer
 cat >> airootfs/installer << '_'
+chmod 755 /mnt/etc/pacman.d/hooks.bin/shotcut-install
+chmod 755 /mnt/etc/pacman.d/hooks.bin/shotcut-remove
 cpw {/,}etc/skel/.asdf -r
 cpw {/,}etc/skel/.config/kitty/current-theme.conf
 sed -zi \
@@ -1081,8 +1083,13 @@ while :; do
 done
 /arch-chroot
 
+chmod 755 /mnt/usr/bin/btop
+chmod 755 /mnt/usr/bin/pmw-console
+chmod 755 /mnt/usr/bin/x-app-as-root
 cpw {/,}usr/lib/weston/binder.so
+chmod 755 /mnt/usr/lib/weston/binder.so
 cpw {/,}usr/share/backgrounds/default.jpg
+chmod 755 /mnt/usr/share/favicons-24x24/update.sh
 ls /usr/share/favicons-24x24/ \
 	| grep '.png$' \
 	| xargs -I{} bash -c 'cpw /usr/share/favicons-24x24/{} usr/share/favicons-24x24/{}'
@@ -1090,6 +1097,7 @@ cpw {/,}usr/share/fonts/rounded-mplus -r
 cpw {/,}usr/share/icons/Fuchsia -r
 cpw {/,}usr/share/icons/Tela-circle -r
 cpw {/,}usr/share/icons/Tela-circle-dark -r
+chmod 755 /mnt/usr/share/icons-24x24/update.sh
 ls /usr/share/icons-24x24/ \
 	| grep '.png$' \
 	| xargs -I{} bash -c 'cpw /usr/share/icons-24x24/{} usr/share/icons-24x24/{}'
