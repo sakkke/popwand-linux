@@ -10,6 +10,7 @@
 - uncomment to add Deepl Translator to launcher
 - fix a line that `--dbpath` option is missing
 - fix partitioning
+- fix issue that `useradd` command was being executed before adding files to `/etc/skel/`
 
 ## 2022-01-02
 ### Added
