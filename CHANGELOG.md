@@ -3,6 +3,7 @@
 ## 2022-01-03
 ### Added
 - add a keybind to open `pmw-console`
+- add a keybind to open `/installer`
 
 ### Fixed
 - fix btop install path

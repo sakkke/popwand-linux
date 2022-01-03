@@ -567,6 +567,10 @@ exec=brightnessctl set +5%
 key=brightnessup
 
 [keybind]
+exec=kitty sudo /installer
+key=super+f1
+
+[keybind]
 exec=pamixer -t
 key=mute
 
