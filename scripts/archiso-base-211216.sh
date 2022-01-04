@@ -1044,7 +1044,8 @@ chmod 755 /mnt/etc/pacman.d/hooks.bin/shotcut-remove
 cpw {/,}etc/skel/.asdf -r
 cpw {/,}etc/skel/.config/kitty/current-theme.conf
 sed -zi \
-	's:\[launcher\]\nicon=/usr/share/icons-24x24/system-os-install.png\npath=/usr/bin/kitty sudo /installer\n\n::' \
+	-e 's:\[keybind\]\nexec=kitty export-screencast\nkey=super+backslash\n\n::g' \
+	-e 's:\[launcher\]\nicon=/usr/share/icons-24x24/system-os-install.png\npath=/usr/bin/kitty sudo /installer\n\n::' \
 	/mnt/etc/skel/.config/weston.ini
 cpw {/,}etc/skel/.local/share/blesh -r
 cpw {/,}etc/skel/.local/share/doc/blesh -r

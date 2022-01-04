@@ -1,5 +1,9 @@
 # Changelog
 
+## 2022-01-04
+### Changed
+- remove a keybind to open `/installer` in the post-installation environment
+
 ## 2022-01-03
 ### Added
 - add a keybind to open `pmw-console`
