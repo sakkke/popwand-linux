@@ -68,6 +68,7 @@ micro
 musescore
 neovim
 networkmanager
+nm-connection-editor
 nomacs
 noto-fonts
 noto-fonts-cjk
@@ -701,6 +702,10 @@ path=/usr/bin/libreoffice
 #icon=/usr/share/icons/hicolor/24x24/apps/mscore.png
 icon=/usr/share/icons-24x24/musescore.png
 path=/usr/bin/mscore
+
+[launcher]
+icon=/usr/share/icons-24x24/preferences-system-network-ethernet.png
+path=/usr/bin/nm-connection-editor
 
 [launcher]
 icon=/usr/share/icons-24x24/nomacs.png
@@ -1402,6 +1407,7 @@ libreoffice
 musescore
 #neovim
 nomacs
+preferences-system-network-ethernet
 #python
 signal-desktop
 system-log-out
