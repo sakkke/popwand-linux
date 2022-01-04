@@ -4,6 +4,7 @@
 ### Added
 - add `/usr/bin/capture-export` and a keybind to launch it
 - add `nm-connection-editor`
+- add `pcurses`
 
 ### Changed
 - remove a keybind to open `/installer` in the post-installation environment

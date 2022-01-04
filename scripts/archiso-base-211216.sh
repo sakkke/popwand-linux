@@ -76,6 +76,7 @@ noto-fonts-emoji
 noto-fonts-extra
 pamixer
 pcmanfm-qt
+pcurses
 pipewire
 pipewire-pulse
 python
