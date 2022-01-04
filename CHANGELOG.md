@@ -1,6 +1,9 @@
 # Changelog
 
 ## 2022-01-04
+### Added
+- add `/usr/bin/capture-export` and a keybind to launch it
+
 ### Changed
 - remove a keybind to open `/installer` in the post-installation environment
 

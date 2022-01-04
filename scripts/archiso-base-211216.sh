@@ -587,6 +587,10 @@ exec=vivaldi-stable
 key=super+1
 
 [keybind]
+exec=kitty capture-export
+key=super+backslash
+
+[keybind]
 exec=kitty pmw-console
 key=super+delete
 
@@ -1085,6 +1089,7 @@ done
 /arch-chroot
 
 chmod 755 /mnt/usr/bin/btop
+chmod 755 /mnt/usr/bin/capture-export
 chmod 755 /mnt/usr/bin/pmw-console
 chmod 755 /mnt/usr/bin/x-app-as-root
 cpw {/,}usr/lib/weston/binder.so
@@ -1267,6 +1272,24 @@ _
 	cd
 	rm -fr $OLDPWD
 )
+teew usr/bin/capture-export << '_'
+#!/bin/bash
+set -eu
+trap 'read -p"Press any key to continue..."' EXIT
+read -p"Type filename to export (default is 'capture-%Y-%m-%d_%H-%M-%S'): " _filename
+case "$_filename" in
+	'' )
+		filename=$(date +capture-%Y-%m-%d_%H-%M-%S)
+		;;
+
+	* )
+		filename="$(date "+$_filename")"
+		;;
+esac
+out="$HOME/$filename.mp4"
+wcap-decode --yuv4mpeg2 ~/capture.wcap | ffmpeg -i - "$out"
+echo "${FUNCNAME[0]}: created: '$out'"
+_
 teew usr/bin/pmw-console << '_' # use;
 #!/bin/bash
 
@@ -1433,6 +1456,7 @@ file_permissions=(
 	["/etc/pacman.d/hooks.bin/shotcut-remove"]="0:0:755"
 	["/installer"]="0:0:755"
 	["/usr/bin/btop"]="0:0:755"
+	["/usr/bin/capture-export"]="0:0:755"
 	["/usr/bin/pmw-console"]="0:0:755"
 	["/usr/bin/x-app-as-root"]="0:0:755"
 	["/usr/lib/weston/binder.so"]="0:0:755"
