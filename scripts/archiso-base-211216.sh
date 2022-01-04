@@ -991,8 +991,8 @@ echo ---
 } | column -R1 -o: -s: -t
 echo ---
 while :; do
-	read -p'Continue? [y/N] ' yorn
-	case "$yorn" in
+	read -p'Continue? [y/N] ' yn
+	case "$yn" in
 		'' | [Nn] )
 			error 'Installation canceled'
 			exit 1
