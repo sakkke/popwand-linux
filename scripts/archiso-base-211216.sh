@@ -1064,7 +1064,7 @@ hwclock --systohc
 sed -i 's/#\(en_US\.UTF-8\|ja_JP\.UTF-8\)/\1/' /etc/locale.gen
 locale-gen
 
-echo root:toor | chpasswd
+passwd -l root
 
 [ -f /efi/efi/boot/bootx64.efi ] && cp /efi/efi/boot/bootx64.efi /boot/bootx64.efi.$(date +%s).bak
 bootctl --boot-path=/boot --esp-path=/efi install

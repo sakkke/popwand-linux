@@ -7,6 +7,9 @@
 ### Changed
 - remove a keybind to open `/installer` in the post-installation environment
 
+### Security
+- disable login to `root`
+
 ## 2022-01-03
 ### Added
 - add a keybind to open `pmw-console`
