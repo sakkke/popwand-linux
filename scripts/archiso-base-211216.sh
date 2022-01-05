@@ -1164,7 +1164,7 @@ _
 	ln -fs /var/lib/pacman/sync/core.db /var/cache/pacman/pkg/
 	ln -fs /var/lib/pacman/sync/extra.db /var/cache/pacman/pkg/
 	pidfile=$(mktemp)
-	bash <<- /bash &
+	bash <<- /bash & sleep 15
 	echo \$\$ > $pidfile
 	darkhttpd /var/cache/pacman/pkg --port 8888
 	/bash
