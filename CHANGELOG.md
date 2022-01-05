@@ -3,6 +3,7 @@
 ## 2022-01-05
 ### Fixed
 - make hook run manually in `pacstrap` phase
+- avoid segmentation fault when clip added to track
 
 ### Security
 - set editor to no in `/efi/loader/loader.conf`

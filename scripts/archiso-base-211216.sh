@@ -726,7 +726,7 @@ path=/usr/bin/pcmanfm-qt
 
 [launcher]
 icon=/usr/share/icons/hicolor/24x24/apps/org.shotcut.Shotcut.png
-path=/usr/bin/shotcut
+path=QT_QPA_PLATFORM=xcb /usr/bin/shotcut
 
 [launcher]
 #icon=/usr/share/icons/hicolor/24x24/apps/signal-desktop.png
