@@ -4,6 +4,9 @@
 ### Fixed
 - make hook run manually in `pacstrap` phase
 
+### Security
+- set editor to no in `/efi/loader/loader.conf`
+
 ## 2022-01-04
 ### Added
 - add `/usr/bin/capture-export` and a keybind to launch it

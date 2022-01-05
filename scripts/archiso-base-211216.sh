@@ -1125,6 +1125,7 @@ $
 
 teew efi/loader/loader.conf << '$'
 default popw.conf
+editor no
 timeout 15
 $
 
