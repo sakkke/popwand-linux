@@ -1164,7 +1164,6 @@ _
 	ln -fs /var/lib/pacman/sync/core.db /var/cache/pacman/pkg/
 	ln -fs /var/lib/pacman/sync/extra.db /var/cache/pacman/pkg/
 	darkhttpd /var/cache/pacman/pkg --port 8888 &
-	pid=$!
 	pacman --cachedir "$(pwd)" --config <(cat <<- /cat
 	#
 	# /etc/pacman.conf
@@ -1270,7 +1269,7 @@ _
 	#Server = file:///home/custompkgs
 	/cat
 	) --dbpath $temp --noconfirm -Swy - < packages
-	kill $pid
+	jobs -x kill %1
 	rm $mirrorlist /var/cache/pacman/pkg/{community,core,extra}.db
 	repo-add live.db.tar.gz *.pkg.tar.{xz,zst}
 )
