@@ -4,6 +4,7 @@
 ### Fixed
 - make hook run manually in `pacstrap` phase
 - avoid segmentation fault when clip added to track
+- fix issue that all necessary files can not be downloaded correctly
 
 ### Security
 - set editor to no in `/efi/loader/loader.conf`
