@@ -1065,6 +1065,8 @@ error() {
 	echo -e "\\e[31m$*\\e[m"
 }
 
+/etc/pacman.d/hooks.bin/shotcut-install
+
 hwclock --systohc
 
 sed -i 's/#\(en_US\.UTF-8\|ja_JP\.UTF-8\)/\1/' /etc/locale.gen

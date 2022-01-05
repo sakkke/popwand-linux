@@ -1,5 +1,9 @@
 # Changelog
 
+## 2022-01-05
+### Fixed
+- make hook run manually in `pacstrap` phase
+
 ## 2022-01-04
 ### Added
 - add `/usr/bin/capture-export` and a keybind to launch it
