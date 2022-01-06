@@ -1,5 +1,9 @@
 # Changelog
 
+## 2022-01-06
+### Added
+- add `pgrepw()` and `killw()`
+
 ## 2022-01-05
 ### Fixed
 - make hook run manually in `pacstrap` phase
