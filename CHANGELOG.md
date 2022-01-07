@@ -1,5 +1,9 @@
 # Changelog
 
+## 2022-01-07
+### Added
+- add `pgrepw()` and `killw()` to `.bashrc`
+
 ## 2022-01-06
 ### Added
 - add `pgrepw()` and `killw()`

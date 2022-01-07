@@ -520,6 +520,25 @@ if ((! BLE_DISABLED)); then
 	bleopt vim_airline_theme=light
 	ble-bind -f 'j j' vi_imap/normal-mode
 fi
+
+# killw - kill wrapper
+killw() { pid=$1
+	echo -1:$pid $(pgrepw $pid) \
+		| xargs -n1 \
+		| sort -r \
+		| awk -F: '{print $2}' \
+		| xargs -I{} bash -c "kill -9 {} && echo '${FUNCNAME[0]}: killed: {}'"
+}
+
+# pgrepw - pgrep wrapper
+pgrepw() { pid=$1; depth=${2:-0}
+	local d=$((depth + 1))
+	for p in $(pgrep -P $pid); do
+		echo $d:$p
+		pgrepw $p $d
+	done
+}
+
 alias ed="$(echo -e 'ed -p"(ed) \e[1m->\e[m "')"
 alias en='nvim -c"se nu" -e' # ex powered nvim
 alias ev='vim -c"se nu" -e' # ex powered vim
