@@ -536,6 +536,22 @@ lstree() {
 	_raw_args=false
 	depth=2
 
+	usage() {
+		cat << /cat
+$_name - ls + tree
+
+Usage:
+	$_name [option...] [location...]
+	$_name (-h|--help)
+
+Options:
+	-d [n], --depth [n]
+		Depth of directory to search (default: 2)
+	-h, --help
+		Show this help
+/cat
+	}
+
 	msg() {
 		echo "$_name: $*"
 	}
@@ -555,6 +571,11 @@ lstree() {
 						msg "The value received by $1 must be an integer and greater than 0"
 						return 1
 					fi
+					;;
+
+				--help | -h )
+					usage
+					return
 					;;
 
 				* )
