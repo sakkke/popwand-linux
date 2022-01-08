@@ -1324,7 +1324,6 @@ _
 	base
 	linux
 	linux-firmware
-	paru-bin
 	/cat
 	cat <<- '/cat' | xargs -I{} sed -i '/^{}$/d' packages
 	arch-install-scripts
@@ -1460,16 +1459,13 @@ _
 		repo-add "$OLDPWD/live.db.tar.gz" *.pkg.tar.zst
 	)
 	rm -fr $build_dir
-	cat >> $configfile <<- /cat
-
-	[live]
-	SigLevel = Optional
-	Server = file://$(pwd)
-	/cat
 	pacman --cachedir "$(pwd)" --config $configfile --dbpath $temp --noconfirm -Swy - < packages
 	killw $pid
 	rm $mirrorlist /var/cache/pacman/pkg/{community,core,extra}.db
 	repo-add -n live.db.tar.gz *.pkg.tar.{xz,zst}
+	cat <<- '/cat' | xargs -I{} sed -i '$a{}' packages
+	paru-bin
+	/cat
 )
 
 (
