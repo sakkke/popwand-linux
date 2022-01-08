@@ -1465,7 +1465,7 @@ _
 	)
 	rm -fr $build_dir
 	pacman --cachedir "$(pwd)" --config $configfile --dbpath $temp --noconfirm -Swy - < packages
-	killw $pid
+	: $(killw $pid; :)
 	rm $mirrorlist /var/cache/pacman/pkg/{community,core,extra}.db
 	repo-add -n live.db.tar.gz *.pkg.tar.{xz,zst}
 )
