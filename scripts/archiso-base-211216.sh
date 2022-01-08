@@ -531,28 +531,40 @@ killw() { pid=$1
 }
 
 # lstree - ls + tree
-lstree() { location="${1:-.}"
-	paste -d' ' \
-		<(find "$location" -maxdepth 2 \
-			| xargs ls --time-style=long-iso -dhl \
-			| awk -f <(cat <<- '/cat'
-			function m(str, param) {
-				return "\033[" param "m" str "\033[m"
-			}
+lstree() {
+	main() { location="${1:-.}"
+		paste -d' ' \
+			<(find "$location" -maxdepth 2 \
+				| xargs ls --time-style=long-iso -dhl \
+				| awk -f <(cat <<- '/cat'
+				function m(str, param) {
+					return "\033[" param "m" str "\033[m"
+				}
 
-			{
-				print \
-					m($1, "1;31"),
-					m($2, "1;32"),
-					m($3 ":" $4, "1;33"),
-					m($5, "1;34"),
-					m($6, "1;35"),
-					m($7, "1;36")
-			}
-			/cat
-			) \
-			| column -R2,4 -to' ') \
-		<(tree --noreport -CaL 2 "$location")
+				{
+					print \
+						m($1, "1;31"),
+						m($2, "1;32"),
+						m($3 ":" $4, "1;33"),
+						m($5, "1;34"),
+						m($6, "1;35"),
+						m($7, "1;36")
+				}
+				/cat
+				) \
+				| column -R2,4 -to' ') \
+			<(tree --noreport -CaL 2 "$location")
+	}
+
+	if [ -z "$1" ]; then
+		main
+		return $?
+	fi
+
+	while [ -n "$1" ]; do
+		main "$1"
+		shift
+	done
 }
 
 # pgrepw - pgrep wrapper
