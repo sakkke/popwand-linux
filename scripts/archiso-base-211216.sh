@@ -74,6 +74,7 @@ makepkg
 	. PKGBUILD
 	pkgfile="$pkgname-$pkgver-$pkgrel-$(uname -m).pkg.tar.zst"
 	temp=$(mktemp -d)
+	pacman --dbpath $temp -Sy
 	pacman --dbpath $temp --noconfirm -Uw "$pkgfile"
 	rm -fr $temp
 )
@@ -1449,6 +1450,7 @@ _
 		. PKGBUILD
 		pkgfile="$pkgname-$pkgver-$pkgrel-$(uname -m).pkg.tar.zst"
 		temp=$(mktemp -d)
+		pacman --cachedir "$OLDPWD" --config $configfile --dbpath $temp --noconfirm -Sy
 		pacman --cachedir "$OLDPWD" --config $configfile --dbpath $temp --noconfirm -Uw "$pkgfile"
 		rm -fr $temp
 		cp "$pkgfile" "$OLDPWD"
