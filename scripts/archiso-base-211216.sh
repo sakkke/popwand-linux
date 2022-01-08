@@ -1460,6 +1460,12 @@ _
 		repo-add "$OLDPWD/live.db.tar.gz" *.pkg.tar.zst
 	)
 	rm -fr $build_dir
+	cat >> $configfile <<- /cat
+
+	[live]
+	SigLevel = Optional
+	Server = file://$(pwd)/airootfs/live
+	/cat
 	pacman --cachedir "$(pwd)" --config $configfile --dbpath $temp --noconfirm -Swy - < packages
 	killw $pid
 	rm $mirrorlist /var/cache/pacman/pkg/{community,core,extra}.db
