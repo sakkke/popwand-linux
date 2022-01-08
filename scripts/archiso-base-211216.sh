@@ -532,9 +532,45 @@ killw() { pid=$1
 
 # lstree - ls + tree
 lstree() {
+	_name="${FUNCNAME[0]}"
+	_raw_args=false
+	depth=2
+
+	msg() {
+		echo "$_name: $*"
+	}
+
+	args=(); while [ -n "$1" ]; do
+		if ! $_raw_args && grep '^-' <<< "$1" > /dev/null; then
+			case "$1" in
+				-- )
+					_raw_args=true
+					;;
+
+				--depth | -d )
+					if [ "$2" -gt 0 ]; then
+						depth="$2"
+						shift
+					else
+						msg "The value received by $1 must be an integer and greater than 0"
+						return 1
+					fi
+					;;
+
+				* )
+					msg "$1 is an invalid option"
+					return 1
+					;;
+			esac
+		else
+			args+=("$1")
+		fi
+		shift
+	done; set -- "${args[@]}"
+
 	main() { location="${1:-.}"
 		paste -d' ' \
-			<(find "$location" -maxdepth 2 \
+			<(find "./$location" -maxdepth $depth \
 				| xargs ls --time-style=long-iso -dhl \
 				| awk -f <(cat <<- '/cat'
 				function m(str, param) {
@@ -553,7 +589,7 @@ lstree() {
 				/cat
 				) \
 				| column -R2,4 -to' ') \
-			<(tree --noreport -CaL 2 "$location")
+			<(tree --noreport -CaL $depth -- "$location")
 	}
 
 	if [ -z "$1" ]; then

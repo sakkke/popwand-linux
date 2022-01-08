@@ -4,6 +4,7 @@
 ### Added
 - add `lstree()` to `.bashrc`
 - add multiple locations support in `lstree()`
+- add options support in `lstree()`
 
 ## 2022-01-07
 ### Added
