@@ -1457,9 +1457,9 @@ _
 		pacman --cachedir "$OLDPWD" --config $configfile --dbpath $temp --noconfirm -Uw "$pkgfile"
 		rm -fr $temp
 		cp "$pkgfile" "$OLDPWD"
-		rm -fr $build_dir
-		repo-add live.db.tar.gz *.pkg.tar.{xz,zst}
+		repo-add "$OLDPWD/live.db.tar.gz" *.pkg.tar.{xz,zst}
 	)
+	rm -fr $build_dir
 	pacman --cachedir "$(pwd)" --config $configfile --dbpath $temp --noconfirm -Swy - < packages
 	killw $pid
 	rm $mirrorlist /var/cache/pacman/pkg/{community,core,extra}.db
