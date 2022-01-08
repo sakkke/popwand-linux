@@ -6,6 +6,7 @@
 - add multiple locations support in `lstree()`
 - add options support in `lstree()`
 - add `(-h|--help)` to `lstree()`
+- add `paru-bin` and AUR support
 
 ## 2022-01-07
 ### Added

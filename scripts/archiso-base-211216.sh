@@ -56,6 +56,28 @@ teew() { file="$1"; shift
 	tee "$@" "$dir/$file" > /dev/null && echo -e "${FUNCNAME[0]}: created "'\e[1mfile\e[m'": '/$file'"
 }
 
+# ref: http://allanmcrae.com/2015/01/replacing-makepkg-asroot/
+build_dir=/home/build.$(tr -dc '[:alnum:]' < /dev/urandom | fold -w10 | head -n1)
+mkdir $build_dir
+chgrp nobody $build_dir
+chmod g+ws $build_dir
+setfacl -m u::rwx,g::rwx $build_dir
+setfacl -d --set u::rwx,g::rwx,o::- $build_dir
+
+sudo -u nobody bash << /bash
+git clone --depth=1 https://aur.archlinux.org/paru-bin.git $build_dir/paru-bin
+cd $build_dir/paru-bin
+makepkg
+/bash
+(
+	cd $build_dir/paru-bin
+	. PKGBUILD
+	pkgfile="$pkgname-$pkgver-$pkgrel-$(uname -m).pkg.tar.zst"
+	temp=$(mktemp -d)
+	pacman --dbpath $temp --noconfirm -Uwy "$pkgfile"
+	rm -fr $temp
+)
+
 cat > packages.list << '/cat'
 arch-install-scripts
 base-devel
@@ -93,6 +115,7 @@ noto-fonts-cjk
 noto-fonts-emoji
 noto-fonts-extra
 pamixer
+paru-bin
 pcmanfm-qt
 pcurses
 pipewire
@@ -1309,7 +1332,8 @@ _
 	/bash
 	pid=$(cat $pidfile)
 	rm $pidfile
-	pacman --cachedir "$(pwd)" --config <(cat <<- /cat
+	configfile=$(mktemp)
+	cat > $configfile <<- /cat
 	#
 	# /etc/pacman.conf
 	#
@@ -1413,7 +1437,17 @@ _
 	#SigLevel = Optional TrustAll
 	#Server = file:///home/custompkgs
 	/cat
-	) --dbpath $temp --noconfirm -Swy - < packages
+	pacman --cachedir "$(pwd)" --config $configfile --dbpath $temp --noconfirm -Swy - < packages
+	(
+		cd $build_dir/paru-bin
+		. PKGBUILD
+		pkgfile="$pkgname-$pkgver-$pkgrel-$(uname -m).pkg.tar.zst"
+		temp=$(mktemp -d)
+		pacman --cachedir "$OLDPWD" --config $configfile --dbpath $temp --noconfirm -Uwy "$pkgfile"
+		rm -fr $temp
+		cp "$pkgfile" "$OLDPWD"
+		rm -fr $build_dir
+	)
 	killw $pid
 	rm $mirrorlist /var/cache/pacman/pkg/{community,core,extra}.db
 	repo-add live.db.tar.gz *.pkg.tar.{xz,zst}
