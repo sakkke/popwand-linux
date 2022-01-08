@@ -1469,7 +1469,6 @@ _
 	rm $mirrorlist /var/cache/pacman/pkg/{community,core,extra}.db
 	repo-add -n live.db.tar.gz *.pkg.tar.{xz,zst}
 )
-
 (
 	cd $(mktemp -d)
 	curl -Ls https://github.com/aristocratos/btop/releases/download/v1.1.4/btop-x86_64-linux-musl.tbz \
