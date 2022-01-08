@@ -93,6 +93,7 @@ ffmpeg
 firewalld
 freecad
 freerdp
+fzf
 gimp
 gnome-icon-theme
 gparted
