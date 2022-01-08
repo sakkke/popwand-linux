@@ -8,6 +8,7 @@
 - add `(-h|--help)` to `lstree()`
 - add `paru-bin` and AUR support
 - add `fzf`
+- add `/usr/bin/fzfmenu`
 
 ## 2022-01-07
 ### Added

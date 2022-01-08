@@ -773,6 +773,10 @@ key=super+enter
 exec=kitty btop
 key=super+esc
 
+[keybind]
+exec=kitty fzfmenu
+key=super+space
+
 [keyboard]
 keymap_layout=jp
 
@@ -1263,6 +1267,7 @@ done
 
 chmod 755 /mnt/usr/bin/btop
 chmod 755 /mnt/usr/bin/capture-export
+chmod 755 /mnt/usr/bin/fzfmenu
 chmod 755 /mnt/usr/bin/pmw-console
 chmod 755 /mnt/usr/bin/x-app-as-root
 cpw {/,}usr/lib/weston/binder.so
@@ -1480,6 +1485,16 @@ out="$HOME/$filename.mp4"
 wcap-decode --yuv4mpeg2 ~/capture.wcap | ffmpeg -i - "$out"
 echo "${FUNCNAME[0]}: created: '$out'"
 _
+teew usr/bin/fzfmenu << '_'
+#!/bin/bash
+set -eu
+bin="$(echo "$PATH" \
+	| awk -F: 'BEGIN {OFS = " "} {$1 = $1; print $0}' \
+	| xargs -P0 -n1 ls \
+	| sort -u \
+	| fzf)"
+exec "$bin"
+_
 teew usr/bin/pmw-console << '_' # use;
 #!/bin/bash
 
@@ -1648,6 +1663,7 @@ file_permissions=(
 	["/installer"]="0:0:755"
 	["/usr/bin/btop"]="0:0:755"
 	["/usr/bin/capture-export"]="0:0:755"
+	["/usr/bin/fzfmenu"]="0:0:755"
 	["/usr/bin/pmw-console"]="0:0:755"
 	["/usr/bin/x-app-as-root"]="0:0:755"
 	["/usr/lib/weston/binder.so"]="0:0:755"
