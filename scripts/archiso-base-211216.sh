@@ -1464,7 +1464,7 @@ _
 
 	[live]
 	SigLevel = Optional
-	Server = file://$(pwd)/airootfs/live
+	Server = file://$(pwd)
 	/cat
 	pacman --cachedir "$(pwd)" --config $configfile --dbpath $temp --noconfirm -Swy - < packages
 	killw $pid
