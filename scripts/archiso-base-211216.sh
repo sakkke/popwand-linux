@@ -530,6 +530,31 @@ killw() { pid=$1
 		| xargs -I{} bash -c "kill -9 {} && echo '${FUNCNAME[0]}: killed: {}'"
 }
 
+# lstree - ls + tree
+lstree() { location="${1:-.}"
+	paste -d' ' \
+		<(find "$location" -maxdepth 2 \
+			| xargs ls --time-style=long-iso -dhl \
+			| awk -f <(cat <<- '/cat'
+			function m(str, param) {
+				return "\033[" param "m" str "\033[m"
+			}
+
+			{
+				print \
+					m($1, "1;31"),
+					m($2, "1;32"),
+					m($3 ":" $4, "1;33"),
+					m($5, "1;34"),
+					m($6, "1;35"),
+					m($7, "1;36")
+			}
+			/cat
+			) \
+			| column -R2,4 -to' ') \
+		<(tree --noreport -CaL 2 "$location")
+}
+
 # pgrepw - pgrep wrapper
 pgrepw() { pid=$1; depth=${2:-0}
 	local d=$((depth + 1))

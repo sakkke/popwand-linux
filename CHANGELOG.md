@@ -2,6 +2,10 @@
 
 ## 2022-01-07
 ### Added
+- add `lstree()` to `.bashrc`
+
+## 2022-01-07
+### Added
 - add `pgrepw()` and `killw()` to `.bashrc`
 
 ## 2022-01-06
