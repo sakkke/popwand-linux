@@ -603,6 +603,7 @@ lstree() {
 
 		* )
 			while [ -n "$1" ]; do
+				echo "[$1]"
 				main "$1"
 				shift
 			done
