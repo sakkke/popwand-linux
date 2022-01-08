@@ -117,7 +117,6 @@ noto-fonts-cjk
 noto-fonts-emoji
 noto-fonts-extra
 pamixer
-paru-bin
 pcmanfm-qt
 pcurses
 pipewire
@@ -1321,6 +1320,7 @@ _
 	base
 	linux
 	linux-firmware
+	paru-bin
 	/cat
 	cat <<- '/cat' | xargs -I{} sed -i '/^{}$/d' packages
 	arch-install-scripts
