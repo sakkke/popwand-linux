@@ -592,15 +592,22 @@ lstree() {
 			<(tree --noreport -CaL $depth -- "$location")
 	}
 
-	if [ -z "$1" ]; then
-		main
-		return $?
-	fi
+	case $# in
+		0 )
+			main
+			;;
 
-	while [ -n "$1" ]; do
-		main "$1"
-		shift
-	done
+		1 )
+			main "$1"
+			;;
+
+		* )
+			while [ -n "$1" ]; do
+				main "$1"
+				shift
+			done
+			;;
+	esac
 }
 
 # pgrepw - pgrep wrapper
