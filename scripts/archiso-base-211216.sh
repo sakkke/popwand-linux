@@ -143,6 +143,9 @@ xorg-xhost
 xorg-xwayland
 /cat
 cat packages.list >> packages.x86_64
+cat <<- '/cat' | xargs -I{} sed -i '$a{}' packages.x86_64
+paru-bin
+/cat
 cat > pacman.conf << /cat
 #
 # /etc/pacman.conf
@@ -1465,9 +1468,6 @@ _
 	killw $pid
 	rm $mirrorlist /var/cache/pacman/pkg/{community,core,extra}.db
 	repo-add -n live.db.tar.gz *.pkg.tar.{xz,zst}
-	cat <<- '/cat' | xargs -I{} sed -i '$a{}' packages
-	paru-bin
-	/cat
 )
 
 (
