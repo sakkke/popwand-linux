@@ -141,7 +141,7 @@ xorg-xhost
 xorg-xwayland
 /cat
 cat packages.list >> packages.x86_64
-cat > pacman.conf << '/cat'
+cat > pacman.conf << /cat
 #
 # /etc/pacman.conf
 #
@@ -199,8 +199,8 @@ LocalFileSigLevel = Optional
 #   - local/custom mirrors can be added here or in separate files
 #   - repositories listed first will take precedence when packages
 #     have identical names, regardless of version number
-#   - URLs will have $repo replaced by the name of the current repo
-#   - URLs will have $arch replaced by the name of the architecture
+#   - URLs will have \$repo replaced by the name of the current repo
+#   - URLs will have \$arch replaced by the name of the architecture
 #
 # Repository entries are of the format:
 #       [repo-name]
@@ -244,6 +244,10 @@ Include = /etc/pacman.d/mirrorlist
 #[custom]
 #SigLevel = Optional TrustAll
 #Server = file:///home/custompkgs
+
+[live]
+SigLevel = Optional
+Server = file://$(pwd)/airootfs/live
 /cat
 temp=$(mktemp -d)
 pacman --dbpath $temp --noconfirm -Swy - < packages.x86_64
@@ -1444,7 +1448,6 @@ _
 	#SigLevel = Optional TrustAll
 	#Server = file:///home/custompkgs
 	/cat
-	pacman --cachedir "$(pwd)" --config $configfile --dbpath $temp --noconfirm -Swy - < packages
 	(
 		cd $build_dir/paru-bin
 		. PKGBUILD
@@ -1455,10 +1458,12 @@ _
 		rm -fr $temp
 		cp "$pkgfile" "$OLDPWD"
 		rm -fr $build_dir
+		repo-add live.db.tar.gz *.pkg.tar.{xz,zst}
 	)
+	pacman --cachedir "$(pwd)" --config $configfile --dbpath $temp --noconfirm -Swy - < packages
 	killw $pid
 	rm $mirrorlist /var/cache/pacman/pkg/{community,core,extra}.db
-	repo-add live.db.tar.gz *.pkg.tar.{xz,zst}
+	repo-add -n live.db.tar.gz *.pkg.tar.{xz,zst}
 )
 
 (
