@@ -1457,7 +1457,7 @@ _
 		pacman --cachedir "$OLDPWD" --config $configfile --dbpath $temp --noconfirm -Uw "$pkgfile"
 		rm -fr $temp
 		cp "$pkgfile" "$OLDPWD"
-		repo-add "$OLDPWD/live.db.tar.gz" *.pkg.tar.{xz,zst}
+		repo-add "$OLDPWD/live.db.tar.gz" *.pkg.tar.zst
 	)
 	rm -fr $build_dir
 	pacman --cachedir "$(pwd)" --config $configfile --dbpath $temp --noconfirm -Swy - < packages
