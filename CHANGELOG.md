@@ -9,6 +9,7 @@
 - add `paru-bin` and AUR support
 - add `fzf`
 - add `/usr/bin/fzfmenu`
+- add trap to clean up processes
 
 ## 2022-01-07
 ### Added

@@ -1,5 +1,25 @@
 #!/bin/bash
 set -eu
+
+# killw - kill wrapper
+killw() { pid=$1
+	echo -1:$pid $(pgrepw $pid) \
+		| xargs -n1 \
+		| sort -r \
+		| awk -F: '{print $2}' \
+		| xargs -I{} bash -c "kill -9 {} && echo '${FUNCNAME[0]}: killed: {}'"
+}
+
+# pgrepw - pgrep wrapper
+pgrepw() { pid=$1; depth=${2:-0}
+	local d=$((depth + 1))
+	for p in $(pgrep -P $pid); do
+		echo $d:$p
+		pgrepw $p $d
+	done
+}
+
+trap 'jobs -p | while read pid; do killw $pid; done' EXIT
 error() {
 	echo -e "\\e[31m$*\\e[m"
 }
@@ -24,29 +44,11 @@ rm -fr archlive
 cp -r /usr/share/archiso/configs/baseline archlive
 cd archlive
 
-# killw - kill wrapper
-killw() { pid=$1
-	echo -1:$pid $(pgrepw $pid) \
-		| xargs -n1 \
-		| sort -r \
-		| awk -F: '{print $2}' \
-		| xargs -I{} bash -c "kill -9 {} && echo '${FUNCNAME[0]}: killed: {}'"
-}
-
 # lnw - ln wrapper
 lnw() { to="$1"; from="$2"; shift; shift
 	dir=airootfs
 	mkdir -p "$(dirname "$dir/$from")"
 	ln "$@" -s "$to" "$dir/$from" && echo -e "${FUNCNAME[0]}: created "'\e[1;36msymlink\e[m'": '/$from' -> '$to'"
-}
-
-# pgrepw - pgrep wrapper
-pgrepw() { pid=$1; depth=${2:-0}
-	local d=$((depth + 1))
-	for p in $(pgrep -P $pid); do
-		echo $d:$p
-		pgrepw $p $d
-	done
 }
 
 # teew - tee wrapper
