@@ -622,8 +622,8 @@ Options:
 
 	main() { location="${1:-.}"
 		paste -d' ' \
-			<(find "./$location" -maxdepth $depth \
-				| xargs ls --time-style=long-iso -dhl \
+			<(find "./$location" -maxdepth $depth -print0 \
+				| xargs -0 ls --time-style=long-iso -dhl \
 				| awk -f <(cat <<- '/cat'
 				function m(str, param) {
 					return "\033[" param "m" str "\033[m"

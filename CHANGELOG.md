@@ -8,6 +8,7 @@
 ### Fixed
 - fix issue that `btop` is not installed
 - fix issue that `paru-bin` is missing in the post-installation environment
+- fix error when file name contains space in `lstree()`
 
 ## 2022-01-08
 ### Added
