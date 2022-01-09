@@ -7,6 +7,7 @@
 
 ### Fixed
 - fix issue that `btop` is not installed
+- fix issue that `paru-bin` is missing in the post-installation environment
 
 ## 2022-01-08
 ### Added
