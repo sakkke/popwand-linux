@@ -5,7 +5,7 @@
 ### Added
 - add `openbsd-netcat`
 
-## 2022-01-07
+## 2022-01-08
 ### Added
 - add `lstree()` to `.bashrc`
 - add multiple locations support in `lstree()`
