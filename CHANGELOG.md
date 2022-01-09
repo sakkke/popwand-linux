@@ -4,6 +4,7 @@
 
 ### Added
 - add `openbsd-netcat`
+- add `lmms`
 
 ### Fixed
 - fix issue that `btop` is not installed

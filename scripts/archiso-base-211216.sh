@@ -107,6 +107,7 @@ jdk-openjdk
 kitty
 libreoffice-fresh
 libreoffice-fresh-ja
+lmms
 man
 micro
 musescore
@@ -876,6 +877,11 @@ path=/usr/bin/libreoffice
 #path=/usr/bin/libreoffice --writer
 
 [launcher]
+#icon=/usr/share/icons/hicolor/24x24/apps/lmms.png
+icon=/usr/share/icons-24x24/lmms.png
+path=/usr/bin/lmms
+
+[launcher]
 #icon=/usr/share/icons/hicolor/24x24/apps/mscore.png
 icon=/usr/share/icons-24x24/musescore.png
 path=/usr/bin/mscore
@@ -1619,6 +1625,7 @@ libreoffice
 #libreoffice-impress
 #libreoffice-math
 #libreoffice-writer
+lmms
 musescore
 #neovim
 nomacs
