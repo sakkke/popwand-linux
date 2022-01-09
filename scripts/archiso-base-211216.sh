@@ -131,6 +131,7 @@ shotcut
 signal-desktop
 texstudio
 tmux
+tree
 ttf-fira-code
 ttf-ibm-plex
 virtualbox

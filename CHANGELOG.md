@@ -6,6 +6,7 @@
 - add `openbsd-netcat`
 - add `lmms`
 - add `texstudio`
+- add `tree`
 
 ### Fixed
 - fix issue that `btop` is not installed
