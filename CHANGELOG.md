@@ -5,6 +5,9 @@
 ### Added
 - add `openbsd-netcat`
 
+### Fixed
+- fix issue that `btop` is not installed
+
 ## 2022-01-08
 ### Added
 - add `lstree()` to `.bashrc`
