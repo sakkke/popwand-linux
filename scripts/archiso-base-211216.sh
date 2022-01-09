@@ -118,6 +118,7 @@ noto-fonts
 noto-fonts-cjk
 noto-fonts-emoji
 noto-fonts-extra
+openbsd-netcat
 pamixer
 pcmanfm-qt
 pcurses

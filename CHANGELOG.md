@@ -1,5 +1,10 @@
 # Changelog
 
+## 2022-01-09
+
+### Added
+- add `openbsd-netcat`
+
 ## 2022-01-07
 ### Added
 - add `lstree()` to `.bashrc`
