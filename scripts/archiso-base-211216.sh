@@ -129,6 +129,7 @@ python
 qt5-wayland
 shotcut
 signal-desktop
+texstudio
 tmux
 ttf-fira-code
 ttf-ibm-plex
@@ -916,6 +917,11 @@ icon=/usr/share/icons-24x24/signal-desktop.png
 path=/usr/bin/signal-desktop
 
 [launcher]
+#icon=/usr/share/icons/hicolor/24x24/apps/texstudio.png
+icon=/usr/share/icons-24x24/texstudio.png
+path=/usr/bin/texstudio
+
+[launcher]
 #icon=/usr/share/icons/hicolor/24x24/apps/vivaldi.png
 icon=/usr/share/icons-24x24/vivaldi.png
 path=/usr/bin/vivaldi-stable
@@ -1634,6 +1640,7 @@ preferences-system-network-ethernet
 signal-desktop
 system-log-out
 system-os-install
+texstudio
 utilities-system-monitor
 virtualbox
 #visualstudiocode
