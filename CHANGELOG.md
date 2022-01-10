@@ -3,7 +3,7 @@
 ## 2022-01-10
 ### Added
 - add `https://codepen.io/pen/`
-- add `texlive-must` and `texlive-langjapanese`
+- add `texlive-most` and `texlive-langjapanese`
 - add `veracrypt`
 
 ## 2022-01-09

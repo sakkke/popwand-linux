@@ -130,7 +130,7 @@ qt5-wayland
 shotcut
 signal-desktop
 texlive-langjapanese
-texlive-must
+texlive-most
 texstudio
 tmux
 tree
