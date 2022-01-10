@@ -1501,6 +1501,7 @@ paru-bin
 	cd $(mktemp -d)
 	curl -Ls https://github.com/aristocratos/btop/releases/download/v1.1.4/btop-x86_64-linux-musl.tbz \
 		| tar -jxf- bin/btop
+	mkdir -p "$OLDPWD/airootfs/usr/bin"
 	cp bin/btop "$OLDPWD/airootfs/usr/bin/btop"
 	cd
 	rm -fr $OLDPWD
