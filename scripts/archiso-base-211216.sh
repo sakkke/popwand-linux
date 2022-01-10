@@ -136,6 +136,7 @@ tmux
 tree
 ttf-fira-code
 ttf-ibm-plex
+veracrypt
 virtualbox
 virtualbox-guest-iso
 virtualbox-host-modules-arch
@@ -925,6 +926,10 @@ icon=/usr/share/icons-24x24/texstudio.png
 path=/usr/bin/texstudio
 
 [launcher]
+icon=/usr/share/icons-24x24/veracrypt.png
+path=/usr/bin/veracrypt
+
+[launcher]
 #icon=/usr/share/icons/hicolor/24x24/apps/vivaldi.png
 icon=/usr/share/icons-24x24/vivaldi.png
 path=/usr/bin/vivaldi-stable
@@ -1650,6 +1655,7 @@ system-log-out
 system-os-install
 texstudio
 utilities-system-monitor
+veracrypt
 virtualbox
 #visualstudiocode
 vivaldi
