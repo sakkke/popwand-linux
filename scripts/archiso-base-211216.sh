@@ -1483,7 +1483,6 @@ _
 		pacman --cachedir "$OLDPWD" --config $configfile --dbpath $temp --noconfirm -Sy
 		pacman --cachedir "$OLDPWD" --config $configfile --dbpath $temp --noconfirm -Uw "$pkgfile"
 		rm -fr $temp
-		cp "$pkgfile" "$OLDPWD"
 		repo-add "$OLDPWD/live.db.tar.gz" *.pkg.tar.zst
 	)
 	rm -fr $build_dir
