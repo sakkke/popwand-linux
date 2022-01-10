@@ -129,6 +129,8 @@ python
 qt5-wayland
 shotcut
 signal-desktop
+texlive-langjapanese
+texlive-must
 texstudio
 tmux
 tree

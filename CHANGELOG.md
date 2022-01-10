@@ -3,6 +3,7 @@
 ## 2022-01-10
 ### Added
 - add `https://codepen.io/pen/`
+- add `texlive-must` and `texlive-langjapanese`
 
 ## 2022-01-09
 ### Added
