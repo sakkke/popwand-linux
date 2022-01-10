@@ -5,7 +5,6 @@
 - add `https://codepen.io/pen/`
 
 ## 2022-01-09
-
 ### Added
 - add `openbsd-netcat`
 - add `lmms`
