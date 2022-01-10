@@ -1492,7 +1492,7 @@ _
 	rm $mirrorlist /var/cache/pacman/pkg/{community,core,extra}.db
 	repo-add -n live.db.tar.gz *.pkg.tar.{xz,zst}
 )
-cat << '/cat' | xargs -I{} sed -i '$a{}' packages
+cat << '/cat' | xargs -I{} sed -i '$a{}' airootfs/live/packages
 paru-bin
 /cat
 cat << '/cat' | xargs -I{} sed -i '$a{}' packages.x86_64
