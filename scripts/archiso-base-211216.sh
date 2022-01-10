@@ -936,6 +936,10 @@ path=/usr/bin/vivaldi-stable
 #path=/usr/bin/vivaldi-stable --app=https://codepen.io/ --new-window
 
 #[launcher]
+#icon=/usr/share/favicons-24x24/codepen.io.pen.png
+#path=/usr/bin/vivaldi-stable --app=https://codepen.io/pen/ --new-window
+
+#[launcher]
 #icon=/usr/share/favicons-24x24/diep.io.png
 #path=/usr/bin/vivaldi-stable --app=https://diep.io/ --new-window
 
@@ -1577,6 +1581,7 @@ _
 teew usr/share/favicons-24x24/list << '_' # use;
 #app.diagrams.net https://app.diagrams.net/
 #codepen.io https://codepen.io/
+#codepen.io.pen https://codepen.io/pen/
 #diep.io https://diep.io/
 #earth.google.com.web https://earth.google.com/web/
 #github.com https://github.com/
