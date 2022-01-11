@@ -692,6 +692,9 @@ alias ls='ls --color'
 
 # ref: https://github.com/akinomyoga/ble.sh#:~:text=%5B%5B%20%24%7BBLE_VERSION%2D%7D%20%5D%5D%20%26%26%20ble%2Dattach
 [[ ${BLE_VERSION-} ]] && ble-attach
+
+# make `.bashrc` return `0` always
+:
 _
 teew etc/skel/.config/fontconfig/fonts.conf << '_' # use;
 <?xml version="1.0"?>

@@ -1,5 +1,9 @@
 # Changelog
 
+## 2022-01-11
+### Changed
+- make `.bashrc` return `0` always
+
 ## 2022-01-10
 ### Added
 - add `https://codepen.io/pen/`
