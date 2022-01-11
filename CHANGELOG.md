@@ -4,6 +4,9 @@
 ### Changed
 - make `.bashrc` return `0` always
 
+### Fixed
+- fix issue that `$BLE_DISABLED` is not working correctly
+
 ## 2022-01-10
 ### Added
 - add `https://codepen.io/pen/`
