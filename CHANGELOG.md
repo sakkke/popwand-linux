@@ -1,5 +1,9 @@
 # Changelog
 
+## 2022-01-12
+### Fixed
+- fix issue that `capture-export` not exists
+
 ## 2022-01-11
 ### Changed
 - make `.bashrc` return `0` always

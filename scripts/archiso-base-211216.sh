@@ -1510,7 +1510,7 @@ paru-bin
 	cd
 	rm -fr $OLDPWD
 )
-teew usr/bin/capture-export << '_'
+teew usr/bin/capture-export << '_' # use;
 #!/bin/bash
 set -eu
 trap 'read -p"Press any key to continue..."' EXIT
