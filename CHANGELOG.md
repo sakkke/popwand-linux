@@ -1,5 +1,9 @@
 # Changelog
 
+## 2022-01-13
+### Change
+- make some of `kitty` window maximize when starting
+
 ## 2022-01-12
 ### Added
 - add `cockpit`

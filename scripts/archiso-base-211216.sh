@@ -752,7 +752,7 @@ exec=brightnessctl set +5%
 key=brightnessup
 
 [keybind]
-exec=kitty sudo /installer
+exec=kitty --start-as=maximized sudo /installer
 key=super+f1
 
 [keybind]
@@ -772,11 +772,11 @@ exec=vivaldi-stable
 key=super+1
 
 [keybind]
-exec=kitty capture-export
+exec=kitty --start-as=maximized capture-export
 key=super+backslash
 
 [keybind]
-exec=kitty pmw-console
+exec=kitty --start-as=maximized pmw-console
 key=super+delete
 
 [keybind]
@@ -784,15 +784,15 @@ exec=pcmanfm-qt
 key=super+e
 
 [keybind]
-exec=kitty
+exec=kitty --start-as=maximized
 key=super+enter
 
 [keybind]
-exec=kitty btop
+exec=kitty --start-as=maximized btop
 key=super+esc
 
 [keybind]
-exec=kitty fzfmenu
+exec=kitty --start-as=maximized fzfmenu
 key=super+space
 
 [keyboard]
@@ -800,11 +800,11 @@ keymap_layout=jp
 
 [launcher]
 icon=/usr/share/icons-24x24/system-log-out.png
-path=/usr/bin/kitty pmw-console
+path=/usr/bin/kitty --start-as=maximized pmw-console
 
 [launcher]
 icon=/usr/share/icons-24x24/system-os-install.png
-path=/usr/bin/kitty sudo /installer
+path=/usr/bin/kitty --start-as=maximized sudo /installer
 
 [launcher]
 icon=/usr/share/icons-24x24/preferences-system-network-server-web.png
@@ -824,7 +824,7 @@ path=/usr/bin/blender
 
 [launcher]
 icon=/usr/share/icons-24x24/utilities-system-monitor.png
-path=/usr/bin/kitty btop
+path=/usr/bin/kitty --start-as=maximized btop
 
 [launcher]
 #icon=/usr/share/icons/hicolor/24x24/apps/firewall-config.png
@@ -843,7 +843,7 @@ path=/usr/bin/x-app-as-root gparted
 
 #[launcher]
 #icon=/usr/share/icons-24x24/htop.png
-#path=/usr/bin/kitty htop
+#path=/usr/bin/kitty --start-as=maximized htop
 
 [launcher]
 #icon=/usr/share/icons/hicolor/24x24/apps/org.inkscape.Inkscape.png
@@ -853,7 +853,7 @@ path=/usr/bin/inkscape
 [launcher]
 #icon=/usr/share/icons/gnome/24x24/apps/utilities-terminal.png
 icon=/usr/share/icons-24x24/kitty.png
-path=/usr/bin/kitty
+path=/usr/bin/kitty --start-as=maximized
 
 [launcher]
 #icon=/usr/share/icons/hicolor/24x24/apps/libreoffice-startcenter.png
@@ -910,7 +910,7 @@ path=/usr/bin/nomacs
 
 #[launcher]
 #icon=/usr/share/icons-24x24/neovim.png
-#path=/usr/bin/kitty nvim
+#path=/usr/bin/kitty --start-as=maximized nvim
 
 [launcher]
 icon=/usr/share/icons-24x24/file-manager.png
@@ -918,7 +918,7 @@ path=/usr/bin/pcmanfm-qt
 
 #[launcher]
 #icon=/usr/share/icons-24x24/python.png
-#path=/usr/bin/kitty python
+#path=/usr/bin/kitty --start-as=maximized python
 
 [launcher]
 icon=/usr/share/icons/hicolor/24x24/apps/org.shotcut.Shotcut.png
