@@ -1615,7 +1615,7 @@ _
 teew usr/share/favicons-24x24/update.sh << '_' # use;
 #!/bin/bash
 cwd="$(cd "$(dirname "$0")" && pwd)"
-ls "$cwd" | grep '.png$' | xargs -r rm
+ls "$cwd" | grep '.png$' | xargs -rI{} rm "$cwd/{}"
 grep -v '^#' "$cwd/list" | while read name domain_url; do
 	curl -so "$cwd/$name.png" "https://www.google.com/s2/favicons?domain_url=$domain_url&sz=24"
 done
