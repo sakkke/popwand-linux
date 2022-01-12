@@ -86,6 +86,7 @@ arch-install-scripts
 base-devel
 blender
 brightnessctl
+cockpit
 deno
 docker
 docker-compose
@@ -731,6 +732,7 @@ lnw /usr/lib/systemd/user/pipewire-pulse.service etc/skel/.config/systemd/user/d
 lnw /usr/lib/systemd/user/pipewire.service etc/skel/.config/systemd/user/default.target.wants/pipewire.service # use;
 lnw /usr/lib/systemd/user/pipewire-media-session.service etc/skel/.config/systemd/user/pipewire-session-manager.service # use;
 lnw /usr/lib/systemd/user/pipewire-media-session.service etc/skel/.config/systemd/user/pipewire.service.wants/pipewire-media-session.service # use;
+lnw /usr/lib/systemd/user/cockpit.socket etc/skel/.config/systemd/user/sockets.target.wants/cockpit.socket # use;
 lnw /usr/lib/systemd/user/pipewire-pulse.socket etc/skel/.config/systemd/user/sockets.target.wants/pipewire-pulse.socket # use;
 lnw /usr/lib/systemd/user/pipewire.socket etc/skel/.config/systemd/user/sockets.target.wants/pipewire.socket # use;
 teew etc/skel/.config/weston.ini << '_' # use;
@@ -803,6 +805,10 @@ path=/usr/bin/kitty pmw-console
 [launcher]
 icon=/usr/share/icons-24x24/system-os-install.png
 path=/usr/bin/kitty sudo /installer
+
+[launcher]
+icon=/usr/share/icons-24x24/preferences-system-network-server-web.png
+path=/usr/bin/vivaldi-stable --app=http://localhost:9090/ --new-window
 
 [launcher]
 icon=/usr/share/icons-24x24/freecad.png
@@ -1653,6 +1659,7 @@ musescore
 #neovim
 nomacs
 preferences-system-network-ethernet
+preferences-system-network-server-web
 #python
 signal-desktop
 system-log-out

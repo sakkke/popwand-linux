@@ -1,6 +1,9 @@
 # Changelog
 
 ## 2022-01-12
+### Added
+- add `cockpit`
+
 ### Fixed
 - fix issue that `capture-export` not exists
 
