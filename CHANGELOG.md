@@ -7,6 +7,7 @@
 ### Fixed
 - fix issue that `capture-export` not exists
 - fix path when removing files with `rm` command in `/usr/share/favicons-24x24/update.sh`
+- fix 301 redirect in `/usr/share/favicons-24x24/update.sh`
 
 ## 2022-01-11
 ### Changed
