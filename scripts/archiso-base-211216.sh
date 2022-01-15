@@ -547,7 +547,12 @@ fi
 # ref: https://github.com/akinomyoga/ble.sh#:~:text=top%20of%20.bashrc%3A-,%5B%5B%20%24%2D%20%3D%3D%20*i*%20%5D%5D%20%26%26%20source%20/path/to/blesh/ble.sh%20%2D%2Dnoattach,-%23%20your%20bashrc%20settings
 let '!BLE_DISABLED' && [[ $- == *i* ]] && source ~/.local/share/blesh/ble.sh --noattach
 
+_cursor_set() {
+	echo -en '\e[\x35 q'
+}
+
 set -o vi
+export PROMPT_COMMAND=_cursor_set
 export PS1='$(status=$?; [ $status -ne 0 ] && echo -n "=> \[\e[1;31m\]$status\[\e[m\] | ")\[\e[1;34m\]\w\[\e[m\] \[\e[1m\]->\[\e[m\] '
 export PS2='->> '
 export PS3='=> '

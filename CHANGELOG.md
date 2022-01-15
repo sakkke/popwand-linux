@@ -1,5 +1,9 @@
 # Changelog
 
+## 2022-01-15
+### Change
+- change cursor style in terminal
+
 ## 2022-01-13
 ### Change
 - make some of `kitty` window maximize when starting
