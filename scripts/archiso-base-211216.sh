@@ -1169,12 +1169,12 @@ case "$installation_type" in
 					mkpart popwboot fat32 512Mib 1536Mib \
 					set 2 bls_boot on \
 					mkpart popwroot ext4 1536Mib 100%
-				mkfs.fat -F32 ${device}1
-				mkfs.fat -F32 ${device}2
-				mkfs.ext4 -F ${device}3
 				popwesp=${device}1
 				popwboot=${device}2
 				popwroot=${device}3
+				mkfs.fat -F32 $popwesp
+				mkfs.fat -F32 $popwboot
+				mkfs.ext4 -F $popwroot
 				break
 			fi
 		done
