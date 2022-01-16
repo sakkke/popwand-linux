@@ -1,6 +1,7 @@
 # Changelog
 
 ## 2022-01-16
+### Fixed
 - fix installation steps
 
 ## 2022-01-15
