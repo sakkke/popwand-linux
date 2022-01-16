@@ -1,5 +1,8 @@
 # Changelog
 
+## 2022-01-16
+- fix installation steps
+
 ## 2022-01-15
 ### Change
 - change cursor style in terminal
