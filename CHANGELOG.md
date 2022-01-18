@@ -3,6 +3,7 @@
 ## 2022-01-18
 ### Added
 - add automatic installation of `asdf`
+- add history number to `$PS1`
 
 ## 2022-01-16
 ### Fixed

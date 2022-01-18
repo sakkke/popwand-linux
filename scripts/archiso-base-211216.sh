@@ -553,7 +553,7 @@ _cursor_set() {
 
 set -o vi
 export PROMPT_COMMAND=_cursor_set
-export PS1='$(status=$?; [ $status -ne 0 ] && echo -n "=> \[\e[1;31m\]$status\[\e[m\] | ")\[\e[1;34m\]\w\[\e[m\] \[\e[1m\]->\[\e[m\] '
+export PS1='$(status=$?; [ $status -ne 0 ] && echo -n "=> \[\e[1;31m\]$status\[\e[m\] | ")\[\e[1;36m\]!\!\[\e[m\] \[\e[1;34m\]\w\[\e[m\] \[\e[1m\]->\[\e[m\] '
 export PS2='->> '
 export PS3='=> '
 export PS4='=>> \[\e[1;32m\]$0\[\e[m\]:\[\e[1;34m\]$LINENO\[\e[m\] -> '
