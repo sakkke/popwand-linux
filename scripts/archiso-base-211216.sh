@@ -550,10 +550,19 @@ let '!BLE_DISABLED' && [[ $- == *i* ]] && source ~/.local/share/blesh/ble.sh --n
 _cursor_set() {
 	echo -en '\e[\x35 q'
 }
+_timer_init() {
+	_timer_start=${_timer_start:-$SECONDS}
+	_timer_stop=$SECONDS
+}
+_timer_set() {
+	_timer=$((_timer_stop - _timer_start))
+	unset _timer_start
+}
 
 set -o vi
-export PROMPT_COMMAND=_cursor_set
-export PS1='$(status=$?; [ $status -ne 0 ] && echo -n "=> \[\e[1;31m\]$status\[\e[m\] | ")\[\e[1;36m\]!\!\[\e[m\] \[\e[1;34m\]\w\[\e[m\] \[\e[1m\]->\[\e[m\] '
+trap _timer_init DEBUG
+export PROMPT_COMMAND='_timer_set; _cursor_set'
+export PS1='$(status=$?; [ $status -ne 0 ] && echo -n "=> \[\e[1;31m\]$status\[\e[m\] | ")$(let "_timer > 5" && echo "\[\e[1;33m\]$_timer\[\e[m\] |> ")\[\e[1;36m\]!\!\[\e[m\] \[\e[1;34m\]\w\[\e[m\] \[\e[1m\]->\[\e[m\] '
 export PS2='->> '
 export PS3='=> '
 export PS4='=>> \[\e[1;32m\]$0\[\e[m\]:\[\e[1;34m\]$LINENO\[\e[m\] -> '
