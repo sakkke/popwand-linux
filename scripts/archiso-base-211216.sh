@@ -558,11 +558,35 @@ _timer_set() {
 	_timer=$((_timer_stop - _timer_start))
 	unset _timer_start
 }
+shortsec() { sec=$1
+	setunit() { unitname=$1; unit=$2
+		if ((sec >= unit)); then
+			(($unitname = sec / unit))
+			((sec -= unit * $unitname))
+			eval $unitname+=$unitname
+		fi
+	}
+
+	# dates (60s * 60m * 24h)
+	setunit d 86400
+
+	# hours (60s * 60m)
+	setunit h 3600
+
+	# minutes (60s)
+	setunit m 60
+
+	# seconds
+	setunit s 1
+
+	result=$d$h$m$s
+	echo $result
+}
 
 set -o vi
 trap _timer_init DEBUG
 export PROMPT_COMMAND='_timer_set; _cursor_set'
-export PS1='$(status=$?; [ $status -ne 0 ] && echo -n "=> \[\e[1;31m\]$status\[\e[m\] | ")$(let "_timer > 5" && echo "\[\e[1;33m\]$_timer\[\e[m\] |> ")\[\e[1;36m\]!\!\[\e[m\] \[\e[1;34m\]\w\[\e[m\] \[\e[1m\]->\[\e[m\] '
+export PS1='$(status=$?; [ $status -ne 0 ] && echo -n "=> \[\e[1;31m\]$status\[\e[m\] | ")$(let "_timer > 5" && echo "\[\e[1;33m\]$(shortsec $_timer)\[\e[m\] |> ")\[\e[1;36m\]!\!\[\e[m\] \[\e[1;34m\]\w\[\e[m\] \[\e[1m\]->\[\e[m\] '
 export PS2='->> '
 export PS3='=> '
 export PS4='=>> \[\e[1;32m\]$0\[\e[m\]:\[\e[1;34m\]$LINENO\[\e[m\] -> '

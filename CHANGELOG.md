@@ -5,6 +5,7 @@
 - add automatic installation of `asdf`
 - add history number to `$PS1`
 - add timer for executed command
+- add `shortsec()`
 
 ## 2022-01-16
 ### Fixed
