@@ -692,6 +692,9 @@ alias editor="$EDITOR"
 alias grep='grep --color'
 alias ls='ls --color'
 
+# Install asdf when not found
+[ ! -d ~/.asdf ] && git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.8.1
+
 # ref: https://asdf-vm.com/guide/getting-started.html#_3-install-asdf
 . $HOME/.asdf/asdf.sh
 . $HOME/.asdf/completions/asdf.bash
