@@ -7,6 +7,7 @@
 
 ### Changed
 - make `ble.sh` be disabled by default
+- improve timer
 
 ## 2022-01-18
 ### Added

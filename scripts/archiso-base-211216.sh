@@ -547,16 +547,19 @@ fi
 # ref: https://github.com/akinomyoga/ble.sh#:~:text=top%20of%20.bashrc%3A-,%5B%5B%20%24%2D%20%3D%3D%20*i*%20%5D%5D%20%26%26%20source%20/path/to/blesh/ble.sh%20%2D%2Dnoattach,-%23%20your%20bashrc%20settings
 let '!BLE_DISABLED' && [[ $- == *i* ]] && source ~/.local/share/blesh/ble.sh --noattach
 
+_temp=$(mktemp -d)
+trap "rm -fr $_temp" EXIT
 _cursor_set() {
 	echo -en '\e[\x35 q'
 }
 _timer_init() {
-	_timer_start=${_timer_start:-$SECONDS}
-	_timer_stop=$SECONDS
+	_timer_start=$SECONDS
+	echo $_timer_start > $_temp/timer
 }
 _timer_set() {
+	_timer_start=$(cat $_temp/timer)
+	_timer_stop=$SECONDS
 	_timer=$((_timer_stop - _timer_start))
-	unset _timer_start
 }
 shortsec() { sec=$1
 	setunit() { unitname=$1; unit=$2
@@ -584,8 +587,9 @@ shortsec() { sec=$1
 }
 
 set -o vi
-trap _timer_init DEBUG
-export PROMPT_COMMAND='_timer_set; _cursor_set'
+trap _timer_set DEBUG
+export PROMPT_COMMAND=_cursor_set
+export PS0='$(_timer_init)'
 export PS1='$(status=$?; [ $status -ne 0 ] && echo -n "=> \[\e[1;31m\]$status\[\e[m\] | ")$(let "_timer > 5" && echo "\[\e[1;33m\]$(shortsec $_timer)\[\e[m\] |> ")\[\e[1;36m\]!\!\[\e[m\] \[\e[1;34m\]\w\[\e[m\] \[\e[1m\]->\[\e[m\] '
 export PS2='->> '
 export PS3='=> '
