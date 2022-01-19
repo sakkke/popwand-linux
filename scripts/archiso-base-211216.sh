@@ -1076,6 +1076,7 @@ panel-position=left
 _
 teew etc/skel/.inputrc << '_' # use;
 set bind-tty-special-chars off
+set colored-stats on
 set editing-mode vi
 set show-mode-in-prompt on
 set vi-cmd-mode-string "\1\e[\x31 q\e[1;32m\2C\1\e[m\2 "
