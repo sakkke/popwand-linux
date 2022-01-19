@@ -1075,6 +1075,7 @@ panel-color=0xccffffff
 panel-position=left
 _
 teew etc/skel/.inputrc << '_' # use;
+set bind-tty-special-chars off
 set editing-mode vi
 
 \C-a: beginning-of-line
