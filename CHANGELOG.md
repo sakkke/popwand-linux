@@ -1,5 +1,9 @@
 # Changelog
 
+## 2022-01-20
+### Changed
+- update `$PS3` and `$PS4`
+
 ## 2022-01-19
 ### Added
 - add `.inputrc`
