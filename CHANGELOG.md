@@ -1,5 +1,9 @@
 # Changelog
 
+## 2022-01-19
+### Added
+- add `.inputrc`
+
 ## 2022-01-18
 ### Added
 - add automatic installation of `asdf`

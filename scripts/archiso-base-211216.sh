@@ -735,19 +735,11 @@ alias ls='ls --color'
 # ref: https://github.com/akinomyoga/ble.sh#:~:text=%5B%5B%20%24%7BBLE_VERSION%2D%7D%20%5D%5D%20%26%26%20ble%2Dattach
 let '!BLE_DISABLED' && [[ ${BLE_VERSION-} ]] && ble-attach
 
-if let '!BLE_DISABLED'; then
+if ((! BLE_DISABLED)); then
 	ble-bind -f C-b backward-uword
 	ble-bind -f C-f forward-uword
 	ble-bind -f C-k kill-uword
 	ble-bind -f C-u kill-line
-else
-	bind '\C-a: beginning-of-line'
-	bind '\C-b: backward-word'
-	bind '\C-e: end-of-line'
-	bind '\C-f: forward-word'
-	bind '\C-k: kill-word'
-	bind '\C-l: clear-screen'
-	bind '\C-u: kill-whole-line'
 fi
 
 # make `.bashrc` return `0` always
@@ -1081,6 +1073,17 @@ cursor-size=24
 cursor-theme=Fuchsia
 panel-color=0xccffffff
 panel-position=left
+_
+teew etc/skel/.inputrc << '_' # use;
+set editing-mode vi
+
+\C-a: beginning-of-line
+\C-b: backward-word
+\C-e: end-of-line
+\C-f: forward-word
+\C-k: kill-word
+\C-l: clear-screen
+\C-u: kill-whole-line
 _
 (
 	cd $(mktemp -d)
