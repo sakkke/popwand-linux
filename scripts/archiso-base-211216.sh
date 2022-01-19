@@ -520,8 +520,8 @@ if [ -z "$DISPLAY" ] && [ "$(tty)" = /dev/tty1 ]; then
 	exec weston
 fi
 
-# Disable ble.sh
-#BLE_DISABLED=1
+# Disable ble.sh (disabled by default, uncomment to enable)
+BLE_DISABLED=1
 
 if ((! BLE_DISABLED)) && [ ! -d ~/.local/share/blesh ]; then
 	! type \

@@ -5,6 +5,9 @@
 - add `.inputrc`
 - add current vi mode to `$PS1`
 
+### Changed
+- make `ble.sh` be disabled by default
+
 ## 2022-01-18
 ### Added
 - add automatic installation of `asdf`
