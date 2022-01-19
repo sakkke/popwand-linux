@@ -593,7 +593,7 @@ export PS0='$(_timer_init)'
 export PS1='$(status=$?; [ $status -ne 0 ] && echo -n "=> \[\e[1;31m\]$status\[\e[m\] | ")$(let "_timer > 5" && echo "\[\e[1;33m\]$(shortsec $_timer)\[\e[m\] |> ")\[\e[1;36m\]!\!\[\e[m\] \[\e[1;34m\]\w\[\e[m\] \[\e[1m\]->\[\e[m\] '
 export PS2='->> '
 export PS3='=> '
-export PS4='=>> \[\e[1;32m\]$0\[\e[m\]:\[\e[1;34m\]$LINENO\[\e[m\] -> '
+export PS4='=>> \[\e[1;32m\]${BASH_SOURCE:-$0}\[\e[m\]:\[\e[1;34m\]$LINENO\[\e[m\]${FUNCNAME[0]:+:\[\e[1;35m\]${FUNCNAME[0]}()\[\e[m\]} -> '
 if ((! BLE_DISABLED)); then
 	ble-import vim-airline
 	bleopt exec_errexit_mark=

@@ -8,6 +8,7 @@
 ### Changed
 - make `ble.sh` be disabled by default
 - improve timer
+- improve `$PS4`
 
 ## 2022-01-18
 ### Added
