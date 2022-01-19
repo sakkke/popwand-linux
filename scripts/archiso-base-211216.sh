@@ -1089,6 +1089,7 @@ set vi-ins-mode-string "\1\e[\x35 q\e[1;32m\2I\1\e[m\2 "
 \C-k: kill-word
 \C-l: clear-screen
 \C-u: kill-whole-line
+"jj": vi-movement-mode
 _
 (
 	cd $(mktemp -d)
