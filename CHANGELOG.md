@@ -3,6 +3,7 @@
 ## 2022-01-19
 ### Added
 - add `.inputrc`
+- add current vi mode to `$PS1`
 
 ## 2022-01-18
 ### Added
