@@ -587,6 +587,7 @@ shortsec() { sec=$1
 }
 
 set -o vi
+_timer_init
 trap _timer_set DEBUG
 export PROMPT_COMMAND=_cursor_set
 export PS0='$(_timer_init)'

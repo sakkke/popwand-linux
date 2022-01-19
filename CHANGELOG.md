@@ -4,6 +4,9 @@
 ### Changed
 - update `$PS3` and `$PS4`
 
+### Fixed
+- fix a bug in Bash when on first launch
+
 ## 2022-01-19
 ### Added
 - add `.inputrc`
