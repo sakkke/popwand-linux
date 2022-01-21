@@ -784,6 +784,8 @@ vim.api.nvim_set_keymap('i', '<C-b>', '<C-o>b', {noremap = true})
 vim.api.nvim_set_keymap('i', '<C-e>', '<End>', {noremap = true})
 vim.api.nvim_set_keymap('i', '<C-f>', '<C-o>w', {noremap = true})
 vim.api.nvim_set_keymap('i', '<C-k>', '<C-o>dw', {noremap = true})
+vim.api.nvim_set_keymap('i', '<C-n>', '<Down>', {noremap = true})
+vim.api.nvim_set_keymap('i', '<C-p>', '<Up>', {noremap = true})
 vim.api.nvim_set_keymap('i', '<C-u>', '<Cmd>s/.*// | noh<CR>', {noremap = true})
 vim.api.nvim_set_keymap('i', 'jj', '<Esc>', {noremap = true})
 _
@@ -1102,6 +1104,8 @@ set vi-ins-mode-string "\1\e[\x35 q\e[1;32m\2I\1\e[m\2 "
 \C-f: forward-word
 \C-k: kill-word
 \C-l: clear-screen
+\C-n: next-history
+\C-p: previous-history
 \C-u: kill-whole-line
 "jj": vi-movement-mode
 _

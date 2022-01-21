@@ -3,6 +3,7 @@
 ## 2022-01-21
 ### Added
 - add `.config/nvim/init.lua`
+- add keybinds in Bash and Neovim
 
 ### Changed
 - change tmux prefix key to `C-j`
