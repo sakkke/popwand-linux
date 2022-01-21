@@ -1,5 +1,9 @@
 # Changelog
 
+## 2022-01-21
+### Added
+- add `.config/nvim/init.lua`
+
 ## 2022-01-20
 ### Changed
 - update `$PS3` and `$PS4`

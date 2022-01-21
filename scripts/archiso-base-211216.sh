@@ -777,6 +777,16 @@ font_family Fira Code
 include current-theme.conf
 linux_display_server x11
 _
+teew etc/skel/.config/nvim/init.lua << '_' # use;
+vim.api.nvim_set_keymap('c', 'jj', '<C-c>', {noremap = true})
+vim.api.nvim_set_keymap('i', '<C-a>', '<Home>', {noremap = true})
+vim.api.nvim_set_keymap('i', '<C-b>', '<C-o>b', {noremap = true})
+vim.api.nvim_set_keymap('i', '<C-e>', '<End>', {noremap = true})
+vim.api.nvim_set_keymap('i', '<C-f>', '<C-o>w', {noremap = true})
+vim.api.nvim_set_keymap('i', '<C-k>', '<C-o>dw', {noremap = true})
+vim.api.nvim_set_keymap('i', '<C-u>', '<Cmd>s///<CR>', {noremap = true})
+vim.api.nvim_set_keymap('i', 'jj', '<Esc>', {noremap = true})
+_
 teew etc/skel/.config/pcmanfm-qt/default/settings.conf << '_' # use;
 [System]
 FallbackIconThemeName=Tela-circle
