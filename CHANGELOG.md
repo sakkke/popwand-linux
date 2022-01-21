@@ -12,6 +12,7 @@
 - fix generated installer
 - fix wrong symlink
 - fix `C-u` in Neovim
+- fix information message
 
 ## 2022-01-20
 ### Changed

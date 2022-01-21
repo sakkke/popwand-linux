@@ -1604,6 +1604,7 @@ teew usr/bin/capture-export << '_' # use;
 #!/bin/bash
 set -eu
 trap 'read -p"Press any key to continue..."' EXIT
+progname="$(basename "$0")"
 read -p"Type filename to export (default is 'capture-%Y-%m-%d_%H-%M-%S'): " _filename
 case "$_filename" in
 	'' )
@@ -1616,7 +1617,7 @@ case "$_filename" in
 esac
 out="$HOME/$filename.mp4"
 wcap-decode --yuv4mpeg2 ~/capture.wcap | ffmpeg -i - "$out"
-echo "${FUNCNAME[0]}: created: '$out'"
+echo "$progname: created: '$out'"
 _
 teew usr/bin/fzfmenu << '_' # use;
 #!/bin/bash
