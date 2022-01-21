@@ -1618,7 +1618,7 @@ out="$HOME/$filename.mp4"
 wcap-decode --yuv4mpeg2 ~/capture.wcap | ffmpeg -i - "$out"
 echo "${FUNCNAME[0]}: created: '$out'"
 _
-teew usr/bin/fzfmenu << '_'
+teew usr/bin/fzfmenu << '_' # use;
 #!/bin/bash
 set -eu
 bin="$(echo "$PATH" \

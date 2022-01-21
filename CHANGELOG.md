@@ -9,6 +9,7 @@
 
 ### Fixed
 - fix issue that `linux-firmware` was not downloaded
+- fix generated installer
 
 ## 2022-01-20
 ### Changed
