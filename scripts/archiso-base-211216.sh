@@ -835,7 +835,7 @@ key=super+1
 
 [keybind]
 exec=kitty --start-as=maximized capture-export
-key=super+backslash
+key=super+dot
 
 [keybind]
 exec=kitty --start-as=maximized pmw-console

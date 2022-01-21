@@ -16,6 +16,7 @@
 ## 2022-01-20
 ### Changed
 - update `$PS3` and `$PS4`
+- change keybinds that do not work
 
 ### Fixed
 - fix a bug in Bash when on first launch
