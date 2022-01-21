@@ -10,6 +10,7 @@
 ### Fixed
 - fix issue that `linux-firmware` was not downloaded
 - fix generated installer
+- fix wrong symlink
 
 ## 2022-01-20
 ### Changed

@@ -795,7 +795,6 @@ lnw /usr/lib/systemd/user/pipewire-pulse.service etc/skel/.config/systemd/user/d
 lnw /usr/lib/systemd/user/pipewire.service etc/skel/.config/systemd/user/default.target.wants/pipewire.service # use;
 lnw /usr/lib/systemd/user/pipewire-media-session.service etc/skel/.config/systemd/user/pipewire-session-manager.service # use;
 lnw /usr/lib/systemd/user/pipewire-media-session.service etc/skel/.config/systemd/user/pipewire.service.wants/pipewire-media-session.service # use;
-lnw /usr/lib/systemd/user/cockpit.socket etc/skel/.config/systemd/user/sockets.target.wants/cockpit.socket # use;
 lnw /usr/lib/systemd/user/pipewire-pulse.socket etc/skel/.config/systemd/user/sockets.target.wants/pipewire-pulse.socket # use;
 lnw /usr/lib/systemd/user/pipewire.socket etc/skel/.config/systemd/user/sockets.target.wants/pipewire.socket # use;
 teew etc/skel/.config/weston.ini << '_' # use;
@@ -1170,6 +1169,7 @@ KEYMAP=jp106
 _
 lnw /usr/lib/systemd/system/firewalld.service etc/systemd/system/dbus-org.fedoraproject.FirewallD1.service # use;
 lnw /usr/lib/systemd/system/NetworkManager.service etc/systemd/system/multi-user.target.wants/NetworkManager.service # use;
+lnw /usr/lib/systemd/system/cockpit.socket etc/skel/.config/systemd/system/sockets.target.wants/cockpit.socket # use;
 lnw /usr/lib/systemd/system/docker.service etc/systemd/system/multi-user.target.wants/docker.service # use;
 lnw /usr/lib/systemd/system/firewalld.service etc/systemd/system/multi-user.target.wants/firewalld.service # use;
 curl \
