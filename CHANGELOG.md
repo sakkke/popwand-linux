@@ -4,6 +4,9 @@
 ### Added
 - add `.config/nvim/init.lua`
 
+### Changed
+- change tmux prefix key to `C-j`
+
 ## 2022-01-20
 ### Changed
 - update `$PS3` and `$PS4`

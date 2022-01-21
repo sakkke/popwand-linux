@@ -1143,6 +1143,7 @@ if "test ! -d ~/.tmux/plugins/tpm" \
 # Settings
 set -g default-terminal tmux-256color
 set -g mouse on
+set -g prefix C-j
 
 # Plugins
 set -g @plugin wfxr/tmux-power
