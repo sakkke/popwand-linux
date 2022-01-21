@@ -11,6 +11,7 @@
 - fix issue that `linux-firmware` was not downloaded
 - fix generated installer
 - fix wrong symlink
+- fix `C-u` in Neovim
 
 ## 2022-01-20
 ### Changed

@@ -784,7 +784,7 @@ vim.api.nvim_set_keymap('i', '<C-b>', '<C-o>b', {noremap = true})
 vim.api.nvim_set_keymap('i', '<C-e>', '<End>', {noremap = true})
 vim.api.nvim_set_keymap('i', '<C-f>', '<C-o>w', {noremap = true})
 vim.api.nvim_set_keymap('i', '<C-k>', '<C-o>dw', {noremap = true})
-vim.api.nvim_set_keymap('i', '<C-u>', '<Cmd>s///<CR>', {noremap = true})
+vim.api.nvim_set_keymap('i', '<C-u>', '<Cmd>s/.*// | noh<CR>', {noremap = true})
 vim.api.nvim_set_keymap('i', 'jj', '<Esc>', {noremap = true})
 _
 teew etc/skel/.config/pcmanfm-qt/default/settings.conf << '_' # use;
