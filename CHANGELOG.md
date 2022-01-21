@@ -7,6 +7,9 @@
 ### Changed
 - change tmux prefix key to `C-j`
 
+### Fixed
+- fix issue that `linux-firmware` was not downloaded
+
 ## 2022-01-20
 ### Changed
 - update `$PS3` and `$PS4`

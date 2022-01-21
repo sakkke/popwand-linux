@@ -260,7 +260,7 @@ SigLevel = Optional
 Server = file://$(pwd)/airootfs/live
 /cat
 temp=$(mktemp -d)
-pacman --dbpath $temp --noconfirm -Swy - < packages.x86_64
+pacman --dbpath $temp --noconfirm -Swy - linux-firmware < packages.x86_64
 rm -fr $temp
 teew etc/environment << '_' # use;
 EDITOR=/usr/bin/micro
