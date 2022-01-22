@@ -1768,7 +1768,7 @@ cwd="$(cd "$(dirname "$0")" && pwd)"
 install_dir="$(cd "$cwd/../icons" && pwd)"
 cd $(mktemp -d)
 git clone --depth=1 https://github.com/vinceliuice/Tela-circle-icon-theme.git .
-ls "$cwd" | grep '.png$' | xargs -r rm
+ls "$cwd" | grep '.png$' | xargs -rI{} rm "$cwd/{}"
 grep -v '^#' "$cwd/list" | xargs -I{} -P0 -n1 ffmpeg \
 	-width 24 \
 	-i src/scalable/apps/{}.svg \
