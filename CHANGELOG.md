@@ -1,5 +1,9 @@
 # Changelog
 
+## 2022-01-23
+### Added
+- add `https://calculator.apps.chrome/`
+
 ## 2022-01-22
 ### Fixed
 - fix `/usr/share/icons-24x24/update.sh`

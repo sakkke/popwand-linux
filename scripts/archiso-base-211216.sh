@@ -1011,6 +1011,11 @@ path=/usr/bin/vivaldi-stable
 #icon=/usr/share/favicons-24x24/app.diagrams.net.png
 #path=/usr/bin/vivaldi-stable --app=https://app.diagrams.net/ --new-window
 
+[launcher]
+#icon=/usr/share/favicons-24x24/calculator.apps.chrome.png
+icon=/usr/share/icons-24x24/calc.png
+path=/usr/bin/vivaldi-stable --app=https://calculator.apps.chrome/ --new-window
+
 #[launcher]
 #icon=/usr/share/favicons-24x24/codepen.io.png
 #path=/usr/bin/vivaldi-stable --app=https://codepen.io/ --new-window
@@ -1686,6 +1691,7 @@ _
 )
 teew usr/share/favicons-24x24/list << '_' # use;
 #app.diagrams.net https://app.diagrams.net/
+calculator.apps.chrome https://calculator.apps.chrome/
 #codepen.io https://codepen.io/
 #codepen.io.pen https://codepen.io/pen/
 #diep.io https://diep.io/
@@ -1726,6 +1732,7 @@ curl -Ls \
 		-xzf -
 teew usr/share/icons-24x24/list << '_' # use;
 blender
+calc
 file-manager
 freecad
 gimp
