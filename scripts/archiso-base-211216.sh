@@ -149,6 +149,7 @@ xdg-user-dirs
 xorg-drivers
 xorg-xhost
 xorg-xwayland
+xournalpp
 /cat
 cat packages.list >> packages.x86_64
 cat > pacman.conf << /cat
@@ -1080,6 +1081,10 @@ path=/usr/bin/vivaldi-stable --app=https://www.youtube.com/ --new-window
 icon=/usr/share/icons-24x24/vlc.png
 path=/usr/bin/vlc
 
+[launcher]
+icon=/usr/share/icons-24x24/xournal.png
+path=/usr/bin/xournalpp
+
 [output]
 
 ## For HiDPI display users, set name and scale field
@@ -1767,6 +1772,7 @@ virtualbox
 visualstudiocode
 vivaldi
 vlc
+xournal
 youtube
 _
 teew usr/share/icons-24x24/update.sh << '_' # use;

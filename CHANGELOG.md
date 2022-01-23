@@ -3,6 +3,7 @@
 ## 2022-01-23
 ### Added
 - add `https://calculator.apps.chrome/`
+- add Xournal++
 
 ### Changed
 - make `https://vscode.dev/` visible
