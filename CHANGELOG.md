@@ -4,6 +4,9 @@
 ### Added
 - add `https://calculator.apps.chrome/`
 
+### Changed
+- make `https://vscode.dev/` visible
+
 ## 2022-01-22
 ### Fixed
 - fix `/usr/share/icons-24x24/update.sh`

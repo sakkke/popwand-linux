@@ -1046,10 +1046,10 @@ path=/usr/bin/vivaldi-stable --app=https://meet.google.com/ --new-window
 #icon=/usr/share/favicons-24x24/squoosh.app.png
 #path=/usr/bin/vivaldi-stable --app=https://squoosh.app/ --new-window
 
-#[launcher]
-##icon=/usr/share/favicons-24x24/vscode.dev.png
-#icon=/usr/share/icons-24x24/visualstudiocode.png
-#path=/usr/bin/vivaldi-stable --app=https://vscode.dev/ --new-window
+[launcher]
+#icon=/usr/share/favicons-24x24/vscode.dev.png
+icon=/usr/share/icons-24x24/visualstudiocode.png
+path=/usr/bin/vivaldi-stable --app=https://vscode.dev/ --new-window
 
 [launcher]
 icon=/usr/share/favicons-24x24/www.deepl.com.translator.png
@@ -1764,7 +1764,7 @@ texstudio
 utilities-system-monitor
 veracrypt
 virtualbox
-#visualstudiocode
+visualstudiocode
 vivaldi
 vlc
 youtube
