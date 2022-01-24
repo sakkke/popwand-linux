@@ -1,5 +1,9 @@
 # Changelog
 
+## 2022-01-24
+### Fixed
+- fix wrong symlink
+
 ## 2022-01-23
 ### Added
 - add `https://calculator.apps.chrome/`

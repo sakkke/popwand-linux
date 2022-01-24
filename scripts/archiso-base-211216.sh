@@ -1183,7 +1183,7 @@ KEYMAP=jp106
 _
 lnw /usr/lib/systemd/system/firewalld.service etc/systemd/system/dbus-org.fedoraproject.FirewallD1.service # use;
 lnw /usr/lib/systemd/system/NetworkManager.service etc/systemd/system/multi-user.target.wants/NetworkManager.service # use;
-lnw /usr/lib/systemd/system/cockpit.socket etc/skel/.config/systemd/system/sockets.target.wants/cockpit.socket # use;
+lnw /usr/lib/systemd/system/cockpit.socket etc/systemd/system/sockets.target.wants/cockpit.socket # use;
 lnw /usr/lib/systemd/system/docker.service etc/systemd/system/multi-user.target.wants/docker.service # use;
 lnw /usr/lib/systemd/system/firewalld.service etc/systemd/system/multi-user.target.wants/firewalld.service # use;
 curl \
