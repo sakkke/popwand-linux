@@ -85,6 +85,9 @@ cat > packages.list << '/cat'
 arch-install-scripts
 base-devel
 blender
+blueman
+bluez
+bluez-utils
 brightnessctl
 cockpit
 cockpit-pcp
@@ -889,6 +892,10 @@ icon=/usr/share/icons-24x24/blender.png
 path=/usr/bin/blender
 
 [launcher]
+icon=/usr/share/icons-24x24/bluetooth.png
+path=/usr/bin/blueman-manager
+
+[launcher]
 icon=/usr/share/icons-24x24/utilities-system-monitor.png
 path=/usr/bin/kitty --start-as=maximized btop
 
@@ -1182,6 +1189,8 @@ _
 teew etc/vconsole.conf << '_' # use;
 KEYMAP=jp106
 _
+lnw /usr/lib/systemd/system/bluetooth.service etc/systemd/system/bluetooth.target.wants/bluetooth.service # use;
+lnw /usr/lib/systemd/system/bluetooth.service etc/systemd/system/dbus-org.bluez.service # use;
 lnw /usr/lib/systemd/system/firewalld.service etc/systemd/system/dbus-org.fedoraproject.FirewallD1.service # use;
 lnw /usr/lib/systemd/system/NetworkManager.service etc/systemd/system/multi-user.target.wants/NetworkManager.service # use;
 lnw /usr/lib/systemd/system/cockpit.socket etc/systemd/system/sockets.target.wants/cockpit.socket # use;
@@ -1739,6 +1748,7 @@ curl -Ls \
 		-xzf -
 teew usr/share/icons-24x24/list << '_' # use;
 blender
+bluetooth
 calc
 file-manager
 freecad

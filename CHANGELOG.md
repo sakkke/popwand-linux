@@ -3,6 +3,7 @@
 ## 2022-01-24
 ### Added
 - add `cockpit-pcp`
+- add `bluez`
 
 ### Fixed
 - fix wrong symlink
