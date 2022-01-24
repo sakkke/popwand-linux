@@ -1,6 +1,9 @@
 # Changelog
 
 ## 2022-01-24
+### Added
+- add `cockpit-pcp`
+
 ### Fixed
 - fix wrong symlink
 

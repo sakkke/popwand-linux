@@ -87,6 +87,7 @@ base-devel
 blender
 brightnessctl
 cockpit
+cockpit-pcp
 deno
 docker
 docker-compose
@@ -1186,6 +1187,7 @@ lnw /usr/lib/systemd/system/NetworkManager.service etc/systemd/system/multi-user
 lnw /usr/lib/systemd/system/cockpit.socket etc/systemd/system/sockets.target.wants/cockpit.socket # use;
 lnw /usr/lib/systemd/system/docker.service etc/systemd/system/multi-user.target.wants/docker.service # use;
 lnw /usr/lib/systemd/system/firewalld.service etc/systemd/system/multi-user.target.wants/firewalld.service # use;
+lnw /usr/lib/systemd/system/pmlogger.service etc/systemd/system/multi-user.target.wants/pmlogger.service # use;
 curl \
 	--create-dirs \
 	-o airootfs/usr/share/backgrounds/default.jpg \
