@@ -3,6 +3,7 @@
 ## 2022-01-25
 ### Added
 - add `tlp`
+- add `https://www.google.com/maps`
 
 ### Changed
 - maximize kitty in `x-app-as-root`
