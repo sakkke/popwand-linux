@@ -4,6 +4,7 @@
 ### Added
 - add `tlp`
 - add `https://www.google.com/maps`
+- add mouse support in Neovim
 
 ### Changed
 - maximize kitty in `x-app-as-root`

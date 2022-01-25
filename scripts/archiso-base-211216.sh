@@ -785,6 +785,8 @@ include current-theme.conf
 linux_display_server x11
 _
 teew etc/skel/.config/nvim/init.lua << '_' # use;
+vim.o.mouse = 'a'
+
 vim.api.nvim_set_keymap('c', 'jj', '<C-c>', {noremap = true})
 vim.api.nvim_set_keymap('i', '<C-a>', '<Home>', {noremap = true})
 vim.api.nvim_set_keymap('i', '<C-b>', '<C-o>b', {noremap = true})
