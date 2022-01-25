@@ -109,6 +109,7 @@ gvfs
 htop
 inkscape
 jdk-openjdk
+keepassxc
 kitty
 libreoffice-fresh
 libreoffice-fresh-ja
@@ -898,6 +899,10 @@ path=/usr/bin/blender
 [launcher]
 icon=/usr/share/icons-24x24/bluetooth.png
 path=/usr/bin/blueman-manager
+
+[launcher]
+icon=/usr/share/icons-24x24/keepassxc.png
+path=/usr/bin/keepassxc
 
 [launcher]
 icon=/usr/share/icons-24x24/utilities-system-monitor.png
@@ -1772,6 +1777,7 @@ gparted
 gufw
 #htop
 inkscape
+keepassxc
 kitty
 libreoffice
 #libreoffice-base
