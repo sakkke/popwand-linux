@@ -1700,7 +1700,7 @@ teew usr/bin/x-app-as-root << '_' # use;
 #!/bin/bash
 xhost si:localuser:root
 trap 'xhost -si:localuser:root' EXIT
-kitty sudo "$@"
+kitty --start-as=maximized sudo "$@"
 _
 (
 	cd $(mktemp -d)

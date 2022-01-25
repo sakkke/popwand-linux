@@ -4,6 +4,9 @@
 ### Added
 - add `tlp`
 
+### Changed
+- maximize kitty in `x-app-as-root`
+
 ## 2022-01-24
 ### Added
 - add `cockpit-pcp`
