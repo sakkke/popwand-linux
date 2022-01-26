@@ -1467,7 +1467,7 @@ timeout 15
 $
 
 teew etc/hostname << $
-popw-$(tr -dc '[:alnum:]' < /dev/urandom | fold -w8 | head -n1)
+popw-$(tr -dc 0-9a-z < /dev/urandom | fold -w8 | head -n1)
 $
 
 teew etc/sudoers.d/wheel << '$'
