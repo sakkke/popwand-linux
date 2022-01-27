@@ -1,5 +1,9 @@
 # Changelog
 
+## 2022-01-27
+### Changed
+- change theme of kitty terminal
+
 ## 2022-01-26
 ### Changed
 - ensure that hostname contains only `0-9a-z`

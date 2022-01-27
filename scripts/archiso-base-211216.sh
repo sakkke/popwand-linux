@@ -778,7 +778,7 @@ curl \
 	--create-dirs \
 	-o airootfs/etc/skel/.config/kitty/current-theme.conf \
 	-s \
-	https://raw.githubusercontent.com/kovidgoyal/kitty-themes/master/themes/PaperColor_light.conf
+	https://raw.githubusercontent.com/catppuccin/kitty/main/catppuccin.conf
 teew etc/skel/.config/kitty/kitty.conf << '_' # use;
 background_opacity 0.8
 font_family Fira Code
